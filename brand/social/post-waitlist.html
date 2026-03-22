@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1080">
+<title>HyPair Instagram Post</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    background: #1a2e1a;
+    font-family: 'Barlow', sans-serif;
+    color: #ffffff;
+    position: relative;
+  }
+
+  /* Subtle radial glow behind headline */
+  .glow {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 700px;
+    background: radial-gradient(ellipse at center, rgba(248,198,98,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Diagonal grid lines — very subtle */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+
+  .inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    text-align: center;
+  }
+
+  /* Logo mark */
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 72px;
+  }
+  .logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #F8C662;
+    text-transform: uppercase;
+  }
+
+  /* Eyebrow */
+  .eyebrow {
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 24px;
+  }
+
+  /* Main headline */
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 148px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 32px;
+  }
+  h1 span {
+    color: #F8C662;
+    display: block;
+  }
+
+  /* Body copy */
+  .body {
+    font-size: 30px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    max-width: 680px;
+    margin-bottom: 64px;
+  }
+
+  /* CTA pill */
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: 2px solid #F8C662;
+    color: #F8C662;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 20px 48px;
+    border-radius: 60px;
+  }
+
+  /* Race chips at bottom */
+  .races {
+    position: absolute;
+    bottom: 72px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  .chip {
+    border: 0.5px solid rgba(248,198,98,0.35);
+    background: rgba(248,198,98,0.08);
+    color: #F8C662;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 10px 28px;
+    border-radius: 40px;
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="grid"></div>
+
+  <div class="inner">
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="52">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
+      </svg>
+      <span class="logo-text">HyPair</span>
+    </div>
+
+    <p class="eyebrow">Hybrid race matching</p>
+
+    <h1>Meet your<br><span>match.</span></h1>
+
+    <p class="body">Find your doubles partner for HYROX, Spartan,<br>Tryka and Athex — matched by pace, level and event.</p>
+
+    <div class="cta">Join the waitlist &rarr; link in bio</div>
+  </div>
+
+  <div class="races">
+    <span class="chip">HYROX</span>
+    <span class="chip">Spartan</span>
+    <span class="chip">Tryka</span>
+    <span class="chip">Athex</span>
+  </div>
+</body>
+</html>
