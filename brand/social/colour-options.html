@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1600, height=900">
+<title>HyPair Colour Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1600px;
+    background: #111;
+    font-family: 'Barlow', sans-serif;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .card {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 56px;
+  }
+
+  .label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.4);
+    color: rgba(255,255,255,0.7);
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .logo-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 88px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h2 em { font-style: normal; display: block; }
+
+  p {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 380px;
+    margin-bottom: 36px;
+    opacity: 0.65;
+  }
+
+  .cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border-radius: 40px;
+    border: 2px solid currentColor;
+  }
+
+  .chips {
+    position: absolute;
+    bottom: 32px;
+    display: flex;
+    gap: 10px;
+  }
+  .chip {
+    font-size: 14px;
+    padding: 6px 18px;
+    border-radius: 30px;
+    border: 1px solid currentColor;
+    opacity: 0.5;
+  }
+
+  /* ── OPTION 1: Current (Green) ── */
+  .opt1 { background: #1a2e1a; color: #fff; }
+  .opt1 h2 { color: #fff; }
+  .opt1 h2 em { color: #F8C662; }
+  .opt1 .logo-name { color: #F8C662; }
+  .opt1 .cta { color: #F8C662; border-color: #F8C662; }
+  .opt1 .chip { color: #F8C662; border-color: rgba(248,198,98,0.4); }
+
+  /* ── OPTION 2: Blacked-out ── */
+  .opt2 { background: #0a0a0a; color: #fff; }
+  .opt2 h2 { color: #fff; }
+  .opt2 h2 em { color: #F8C662; }
+  .opt2 .logo-name { color: #F8C662; }
+  .opt2 .cta { color: #F8C662; border-color: #F8C662; }
+  .opt2 .chip { color: #F8C662; border-color: rgba(248,198,98,0.4); }
+
+  /* ── OPTION 3: Black + Acid Lime ── */
+  .opt3 { background: #0d0d0d; color: #fff; }
+  .opt3 h2 { color: #fff; }
+  .opt3 h2 em { color: #C8F135; }
+  .opt3 .logo-name { color: #C8F135; }
+  .opt3 .cta { color: #C8F135; border-color: #C8F135; }
+  .opt3 .chip { color: #C8F135; border-color: rgba(200,241,53,0.4); }
+
+  /* ── OPTION 4: Black + Electric Orange ── */
+  .opt4 { background: #0f0f0f; color: #fff; }
+  .opt4::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(255,90,31,0.12) 0%, transparent 70%);
+  }
+  .opt4 h2 { color: #fff; position: relative; }
+  .opt4 h2 em { color: #FF5A1F; }
+  .opt4 .logo-name { color: #FF5A1F; }
+  .opt4 .cta { color: #FF5A1F; border-color: #FF5A1F; position: relative; }
+  .opt4 .chip { color: #FF5A1F; border-color: rgba(255,90,31,0.4); }
+  .opt4 .logo-row { position: relative; }
+  .opt4 p { position: relative; }
+  .opt4 .chips { position: absolute; }
+</style>
+</head>
+<body>
+
+  <!-- OPTION 1: Current -->
+  <div class="card opt1">
+    <span class="label">Current — Forest green</span>
+    <div class="logo-row">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="36">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
+      </svg>
+      <span class="logo-name">HyPair</span>
+    </div>
+    <h2>No partner.<br><em>No race.</em></h2>
+    <p>Find your doubles partner for HYROX, Spartan, Tryka and Athex.</p>
+    <div class="cta">Join the waitlist → link in bio</div>
+    <div class="chips">
+      <span class="chip">HYROX</span>
+      <span class="chip">Spartan</span>
+      <span class="chip">Tryka</span>
+      <span class="chip">Athex</span>
+    </div>
+  </div>
+
+  <!-- OPTION 2: Black + Gold -->
+  <div class="card opt2">
+    <span class="label">Option A — Black + Gold</span>
+    <div class="logo-row">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="36">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
+      </svg>
+      <span class="logo-name">HyPair</span>
+    </div>
+    <h2>No partner.<br><em>No race.</em></h2>
+    <p>Find your doubles partner for HYROX, Spartan, Tryka and Athex.</p>
+    <div class="cta">Join the waitlist → link in bio</div>
+    <div class="chips">
+      <span class="chip">HYROX</span>
+      <span class="chip">Spartan</span>
+      <span class="chip">Tryka</span>
+      <span class="chip">Athex</span>
+    </div>
+  </div>
+
+  <!-- OPTION 3: Black + Acid Lime -->
+  <div class="card opt3">
+    <span class="label">Option B — Black + Acid lime</span>
+    <div class="logo-row">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="36">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#C8F135"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#C8F135"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#C8F135"/>
+      </svg>
+      <span class="logo-name">HyPair</span>
+    </div>
+    <h2>No partner.<br><em>No race.</em></h2>
+    <p>Find your doubles partner for HYROX, Spartan, Tryka and Athex.</p>
+    <div class="cta">Join the waitlist → link in bio</div>
+    <div class="chips">
+      <span class="chip">HYROX</span>
+      <span class="chip">Spartan</span>
+      <span class="chip">Tryka</span>
+      <span class="chip">Athex</span>
+    </div>
+  </div>
+
+  <!-- OPTION 4: Black + Electric Orange -->
+  <div class="card opt4">
+    <span class="label">Option C — Black + Electric orange</span>
+    <div class="logo-row">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="36">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#FF5A1F"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#FF5A1F"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#FF5A1F"/>
+      </svg>
+      <span class="logo-name">HyPair</span>
+    </div>
+    <h2>No partner.<br><em>No race.</em></h2>
+    <p>Find your doubles partner for HYROX, Spartan, Tryka and Athex.</p>
+    <div class="cta">Join the waitlist → link in bio</div>
+    <div class="chips">
+      <span class="chip">HYROX</span>
+      <span class="chip">Spartan</span>
+      <span class="chip">Tryka</span>
+      <span class="chip">Athex</span>
+    </div>
+  </div>
+
+</body>
+</html>

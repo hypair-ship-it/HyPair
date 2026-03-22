@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HyPair — Colour Scheme Palette Comparison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 1600px;
+    height: 1100px;
+    overflow: hidden;
+    background: #0e0e0e;
+    font-family: 'Barlow', sans-serif;
+  }
+
+  .page {
+    width: 1600px;
+    height: 1100px;
+    background: #0e0e0e;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 28px;
+  }
+
+  /* ── CARD BASE ── */
+  .card {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── SCHEME LABEL ── */
+  .scheme-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 20;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+
+  /* ── NAV BAR ── */
+  .card-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    height: 52px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+  }
+
+  .nav-logo svg {
+    height: 28px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .nav-wordmark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .coming-soon-pill {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+
+  /* ── HERO CONTENT ── */
+  .card-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px 28px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .eyebrow {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 72px;
+    line-height: 0.92;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+
+  .headline .line1 {
+    display: block;
+  }
+
+  .headline .accent {
+    display: block;
+  }
+
+  .body-text {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 340px;
+    margin-bottom: 28px;
+  }
+
+  .cta-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  /* ── GLOW OVERLAY ── */
+  .card-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+
+  /* ════════════════════════════════
+     CARD 1 — Gunmetal + Cordovan
+  ════════════════════════════════ */
+  .card-1 { background: #202933; }
+
+  .card-1 .scheme-label {
+    border-color: rgba(207,200,188,0.25);
+    color: rgba(207,200,188,0.55);
+    background: rgba(32,41,51,0.7);
+  }
+
+  .card-1 .card-nav {
+    background: rgba(20,28,36,0.75);
+    border-bottom: 1px solid rgba(207,200,188,0.08);
+    backdrop-filter: blur(8px);
+  }
+
+  .card-1 .nav-wordmark,
+  .card-1 .nav-logo svg { color: #CFC8BC; }
+
+  .card-1 .coming-soon-pill {
+    border-color: rgba(207,200,188,0.2);
+    color: rgba(207,200,188,0.4);
+  }
+
+  .card-1 .eyebrow { color: rgba(207,200,188,0.4); }
+
+  .card-1 .headline .line1 { color: #CFC8BC; }
+  .card-1 .headline .accent { color: #8B4A4A; }
+
+  .card-1 .body-text { color: rgba(207,200,188,0.55); }
+
+  .card-1 .cta-btn {
+    background: #643939;
+    color: #CFC8BC;
+  }
+  .card-1 .cta-btn:hover { background: #7a4444; }
+
+
+  /* ════════════════════════════════
+     CARD 2 — Swiss Alps
+  ════════════════════════════════ */
+  .card-2 { background: #4C5F6B; }
+
+  .card-2 .card-glow {
+    background: radial-gradient(ellipse 80% 45% at 50% 20%, rgba(226,36,36,0.15) 0%, transparent 70%);
+  }
+
+  .card-2 .scheme-label {
+    border-color: rgba(239,235,234,0.25);
+    color: rgba(239,235,234,0.55);
+    background: rgba(44,54,62,0.6);
+  }
+
+  .card-2 .card-nav {
+    background: rgba(38,50,58,0.75);
+    border-bottom: 1px solid rgba(239,235,234,0.08);
+    backdrop-filter: blur(8px);
+  }
+
+  .card-2 .nav-wordmark { color: #F2D079; }
+
+  .card-2 .coming-soon-pill {
+    border-color: rgba(239,235,234,0.2);
+    color: rgba(239,235,234,0.4);
+  }
+
+  .card-2 .eyebrow { color: rgba(239,235,234,0.45); }
+
+  .card-2 .headline .line1 { color: #EFEBEA; }
+  .card-2 .headline .accent { color: #E22424; }
+
+  .card-2 .body-text { color: rgba(239,235,234,0.6); }
+
+  .card-2 .cta-btn {
+    background: #E22424;
+    color: #EFEBEA;
+  }
+  .card-2 .cta-btn:hover { background: #f03030; }
+
+
+  /* ════════════════════════════════
+     CARD 3 — Ruddy Brown + Olive
+  ════════════════════════════════ */
+  .card-3 { background: #1E2A1A; }
+
+  .card-3 .scheme-label {
+    border-color: rgba(240,235,224,0.22);
+    color: rgba(240,235,224,0.5);
+    background: rgba(20,28,16,0.65);
+  }
+
+  .card-3 .card-nav {
+    background: rgba(15,22,12,0.75);
+    border-bottom: 1px solid rgba(240,235,224,0.07);
+    backdrop-filter: blur(8px);
+  }
+
+  .card-3 .nav-wordmark { color: #F2D079; }
+
+  .card-3 .coming-soon-pill {
+    border-color: rgba(240,235,224,0.2);
+    color: rgba(240,235,224,0.4);
+  }
+
+  .card-3 .eyebrow { color: rgba(240,235,224,0.4); }
+
+  .card-3 .headline .line1 { color: #F0EBE0; }
+  .card-3 .headline .accent { color: #BD692B; }
+
+  .card-3 .body-text { color: rgba(240,235,224,0.55); }
+
+  .card-3 .cta-btn {
+    background: #BD692B;
+    color: #F0EBE0;
+  }
+  .card-3 .cta-btn:hover { background: #cd7535; }
+
+
+  /* ════════════════════════════════
+     CARD 4 — Tundra Light
+  ════════════════════════════════ */
+  .card-4 { background: #EFEBEA; }
+
+  .card-4 .scheme-label {
+    border-color: rgba(44,58,71,0.18);
+    color: rgba(44,58,71,0.5);
+    background: rgba(239,235,234,0.8);
+  }
+
+  .card-4 .card-nav {
+    background: rgba(239,235,234,0.9);
+    border-bottom: 1px solid rgba(44,58,71,0.1);
+  }
+
+  .card-4 .nav-wordmark { color: #2C3A47; }
+
+  .card-4 .coming-soon-pill {
+    border-color: rgba(44,58,71,0.15);
+    color: rgba(44,58,71,0.4);
+  }
+
+  .card-4 .eyebrow { color: rgba(44,58,71,0.4); }
+
+  .card-4 .headline .line1 { color: #2C3A47; }
+  .card-4 .headline .accent { color: #E22424; }
+
+  .card-4 .body-text { color: rgba(44,58,71,0.5); }
+
+  .card-4 .cta-btn {
+    background: #2C3A47;
+    color: #EFEBEA;
+  }
+  .card-4 .cta-btn:hover { background: #3a4d5f; }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ══════════════════════════════════════
+       CARD 1 — Gunmetal + Cordovan
+  ══════════════════════════════════════ -->
+  <div class="card card-1">
+
+    <span class="scheme-label">Gunmetal + Cordovan</span>
+
+    <!-- Nav -->
+    <nav class="card-nav">
+      <div class="nav-logo">
+        <!-- HyPair SVG icon — bone fill -->
+        <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#CFC8BC" d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6
+            C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16
+            C366,456.7,358.8,463.9,350,463.9z"/>
+          <polygon fill="#CFC8BC" points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2"/>
+          <polygon fill="#CFC8BC" points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4
+            258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1"/>
+        </svg>
+        <span class="nav-wordmark">HyPair</span>
+      </div>
+      <span class="coming-soon-pill">Coming soon</span>
+    </nav>
+
+    <!-- Glow -->
+    <div class="card-glow"></div>
+
+    <!-- Hero -->
+    <div class="card-hero">
+      <div class="eyebrow">Hybrid Race Matching</div>
+      <div class="headline">
+        <span class="line1">Meet your</span>
+        <span class="accent">Match</span>
+      </div>
+      <p class="body-text">Find your doubles partner for HYROX, Spartan, Tryka and Athex</p>
+      <button class="cta-btn">Join the Waitlist</button>
+    </div>
+
+  </div><!-- /card-1 -->
+
+
+  <!-- ══════════════════════════════════════
+       CARD 2 — Swiss Alps
+  ══════════════════════════════════════ -->
+  <div class="card card-2">
+
+    <span class="scheme-label">Swiss Alps</span>
+
+    <!-- Glow (behind nav) -->
+    <div class="card-glow"></div>
+
+    <!-- Nav -->
+    <nav class="card-nav">
+      <div class="nav-logo">
+        <!-- HyPair SVG icon — Sun Valley yellow fill -->
+        <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#F2D079" d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6
+            C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16
+            C366,456.7,358.8,463.9,350,463.9z"/>
+          <polygon fill="#F2D079" points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2"/>
+          <polygon fill="#F2D079" points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4
+            258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1"/>
+        </svg>
+        <span class="nav-wordmark">HyPair</span>
+      </div>
+      <span class="coming-soon-pill">Coming soon</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="card-hero">
+      <div class="eyebrow">Hybrid Race Matching</div>
+      <div class="headline">
+        <span class="line1">Meet your</span>
+        <span class="accent">Match</span>
+      </div>
+      <p class="body-text">Find your doubles partner for HYROX, Spartan, Tryka and Athex</p>
+      <button class="cta-btn">Join the Waitlist</button>
+    </div>
+
+  </div><!-- /card-2 -->
+
+
+  <!-- ══════════════════════════════════════
+       CARD 3 — Ruddy Brown + Olive
+  ══════════════════════════════════════ -->
+  <div class="card card-3">
+
+    <span class="scheme-label">Ruddy Brown + Olive</span>
+
+    <!-- Nav -->
+    <nav class="card-nav">
+      <div class="nav-logo">
+        <!-- HyPair SVG icon — warm yellow fill -->
+        <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#F2D079" d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6
+            C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16
+            C366,456.7,358.8,463.9,350,463.9z"/>
+          <polygon fill="#F2D079" points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2"/>
+          <polygon fill="#F2D079" points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4
+            258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1"/>
+        </svg>
+        <span class="nav-wordmark">HyPair</span>
+      </div>
+      <span class="coming-soon-pill">Coming soon</span>
+    </nav>
+
+    <!-- Glow -->
+    <div class="card-glow"></div>
+
+    <!-- Hero -->
+    <div class="card-hero">
+      <div class="eyebrow">Hybrid Race Matching</div>
+      <div class="headline">
+        <span class="line1">Meet your</span>
+        <span class="accent">Match</span>
+      </div>
+      <p class="body-text">Find your doubles partner for HYROX, Spartan, Tryka and Athex</p>
+      <button class="cta-btn">Join the Waitlist</button>
+    </div>
+
+  </div><!-- /card-3 -->
+
+
+  <!-- ══════════════════════════════════════
+       CARD 4 — Tundra Light
+  ══════════════════════════════════════ -->
+  <div class="card card-4">
+
+    <span class="scheme-label">Tundra Light</span>
+
+    <!-- Nav -->
+    <nav class="card-nav">
+      <div class="nav-logo">
+        <!-- HyPair SVG icon — dark Summit fill -->
+        <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#2C3A47" d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6
+            C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16
+            C366,456.7,358.8,463.9,350,463.9z"/>
+          <polygon fill="#2C3A47" points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2"/>
+          <polygon fill="#2C3A47" points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4
+            258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1"/>
+        </svg>
+        <span class="nav-wordmark">HyPair</span>
+      </div>
+      <span class="coming-soon-pill">Coming soon</span>
+    </nav>
+
+    <!-- Glow -->
+    <div class="card-glow"></div>
+
+    <!-- Hero -->
+    <div class="card-hero">
+      <div class="eyebrow">Hybrid Race Matching</div>
+      <div class="headline">
+        <span class="line1">Meet your</span>
+        <span class="accent">Match</span>
+      </div>
+      <p class="body-text">Find your doubles partner for HYROX, Spartan, Tryka and Athex</p>
+      <button class="cta-btn">Join the Waitlist</button>
+    </div>
+
+  </div><!-- /card-4 -->
+
+</div><!-- /page -->
+
+</body>
+</html>

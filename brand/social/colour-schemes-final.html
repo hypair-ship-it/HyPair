@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HyPair — Colour Scheme Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #111;
+    width: 1600px;
+    height: 1100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 700px 700px;
+    grid-template-rows: 500px 500px;
+    gap: 28px;
+  }
+
+  /* ── CARD SHELL ── */
+  .card {
+    width: 700px;
+    height: 500px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── SCHEME LABEL ── */
+  .scheme-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 20;
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    pointer-events: none;
+  }
+
+  /* ── NAV ── */
+  .card-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    height: 60px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 26px;
+    height: auto;
+  }
+
+  .logo-wordmark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .coming-soon-tag {
+    font-family: 'Barlow', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+
+  /* ── HERO BODY ── */
+  .card-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px 40px;
+    position: relative;
+    text-align: center;
+  }
+
+  .glow-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 74px;
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .headline .line1 {
+    display: block;
+  }
+
+  .headline .line2 {
+    display: block;
+  }
+
+  .subtext {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+    max-width: 380px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ══════════════════════════════════════
+     SCHEME 1 — Current (Dark Green + Gold)
+  ══════════════════════════════════════ */
+  .s1 { background: #1a2e1a; }
+
+  .s1 .scheme-label {
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .s1 .logo-wordmark { color: #F8C662; }
+  .s1 .logo-icon path, .s1 .logo-icon polygon { fill: #F8C662; }
+
+  .s1 .coming-soon-tag {
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.35);
+  }
+
+  .s1 .headline .line1 { color: #ffffff; }
+  .s1 .headline .line2 { color: #F8C662; }
+  .s1 .subtext { color: rgba(255,255,255,0.6); }
+
+  .s1 .cta-btn {
+    background: #F8C662;
+    color: #1a2e1a;
+  }
+
+  /* ══════════════════════════════════════
+     SCHEME 2 — Black + Gold
+  ══════════════════════════════════════ */
+  .s2 { background: #0a0a0a; }
+
+  .s2 .scheme-label {
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .s2 .logo-wordmark { color: #F8C662; }
+  .s2 .logo-icon path, .s2 .logo-icon polygon { fill: #F8C662; }
+
+  .s2 .coming-soon-tag {
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.35);
+  }
+
+  .s2 .headline .line1 { color: #ffffff; }
+  .s2 .headline .line2 { color: #F8C662; }
+  .s2 .subtext { color: rgba(255,255,255,0.6); }
+
+  .s2 .cta-btn {
+    background: #F8C662;
+    color: #0a0a0a;
+  }
+
+  /* ══════════════════════════════════════
+     SCHEME 3 — Race Energy: Black + Gold + Orange
+  ══════════════════════════════════════ */
+  .s3 { background: #0a0a0a; }
+
+  .s3 .scheme-label {
+    background: rgba(255,90,31,0.12);
+    color: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,90,31,0.25);
+  }
+
+  .s3 .logo-wordmark { color: #F8C662; }
+  .s3 .logo-icon path, .s3 .logo-icon polygon { fill: #F8C662; }
+
+  .s3 .coming-soon-tag {
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.35);
+  }
+
+  .s3 .headline .line1 { color: #ffffff; }
+  .s3 .headline .line2 { color: #FF5A1F; }
+  .s3 .subtext { color: rgba(255,255,255,0.6); }
+
+  .s3 .cta-btn {
+    background: #FF5A1F;
+    color: #ffffff;
+  }
+
+  /* ══════════════════════════════════════
+     SCHEME 4 — White + Navy + Orange
+  ══════════════════════════════════════ */
+  .s4 { background: #ffffff; }
+
+  .s4 .scheme-label {
+    background: rgba(44,38,63,0.07);
+    color: rgba(44,38,63,0.5);
+    border: 1px solid rgba(44,38,63,0.15);
+  }
+
+  .s4 .card-nav {
+    border-bottom: 1px solid rgba(44,38,63,0.1);
+    background: #ffffff;
+  }
+
+  .s4 .logo-wordmark { color: #2C263F; }
+  .s4 .logo-icon path, .s4 .logo-icon polygon { fill: #2C263F; }
+
+  .s4 .coming-soon-tag {
+    border-color: rgba(44,38,63,0.2);
+    color: rgba(44,38,63,0.45);
+  }
+
+  .s4 .headline .line1 { color: #2C263F; }
+  .s4 .headline .line2 { color: #FF5A1F; }
+  .s4 .subtext { color: rgba(44,38,63,0.55); }
+
+  .s4 .cta-btn {
+    background: #FF5A1F;
+    color: #ffffff;
+  }
+</style>
+</head>
+<body>
+
+<div class="grid">
+
+  <!-- ══ CARD 1: Current ══ -->
+  <div class="card s1">
+    <span class="scheme-label">1 — Current</span>
+
+    <nav class="card-nav">
+      <div class="logo-wrap">
+        <svg class="logo-icon" viewBox="226 154.1 248 342.4" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+          <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+          <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
+        </svg>
+        <span class="logo-wordmark">HyPair</span>
+      </div>
+      <span class="coming-soon-tag">Coming soon</span>
+    </nav>
+
+    <div class="card-hero">
+      <h1 class="headline">
+        <span class="line1">MEET YOUR</span>
+        <span class="line2">MATCH.</span>
+      </h1>
+      <p class="subtext">Find your doubles partner for HYROX, Spartan, Tryka and Athex</p>
+      <button class="cta-btn">JOIN THE WAITLIST</button>
+    </div>
+  </div>
+
+  <!-- ══ CARD 2: Black + Gold ══ -->
+  <div class="card s2">
+    <span class="scheme-label">2 — Black + Gold</span>
+
+    <nav class="card-nav">
+      <div class="logo-wrap">
+        <svg class="logo-icon" viewBox="226 154.1 248 342.4" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+          <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+          <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
+        </svg>
+        <span class="logo-wordmark">HyPair</span>
+      </div>
+      <span class="coming-soon-tag">Coming soon</span>
+    </nav>
+
+    <div class="card-hero">
+      <h1 class="headline">
+        <span class="line1">MEET YOUR</span>
+        <span class="line2">MATCH.</span>
+      </h1>
+      <p class="subtext">Find your doubles partner for HYROX, Spartan, Tryka and Athex</p>
+      <button class="cta-btn">JOIN THE WAITLIST</button>
+    </div>
+  </div>
+
+  <!-- ══ CARD 3: Race Energy — Black + Gold + Orange ══ -->
+  <div class="card s3">
+    <span class="scheme-label">3 — Race Energy: Black + Gold + Orange</span>
+
+    <nav class="card-nav">
+      <div class="logo-wrap">
+        <svg class="logo-icon" viewBox="226 154.1 248 342.4" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+          <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+          <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
+        </svg>
+        <span class="logo-wordmark">HyPair</span>
+      </div>
+      <span class="coming-soon-tag">Coming soon</span>
+    </nav>
+
+    <div class="card-hero">
+      <!-- Subtle orange glow -->
+      <div class="glow-bg" style="background: radial-gradient(ellipse at 50% 30%, rgba(255,90,31,0.15) 0%, transparent 70%);"></div>
+      <h1 class="headline">
+        <span class="line1">MEET YOUR</span>
+        <span class="line2">MATCH.</span>
+      </h1>
+      <p class="subtext">Find your doubles partner for HYROX, Spartan, Tryka and Athex</p>
+      <button class="cta-btn">JOIN THE WAITLIST</button>
+    </div>
+  </div>
+
+  <!-- ══ CARD 4: White + Navy + Orange ══ -->
+  <div class="card s4">
+    <span class="scheme-label">4 — White + Navy + Orange</span>
+
+    <nav class="card-nav">
+      <div class="logo-wrap">
+        <svg class="logo-icon" viewBox="226 154.1 248 342.4" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#2C263F"/>
+          <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#2C263F"/>
+          <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#2C263F"/>
+        </svg>
+        <span class="logo-wordmark">HyPair</span>
+      </div>
+      <span class="coming-soon-tag">Coming soon</span>
+    </nav>
+
+    <div class="card-hero">
+      <h1 class="headline">
+        <span class="line1">MEET YOUR</span>
+        <span class="line2">MATCH.</span>
+      </h1>
+      <p class="subtext">Find your doubles partner for HYROX, Spartan, Tryka and Athex</p>
+      <button class="cta-btn">JOIN THE WAITLIST</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
