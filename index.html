@@ -3,16 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HyPair — Find your perfect race partner</title>
-<meta name="description" content="HyPair matches hybrid athletes for Hyrox, Tryka, Athex and Spartan races. Find your perfect doubles partner.">
-<meta property="og:title" content="HyPair — Find your perfect race partner">
-<meta property="og:description" content="No partner for your next race? HyPair matches you with the right athlete — same race, same pace, same drive.">
-<meta property="og:type" content="website">
+<title>HyPair - Find your perfect race partner</title>
+<meta name="description" content="HyPair matches hybrid athletes for Hyrox, Tryka, Athex and Spartan races.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --green: #2d4a2d;
     --green-dark: #1a2e1a;
@@ -23,195 +19,51 @@
     --white-60: rgba(255,255,255,0.6);
     --white-35: rgba(255,255,255,0.35);
     --white-15: rgba(255,255,255,0.15);
-    --white-08: rgba(255,255,255,0.08);
     --black-30: rgba(0,0,0,0.30);
-    --navy: #2C263F;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--green);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-
-
-  /* ── NAV ── */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(26,46,26,0.85);
-    border-bottom: 0.5px solid var(--white-15);
-    padding: 0 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-    max-width: 100%;
-  }
+  body { font-family: 'Barlow', sans-serif; background: var(--green); color: var(--white); min-height: 100vh; overflow-x: hidden; }
+  nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); background: rgba(26,46,26,0.85); border-bottom: 0.5px solid var(--white-15); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .nav-logo svg { height: 36px; width: auto; }
-  .nav-logo-text {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px; font-weight: 700; letter-spacing: 1px; color: var(--gold);
-  }
-  .nav-tag {
-    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--white-35); border: 0.5px solid var(--white-15);
-    border-radius: 20px; padding: 5px 12px;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative; z-index: 1;
-    max-width: 640px; margin: 0 auto;
-    padding: 72px 24px 80px;
-    display: flex; flex-direction: column; align-items: center; text-align: center;
-  }
-
-  .hero-logo {
-    width: 96px; height: auto; margin-bottom: 32px;
-    animation: fadeup 0.6s ease both;
-  }
+  .nav-logo-text { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 1px; color: var(--gold); }
+  .nav-tag { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white-35); border: 0.5px solid var(--white-15); border-radius: 20px; padding: 5px 12px; }
+  .hero { max-width: 640px; margin: 0 auto; padding: 72px 24px 80px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .hero-logo { width: 96px; height: auto; margin-bottom: 32px; animation: fadeup 0.6s ease both; }
   @keyframes fadeup { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-
-  .eyebrow {
-    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--white-35); margin-bottom: 16px;
-    animation: fadeup 0.6s 0.1s ease both;
-  }
-
-  h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(44px, 10vw, 64px);
-    font-weight: 900; line-height: 0.95;
-    letter-spacing: 1px; text-transform: uppercase;
-    color: var(--white); margin-bottom: 16px;
-    animation: fadeup 0.6s 0.15s ease both;
-  }
+  .eyebrow { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white-35); margin-bottom: 16px; }
+  h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(44px, 10vw, 64px); font-weight: 900; line-height: 0.95; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
   h1 .gold { color: var(--gold); }
-
-  .tagline {
-    font-size: 17px; font-weight: 300; color: var(--white-60);
-    line-height: 1.65; max-width: 380px; margin-bottom: 40px;
-    animation: fadeup 0.6s 0.2s ease both;
-  }
-
-  /* ── FORM ── */
-  .form-wrap { width: 100%; max-width: 440px; animation: fadeup 0.6s 0.3s ease both; }
+  .tagline { font-size: 17px; font-weight: 300; color: var(--white-60); line-height: 1.65; max-width: 380px; margin-bottom: 40px; }
+  .form-wrap { width: 100%; max-width: 440px; }
   .form-row { display: flex; gap: 8px; }
-  .form-input {
-    flex: 1; background: var(--black-30);
-    border: 0.5px solid var(--white-15); border-radius: 10px;
-    padding: 14px 18px; font-family: 'Barlow', sans-serif;
-    font-size: 15px; color: var(--white); outline: none;
-    transition: border-color 0.2s;
-  }
+  .form-input { flex: 1; background: var(--black-30); border: 0.5px solid var(--white-15); border-radius: 10px; padding: 14px 18px; font-family: 'Barlow', sans-serif; font-size: 15px; color: var(--white); outline: none; transition: border-color 0.2s; }
   .form-input::placeholder { color: var(--white-35); }
   .form-input:focus { border-color: var(--gold); }
   .form-input.error { border-color: #e05050; animation: shake 0.3s ease; }
   @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
-
-  .form-btn {
-    background: var(--gold); color: var(--green-dark);
-    border: none; border-radius: 10px; padding: 14px 24px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 17px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; cursor: pointer; white-space: nowrap;
-    transition: opacity 0.15s, transform 0.1s;
-  }
+  .form-btn { background: var(--gold); color: var(--green-dark); border: none; border-radius: 10px; padding: 14px 24px; font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; white-space: nowrap; transition: opacity 0.15s, transform 0.1s; }
   .form-btn:hover { opacity: 0.9; }
   .form-btn:active { transform: scale(0.97); }
   .form-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
-  .form-note { font-size: 12px; color: var(--white-35); text-align: center; margin-top: 10px; letter-spacing: 0.3px; }
-
-  /* ── FEATURES ── */
-  .features {
-    width: 100%; max-width: 440px;
-    display: flex; flex-direction: column; gap: 10px;
-    margin-top: 48px;
-    animation: fadeup 0.6s 0.4s ease both;
-  }
-  .feat {
-    display: flex; align-items: flex-start; gap: 14px;
-    background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 12px; padding: 14px 18px;
-    transition: border-color 0.2s;
-  }
-  .feat:hover { border-color: var(--white-35); }
-  .feat-icon {
-    width: 32px; height: 32px; flex-shrink: 0;
-    background: var(--gold-dim); border-radius: 7px;
-    display: flex; align-items: center; justify-content: center; font-size: 15px;
-  }
+  .form-note { font-size: 12px; color: var(--white-35); text-align: center; margin-top: 10px; }
+  .features { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 10px; margin-top: 48px; }
+  .feat { display: flex; align-items: flex-start; gap: 14px; background: var(--black-30); border: 0.5px solid var(--white-15); border-radius: 12px; padding: 14px 18px; }
+  .feat-icon { width: 32px; height: 32px; flex-shrink: 0; background: var(--gold-dim); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
   .feat-text strong { display: block; font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
   .feat-text span { font-size: 13px; color: var(--white-60); line-height: 1.5; }
-
-  /* ── RACES ── */
-  .race-strip {
-    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
-    margin-top: 36px;
-    animation: fadeup 0.6s 0.5s ease both;
-  }
-  .race-chip {
-    background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 20px; padding: 7px 16px;
-    font-size: 13px; color: var(--white-35); letter-spacing: 0.3px;
-    transition: all 0.2s;
-  }
-  .race-chip.gold {
-    border-color: var(--gold-border); color: var(--gold);
-    background: var(--gold-dim);
-  }
-
-  /* ── FOOTER ── */
-  .footer-note {
-    margin-top: 32px; font-size: 12px; color: var(--white-35);
-    letter-spacing: 0.3px; animation: fadeup 0.6s 0.55s ease both;
-  }
-
-  footer {
-    position: relative; z-index: 1;
-    border-top: 0.5px solid var(--white-15);
-    padding: 24px; text-align: center;
-    font-size: 12px; color: var(--white-35);
-  }
-  footer a { color: var(--white-35); }
-
-  /* ── SUCCESS STATE ── */
-  .success-wrap {
-    display: none; flex-direction: column; align-items: center;
-    text-align: center; padding: 80px 24px;
-    position: relative; z-index: 1; max-width: 480px; margin: 0 auto;
-  }
+  .race-strip { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
+  .race-chip { background: var(--black-30); border: 0.5px solid var(--white-15); border-radius: 20px; padding: 7px 16px; font-size: 13px; color: var(--white-35); }
+  .race-chip.gold { border-color: var(--gold-border); color: var(--gold); background: var(--gold-dim); }
+  footer { border-top: 0.5px solid var(--white-15); padding: 24px; text-align: center; font-size: 12px; color: var(--white-35); }
+  .success-wrap { display: none; flex-direction: column; align-items: center; text-align: center; padding: 80px 24px; max-width: 480px; margin: 0 auto; }
   .success-wrap.active { display: flex; animation: fadeup 0.5s ease both; }
-
-  .success-icon {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: var(--gold); display: flex; align-items: center;
-    justify-content: center; font-size: 30px; color: var(--green-dark);
-    margin-bottom: 24px;
-  }
-  .success-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 40px; font-weight: 900; text-transform: uppercase;
-    letter-spacing: 1px; color: var(--white); margin-bottom: 10px;
-  }
+  .success-icon { width: 72px; height: 72px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 30px; color: var(--green-dark); margin-bottom: 24px; }
+  .success-title { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 10px; }
   .success-body { font-size: 16px; color: var(--white-60); max-width: 300px; line-height: 1.65; margin-bottom: 32px; }
   .success-actions { display: flex; gap: 10px; }
-  .share-btn {
-    background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 10px; padding: 12px 20px;
-    font-size: 14px; color: var(--white-60); cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
-  }
+  .share-btn { background: var(--black-30); border: 0.5px solid var(--white-15); border-radius: 10px; padding: 12px 20px; font-size: 14px; color: var(--white-60); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
   .share-btn:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 480px) {
     .form-row { flex-direction: column; }
     .form-btn { width: 100%; }
@@ -224,7 +76,6 @@
 
 <nav>
   <a class="nav-logo" href="/">
-    <!-- Icon mark only in nav — just the SVG symbol part -->
     <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="36">
       <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
       <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
@@ -235,11 +86,8 @@
   <span class="nav-tag">Coming soon</span>
 </nav>
 
-<!-- WAITLIST -->
-<main id="main-content">
+<main>
   <section class="hero" id="waitlist-section">
-
-    <!-- Full logo mark for hero -->
     <svg class="hero-logo" viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg">
       <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
       <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
@@ -253,21 +101,21 @@
     <div class="form-wrap">
       <div class="form-row">
         <input class="form-input" id="email" type="email" placeholder="your@email.com" autocomplete="email">
-        <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Join the Waitlist</button>
+        <button class="form-btn" id="submit-btn">Join the Waitlist</button>
       </div>
       <p class="form-note">Early access for upcoming HYROX events.</p>
     </div>
 
     <div class="features">
       <div class="feat">
-        <div class="feat-icon">⚡</div>
+        <div class="feat-icon">&#9889;</div>
         <div class="feat-text">
           <strong>Swipe to match</strong>
           <span>Browse athletes by PB, fitness level and goals. Find your ideal partner in minutes.</span>
         </div>
       </div>
       <div class="feat">
-        <div class="feat-icon">📍</div>
+        <div class="feat-icon">&#128205;</div>
         <div class="feat-text">
           <strong>Race-first matching</strong>
           <span>Filter by specific events — connect with athletes already entered in your race.</span>
@@ -284,79 +132,79 @@
     </div>
   </section>
 
-  <!-- SUCCESS -->
   <div class="success-wrap" id="success-section">
-    <div class="success-icon">✓</div>
+    <div class="success-icon">&#10003;</div>
     <div class="success-title">You're on the list.</div>
     <p class="success-body">We'll reach out the moment HyPair launches. Until then — keep training.</p>
     <div class="success-actions">
-      <button class="share-btn" onclick="copyLink(this)">Copy link</button>
-      <button class="share-btn" onclick="shareNative(this)">Share with a training partner</button>
+      <button class="share-btn" id="copy-btn">Copy link</button>
+      <button class="share-btn" id="share-btn">Share with a training partner</button>
     </div>
   </div>
 </main>
 
 <footer>
-  <p>&copy; 2025 HyPair</p>
+  <p>2025 HyPair</p>
 </footer>
 
 <script>
-  const SUPABASE_URL = 'https://llkdujodseyilzbkzdbf.supabase.co';
-  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si';
+var SUPABASE_URL = 'https://llkdujodseyilzbkzdbf.supabase.co';
+var SUPABASE_KEY = 'sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si';
 
-  async function joinWaitlist() {
-    const input = document.getElementById('email');
-    const btn = document.getElementById('submit-btn');
-    const email = input.value.trim();
-
-    if (!email || !email.includes('@') || !email.includes('.')) {
-      input.classList.add('error');
-      input.focus();
-      setTimeout(() => input.classList.remove('error'), 800);
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = 'Joining...';
-
-    try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': SUPABASE_PUBLISHABLE_KEY,
-          'Authorization': `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({ email })
-      });
-      if (!res.ok && res.status !== 409) throw new Error('Failed');
-
-      document.getElementById('waitlist-section').style.display = 'none';
-      document.getElementById('success-section').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'Join the Waitlist';
-      alert('Something went wrong. Please try again.');
-    }
+function joinWaitlist() {
+  var input = document.getElementById('email');
+  var btn = document.getElementById('submit-btn');
+  var email = input.value.trim();
+  if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+    input.classList.add('error');
+    input.focus();
+    setTimeout(function() { input.classList.remove('error'); }, 800);
+    return;
   }
-
-  // Allow Enter key on input
-  document.getElementById('email').addEventListener('keydown', e => {
-    if (e.key === 'Enter') joinWaitlist();
+  btn.disabled = true;
+  btn.textContent = 'Joining...';
+  fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ email: email })
+  }).then(function(res) {
+    if (!res.ok && res.status !== 409) throw new Error('Failed');
+    document.getElementById('waitlist-section').style.display = 'none';
+    document.getElementById('success-section').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Join the Waitlist';
+    alert('Something went wrong. Please try again.');
   });
+}
 
-  function copyLink(btn) {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).catch(() => {});
+document.getElementById('submit-btn').addEventListener('click', joinWaitlist);
+document.getElementById('email').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') joinWaitlist();
+});
+document.getElementById('copy-btn').addEventListener('click', function() {
+  var btn = this;
+  navigator.clipboard.writeText(window.location.href).catch(function() {});
+  btn.textContent = 'Copied!';
+  setTimeout(function() { btn.textContent = 'Copy link'; }, 2500);
+});
+document.getElementById('share-btn').addEventListener('click', function() {
+  var btn = this;
+  if (navigator.share) {
+    navigator.share({ title: 'HyPair', text: 'Find your perfect race partner', url: window.location.href }).catch(function() {});
+  } else {
+    navigator.clipboard.writeText(window.location.href).catch(function() {});
     btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy link', 2500);
+    setTimeout(function() { btn.textContent = 'Share with a training partner'; }, 2500);
   }
+});
+</script>
 
-  function shareNative(btn) {
-    if (navigator.share) {
-      navigator.share({
-        title: 'HyPair — Find your race partner',
-        text: 'Just signed up fo
+</body>
+</html>
