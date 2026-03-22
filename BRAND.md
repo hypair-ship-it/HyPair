@@ -9,6 +9,9 @@ HyPair is a race partner matching app for hybrid athletes. These guidelines exis
 ### Mission
 Connect hybrid athletes with their perfect race partner — same event, same pace, same mindset.
 
+### Slogan
+**Meet your match**
+
 ### Brand Personality
 - **Energetic** — we speak to athletes who push hard
 - **Direct** — no fluff, no filler, just what matters
@@ -20,9 +23,9 @@ Connect hybrid athletes with their perfect race partner — same event, same pac
 - Speak to the problem first, then the solution.
 - Never corporate. Never overly polished.
 - Use "you" not "our users" or "athletes".
-- OK to use caps for emphasis: HYROX, NO PARTNER. NO RACE.
+- OK to use caps for emphasis: HYROX, MEET YOUR MATCH.
 
-**Do:** "No partner. No race. We built the fix."
+**Do:** "Meet your match. Race harder together."
 **Don't:** "HyPair provides a comprehensive matching solution for hybrid fitness enthusiasts."
 
 ---
@@ -31,6 +34,9 @@ Connect hybrid athletes with their perfect race partner — same event, same pac
 
 ### The Mark
 The HyPair icon is a geometric symbol combining a U-shape (representing two athletes) and an arch with a circle — referencing the structure of a race. It is the primary brand asset and should be treated with care.
+
+### Name
+Always written as **HyPair** — camelCase, never HYPAIR or Hypair. The capitalisation reflects the two words: Hy (hybrid) + Pair (matching partner).
 
 ### Versions
 | Version | Usage |
@@ -42,10 +48,10 @@ The HyPair icon is a geometric symbol combining a U-shape (representing two athl
 ### Colours
 | Background | Icon colour | Wordmark colour |
 |---|---|---|
-| Forest green `#2d4a2d` | Gold `#F8C662` | Gold `#F8C662` |
-| Black `#0a0a0a` | Gold `#F8C662` | Gold `#F8C662` |
-| White | Navy `#2C263F` | Navy `#2C263F` |
-| Gold `#F8C662` | Navy `#2C263F` | Navy `#2C263F` |
+| Summit slate `#4C5F6B` | Sun Valley `#F2D079` | Sun Valley `#F2D079` |
+| Black `#0a0a0a` | Sun Valley `#F2D079` | Sun Valley `#F2D079` |
+| Tundra cream `#EFEBEA` | Summit dark `#2C3A47` | Summit dark `#2C3A47` |
+| White `#ffffff` | Summit dark `#2C3A47` | Summit dark `#2C3A47` |
 
 ### Clear Space
 Always maintain clear space around the logo equal to the height of the letter "H" in the wordmark on all sides. Never crowd the logo.
@@ -56,45 +62,60 @@ Always maintain clear space around the logo equal to the height of the letter "H
 - Do not place the logo on a busy photo without a solid background behind it
 - Do not recreate the logo in a different typeface
 - Do not add drop shadows or effects to the logo
-- Do not use the navy icon on dark backgrounds — it will disappear
 
 ---
 
 ## 3. Colour Palette
 
-### Primary Colours
+HyPair has two approved colour schemes. **Swiss Alps** is the primary scheme used on the website and social media. **Tundra Light** is reserved for the mobile app UI and light-mode contexts.
+
+---
+
+### Swiss Alps (Primary — website, social, marketing)
+
+Inspired by the energy of alpine race environments. Slate base, red for urgency and action, warm yellow for the logo and brand warmth.
 
 | Name | Hex | RGB | Usage |
 |---|---|---|---|
-| Forest Green | `#2d4a2d` | 45, 74, 45 | Primary background |
-| Dark Green | `#1a2e1a` | 26, 46, 26 | Darker background, nav |
-| Gold | `#F8C662` | 248, 198, 98 | Primary accent, CTAs, logo |
+| Summit | `#4C5F6B` | 76, 95, 107 | Primary background |
+| Summit Dark | `#374D59` | 55, 77, 89 | Nav, darker surfaces |
+| Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent, action |
+| Sun Valley | `#F2D079` | 242, 208, 121 | Logo, brand warmth, chips |
 | White | `#ffffff` | 255, 255, 255 | Body text on dark backgrounds |
 
-### Secondary Colours
-
-| Name | Hex | RGB | Usage |
-|---|---|---|---|
-| Navy | `#2C263F` | 44, 38, 63 | Icon on light backgrounds |
-| Black | `#0a0a0a` | 10, 10, 10 | Alternative dark background |
-| Dark Navy | `#12080e` | 18, 14, 30 | Story/editorial posts |
-
-### Functional Colours
+**Functional (Swiss Alps)**
 
 | Name | Hex | Usage |
 |---|---|---|
 | White 60% | `rgba(255,255,255,0.6)` | Body text, secondary content |
 | White 35% | `rgba(255,255,255,0.35)` | Placeholder text, muted labels |
 | White 15% | `rgba(255,255,255,0.15)` | Borders, dividers |
-| Gold dim | `rgba(248,198,98,0.12)` | Icon backgrounds, subtle highlights |
-| Gold border | `rgba(248,198,98,0.35)` | Chip borders, card accents |
+| Sun Valley dim | `rgba(242,208,121,0.12)` | Icon backgrounds, subtle highlights |
+| Sun Valley border | `rgba(242,208,121,0.35)` | Chip borders, card accents |
 
-### Colour Rules
-- Gold is always the action colour — buttons, CTAs, key highlights
-- Never use gold as a background for large areas
-- Green is the brand home — default to dark green for backgrounds
-- Black backgrounds work for high-contrast social posts
-- Never use pure white as a background — it conflicts with the brand warmth
+**Swiss Alps Colour Rules**
+- Red is the action colour — all buttons, CTAs, and the headline accent word
+- Sun Valley yellow is the brand colour — logo only, race chips, decorative use
+- Never use red as a background for large areas
+- Summit slate is the brand home — default to Summit Dark for nav backgrounds
+
+---
+
+### Tundra Light (Secondary — mobile app, light-mode UI)
+
+Clean and approachable. Used for the mobile app UI and any light-background contexts. Closest in feel to Strava and modern matching apps (Tinder/Hinge).
+
+| Name | Hex | RGB | Usage |
+|---|---|---|---|
+| Tundra | `#EFEBEA` | 239, 235, 234 | Primary background |
+| Summit Dark | `#2C3A47` | 44, 58, 71 | Text, logo, nav |
+| Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent (shared with primary) |
+| White | `#ffffff` | 255, 255, 255 | Cards, surfaces |
+
+**Tundra Light Colour Rules**
+- Never use on the public website — Tundra is for the app only
+- Red CTA colour is shared across both schemes for consistency
+- Summit Dark replaces white for all text
 
 ---
 
@@ -144,8 +165,9 @@ Always refer to these in this order when listing:
 
 "+ more coming" when listing all four together.
 
-### Instagram Handle
-`@hypair.app`
+### Social Accounts
+- Instagram: `@hypair.app` — https://www.instagram.com/hypair.app
+- Facebook: https://www.facebook.com/profile.php?id=61579447175723
 
 ### Post Format
 - Square 1:1 (1080×1080px) for feed posts
@@ -159,13 +181,12 @@ Always refer to these in this order when listing:
 #HybridTraining #FunctionalFitness #Spartan #Tryka #Athex
 ```
 
-### Background Styles (approved)
+### Background Styles (approved for social)
 | Style | Hex | When to use |
 |---|---|---|
-| Dark green | `#1a2e1a` | Default, problem/solution posts |
-| Black | `#0a0a0a` | High contrast, bold statements |
-| Forest green | `#2d4a2d` | Waitlist, community posts |
-| Dark navy | `#12080e` | Founder story, personal posts |
+| Summit | `#4C5F6B` | Default — waitlist, community, matching posts |
+| Summit Dark | `#374D59` | Problem/solution posts, bold statements |
+| Black | `#0a0a0a` | Maximum contrast, high-impact statements |
 
 ---
 
@@ -175,46 +196,60 @@ Always refer to these in this order when listing:
 |---|---|---|
 | Website | Vercel | Auto-deploys from GitHub main branch |
 | Domain | hypair.app via Porkbun | DNS pointed to Vercel |
-| Database | Supabase (PostgreSQL) | Waitlist table, future user data |
+| Database | Supabase (PostgreSQL) | Waitlist + race data |
 | Email | Cloudflare Email Routing → Gmail | Forward only for now |
 | Mobile app | Expo (React Native) | Planned — iOS + Android |
 | Email sending | Resend (planned) | Transactional + launch emails |
 
 ### Supabase Project
 - Project URL: `https://llkdujodseyilzbkzdbf.supabase.co`
-- Tables: `waitlist (id, email, created_at)`
+- Tables: `waitlist (id, email, race, created_at)`
 
 ---
 
 ## 7. Brand Assets Checklist
 
-- [x] SVG logo (transparent background, colour version)
-- [x] SVG logo (transparent background, black/white version)
+### Swiss Alps scheme
+- [x] SVG logo — Sun Valley on Summit slate
 - [x] Waitlist website live at hypair.app
-- [x] Instagram post graphics (4 × 1080px)
-- [ ] App icon (1024×1024px)
-- [ ] Favicon (32×32px, 16×16px)
-- [ ] White logo version for dark app backgrounds
+- [ ] SVG logo — Sun Valley on black
+- [ ] Icon only SVG (transparent, Sun Valley)
+- [ ] App icon 1024×1024px
+- [ ] Favicon set (already using PNG from Fiverr kit)
+- [ ] Instagram post graphics (4 × 1080px)
 - [ ] Figma brand file
+
+### Tundra Light scheme (app)
+- [ ] SVG logo — Summit Dark on Tundra cream
+- [ ] SVG logo — Summit Dark on white
+- [ ] Icon only SVG (transparent, Summit Dark)
+- [ ] App icon 1024×1024px (light version)
+- [ ] Figma component library
 
 ---
 
 ## 8. File Structure
 
 ```
-hypair-waitlist/
-├── index.html          — Waitlist landing page
-├── BRAND.md            — This file
+HyPair/
+├── index.html              — Waitlist landing page
+├── favicon.ico             — Browser favicon
+├── BRAND.md                — This file
+├── CLAUDE.md               — Claude Code instructions
 └── brand/
     ├── logo/
-    │   ├── hypair-logo-colour.svg
-    │   ├── hypair-logo-white.svg
-    │   └── hypair-icon-only.svg
+    │   ├── swiss-alps/     — Swiss Alps colour scheme assets
+    │   │   ├── hypair-logo-colour.svg
+    │   │   ├── hypair-logo-on-black.svg
+    │   │   └── hypair-icon-only.svg
+    │   ├── tundra-light/   — Tundra Light colour scheme assets
+    │   │   ├── hypair-logo-colour.svg
+    │   │   └── hypair-icon-only.svg
+    │   └── (original Fiverr kit files)
     └── social/
-        ├── hypair_post1_problem.jpg
-        ├── hypair_post2_solution.jpg
-        ├── hypair_post3_waitlist.jpg
-        └── hypair_post4_founder.jpg
+        ├── hypair-instagram-profile.png
+        ├── post-waitlist.html
+        └── (Instagram post exports 1080×1080px)
 ```
 
 ---
