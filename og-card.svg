@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e2d38"/>
+      <stop offset="100%" style="stop-color:#374D59"/>
+    </linearGradient>
+    <linearGradient id="glow-red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E22424;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#E22424;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="glow-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F2D079;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#F2D079;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle glow blobs -->
+  <circle cx="980" cy="120" r="300" fill="url(#glow-red)"/>
+  <circle cx="200" cy="520" r="280" fill="url(#glow-gold)"/>
+
+  <!-- Bottom edge accent line -->
+  <rect x="0" y="622" width="1200" height="8" fill="#E22424" opacity="0.9"/>
+
+  <!-- Left vertical accent -->
+  <rect x="80" y="60" width="3" height="510" fill="#F2D079" opacity="0.25"/>
+
+  <!-- Logo mark (scaled to ~80px tall, positioned left) -->
+  <g transform="translate(120, 200) scale(0.21)">
+    <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6s21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6S376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16s7.2-16,16-16s16,7.2,16,16S358.8,463.9,350,463.9z" fill="#F2D079"/>
+    <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
+    <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+  </g>
+
+  <!-- HYPAIR wordmark -->
+  <text x="120" y="420" font-family="Arial Black, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="6" fill="#F2D079" opacity="0.7" text-anchor="start">HYPAIR</text>
+
+  <!-- Main headline: MEET YOUR -->
+  <text x="120" y="240" font-family="Arial Black, Arial, sans-serif" font-size="112" font-weight="900" letter-spacing="-2" fill="#ffffff" text-anchor="start">MEET YOUR</text>
+
+  <!-- Main headline: MATCH (red) -->
+  <text x="120" y="360" font-family="Arial Black, Arial, sans-serif" font-size="112" font-weight="900" letter-spacing="-2" fill="#E22424" text-anchor="start">MATCH.</text>
+
+  <!-- Subhead -->
+  <text x="120" y="468" font-family="Arial, sans-serif" font-size="26" font-weight="300" fill="rgba(255,255,255,0.55)" text-anchor="start">Find your doubles partner for HYROX, Spartan, Trvka and Athex.</text>
+
+  <!-- Race pills -->
+  <rect x="120" y="492" width="102" height="36" rx="18" fill="rgba(242,208,121,0.12)" stroke="#F2D079" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="171" y="514" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="700" fill="#F2D079" text-anchor="middle" letter-spacing="1">HYROX</text>
+
+  <rect x="234" y="492" width="110" height="36" rx="18" fill="rgba(242,208,121,0.12)" stroke="#F2D079" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="289" y="514" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="700" fill="#F2D079" text-anchor="middle" letter-spacing="1">SPARTAN</text>
+
+  <rect x="356" y="492" width="96" height="36" rx="18" fill="rgba(242,208,121,0.12)" stroke="#F2D079" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="404" y="514" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="700" fill="#F2D079" text-anchor="middle" letter-spacing="1">TRVKA</text>
+
+  <rect x="464" y="492" width="96" height="36" rx="18" fill="rgba(242,208,121,0.12)" stroke="#F2D079" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="512" y="514" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="700" fill="#F2D079" text-anchor="middle" letter-spacing="1">ATHEX</text>
+
+  <!-- Right side: URL and CTA -->
+  <text x="1080" y="560" font-family="Arial, sans-serif" font-size="20" fill="rgba(255,255,255,0.3)" text-anchor="middle" letter-spacing="1">hypair.app</text>
+
+  <!-- Top-right: "Coming soon" badge -->
+  <rect x="1010" y="60" width="150" height="38" rx="19" fill="rgba(226,36,36,0.15)" stroke="#E22424" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="1085" y="84" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#E22424" text-anchor="middle" letter-spacing="2">COMING SOON</text>
+</svg>
