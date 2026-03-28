@@ -4,11 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HyPair — Meet your match</title>
-<meta name="description" content="Find your doubles partner for HYROX, Spartan, Tryka and Athex — matched by pace, level and event.">
+<meta name="description" content="Find your doubles partner for HYROX, Spartan, Trvka and Athex — matched by pace, level and event. Join the waitlist.">
 <meta property="og:title" content="HyPair — Meet your match">
-<meta property="og:description" content="Find your doubles partner for HYROX, Spartan, Tryka and Athex — matched by pace, level and event.">
+<meta property="og:description" content="Stop settling for the wrong partner. HyPair matches hybrid race athletes for doubles events by pace, level and race. Join the waitlist.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/brand/social/hypair-instagram-profile.png">
+<meta property="og:url" content="https://hypair.app">
+<meta property="og:image" content="https://hypair.app/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="https://llkdujodseyilzbkzdbf.supabase.co">
+<link rel="preconnect" href="https://llkdujodseyilzbkzdbf.supabase.co">
 <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
 <link rel="icon" href="/brand/logo/swiss-alps/hypair-favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/brand/logo/swiss-alps/hypair-icon-only.png">
@@ -42,8 +47,6 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
-
-
 
   /* ── NAV ── */
   nav {
@@ -83,10 +86,18 @@
   }
   @keyframes fadeup { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
-  .eyebrow {
-    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-    color: var(--white-35); margin-bottom: 16px;
-    animation: fadeup 0.6s 0.1s ease both;
+  /* ── PAIN LINE ── */
+  .pain-line {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(17px, 4vw, 22px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    line-height: 1.25;
+    max-width: 400px;
+    margin-bottom: 16px;
+    animation: fadeup 0.6s 0.05s ease both;
   }
 
   h1 {
@@ -95,18 +106,35 @@
     font-weight: 900; line-height: 0.95;
     letter-spacing: 1px; text-transform: uppercase;
     color: var(--white); margin-bottom: 16px;
-    animation: fadeup 0.6s 0.15s ease both;
+    animation: fadeup 0.6s 0.1s ease both;
   }
   h1 .gold { color: var(--red); }
 
   .tagline {
     font-size: 17px; font-weight: 300; color: var(--white-60);
-    line-height: 1.65; max-width: 380px; margin-bottom: 40px;
+    line-height: 1.65; max-width: 380px; margin-bottom: 28px;
+    animation: fadeup 0.6s 0.15s ease both;
+  }
+
+  /* ── RACES (hero position) ── */
+  .race-strip {
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 32px;
     animation: fadeup 0.6s 0.2s ease both;
+  }
+  .race-chip {
+    background: var(--black-30); border: 0.5px solid var(--white-15);
+    border-radius: 20px; padding: 7px 16px;
+    font-size: 13px; color: var(--white-35); letter-spacing: 0.3px;
+    transition: all 0.2s;
+  }
+  .race-chip.gold {
+    border-color: var(--gold-border); color: var(--gold);
+    background: var(--gold-dim);
   }
 
   /* ── FORM ── */
-  .form-wrap { width: 100%; max-width: 440px; animation: fadeup 0.6s 0.3s ease both; }
+  .form-wrap { width: 100%; max-width: 440px; animation: fadeup 0.6s 0.25s ease both; }
   .form-row { display: flex; gap: 8px; }
   .form-input {
     flex: 1; background: var(--black-30);
@@ -134,18 +162,31 @@
 
   .form-note { font-size: 12px; color: var(--white-35); text-align: center; margin-top: 10px; letter-spacing: 0.3px; }
 
+  /* ── SOCIAL PROOF ── */
+  .social-proof {
+    font-size: 13px;
+    color: var(--gold);
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 0.3px;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+  .social-proof strong { font-weight: 700; }
+
   /* ── FEATURES ── */
   .features {
     width: 100%; max-width: 440px;
     display: flex; flex-direction: column; gap: 10px;
     margin-top: 48px;
-    animation: fadeup 0.6s 0.4s ease both;
+    animation: fadeup 0.6s 0.35s ease both;
   }
   .feat {
     display: flex; align-items: flex-start; gap: 14px;
     background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 12px; padding: 14px 18px;
+    border-radius: 12px; padding: 16px 18px;
     transition: border-color 0.2s;
+    text-align: left;
   }
   .feat:hover { border-color: var(--white-35); }
   .feat-icon {
@@ -153,24 +194,55 @@
     background: var(--gold-dim); border-radius: 7px;
     display: flex; align-items: center; justify-content: center; font-size: 15px;
   }
-  .feat-text strong { display: block; font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
-  .feat-text span { font-size: 13px; color: var(--white-60); line-height: 1.5; }
+  .feat-text strong { display: block; font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 5px; }
+  .feat-text span { font-size: 13px; color: var(--white-60); line-height: 1.65; }
 
-  /* ── RACES ── */
-  .race-strip {
-    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  /* ── WHY SECTION ── */
+  .why-section {
+    width: 100%; max-width: 440px;
     margin-top: 36px;
-    animation: fadeup 0.6s 0.5s ease both;
+    background: var(--black-30);
+    border: 0.5px solid var(--gold-border);
+    border-radius: 12px;
+    padding: 24px 22px;
+    text-align: left;
+    animation: fadeup 0.6s 0.4s ease both;
   }
-  .race-chip {
-    background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 20px; padding: 7px 16px;
-    font-size: 13px; color: var(--white-35); letter-spacing: 0.3px;
-    transition: all 0.2s;
+  .why-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    display: block;
   }
-  .race-chip.gold {
-    border-color: var(--gold-border); color: var(--gold);
-    background: var(--gold-dim);
+  .why-section p {
+    font-size: 14px;
+    color: var(--white-60);
+    line-height: 1.75;
+  }
+  .why-section p + p { margin-top: 12px; }
+  .why-section p:first-of-type { font-weight: 500; color: var(--white); }
+
+  /* ── SECOND CTA ── */
+  .second-cta {
+    width: 100%; max-width: 440px;
+    margin-top: 56px;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+    padding-bottom: 8px;
+    animation: fadeup 0.6s 0.45s ease both;
+  }
+  .second-cta-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(28px, 6vw, 36px);
+    font-weight: 900; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--white); line-height: 1;
+  }
+  .second-cta-headline span { color: var(--red); }
+  .second-cta-sub {
+    font-size: 14px; color: var(--white-35); max-width: 300px; line-height: 1.6;
+  }
+  .second-cta a.form-btn {
+    display: inline-block; text-decoration: none;
+    padding: 16px 40px; font-size: 18px;
   }
 
   /* ── FOOTER ── */
@@ -280,34 +352,9 @@
       <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
     </svg>
 
-    <p class="eyebrow">Hybrid race partner matching</p>
+    <p class="pain-line">Tired of shouting into Facebook groups<br>trying to find a race partner?</p>
     <h1>Meet your<br><span class="gold">match</span></h1>
-    <p class="tagline">Find your doubles partner for HYROX, Spartan, Tryka, or Athex — matched by pace, level and event.</p>
-
-    <div class="form-wrap">
-      <div class="form-row">
-        <input class="form-input" id="email" type="email" placeholder="your@email.com" autocomplete="email">
-        <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Join the Waitlist</button>
-      </div>
-      <p class="form-note">Be first when we launch. No spam, ever.</p>
-    </div>
-
-    <div class="features">
-      <div class="feat">
-        <div class="feat-icon">⚡</div>
-        <div class="feat-text">
-          <strong>Swipe to match</strong>
-          <span>Browse athletes by PB, fitness level and goals. Find your ideal partner in minutes.</span>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-icon">📍</div>
-        <div class="feat-text">
-          <strong>Race-first matching</strong>
-          <span>Filter by specific events — connect with athletes already entered in your race.</span>
-        </div>
-      </div>
-    </div>
+    <p class="tagline">You trained 12 weeks. Don't leave your doubles partner to chance.<br>Find your match for HYROX, Spartan, Trvka or Athex — matched by pace, level and the exact race you're entering.</p>
 
     <div class="race-strip">
       <span class="race-chip gold">HYROX</span>
@@ -316,6 +363,53 @@
       <span class="race-chip gold">Athex</span>
       <span class="race-chip">+ more coming</span>
     </div>
+
+    <div class="form-wrap" id="form-anchor">
+      <div class="form-row">
+        <input class="form-input" id="email" type="email" placeholder="your@email.com" autocomplete="email">
+        <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Join the Waitlist</button>
+      </div>
+      <p class="form-note">Be first when we launch. No spam, ever.</p>
+      <p class="social-proof"><strong>200+ athletes</strong> already on the waitlist.</p>
+    </div>
+
+    <div class="features">
+      <div class="feat">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-text">
+          <strong>Swipe to match</strong>
+          <span>See real athlete profiles showing race pace, personal bests, target events and racing style. No more guessing if someone is at your level. Just swipe, match, and race.</span>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📍</div>
+        <div class="feat-text">
+          <strong>Race-first matching</strong>
+          <span>Filter by the specific event you've entered — not just the sport. Connect with athletes already registered for the same race, in the same category, on the same date.</span>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🏁</div>
+        <div class="feat-text">
+          <strong>Matched by data, not luck</strong>
+          <span>HyPair matches you on what actually matters on race day — pace compatibility, strength metrics and race experience. Not just who happens to be in your gym.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-section">
+      <span class="why-label">Why we built this</span>
+      <p>Every doubles athlete has the same story.</p>
+      <p>Your partner drops out two weeks before race day. You post in a Facebook group and get no replies. You settle for someone who isn't at your level — and you feel it on the sled push.</p>
+      <p>We built HyPair because that story ends on race day, badly. There's a smarter way to find your pair.</p>
+    </div>
+
+    <div class="second-cta">
+      <p class="second-cta-headline">Race season is coming.<br><span>Don't start it without a partner.</span></p>
+      <p class="second-cta-sub">Join the waitlist and be first when HyPair launches.</p>
+      <a href="#form-anchor" class="form-btn">Get early access →</a>
+    </div>
+
   </section>
 
   <!-- SUCCESS -->
@@ -341,20 +435,20 @@
 
 <footer>
   <div class="footer-social">
-    <a href="https://www.instagram.com/hypair.app" target="_blank" rel="noopener" aria-label="Instagram">
+    <a href="https://www.instagram.com/hypair.app" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
         <circle cx="12" cy="12" r="3.5"/>
         <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
       </svg>
     </a>
-    <a href="https://www.facebook.com/profile.php?id=61579447175723" target="_blank" rel="noopener" aria-label="Facebook">
+    <a href="https://www.facebook.com/profile.php?id=61579447175723" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
       </svg>
     </a>
   </div>
-  <p>&copy; 2026 HyPair &nbsp;·&nbsp; <a href="mailto:joinhypair@gmail.com">joinhypair@gmail.com</a></p>
+  <p>&copy; 2026 HyPair &nbsp;·&nbsp; <a href="mailto:hello@hypair.app">hello@hypair.app</a></p>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
@@ -366,8 +460,12 @@
   // ────────────────────────────────────────────────────────────────────────
 
   let _joinedEmail = ''; // stored after signup to attach race selection
+  let _lastSubmitTime = 0;
 
   async function joinWaitlist() {
+    const now = Date.now();
+    if (now - _lastSubmitTime < 5000) return; // 5s cooldown between attempts
+    _lastSubmitTime = now;
     const input = document.getElementById('email');
     const btn = document.getElementById('submit-btn');
     const email = input.value.trim();
