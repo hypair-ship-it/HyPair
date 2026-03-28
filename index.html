@@ -86,20 +86,6 @@
   }
   @keyframes fadeup { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
-  /* ── PAIN LINE ── */
-  .pain-line {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(17px, 4vw, 22px);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--gold);
-    line-height: 1.25;
-    max-width: 400px;
-    margin-bottom: 16px;
-    animation: fadeup 0.6s 0.05s ease both;
-  }
-
   h1 {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(44px, 10vw, 64px);
@@ -161,18 +147,6 @@
   .form-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
   .form-note { font-size: 12px; color: var(--white-35); text-align: center; margin-top: 10px; letter-spacing: 0.3px; }
-
-  /* ── SOCIAL PROOF ── */
-  .social-proof {
-    font-size: 13px;
-    color: var(--gold);
-    text-align: center;
-    margin-top: 10px;
-    letter-spacing: 0.3px;
-    opacity: 0.9;
-    font-weight: 500;
-  }
-  .social-proof strong { font-weight: 700; }
 
   /* ── FEATURES ── */
   .features {
@@ -321,10 +295,23 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 480px) {
+    /* Compact hero so form is visible above the fold */
+    .hero { padding: 36px 20px 56px; }
+    .hero-logo { width: 64px; margin-bottom: 16px; }
+    h1 { margin-bottom: 12px; }
+    .tagline { font-size: 15px; line-height: 1.55; margin-bottom: 16px; }
+    /* Hide race chips above form — features below explain this */
+    .race-strip { display: none; }
+    /* Form */
     .form-row { flex-direction: column; }
     .form-btn { width: 100%; }
     .nav-tag { display: none; }
     .success-actions { flex-direction: column; }
+    /* Tighten lower sections */
+    .features { margin-top: 36px; }
+    .why-section { padding: 20px 18px; }
+    .second-cta { margin-top: 40px; }
+    .second-cta-headline { font-size: 26px; }
   }
 </style>
 </head>
