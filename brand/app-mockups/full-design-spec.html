@@ -976,6 +976,112 @@
     color: rgba(255,255,255,0.35); margin-top: 4px;
   }
 
+  /* ════════════════════════════════
+     AUTH EXTRAS — Password strength, OTP, errors, forgot pw, success
+  ════════════════════════════════ */
+  /* Password strength bar */
+  .pw-strength { margin-top: -4px; margin-bottom: 8px; z-index: 2; }
+  .pw-bars { display: flex; gap: 4px; margin-bottom: 4px; }
+  .pw-bar {
+    flex: 1; height: 3px; border-radius: 2px;
+    background: rgba(44,58,71,0.12);
+  }
+  .pw-bar.weak   { background: var(--red); }
+  .pw-bar.fair   { background: #E07B20; }
+  .pw-bar.good   { background: #D4AA50; }
+  .pw-bar.strong { background: #3DAA6B; }
+  .pw-strength-lbl {
+    font-size: 9px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .pw-strength-lbl.weak   { color: var(--red); }
+  .pw-strength-lbl.fair   { color: #E07B20; }
+  .pw-strength-lbl.good   { color: #D4AA50; }
+  .pw-strength-lbl.strong { color: #3DAA6B; }
+
+  /* Error field state */
+  .glass-field.error {
+    border-color: rgba(226,36,36,0.5);
+    background: rgba(226,36,36,0.05);
+  }
+  .field-error-msg {
+    font-size: 10px; color: var(--red); font-weight: 600;
+    margin-top: -6px; margin-bottom: 8px; z-index: 2;
+    padding-left: 2px;
+  }
+
+  /* OTP digit boxes */
+  .otp-row { display: flex; gap: 8px; justify-content: center; margin: 16px 0 10px; z-index: 2; }
+  .otp-box {
+    width: 44px; height: 52px;
+    background: rgba(255,255,255,0.6);
+    border: 1.5px solid rgba(255,255,255,0.9);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--slate);
+    backdrop-filter: blur(16px);
+  }
+  .otp-box.active {
+    border-color: var(--red); box-shadow: 0 0 0 3px rgba(226,36,36,0.12);
+  }
+  .otp-box.filled { border-color: rgba(44,58,71,0.25); }
+  .otp-resend {
+    font-size: 11px; color: rgba(44,58,71,0.35); text-align: center; z-index: 2;
+    margin-top: 6px;
+  }
+  .otp-resend span { color: var(--red); font-weight: 700; }
+  .otp-hint {
+    font-size: 11px; color: rgba(44,58,71,0.4); text-align: center;
+    z-index: 2; margin-bottom: 4px; line-height: 1.5;
+  }
+  .otp-hint strong { color: var(--slate); }
+
+  /* Success / confirmation screen */
+  .sc-success {
+    width: 100%; height: 100%;
+    background: linear-gradient(155deg, #EDE7E3 0%, #E4DDD9 60%, #D8D2CE 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px 24px;
+  }
+  .sc-success .blob-tr {
+    position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(61,170,107,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .success-icon {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, #3DAA6B, #2d8a56);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; margin-bottom: 20px; z-index: 2;
+    box-shadow: 0 8px 28px rgba(61,170,107,0.3);
+  }
+  .success-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 28px;
+    color: var(--slate); letter-spacing: 1px;
+    text-align: center; line-height: 1.1; z-index: 2; margin-bottom: 8px;
+  }
+  .success-sub {
+    font-size: 12px; color: rgba(44,58,71,0.45); text-align: center;
+    z-index: 2; line-height: 1.6; margin-bottom: 24px;
+  }
+
+  /* Forgot password info card */
+  .fp-sent-card {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 14px; padding: 16px;
+    text-align: center; z-index: 2;
+    backdrop-filter: blur(16px);
+    margin-bottom: 16px; width: 100%;
+  }
+  .fp-sent-icon { font-size: 28px; margin-bottom: 8px; }
+  .fp-sent-title { font-size: 13px; font-weight: 700; color: var(--slate); margin-bottom: 4px; }
+  .fp-sent-email { font-size: 11px; color: var(--red); font-weight: 700; margin-bottom: 4px; }
+  .fp-sent-sub   { font-size: 10px; color: rgba(44,58,71,0.4); line-height: 1.5; }
+
 </style>
 </head>
 <body>
@@ -1091,7 +1197,16 @@
           </div>
           <div class="glass-field" style="margin-top:8px">
             <div class="lbl">Password</div>
-            <div class="val ph">Min. 8 characters</div>
+            <div class="val">HyPair2026!</div>
+          </div>
+          <div class="pw-strength" style="z-index:2">
+            <div class="pw-bars">
+              <div class="pw-bar strong"></div>
+              <div class="pw-bar strong"></div>
+              <div class="pw-bar strong"></div>
+              <div class="pw-bar strong"></div>
+            </div>
+            <div class="pw-strength-lbl strong">Strong</div>
           </div>
           <div class="btn-red-solid" style="width:100%;padding:12px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:8px;z-index:2;">Create Account</div>
           <div class="auth-divider"><hr><span>or</span><hr></div>
@@ -1138,6 +1253,268 @@
       </div>
     </div>
     <div class="col-note">Mirrored tab switches to Register. Forgot password link.</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════
+     SECTION 1b: AUTH CONTINUATION — OTP · Success
+════════════════════════════════ -->
+<div class="section-label" style="margin-top:40px">01b · Auth — Verify Email · Account Created</div>
+<div class="row">
+
+  <!-- S3b — EMAIL OTP VERIFY -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S3b</span> Verify Email</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-auth">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="auth-logo">
+            <img src="../logo/tundra-light/hypair-logo-colour.svg" alt="HyPair" style="height:26px;width:auto;">
+          </div>
+          <div style="margin-bottom:6px;z-index:2;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--slate);letter-spacing:1px;line-height:1;margin-bottom:4px;">Check your email</div>
+            <div style="font-size:11px;color:rgba(44,58,71,0.45);line-height:1.5;">Step 2 of 2</div>
+          </div>
+          <div class="otp-hint">We sent a 6-digit code to<br><strong>alex@gmail.com</strong></div>
+          <div class="otp-row">
+            <div class="otp-box filled">3</div>
+            <div class="otp-box filled">7</div>
+            <div class="otp-box filled">1</div>
+            <div class="otp-box active"></div>
+            <div class="otp-box"></div>
+            <div class="otp-box"></div>
+          </div>
+          <div class="otp-resend">Didn't get it? <span>Resend code</span></div>
+          <div style="margin-top:14px;z-index:2;">
+            <div class="btn-red-solid" style="width:100%;padding:14px;background:rgba(44,58,71,0.25);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(44,58,71,0.4);text-align:center;margin-bottom:10px;z-index:2;">Verify</div>
+          </div>
+          <div class="auth-note">Wrong email? <span>Go back</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">After Create Account. 6-digit OTP sent to email. Active box highlighted red. Verify button disabled until all 6 filled.</div>
+  </div>
+
+  <!-- S3b-filled — OTP all filled, Verify active -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S3b+</span> Verify — Code Entered</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-auth">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="auth-logo">
+            <img src="../logo/tundra-light/hypair-logo-colour.svg" alt="HyPair" style="height:26px;width:auto;">
+          </div>
+          <div style="margin-bottom:6px;z-index:2;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--slate);letter-spacing:1px;line-height:1;margin-bottom:4px;">Check your email</div>
+            <div style="font-size:11px;color:rgba(44,58,71,0.45);line-height:1.5;">Step 2 of 2</div>
+          </div>
+          <div class="otp-hint">We sent a 6-digit code to<br><strong>alex@gmail.com</strong></div>
+          <div class="otp-row">
+            <div class="otp-box filled">3</div>
+            <div class="otp-box filled">7</div>
+            <div class="otp-box filled">1</div>
+            <div class="otp-box filled">9</div>
+            <div class="otp-box filled">4</div>
+            <div class="otp-box filled">2</div>
+          </div>
+          <div class="otp-resend">Didn't get it? <span>Resend code</span></div>
+          <div style="margin-top:14px;z-index:2;">
+            <div class="btn-red-solid" style="width:100%;padding:14px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:10px;">Verify</div>
+          </div>
+          <div class="auth-note">Wrong email? <span>Go back</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">All 6 digits entered → Verify button becomes active (red).</div>
+  </div>
+
+  <!-- S3c — ACCOUNT CREATED SUCCESS -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S3c</span> Account Created ✓</div>
+    <div class="phone gold-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-success">
+          <div class="blob-tr"></div>
+          <div class="success-icon">✓</div>
+          <div class="success-title">Your account<br>is ready!</div>
+          <div class="success-sub">Welcome to HyPair. Let's build your athlete profile and find your race partner.</div>
+          <div style="width:100%;z-index:2;">
+            <div style="width:100%;padding:15px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);">Set Up My Profile</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Email verified → account created. Green tick. CTA goes to S5 Build Profile.</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════
+     SECTION 1c: AUTH — Login Error · Forgot Password Flow
+════════════════════════════════ -->
+<div class="section-label" style="margin-top:40px">01c · Auth — Login Error · Forgot Password Flow</div>
+<div class="row">
+
+  <!-- S4b — LOGIN ERROR -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S4b</span> Login — Wrong Password</div>
+    <div class="phone red-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-auth">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="auth-logo">
+            <img src="../logo/tundra-light/hypair-logo-colour.svg" alt="HyPair" style="height:26px;width:auto;">
+          </div>
+          <div class="auth-tabs">
+            <div class="auth-tab">Register</div>
+            <div class="auth-tab on">Log In</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Email</div>
+            <div class="val">alex@gmail.com</div>
+          </div>
+          <div class="glass-field error">
+            <div class="lbl">Password</div>
+            <div class="val">••••••••</div>
+          </div>
+          <div class="field-error-msg">Incorrect password. Try again or reset it.</div>
+          <div style="text-align:right;margin-bottom:10px;z-index:2;font-size:11px;color:var(--red);font-weight:700;">Forgot password?</div>
+          <div style="width:100%;padding:15px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:10px;z-index:2;">Log In</div>
+          <div class="auth-divider"><hr><span>or</span><hr></div>
+          <div class="btn-social"><span style="font-size:15px">🔵</span> Continue with Google</div>
+          <div class="btn-social" style="margin-bottom:0"><span style="font-size:15px">⬛</span> Continue with Apple</div>
+          <div class="auth-note">New here? <span>Create account</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Password field turns red on wrong attempt. Error message shown. "Forgot password?" highlighted red to draw attention.</div>
+  </div>
+
+  <!-- S4c — FORGOT PASSWORD: ENTER EMAIL -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S4c</span> Forgot Password</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-auth">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="auth-logo">
+            <img src="../logo/tundra-light/hypair-logo-colour.svg" alt="HyPair" style="height:26px;width:auto;">
+          </div>
+          <div style="margin-bottom:14px;z-index:2;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--slate);letter-spacing:1px;line-height:1;margin-bottom:6px;">Reset your password</div>
+            <div style="font-size:11px;color:rgba(44,58,71,0.45);line-height:1.5;">Enter the email linked to your account and we'll send you a reset link.</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Email</div>
+            <div class="val">alex@gmail.com</div>
+          </div>
+          <div style="width:100%;padding:15px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:10px;margin-top:4px;z-index:2;">Send Reset Link</div>
+          <div class="auth-note"><span>← Back to Log In</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Clean single-field screen. Email pre-filled if coming from login error. Back link returns to S4.</div>
+  </div>
+
+  <!-- S4d — FORGOT PASSWORD: EMAIL SENT -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S4d</span> Reset — Email Sent</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-auth">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="auth-logo">
+            <img src="../logo/tundra-light/hypair-logo-colour.svg" alt="HyPair" style="height:26px;width:auto;">
+          </div>
+          <div style="margin-bottom:14px;z-index:2;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--slate);letter-spacing:1px;line-height:1;margin-bottom:6px;">Check your inbox</div>
+          </div>
+          <div class="fp-sent-card">
+            <div class="fp-sent-icon">📧</div>
+            <div class="fp-sent-title">Reset link sent</div>
+            <div class="fp-sent-email">alex@gmail.com</div>
+            <div class="fp-sent-sub">Click the link in the email to set a new password. Check your spam if you don't see it.</div>
+          </div>
+          <div style="width:100%;padding:15px;background:rgba(44,58,71,0.12);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(44,58,71,0.45);text-align:center;margin-bottom:10px;z-index:2;">Resend Email</div>
+          <div class="auth-note"><span>← Back to Log In</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Confirmation card shows email address. Resend option. No further action needed on this screen — user goes to their email app.</div>
+  </div>
+
+  <!-- S4e — SET NEW PASSWORD -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S4e</span> Set New Password</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-auth">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="auth-logo">
+            <img src="../logo/tundra-light/hypair-logo-colour.svg" alt="HyPair" style="height:26px;width:auto;">
+          </div>
+          <div style="margin-bottom:14px;z-index:2;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--slate);letter-spacing:1px;line-height:1;margin-bottom:6px;">New password</div>
+            <div style="font-size:11px;color:rgba(44,58,71,0.45);line-height:1.5;">Choose something strong. Min. 8 characters.</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">New Password</div>
+            <div class="val">NewPass2026!</div>
+          </div>
+          <div class="pw-strength" style="z-index:2">
+            <div class="pw-bars">
+              <div class="pw-bar strong"></div>
+              <div class="pw-bar strong"></div>
+              <div class="pw-bar strong"></div>
+              <div class="pw-bar strong"></div>
+            </div>
+            <div class="pw-strength-lbl strong">Strong</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Confirm Password</div>
+            <div class="val">NewPass2026!</div>
+          </div>
+          <div style="width:100%;padding:15px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:10px;margin-top:6px;z-index:2;">Set Password</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Opened from the reset link in email. Two fields: new password + confirm. Strength bar on first field. Set Password → S4f.</div>
+  </div>
+
+  <!-- S4f — PASSWORD RESET SUCCESS -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S4f</span> Password Reset ✓</div>
+    <div class="phone gold-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-success">
+          <div class="blob-tr"></div>
+          <div class="success-icon">✓</div>
+          <div class="success-title">Password<br>updated!</div>
+          <div class="success-sub">Your password has been reset. Log in with your new credentials.</div>
+          <div style="width:100%;z-index:2;">
+            <div style="width:100%;padding:15px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);">Back to Log In</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Green tick confirmation. Single CTA returns user to S4 Log In.</div>
   </div>
 
 </div>
@@ -1929,15 +2306,25 @@
   <div class="flow-node"><div class="fn-box"><div class="fn-title">Splash</div><div class="fn-sub">Register / Log In</div></div></div>
   <div class="flow-arrow">→</div>
   <div class="flow-split">
-    <div class="flow-node"><div class="fn-box red"><div class="fn-title">Register</div><div class="fn-sub">New user</div></div></div>
-    <div class="flow-node" style="opacity:0.5"><div class="fn-box"><div class="fn-title">Log In</div><div class="fn-sub">Returning</div></div></div>
+    <div style="display:flex;align-items:center;gap:0;">
+      <div class="flow-node"><div class="fn-box red"><div class="fn-title">Register</div><div class="fn-sub">Name · Email · DOB · City</div></div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="fn-box red"><div class="fn-title">Verify OTP</div><div class="fn-sub">6-digit email code</div></div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="fn-box red"><div class="fn-title">Account ✓</div><div class="fn-sub">Success screen</div></div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:0;">
+      <div class="flow-node" style="opacity:0.7"><div class="fn-box"><div class="fn-title">Log In</div><div class="fn-sub">Returning user</div></div></div>
+      <div class="flow-arrow" style="opacity:0.5">→</div>
+      <div class="flow-node" style="opacity:0.5"><div class="fn-box"><div class="fn-title">Forgot PW?</div><div class="fn-sub">Email → OTP → Reset</div></div></div>
+    </div>
   </div>
   <div class="flow-arrow">→</div>
-  <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Build Profile</div><div class="fn-sub">Name · Age · City · Gender</div></div></div>
+  <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Build Profile</div><div class="fn-sub">Photos · City · Bio · Stats</div></div></div>
   <div class="flow-arrow">→</div>
   <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Your Stats</div><div class="fn-sub">5km · Stations · Best time</div></div></div>
   <div class="flow-arrow">→</div>
-  <div class="flow-node"><div class="fn-box red"><div class="fn-title">Today</div><div class="fn-sub">Matches · Next race</div></div></div>
+  <div class="flow-node"><div class="fn-box red"><div class="fn-title">Home</div><div class="fn-sub">Matches · My races</div></div></div>
   <div class="flow-arrow">↔</div>
   <div class="flow-node"><div class="fn-box"><div class="fn-title">Races</div><div class="fn-sub">Your entered events</div></div></div>
   <div class="flow-arrow">↔</div>
