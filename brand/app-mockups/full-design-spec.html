@@ -1173,29 +1173,13 @@
             <div class="auth-tab on">Register</div>
             <div class="auth-tab">Log In</div>
           </div>
-          <div class="glass-field">
-            <div class="lbl">Full Name</div>
-            <div class="val ph">Alex Morgan</div>
-          </div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--slate);letter-spacing:1px;margin-bottom:4px;z-index:2;">Create your account</div>
+          <div style="font-size:11px;color:rgba(44,58,71,0.4);margin-bottom:14px;z-index:2;line-height:1.5;">You'll set up your athlete profile next.</div>
           <div class="glass-field">
             <div class="lbl">Email</div>
-            <div class="val ph">your@email.com</div>
+            <div class="val">alex@gmail.com</div>
           </div>
           <div class="glass-field">
-            <div class="lbl">Date of Birth</div>
-            <div class="val ph">DD / MM / YYYY</div>
-          </div>
-          <div style="display:flex;gap:8px;margin-bottom:8px;z-index:2;">
-            <div class="glass-field" style="flex:1;margin-bottom:0">
-              <div class="lbl">Country</div>
-              <div class="val ph">United Kingdom</div>
-            </div>
-            <div class="glass-field" style="flex:1;margin-bottom:0">
-              <div class="lbl">City</div>
-              <div class="val ph">London</div>
-            </div>
-          </div>
-          <div class="glass-field" style="margin-top:8px">
             <div class="lbl">Password</div>
             <div class="val">HyPair2026!</div>
           </div>
@@ -1208,7 +1192,7 @@
             </div>
             <div class="pw-strength-lbl strong">Strong</div>
           </div>
-          <div class="btn-red-solid" style="width:100%;padding:12px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:8px;z-index:2;">Create Account</div>
+          <div style="width:100%;padding:14px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:10px;z-index:2;">Create Account</div>
           <div class="auth-divider"><hr><span>or</span><hr></div>
           <div class="btn-social"><span style="font-size:15px">🔵</span> Continue with Google</div>
           <div class="btn-social" style="margin-bottom:0"><span style="font-size:15px">⬛</span> Continue with Apple</div>
@@ -1216,7 +1200,7 @@
         </div>
       </div>
     </div>
-    <div class="col-note">User account: Full Name · Email · DOB · Country · City · Password. Location used for nearby race suggestions. Age auto-computed from DOB.</div>
+    <div class="col-note">Email + password only. Password strength bar shown inline. Social login options. Profile setup happens after email verification — no friction at sign-up.</div>
   </div>
 
   <!-- LOG IN -->
@@ -1520,61 +1504,131 @@
 </div>
 
 <!-- ════════════════════════════════
-     SECTION 2: PROFILE SETUP
+     SECTION 2: PROFILE SETUP — Hard gate (5 steps)
 ════════════════════════════════ -->
-<div class="section-label">02 · Profile Setup — Build Profile → Your Stats</div>
+<div class="section-label">02 · Profile Setup — Hard Gate · 5 Steps · Steps 1–3 Required · 4–5 Optional</div>
 <div class="row">
 
-  <!-- BUILD PROFILE -->
+  <!-- S5 — STEP 1: NAME -->
   <div class="col">
-    <div class="col-label"><span class="screen-num">S5</span> Build Athlete Profile</div>
+    <div class="col-label"><span class="screen-num">S5</span> Step 1 — Your Name</div>
     <div class="phone">
       <div class="screen">
         <div class="di"></div>
         <div class="sc-ob">
-          <div class="ob-progress"><div class="ob-progress-fill" style="width:50%"></div></div>
-          <div class="ob-step">Step 1 of 2</div>
-          <div class="ob-title">Build your<br>profile</div>
-          <div class="ob-sub">This is how other athletes see you</div>
-          <!-- Multi-photo strip -->
-          <div class="photo-strip">
-            <div class="photo-main-thumb">
-              <div class="pt-icon">📷</div>
-              <div class="pt-lbl">Main photo</div>
-            </div>
-            <div class="photo-add-slot">+</div>
-            <div class="photo-add-slot">+</div>
-            <div class="photo-add-slot">+</div>
-          </div>
-          <div class="glass-field" style="margin-bottom:8px;">
-            <div class="lbl">City</div>
-            <div class="val">London</div>
+          <div class="ob-progress"><div class="ob-progress-fill" style="width:20%"></div></div>
+          <div class="ob-step">Step 1 of 5 · Required</div>
+          <div class="ob-title">What's your<br>name?</div>
+          <div class="ob-sub">This is how other athletes will find and recognise you.</div>
+          <div class="glass-field">
+            <div class="lbl">First Name</div>
+            <div class="val">Alex</div>
           </div>
           <div class="glass-field">
-            <div class="lbl">Bio — quick note for potential partners</div>
-            <div class="val ph">e.g. "Training 5× a week, targeting sub-1:05 in London…"</div>
-          </div>
-          <!-- Name + age pre-filled from account — shown as read-only hint -->
-          <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(44,58,71,0.06);border-radius:10px;margin-bottom:8px;z-index:2;">
-            <span style="font-size:13px;">✓</span>
-            <span style="font-size:10px;color:rgba(44,58,71,0.45);">Name &amp; age pulled from your account (Alex Morgan · 28)</span>
+            <div class="lbl">Last Name</div>
+            <div class="val">Morgan</div>
           </div>
           <div style="margin-top:auto;z-index:2;" class="btn-primary">Next →</div>
         </div>
       </div>
     </div>
-    <div class="col-note">Athlete profile: photos (main + extras) · city · quick bio. Name &amp; age auto-populated from user account (DOB → age). No gender field — format chosen per race at S10b.</div>
+    <div class="col-note">First and last name only. Hard gate — cannot skip. Progress bar shows 20%. Simple, fast to complete.</div>
   </div>
 
-  <!-- YOUR STATS -->
+  <!-- S5b — STEP 2: LOCATION -->
   <div class="col">
-    <div class="col-label"><span class="screen-num">S6</span> Your Stats</div>
+    <div class="col-label"><span class="screen-num">S5b</span> Step 2 — Location</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-ob">
+          <div class="ob-progress"><div class="ob-progress-fill" style="width:40%"></div></div>
+          <div class="ob-step">Step 2 of 5 · Required</div>
+          <div class="ob-title">Where are<br>you based?</div>
+          <div class="ob-sub">Used to suggest races and partners near you.</div>
+          <div class="glass-field">
+            <div class="lbl">Country</div>
+            <div class="val">United Kingdom</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">County</div>
+            <div class="val">Greater London</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">City</div>
+            <div class="val">London</div>
+          </div>
+          <div style="margin-top:auto;z-index:2;" class="btn-primary">Next →</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Country → County → City. County used for more granular nearby matching within the same country. Hard gate — cannot skip.</div>
+  </div>
+
+  <!-- S5c — STEP 3: DOB + GENDER -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S5c</span> Step 3 — About You</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-ob">
+          <div class="ob-progress"><div class="ob-progress-fill" style="width:60%"></div></div>
+          <div class="ob-step">Step 3 of 5 · Required</div>
+          <div class="ob-title">A bit about<br>you</div>
+          <div class="ob-sub">Helps us match you with the right category and partners.</div>
+          <div class="glass-field">
+            <div class="lbl">Date of Birth</div>
+            <div class="val">14 / 03 / 1996</div>
+          </div>
+          <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(44,58,71,0.4);margin-bottom:8px;margin-top:2px;z-index:2;">Gender</div>
+          <div class="gender-row">
+            <div class="gender-chip sel">Male</div>
+            <div class="gender-chip">Female</div>
+            <div class="gender-chip">Other</div>
+          </div>
+          <div style="font-size:10px;color:rgba(44,58,71,0.3);margin-top:-4px;margin-bottom:10px;z-index:2;line-height:1.5;">"Other" competes in Mixed Doubles format.</div>
+          <div style="margin-top:auto;z-index:2;" class="btn-primary">Next →</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">DOB used to compute age shown on profile. Gender: Male / Female / Other (Other → Mixed Doubles note). Hard gate — cannot skip.</div>
+  </div>
+
+  <!-- S5d — STEP 4: BIO (OPTIONAL) -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S5d</span> Step 4 — Bio <span style="opacity:0.5">(optional)</span></div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-ob">
+          <div class="ob-progress"><div class="ob-progress-fill" style="width:80%"></div></div>
+          <div class="ob-step">Step 4 of 5 · Optional</div>
+          <div class="ob-title">Tell partners<br>about yourself</div>
+          <div class="ob-sub">A short note goes a long way. You can always add this later.</div>
+          <div class="glass-field" style="min-height:90px;display:flex;flex-direction:column;justify-content:flex-start;">
+            <div class="lbl">Bio</div>
+            <div class="val" style="margin-top:4px;line-height:1.5;font-size:13px;">"Training 5× a week, targeting sub-1:05 in London. Looking for a focused mixed doubles partner."</div>
+          </div>
+          <div style="font-size:10px;color:rgba(44,58,71,0.3);text-align:right;margin-top:-4px;margin-bottom:8px;z-index:2;">142 / 280</div>
+          <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px;z-index:2;">
+            <div class="btn-primary">Next →</div>
+            <div style="text-align:center;font-size:11px;color:rgba(44,58,71,0.38);padding:4px 0;font-weight:600;">Skip for now — add later</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Optional. Character counter shown. Skip link clearly visible beneath Next. Bio can be added or edited any time from S8 Edit Profile.</div>
+  </div>
+
+  <!-- YOUR STATS (S6) — STEP 5 OPTIONAL -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S6</span> Step 5 — Performance <span style="opacity:0.5">(optional)</span></div>
     <div class="phone gold-glow">
       <div class="screen">
         <div class="di"></div>
         <div class="sc-stats">
           <div class="ob-progress" style="background:rgba(44,58,71,0.1)"><div class="ob-progress-fill" style="width:100%"></div></div>
-          <div class="ob-step">Step 2 of 2</div>
+          <div class="ob-step">Step 5 of 5 · Optional</div>
           <div class="ob-title">Your latest<br>performance</div>
           <div class="stat-hint">
             <strong>Enter your most recent times.</strong> These help us find athletes at your level. You can always update these later.
@@ -1603,13 +1657,13 @@
           </div>
 
           <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px;z-index:2;">
-            <div class="btn-primary">Finish Setup 🔥</div>
-            <div style="text-align:center;font-size:11px;color:rgba(44,58,71,0.4);padding:6px 0;">Skip for now — add later</div>
+            <div class="btn-primary">Go to HyPair 🔥</div>
+            <div style="text-align:center;font-size:11px;color:rgba(44,58,71,0.4);padding:6px 0;">Skip for now — add later in Profile</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-note">"Your latest performance" framing. Clear section labels. Gold highlight for best HYROX time. Easy skip.</div>
+    <div class="col-note">Optional final step. Skip goes straight to Home. "Go to HyPair" completes onboarding. Stats can always be updated from S8 Edit Profile.</div>
   </div>
 
   <!-- COMPLETED PROFILE VIEW -->
@@ -2307,7 +2361,7 @@
   <div class="flow-arrow">→</div>
   <div class="flow-split">
     <div style="display:flex;align-items:center;gap:0;">
-      <div class="flow-node"><div class="fn-box red"><div class="fn-title">Register</div><div class="fn-sub">Name · Email · DOB · City</div></div></div>
+      <div class="flow-node"><div class="fn-box red"><div class="fn-title">Register</div><div class="fn-sub">Email + Password only</div></div></div>
       <div class="flow-arrow">→</div>
       <div class="flow-node"><div class="fn-box red"><div class="fn-title">Verify OTP</div><div class="fn-sub">6-digit email code</div></div></div>
       <div class="flow-arrow">→</div>
@@ -2316,13 +2370,24 @@
     <div style="display:flex;align-items:center;gap:0;">
       <div class="flow-node" style="opacity:0.7"><div class="fn-box"><div class="fn-title">Log In</div><div class="fn-sub">Returning user</div></div></div>
       <div class="flow-arrow" style="opacity:0.5">→</div>
-      <div class="flow-node" style="opacity:0.5"><div class="fn-box"><div class="fn-title">Forgot PW?</div><div class="fn-sub">Email → OTP → Reset</div></div></div>
+      <div class="flow-node" style="opacity:0.5"><div class="fn-box"><div class="fn-title">Forgot PW?</div><div class="fn-sub">Email → Reset</div></div></div>
     </div>
   </div>
   <div class="flow-arrow">→</div>
-  <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Build Profile</div><div class="fn-sub">Photos · City · Bio · Stats</div></div></div>
-  <div class="flow-arrow">→</div>
-  <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Your Stats</div><div class="fn-sub">5km · Stations · Best time</div></div></div>
+  <div class="flow-split" style="gap:4px;">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);text-align:center;">Hard Gate</div>
+    <div style="display:flex;align-items:center;gap:0;">
+      <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Name</div><div class="fn-sub">Step 1 · Required</div></div></div>
+      <div class="flow-arrow" style="color:rgba(212,170,80,0.4)">→</div>
+      <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Location</div><div class="fn-sub">Step 2 · Required</div></div></div>
+      <div class="flow-arrow" style="color:rgba(212,170,80,0.4)">→</div>
+      <div class="flow-node"><div class="fn-box gold"><div class="fn-title">DOB + Gender</div><div class="fn-sub">Step 3 · Required</div></div></div>
+      <div class="flow-arrow" style="color:rgba(212,170,80,0.4)">→</div>
+      <div class="flow-node"><div class="fn-box"><div class="fn-title">Bio</div><div class="fn-sub">Step 4 · Optional</div></div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="fn-box"><div class="fn-title">Performance</div><div class="fn-sub">Step 5 · Optional</div></div></div>
+    </div>
+  </div>
   <div class="flow-arrow">→</div>
   <div class="flow-node"><div class="fn-box red"><div class="fn-title">Home</div><div class="fn-sub">Matches · My races</div></div></div>
   <div class="flow-arrow">↔</div>
