@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1800">
+<title>HyPair — Full App Design Spec v3</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@600;700;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate:   #2C3A47;
+    --slate2:  #1E2A35;
+    --slate3:  #374D5A;
+    --red:     #E22424;
+    --gold:    #D4AA50;
+    --white:   #FFFFFF;
+    --bg:      #0E141A;
+    --cream:   #EDE7E3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1800px;
+    background: var(--bg);
+    font-family: 'Barlow', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px 40px 80px;
+    color: #fff;
+  }
+
+  /* ── SHEET HEADER ── */
+  .sheet-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 28px;
+  }
+  .sheet-brand { display: flex; align-items: center; gap: 14px; }
+  .sheet-logo {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #fff;
+  }
+  .sheet-name { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 3px; color: #fff; }
+  .sheet-meta { text-align: right; }
+  .sheet-meta .version { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+  .sheet-meta .date { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    width: 100%;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 28px; margin-top: 60px;
+    padding-left: 10px;
+    border-left: 2px solid var(--red);
+  }
+
+  /* ── PHONE SHELL ── */
+  .row { display: flex; gap: 28px; align-items: flex-start; width: 100%; }
+  .col { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .col-label {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .screen-num {
+    background: var(--red); color: #fff;
+    font-size: 9px; font-weight: 700; letter-spacing: 0;
+    padding: 2px 7px; border-radius: 6px;
+  }
+  .col-note {
+    font-size: 11px; color: rgba(255,255,255,0.25); text-align: center;
+    max-width: 300px; line-height: 1.6; margin-top: 4px;
+  }
+  .phone {
+    width: 300px; height: 648px;
+    background: #0A0A0A;
+    border-radius: 52px; padding: 9px;
+    box-shadow:
+      0 40px 100px rgba(0,0,0,0.7),
+      0 0 0 1px rgba(255,255,255,0.07),
+      inset 0 0 0 1px rgba(255,255,255,0.04);
+    flex-shrink: 0;
+  }
+  .phone.gold-glow { box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.07), 0 0 60px rgba(212,170,80,0.14); }
+  .phone.red-glow  { box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.07), 0 0 60px rgba(226,36,36,0.2); }
+  .screen {
+    width: 100%; height: 100%;
+    border-radius: 44px; overflow: hidden;
+    position: relative; background: var(--slate2);
+  }
+  .di {
+    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    width: 88px; height: 26px;
+    background: #0A0A0A; border-radius: 14px; z-index: 100;
+  }
+
+  /* ── BOTTOM NAV — glass, filled icon style ── */
+  .bottom-nav {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 74px;
+    background: rgba(15,22,30,0.82);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center;
+    padding: 0 12px 10px;
+    z-index: 50;
+  }
+  .nav-item {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; gap: 4px; padding-top: 10px;
+  }
+  /* Filled silhouette icon shapes — CSS only */
+  .nav-icon-shape {
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Today: calendar shape */
+  .ni-today { width:18px;height:18px;background:rgba(255,255,255,0.25);border-radius:4px;position:relative; }
+  .ni-today::before { content:'';position:absolute;top:-3px;left:3px;width:3px;height:6px;background:rgba(255,255,255,0.25);border-radius:2px; }
+  .ni-today::after  { content:'';position:absolute;top:-3px;right:3px;width:3px;height:6px;background:rgba(255,255,255,0.25);border-radius:2px; }
+  /* Races: flag shape */
+  .ni-races { width:14px;height:18px;border-left:3px solid rgba(255,255,255,0.25);border-radius:1px;position:relative; }
+  .ni-races::before { content:'';position:absolute;top:0;left:0;width:11px;height:9px;background:rgba(255,255,255,0.25);border-radius:0 3px 3px 0; }
+  /* Profile: person shape */
+  .ni-profile { width:12px;height:18px;position:relative;display:flex;flex-direction:column;align-items:center;gap:1px; }
+  .ni-profile::before { content:'';width:10px;height:10px;background:rgba(255,255,255,0.25);border-radius:50%; }
+  .ni-profile::after  { content:'';width:14px;height:8px;background:rgba(255,255,255,0.25);border-radius:7px 7px 0 0; }
+  /* Active states — gold */
+  .nav-item.active .ni-today,
+  .nav-item.active .ni-today::before,
+  .nav-item.active .ni-today::after { background:var(--gold); }
+  .nav-item.active .ni-races,
+  .nav-item.active .ni-races::before { background:var(--gold);border-color:var(--gold); }
+  .nav-item.active .ni-profile::before,
+  .nav-item.active .ni-profile::after { background:var(--gold); }
+  .nav-label {
+    font-size: 8px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: rgba(255,255,255,0.28);
+  }
+  .nav-item.active .nav-label { color: var(--gold); }
+  .nav-item.active .nav-icon-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--gold); margin-top: 1px;
+  }
+
+  /* ── SHARED BUTTONS ── */
+  .btn-primary {
+    width: 100%; padding: 16px;
+    background: var(--red); border-radius: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #fff; text-align: center;
+    box-shadow: 0 6px 24px rgba(226,36,36,0.35);
+  }
+  .btn-ghost-dark {
+    width: 100%; padding: 14px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.6); text-align: center;
+  }
+  .btn-ghost-cream {
+    width: 100%; padding: 14px;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--slate); text-align: center;
+    backdrop-filter: blur(12px);
+  }
+
+  /* ════════════════════════════════
+     SCREEN 0 — LOADING
+  ════════════════════════════════ */
+  .sc-loading {
+    width: 100%; height: 100%;
+    background: var(--slate2);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .sc-loading .blob-c {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(226,36,36,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .loading-logo-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    z-index: 2;
+  }
+  .loading-logo-img { width: 120px; height: auto; }
+  .loading-wordmark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px; letter-spacing: 8px; color: #fff;
+    margin-top: 8px;
+  }
+  .loading-dot-row {
+    display: flex; gap: 6px; margin-top: 20px;
+  }
+  .loading-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .loading-dot.on { background: var(--red); }
+  .loading-by {
+    position: absolute; bottom: 40px; left: 0; right: 0;
+    text-align: center;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px;
+    color: rgba(255,255,255,0.2);
+    z-index: 2;
+  }
+  .loading-by span { color: rgba(255,255,255,0.45); font-weight: 600; }
+
+  /* ════════════════════════════════
+     SCREEN 1 — SPLASH
+  ════════════════════════════════ */
+  .sc-splash {
+    width: 100%; height: 100%;
+    background: linear-gradient(168deg, #1a2430 0%, #2C3A47 55%, #1a2430 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center;
+    padding: 0 28px 48px;
+  }
+  .sc-splash .blob-tr {
+    position: absolute; top: -100px; right: -80px;
+    width: 280px; height: 280px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(226,36,36,0.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .sc-splash .blob-bl {
+    position: absolute; bottom: 100px; left: -80px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,170,80,0.16) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .splash-center {
+    flex: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0; z-index: 2;
+  }
+  .splash-logo-img { width: 72px; height: auto; margin-bottom: 18px; }
+  .splash-wordmark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 58px; letter-spacing: 7px; color: #fff;
+    line-height: 1; margin-bottom: 10px;
+  }
+  .splash-tagline {
+    font-size: 11px; font-weight: 400;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .splash-races {
+    display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+  }
+  .splash-race-chip {
+    padding: 4px 10px; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.35);
+  }
+  .splash-cta { width: 100%; display: flex; flex-direction: column; gap: 10px; z-index: 2; }
+
+  /* ════════════════════════════════
+     SCREEN 2 — REGISTER
+  ════════════════════════════════ */
+  .sc-auth {
+    width: 100%; height: 100%;
+    background: linear-gradient(155deg, #EDE7E3 0%, #E4DDD9 60%, #D8D2CE 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 20px 24px;
+  }
+  .sc-auth .blob-tr {
+    position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(226,36,36,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .sc-auth .blob-bl {
+    position: absolute; bottom: -50px; left: -50px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,170,80,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .auth-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 22px; z-index: 2; }
+  .auth-logo .mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: var(--slate);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--gold);
+  }
+  .auth-logo .name {
+    font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--slate);
+  }
+  .auth-tabs {
+    display: flex;
+    background: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 12px; padding: 3px;
+    margin-bottom: 20px; z-index: 2;
+    backdrop-filter: blur(12px);
+  }
+  .auth-tab {
+    flex: 1; padding: 9px; text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(44,58,71,0.4); border-radius: 9px;
+  }
+  .auth-tab.on { background: #fff; color: var(--slate); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .glass-field {
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 12px; padding: 11px 14px;
+    margin-bottom: 8px; z-index: 2;
+    backdrop-filter: blur(16px);
+  }
+  .glass-field .lbl { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(44,58,71,0.38); margin-bottom: 2px; }
+  .glass-field .val { font-size: 14px; color: var(--slate); }
+  .glass-field .val.ph { color: rgba(44,58,71,0.25); }
+  .btn-social {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; padding: 13px;
+    background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 12px; backdrop-filter: blur(12px);
+    font-size: 13px; font-weight: 600; color: var(--slate);
+    margin-bottom: 8px; z-index: 2;
+  }
+  .auth-divider { display: flex; align-items: center; gap: 10px; margin: 8px 0; z-index: 2; }
+  .auth-divider hr { flex: 1; border: none; border-top: 1px solid rgba(44,58,71,0.1); }
+  .auth-divider span { font-size: 10px; color: rgba(44,58,71,0.3); }
+  .auth-note { font-size: 10px; color: rgba(44,58,71,0.3); text-align: center; z-index: 2; line-height: 1.6; margin-top: 6px; }
+  .auth-note span { color: rgba(44,58,71,0.6); font-weight: 600; }
+
+  /* ════════════════════════════════
+     SCREEN 3 — BUILD PROFILE
+  ════════════════════════════════ */
+  .sc-ob {
+    width: 100%; height: 100%;
+    background: linear-gradient(155deg, #EDE7E3 0%, #E4DDD9 60%, #D8D2CE 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 20px 24px;
+  }
+  .sc-ob::after {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,170,80,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .ob-progress { height: 3px; background: rgba(44,58,71,0.1); border-radius: 2px; margin-bottom: 22px; z-index: 2; overflow: hidden; }
+  .ob-progress-fill { height: 100%; background: var(--red); border-radius: 2px; }
+  .ob-step { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(44,58,71,0.35); margin-bottom: 4px; z-index: 2; }
+  .ob-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 32px;
+    color: var(--slate); letter-spacing: 1px;
+    line-height: 1; margin-bottom: 4px; z-index: 2;
+  }
+  .ob-sub { font-size: 12px; color: rgba(44,58,71,0.45); margin-bottom: 16px; z-index: 2; line-height: 1.5; }
+  .gender-row { display: flex; gap: 7px; margin-bottom: 12px; z-index: 2; }
+  .gender-chip {
+    flex: 1; padding: 9px 4px; text-align: center;
+    background: rgba(255,255,255,0.45);
+    border: 1.5px solid rgba(255,255,255,0.85);
+    border-radius: 10px;
+    font-size: 11px; font-weight: 700; color: rgba(44,58,71,0.5);
+    backdrop-filter: blur(8px);
+  }
+  .gender-chip.sel { background: var(--slate); border-color: var(--slate); color: var(--gold); }
+  /* Rectangular photo upload — S5 */
+  .photo-rect {
+    width: 100%; height: 110px;
+    background: rgba(255,255,255,0.45);
+    border: 2px dashed rgba(44,58,71,0.2);
+    border-radius: 14px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin-bottom: 12px; z-index: 2; gap: 5px;
+    backdrop-filter: blur(8px);
+  }
+  .photo-rect .pu-icon { font-size: 26px; }
+  .photo-rect .pu-lbl { font-size: 10px; color: rgba(44,58,71,0.4); font-weight: 600; }
+  .photo-rect .pu-hint { font-size: 9px; color: rgba(44,58,71,0.25); }
+
+  /* ════════════════════════════════
+     SCREEN 4 — YOUR STATS
+  ════════════════════════════════ */
+  .sc-stats {
+    width: 100%; height: 100%;
+    background: linear-gradient(155deg, #EDE7E3 0%, #E4DDD9 60%, #D8D2CE 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 50px 20px 24px;
+  }
+  .sc-stats::after {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,170,80,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .stat-hint {
+    background: rgba(212,170,80,0.12); border: 1px solid rgba(212,170,80,0.25);
+    border-radius: 10px; padding: 9px 12px;
+    font-size: 11px; color: rgba(44,58,71,0.6); line-height: 1.5;
+    margin-bottom: 14px; z-index: 2;
+  }
+  .stat-hint strong { color: var(--slate); }
+  .stat-section-lbl {
+    font-size: 9px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(44,58,71,0.35);
+    margin-bottom: 7px; margin-top: 2px; z-index: 2;
+  }
+  .stats-row-2 { display: flex; gap: 8px; z-index: 2; }
+  .glass-field-gold {
+    background: rgba(212,170,80,0.1); border: 1.5px solid rgba(212,170,80,0.3);
+    border-radius: 12px; padding: 11px 14px;
+    margin-bottom: 8px; z-index: 2;
+  }
+  .glass-field-gold .lbl { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(212,170,80,0.7); margin-bottom: 2px; }
+  .glass-field-gold .val { font-size: 14px; color: var(--slate); font-weight: 700; }
+
+  /* ════════════════════════════════
+     SCREEN 5 — COMPLETED PROFILE
+  ════════════════════════════════ */
+  .sc-profile {
+    width: 100%; height: 100%;
+    background: #111820;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  /* Full-bleed photo header */
+  .profile-photo-bg {
+    position: relative; height: 220px; flex-shrink: 0; overflow: hidden;
+    background: linear-gradient(160deg, #1a2430 0%, #2C3A47 100%);
+  }
+  .profile-photo-bg img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    opacity: 0.75;
+  }
+  .profile-photo-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(17,24,32,0.92) 0%, rgba(17,24,32,0.2) 60%, transparent 100%);
+  }
+  .profile-photo-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 14px 16px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .profile-fullname {
+    font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: #fff; line-height: 1;
+  }
+  .profile-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+  .profile-race-badges { display: flex; gap: 5px; margin-top: 7px; flex-wrap: wrap; }
+  .prb {
+    padding: 3px 9px; border-radius: 8px;
+    background: rgba(212,170,80,0.15); border: 1px solid rgba(212,170,80,0.3);
+    font-size: 8px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .edit-btn {
+    padding: 7px 14px; border-radius: 10px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+    font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6); align-self: flex-end;
+    backdrop-filter: blur(8px);
+  }
+  /* Backward compat */
+  .profile-header { display: none; }
+  .profile-header-row { display: none; }
+  .profile-av { display: none; }
+  .profile-body { flex: 1; overflow: hidden; padding: 16px 16px 90px; display: flex; flex-direction: column; gap: 14px; }
+  .section-hd {
+    font-size: 9px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 8px;
+  }
+  .stats-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .pstat {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 12px 8px; text-align: center;
+  }
+  .pstat .ps-val {
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--gold);
+    display: block; margin-bottom: 2px;
+  }
+  .pstat .ps-lbl { font-size: 8px; color: rgba(255,255,255,0.3); letter-spacing: 1px; text-transform: uppercase; }
+  .best-time-card {
+    background: linear-gradient(135deg, rgba(212,170,80,0.1), rgba(212,170,80,0.05));
+    border: 1px solid rgba(212,170,80,0.2);
+    border-radius: 14px; padding: 14px 16px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .bt-left .bt-label { font-size: 10px; color: rgba(255,255,255,0.35); }
+  .bt-left .bt-race { font-size: 11px; font-weight: 700; color: rgba(212,170,80,0.7); margin-top: 2px; }
+  .bt-left .bt-event { font-size: 9px; color: rgba(255,255,255,0.25); margin-top: 1px; }
+  .bt-val { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--gold); }
+  .profile-bio-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 12px 14px;
+    font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.6;
+  }
+  .race-cal { display: flex; gap: 6px; flex-wrap: wrap; }
+  .rc-tag {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 4px 9px;
+    font-size: 9px; color: rgba(255,255,255,0.4); font-weight: 600;
+  }
+  .rc-tag.upcoming {
+    background: rgba(226,36,36,0.1); border-color: rgba(226,36,36,0.2);
+    color: rgba(255,100,100,0.8);
+  }
+
+  /* ════════════════════════════════
+     SCREEN 6 — TODAY (HOME)
+  ════════════════════════════════ */
+  .sc-today {
+    width: 100%; height: 100%;
+    background: #111820;
+    display: flex; flex-direction: column; overflow: hidden;
+    position: relative;
+  }
+  .today-header {
+    background: linear-gradient(168deg, #1a2430, #2C3A47);
+    padding: 48px 18px 18px; flex-shrink: 0;
+  }
+  .today-greeting { font-size: 11px; color: rgba(255,255,255,0.35); margin-bottom: 2px; }
+  .today-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; color: #fff; }
+  .today-sub { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+  .today-body { flex: 1; padding: 14px 16px 0; overflow: hidden; display: flex; flex-direction: column; gap: 14px; }
+  .card-hd { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .card-hd span { color: var(--red); font-size: 9px; cursor: pointer; }
+  .notify-card {
+    background: rgba(226,36,36,0.08); border: 1px solid rgba(226,36,36,0.18);
+    border-radius: 14px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .notify-icon { font-size: 22px; flex-shrink: 0; }
+  .notify-text .n-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .notify-text .n-sub { font-size: 10px; color: rgba(255,255,255,0.4); }
+  .match-preview {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .mp-av {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, #374D5A, #2C3A47);
+    border: 2px solid rgba(212,170,80,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--gold);
+    flex-shrink: 0;
+  }
+  .mp-info { flex: 1; }
+  .mp-name { font-size: 13px; font-weight: 700; color: #fff; }
+  .mp-meta { font-size: 10px; color: rgba(255,255,255,0.35); }
+  .mp-right .mp-pct { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--red); text-align: right; }
+  .mp-right .mp-lbl { font-size: 8px; color: rgba(255,255,255,0.25); }
+  .upcoming-race-row {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px; padding: 12px 14px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .ur-left .ur-name { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 900; color: var(--gold); }
+  .ur-left .ur-city { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+  .ur-right { text-align: right; }
+  .ur-right .ur-date { font-size: 12px; font-weight: 700; color: #fff; }
+  .ur-right .ur-countdown { font-size: 9px; color: var(--red); margin-top: 2px; }
+
+  /* ════════════════════════════════
+     SCREEN 7 — RACES
+  ════════════════════════════════ */
+  .sc-races {
+    width: 100%; height: 100%;
+    background: #111820;
+    display: flex; flex-direction: column; overflow: hidden;
+    position: relative;
+  }
+  .races-header {
+    background: linear-gradient(168deg, #1a2430, #2C3A47);
+    padding: 48px 18px 18px; flex-shrink: 0;
+  }
+  .races-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: #fff; }
+  .races-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 3px; }
+  .races-body { flex: 1; padding: 16px 16px 0; overflow: hidden; display: flex; flex-direction: column; gap: 10px; }
+  .race-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .race-card.active { border-color: rgba(226,36,36,0.3); background: rgba(226,36,36,0.05); }
+  .rc-icon-box {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .rc-info { flex: 1; }
+  .rc-name { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 900; color: #fff; }
+  .rc-date { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+  .rc-right { text-align: right; }
+  .rc-status {
+    font-size: 9px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 8px;
+  }
+  .rc-status.entered { background: rgba(226,36,36,0.15); color: var(--red); }
+  .rc-status.looking { background: rgba(212,170,80,0.15); color: var(--gold); }
+  .rc-matches { font-size: 10px; color: rgba(255,255,255,0.3); margin-top: 4px; }
+  .add-race-btn {
+    border: 1.5px dashed rgba(255,255,255,0.15); border-radius: 16px; padding: 16px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.3);
+  }
+
+  /* ════════════════════════════════
+     RACE BROWSE — S10 redesign
+  ════════════════════════════════ */
+  .races-search {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 9px 12px;
+    font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .races-search-icon { font-size: 13px; opacity: 0.4; }
+  .comp-filter-row {
+    display: flex; gap: 7px;
+    padding: 10px 16px; flex-shrink: 0;
+    overflow-x: auto;
+  }
+  .comp-chip {
+    padding: 5px 11px; border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.14);
+    font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); white-space: nowrap; flex-shrink: 0;
+  }
+  .comp-chip.active { background: var(--red); border-color: var(--red); color: #fff; }
+  .city-filter-row {
+    display: flex; gap: 6px;
+    padding: 0 16px 10px; flex-shrink: 0;
+    overflow-x: auto;
+  }
+  .city-chip {
+    padding: 4px 10px; border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 10px; color: rgba(255,255,255,0.35); white-space: nowrap; flex-shrink: 0;
+  }
+  .city-chip.active { border-color: var(--gold); color: var(--gold); }
+  .rb-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px;
+    margin-bottom: 8px;
+  }
+  .rb-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .rb-comp-tag {
+    font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--gold); background: rgba(212,170,80,0.12); border: 1px solid rgba(212,170,80,0.2);
+    border-radius: 5px; padding: 2px 7px;
+  }
+  .rb-matching {
+    font-size: 9px; font-weight: 700; color: #4ade80;
+    background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 5px; padding: 2px 7px;
+  }
+  .rb-matching.low { color: var(--gold); background: rgba(212,170,80,0.1); border-color: rgba(212,170,80,0.2); }
+  .rb-name { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 900; color: #fff; }
+  .rb-meta { font-size: 10px; color: rgba(255,255,255,0.3); }
+
+  /* Race detail / matches view — S10b */
+  .sc-race-detail {
+    width: 100%; height: 100%;
+    background: #111820;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .rd-header {
+    background: linear-gradient(168deg, #1a2430, #2C3A47);
+    padding: 48px 18px 16px; flex-shrink: 0;
+  }
+  .rd-back { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+  .rd-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: #fff; }
+  .rd-race-info {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 10px 14px;
+    display: flex; justify-content: space-between; align-items: center; margin-top: 10px;
+  }
+  .rdi-left .rdi-date { font-size: 12px; font-weight: 700; color: #fff; }
+  .rdi-left .rdi-loc { font-size: 10px; color: rgba(255,255,255,0.35); }
+  .rdi-tag { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); }
+  .rd-body { flex: 1; padding: 14px 16px 0; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+  .rd-section-hd {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); margin-bottom: 4px;
+  }
+  .match-row {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 10px 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .mr-av {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, #374D5A, #2C3A47);
+    border: 1.5px solid rgba(212,170,80,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 13px; color: var(--gold);
+    flex-shrink: 0;
+  }
+  .mr-info { flex: 1; }
+  .mr-name { font-size: 13px; font-weight: 700; color: #fff; }
+  .mr-meta { font-size: 10px; color: rgba(255,255,255,0.3); }
+  .mr-pct { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--red); text-align: right; }
+  .find-more-btn {
+    background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 12px;
+    text-align: center; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-top: 2px;
+  }
+
+  /* ── MULTI-PHOTO STRIP (S5, S8) ── */
+  .photo-strip { display: flex; gap: 8px; margin-bottom: 12px; z-index: 2; }
+  .photo-main-thumb {
+    flex: 2; height: 80px; border-radius: 12px;
+    background: rgba(255,255,255,0.45); border: 2px dashed rgba(44,58,71,0.2);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 3px; backdrop-filter: blur(8px);
+  }
+  .photo-main-thumb .pt-icon { font-size: 20px; }
+  .photo-main-thumb .pt-lbl { font-size: 9px; font-weight: 600; color: rgba(44,58,71,0.45); }
+  .photo-add-slot {
+    flex: 1; height: 80px; border-radius: 12px;
+    background: rgba(255,255,255,0.2); border: 2px dashed rgba(44,58,71,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: rgba(44,58,71,0.2);
+  }
+
+  /* ── RACE HISTORY (S8 edit) ── */
+  .race-hist-lbl {
+    font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(44,58,71,0.35); margin-bottom: 6px; z-index: 2;
+  }
+  .race-hist-entry {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 10px; padding: 8px 11px; margin-bottom: 6px; z-index: 2;
+  }
+  .rhe-date { font-size: 9px; color: rgba(44,58,71,0.4); width: 50px; flex-shrink: 0; }
+  .rhe-type { font-size: 11px; font-weight: 700; color: var(--slate); flex: 1; }
+  .rhe-time { font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: var(--slate); }
+  .race-hist-add {
+    border: 1.5px dashed rgba(44,58,71,0.15); border-radius: 10px; padding: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 11px; color: rgba(44,58,71,0.3); z-index: 2; margin-bottom: 8px;
+  }
+
+  /* ── CATEGORY SELECTOR (S10b) ── */
+  .sc-cat {
+    width: 100%; height: 100%; background: #111820;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .cat-header {
+    background: linear-gradient(168deg, #1a2430, #2C3A47);
+    padding: 48px 18px 16px; flex-shrink: 0;
+  }
+  .cat-back { font-size: 11px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+  .cat-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: #fff; }
+  .cat-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+  .cat-body { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
+  .cat-section-lbl {
+    font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.3); margin-bottom: 8px;
+  }
+  .cat-option {
+    background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 7px;
+  }
+  .cat-option.sel { border-color: var(--red); background: rgba(226,36,36,0.06); }
+  .cat-radio {
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cat-option.sel .cat-radio { border-color: var(--red); background: var(--red); }
+  .cat-option.sel .cat-radio::after { content:''; width:6px; height:6px; border-radius:50%; background:#fff; display:block; }
+  .cat-opt-title { font-size: 13px; font-weight: 700; color: #fff; }
+  .cat-opt-sub { font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+  .cat-next-btn {
+    width: 100%; padding: 14px; background: var(--red); border-radius: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: #fff; text-align: center; box-shadow: 0 6px 20px rgba(226,36,36,0.3);
+    margin-top: auto; flex-shrink: 0;
+  }
+
+  /* ── ATHLETE PROFILE VIEW (S11) ── */
+  .sc-athlete {
+    width: 100%; height: 100%; background: #111820;
+    display: flex; flex-direction: column; overflow: hidden; position: relative;
+  }
+  .athlete-action-bar {
+    position: absolute; bottom: 74px; left: 0; right: 0;
+    padding: 10px 16px; display: flex; gap: 10px;
+    background: linear-gradient(to top, rgba(13,19,27,0.98) 0%, rgba(13,19,27,0.6) 70%, transparent 100%);
+    z-index: 20;
+  }
+  .btn-pass {
+    flex: 1; padding: 12px; border-radius: 14px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center;
+  }
+  .btn-match {
+    flex: 2; padding: 12px; border-radius: 14px;
+    background: var(--red); box-shadow: 0 4px 18px rgba(226,36,36,0.4);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #fff; text-align: center;
+  }
+  .verified-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    padding: 2px 7px; border-radius: 6px;
+    background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.25);
+    font-size: 8px; font-weight: 700; color: #4ade80; letter-spacing: 0.5px;
+  }
+  .unverified-badge {
+    display: inline-flex; align-items: center; gap: 3px;
+    padding: 2px 7px; border-radius: 6px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    font-size: 8px; color: rgba(255,255,255,0.3); letter-spacing: 0.5px;
+  }
+  .past-race-row {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 10px 14px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .prr-left .prr-name { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 900; color: #fff; }
+  .prr-left .prr-meta { font-size: 9px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+  .prr-right .prr-time { font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--gold); }
+  .chat-cta {
+    background: rgba(212,170,80,0.1); border: 1px solid rgba(212,170,80,0.25);
+    border-radius: 12px; padding: 10px 14px;
+    font-size: 12px; color: rgba(212,170,80,0.8); text-align: center; font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  /* ── CHAT SCREEN (S12) ── */
+  .sc-chat {
+    width: 100%; height: 100%; background: #111820;
+    display: flex; flex-direction: column;
+  }
+  .chat-header {
+    background: linear-gradient(168deg, #1a2430, #2C3A47);
+    padding: 48px 14px 14px; flex-shrink: 0;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .chat-hd-back { font-size: 18px; color: rgba(255,255,255,0.45); flex-shrink: 0; }
+  .chat-hd-av {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, #374D5A, #2C3A47);
+    border: 1.5px solid rgba(212,170,80,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 13px; color: var(--gold);
+  }
+  .chat-hd-info { flex: 1; }
+  .chat-hd-name { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 900; color: #fff; }
+  .chat-hd-race { font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+  .chat-hd-pct { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--red); }
+  .chat-messages {
+    flex: 1; padding: 14px 14px 10px; display: flex; flex-direction: column; gap: 8px; overflow: hidden;
+  }
+  .chat-bubble { max-width: 80%; display: flex; flex-direction: column; gap: 2px; }
+  .chat-bubble.theirs { align-self: flex-start; }
+  .chat-bubble.mine   { align-self: flex-end; }
+  .bubble-text {
+    padding: 9px 12px; font-size: 11px; line-height: 1.5;
+  }
+  .chat-bubble.theirs .bubble-text {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8); border-radius: 4px 14px 14px 14px;
+  }
+  .chat-bubble.mine .bubble-text {
+    background: rgba(226,36,36,0.85); color: #fff;
+    border-radius: 14px 4px 14px 14px;
+  }
+  .bubble-time { font-size: 8px; color: rgba(255,255,255,0.2); padding: 0 4px; }
+  .chat-bubble.mine .bubble-time { text-align: right; }
+  /* Confirm partnership card — appears as an in-chat CTA */
+  .chat-confirm-card {
+    background: rgba(212,170,80,0.07); border: 1px solid rgba(212,170,80,0.25);
+    border-radius: 14px; padding: 12px 14px; margin: 4px 14px;
+    display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;
+  }
+  .cc-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(212,170,80,0.6); }
+  .cc-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 900; color: #fff; }
+  .cc-race { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+  .cc-actions { display: flex; gap: 8px; margin-top: 2px; }
+  .cc-btn {
+    flex: 1; padding: 10px; border-radius: 10px; text-align: center;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .cc-btn.confirm { background: var(--red); color: #fff; box-shadow: 0 4px 14px rgba(226,36,36,0.3); }
+  .cc-btn.decline { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.4); }
+  /* Input bar */
+  .chat-input-bar {
+    padding: 10px 14px; display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+    background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .chat-input-field {
+    flex: 1; padding: 10px 14px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; font-size: 12px; color: rgba(255,255,255,0.35);
+    font-family: 'Barlow', sans-serif;
+  }
+  .chat-send-btn {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: var(--red); display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+  }
+
+  /* ── EDIT PROFILE BUTTON in body ── */
+  .edit-profile-btn {
+    width: 100%; padding: 12px;
+    background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: 14px; text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ── MATCHED RACE on Home ── */
+  .myr-matched {
+    font-size: 8px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 3px 8px; border-radius: 6px;
+    background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.25);
+    color: #4ade80;
+  }
+
+  /* My Races section in Today tab */
+  .my-race-row {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 10px 14px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .myr-left .myr-name { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 900; color: var(--gold); }
+  .myr-left .myr-date { font-size: 9px; color: rgba(255,255,255,0.3); margin-top: 1px; }
+  .myr-right .myr-status {
+    font-size: 8px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 6px;
+  }
+  .myr-status.entered   { background: rgba(226,36,36,0.15); color: var(--red); }
+  .myr-status.looking   { background: rgba(212,170,80,0.15); color: var(--gold); }
+  .myr-status.matching  { background: rgba(212,170,80,0.12); color: var(--gold); border: 1px solid rgba(212,170,80,0.25); }
+  .myr-status.not-open  { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.28); }
+  .find-nearby-link {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 9px 14px; border-radius: 12px;
+    border: 1px dashed rgba(255,255,255,0.12);
+    font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.35); margin-top: 4px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ─── SHEET HEADER ─── -->
+<div class="sheet-header">
+  <div class="sheet-brand">
+    <img src="../logo/swiss-alps/hypair-logo-colour.svg" alt="HyPair" style="height:36px;width:auto;">
+  </div>
+  <div class="sheet-meta">
+    <div class="version">App Design Spec — v3.0</div>
+    <div class="date">Updated flow · Loading → Splash → Register → Profile → Stats → App</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     SECTION 1: LAUNCH FLOW
+════════════════════════════════ -->
+<div class="section-label">01 · Launch Flow — Loading → Splash → Register</div>
+<div class="row">
+
+  <!-- LOADING SCREEN -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S1</span> Loading Screen</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-loading">
+          <div class="blob-c"></div>
+          <div class="loading-logo-wrap">
+            <img class="loading-logo-img" src="../logo/swiss-alps/hypair-logo-colour.svg" alt="HyPair">
+            <div class="loading-wordmark">HYPAIR</div>
+            <div class="loading-dot-row">
+              <div class="loading-dot on"></div>
+              <div class="loading-dot on"></div>
+              <div class="loading-dot"></div>
+            </div>
+          </div>
+          <div class="loading-by">by <span>HyPair</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Dark bg · Logo centred · Animated dots · "by HyPair" pinned to bottom</div>
+  </div>
+
+  <!-- SPLASH SCREEN -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S2</span> Splash</div>
+    <div class="phone red-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-splash">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="splash-center">
+            <img class="splash-logo-img" src="../logo/swiss-alps/hypair-logo-colour.svg" alt="HyPair">
+            <div class="splash-wordmark">HYPAIR</div>
+            <div class="splash-tagline">Meet your match</div>
+            <div class="splash-races">
+              <div class="splash-race-chip">HYROX</div>
+              <div class="splash-race-chip">SPARTAN</div>
+              <div class="splash-race-chip">TRYKA</div>
+              <div class="splash-race-chip">ATHEX</div>
+            </div>
+          </div>
+          <div class="splash-cta">
+            <div class="btn-primary">Register</div>
+            <div class="btn-ghost-dark">Log In</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Logo + wordmark centred. Race names all CAPS. Register first / Log In second.</div>
+  </div>
+
+  <!-- REGISTER -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S3</span> Register</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-auth">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="auth-logo">
+            <img src="../logo/tundra-light/hypair-logo-colour.svg" alt="HyPair" style="height:26px;width:auto;">
+          </div>
+          <div class="auth-tabs">
+            <div class="auth-tab on">Register</div>
+            <div class="auth-tab">Log In</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Full Name</div>
+            <div class="val ph">Alex Morgan</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Email</div>
+            <div class="val ph">your@email.com</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Date of Birth</div>
+            <div class="val ph">DD / MM / YYYY</div>
+          </div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;z-index:2;">
+            <div class="glass-field" style="flex:1;margin-bottom:0">
+              <div class="lbl">Country</div>
+              <div class="val ph">United Kingdom</div>
+            </div>
+            <div class="glass-field" style="flex:1;margin-bottom:0">
+              <div class="lbl">City</div>
+              <div class="val ph">London</div>
+            </div>
+          </div>
+          <div class="glass-field" style="margin-top:8px">
+            <div class="lbl">Password</div>
+            <div class="val ph">Min. 8 characters</div>
+          </div>
+          <div class="btn-red-solid" style="width:100%;padding:12px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:8px;z-index:2;">Create Account</div>
+          <div class="auth-divider"><hr><span>or</span><hr></div>
+          <div class="btn-social"><span style="font-size:15px">🔵</span> Continue with Google</div>
+          <div class="btn-social" style="margin-bottom:0"><span style="font-size:15px">⬛</span> Continue with Apple</div>
+          <div class="auth-note">Already registered? <span>Log In</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">User account: Full Name · Email · DOB · Country · City · Password. Location used for nearby race suggestions. Age auto-computed from DOB.</div>
+  </div>
+
+  <!-- LOG IN -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S4</span> Log In</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-auth">
+          <div class="blob-tr"></div>
+          <div class="blob-bl"></div>
+          <div class="auth-logo">
+            <img src="../logo/tundra-light/hypair-logo-colour.svg" alt="HyPair" style="height:26px;width:auto;">
+          </div>
+          <div class="auth-tabs">
+            <div class="auth-tab">Register</div>
+            <div class="auth-tab on">Log In</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Email</div>
+            <div class="val">alex@gmail.com</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Password</div>
+            <div class="val">••••••••</div>
+          </div>
+          <div style="text-align:right;margin-bottom:10px;z-index:2;font-size:11px;color:rgba(44,58,71,0.45);font-weight:600;">Forgot password?</div>
+          <div class="btn-red-solid" style="width:100%;padding:15px;background:var(--red);border-radius:12px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;text-align:center;box-shadow:0 4px 18px rgba(226,36,36,0.28);margin-bottom:10px;z-index:2;">Log In</div>
+          <div class="auth-divider"><hr><span>or</span><hr></div>
+          <div class="btn-social"><span style="font-size:15px">🔵</span> Continue with Google</div>
+          <div class="btn-social" style="margin-bottom:0"><span style="font-size:15px">⬛</span> Continue with Apple</div>
+          <div class="auth-note">New here? <span>Create account</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Mirrored tab switches to Register. Forgot password link.</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════
+     SECTION 2: PROFILE SETUP
+════════════════════════════════ -->
+<div class="section-label">02 · Profile Setup — Build Profile → Your Stats</div>
+<div class="row">
+
+  <!-- BUILD PROFILE -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S5</span> Build Athlete Profile</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-ob">
+          <div class="ob-progress"><div class="ob-progress-fill" style="width:50%"></div></div>
+          <div class="ob-step">Step 1 of 2</div>
+          <div class="ob-title">Build your<br>profile</div>
+          <div class="ob-sub">This is how other athletes see you</div>
+          <!-- Multi-photo strip -->
+          <div class="photo-strip">
+            <div class="photo-main-thumb">
+              <div class="pt-icon">📷</div>
+              <div class="pt-lbl">Main photo</div>
+            </div>
+            <div class="photo-add-slot">+</div>
+            <div class="photo-add-slot">+</div>
+            <div class="photo-add-slot">+</div>
+          </div>
+          <div class="glass-field" style="margin-bottom:8px;">
+            <div class="lbl">City</div>
+            <div class="val">London</div>
+          </div>
+          <div class="glass-field">
+            <div class="lbl">Bio — quick note for potential partners</div>
+            <div class="val ph">e.g. "Training 5× a week, targeting sub-1:05 in London…"</div>
+          </div>
+          <!-- Name + age pre-filled from account — shown as read-only hint -->
+          <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(44,58,71,0.06);border-radius:10px;margin-bottom:8px;z-index:2;">
+            <span style="font-size:13px;">✓</span>
+            <span style="font-size:10px;color:rgba(44,58,71,0.45);">Name &amp; age pulled from your account (Alex Morgan · 28)</span>
+          </div>
+          <div style="margin-top:auto;z-index:2;" class="btn-primary">Next →</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Athlete profile: photos (main + extras) · city · quick bio. Name &amp; age auto-populated from user account (DOB → age). No gender field — format chosen per race at S10b.</div>
+  </div>
+
+  <!-- YOUR STATS -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S6</span> Your Stats</div>
+    <div class="phone gold-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-stats">
+          <div class="ob-progress" style="background:rgba(44,58,71,0.1)"><div class="ob-progress-fill" style="width:100%"></div></div>
+          <div class="ob-step">Step 2 of 2</div>
+          <div class="ob-title">Your latest<br>performance</div>
+          <div class="stat-hint">
+            <strong>Enter your most recent times.</strong> These help us find athletes at your level. You can always update these later.
+          </div>
+
+          <div class="stat-section-lbl">Running</div>
+          <div class="glass-field">
+            <div class="lbl">5km Run — latest time</div>
+            <div class="val">21:45 <span style="color:rgba(44,58,71,0.3);font-size:11px">mm:ss</span></div>
+          </div>
+
+          <div class="stat-section-lbl">Station times</div>
+          <div class="stats-row-2">
+            <div class="glass-field" style="flex:1;margin-bottom:0">
+              <div class="lbl">SkiErg 1km</div>
+              <div class="val ph">3:45</div>
+            </div>
+            <div class="glass-field" style="flex:1;margin-bottom:0">
+              <div class="lbl">Rowing 1km</div>
+              <div class="val ph">3:30</div>
+            </div>
+          </div>
+
+          <div style="background:rgba(212,170,80,0.08);border:1px solid rgba(212,170,80,0.2);border-radius:10px;padding:9px 12px;margin-top:8px;z-index:2;">
+            <div style="font-size:10px;color:rgba(44,58,71,0.5);line-height:1.5;"><strong style="color:var(--slate);">Personal Best (PB)</strong> will be calculated automatically once you log your first race result in your profile.</div>
+          </div>
+
+          <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px;z-index:2;">
+            <div class="btn-primary">Finish Setup 🔥</div>
+            <div style="text-align:center;font-size:11px;color:rgba(44,58,71,0.4);padding:6px 0;">Skip for now — add later</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">"Your latest performance" framing. Clear section labels. Gold highlight for best HYROX time. Easy skip.</div>
+  </div>
+
+  <!-- COMPLETED PROFILE VIEW -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S7</span> Completed Profile</div>
+    <div class="phone gold-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-profile">
+          <div class="profile-photo-bg">
+            <img src="hyrox-profile.jpg" alt="" onerror="this.style.display='none'">
+            <div class="profile-photo-overlay"></div>
+            <div class="profile-photo-content">
+              <div>
+                <div class="profile-fullname">ALEX MORGAN</div>
+                <div class="profile-sub">28 · Female · London · Competitive</div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-body">
+            <div>
+              <div class="section-hd">Training benchmarks</div>
+              <div class="stats-3col">
+                <div class="pstat"><span class="ps-val">21:45</span><span class="ps-lbl">5km Run</span></div>
+                <div class="pstat"><span class="ps-val">3:42</span><span class="ps-lbl">SkiErg</span></div>
+                <div class="pstat"><span class="ps-val">3:28</span><span class="ps-lbl">Rowing</span></div>
+              </div>
+            </div>
+            <div>
+              <div class="section-hd">About</div>
+              <div class="profile-bio-card">"HYROX doubles athlete, training 5× per week. Podium at Manchester 2024. Looking for a focused partner for Berlin and London this season."</div>
+            </div>
+            <!-- All race finish times — from race_results table -->
+            <div>
+              <div class="section-hd">Race results</div>
+              <div class="past-race-row">
+                <div class="prr-left">
+                  <div class="prr-name">HYROX London</div>
+                  <div class="prr-meta">Nov 2024 · Mixed Doubles · <span class="verified-badge">✓ Verified</span></div>
+                </div>
+                <div class="prr-right"><div class="prr-time">1:04:22</div></div>
+              </div>
+              <div class="past-race-row">
+                <div class="prr-left">
+                  <div class="prr-name">HYROX Manchester</div>
+                  <div class="prr-meta">Mar 2024 · Mixed Doubles · <span class="unverified-badge">Self-reported</span></div>
+                </div>
+                <div class="prr-right"><div class="prr-time">1:08:55</div></div>
+              </div>
+              <div class="past-race-row">
+                <div class="prr-left">
+                  <div class="prr-name">Spartan Edinburgh</div>
+                  <div class="prr-meta">Sep 2023 · Open · <span class="unverified-badge">Self-reported</span></div>
+                </div>
+                <div class="prr-right"><div class="prr-time">2:34:10</div></div>
+              </div>
+            </div>
+            <div class="edit-profile-btn">Edit Profile</div>
+          </div>
+          <div class="bottom-nav">
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-today"></div></div><div class="nav-label">Home</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-races"></div></div><div class="nav-label">Races</div></div>
+            <div class="nav-item active"><div class="nav-icon-shape"><div class="ni-profile"></div></div><div class="nav-label">Profile</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Benchmarks → About → Race results (all logged, verified or self-reported). Edit Profile at bottom. No PB card, no upcoming races.</div>
+  </div>
+
+  <!-- EDIT PROFILE (DRAWER) -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S8</span> Edit Profile</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-ob" style="padding-top:40px;overflow-y:auto;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;z-index:2;">
+            <div class="ob-title" style="margin-bottom:0;">Edit Profile</div>
+            <div style="font-size:13px;font-weight:600;color:var(--red);z-index:2;">Save</div>
+          </div>
+          <!-- Multi-photo strip -->
+          <div class="photo-strip">
+            <div class="photo-main-thumb">
+              <div class="pt-icon">📷</div>
+              <div class="pt-lbl">Main photo</div>
+            </div>
+            <div class="photo-add-slot">+</div>
+            <div class="photo-add-slot">+</div>
+            <div class="photo-add-slot">+</div>
+          </div>
+          <!-- Bio -->
+          <div class="glass-field">
+            <div class="lbl">Bio</div>
+            <div class="val ph">What should your future partner know about you?</div>
+          </div>
+          <!-- City only — name & age from user account -->
+          <div class="glass-field">
+            <div class="lbl">City</div>
+            <div class="val">London</div>
+          </div>
+          <!-- Training benchmarks (Run / SkiErg / Row only) -->
+          <div class="stat-section-lbl" style="margin-top:10px">Training benchmarks</div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;z-index:2;">
+            <div class="glass-field" style="flex:1;margin-bottom:0"><div class="lbl">5km Run</div><div class="val">21:45</div></div>
+            <div class="glass-field" style="flex:1;margin-bottom:0"><div class="lbl">SkiErg 1km</div><div class="val">3:42</div></div>
+            <div class="glass-field" style="flex:1;margin-bottom:0"><div class="lbl">Rowing 1km</div><div class="val">3:28</div></div>
+          </div>
+          <!-- Race results — stored in race_results table, PB auto-computed -->
+          <div class="stat-section-lbl" style="margin-top:10px">Race results <span style="font-size:8px;color:rgba(44,58,71,0.3);font-weight:400;">(PB auto-calculated)</span></div>
+          <div class="race-hist-entry">
+            <div class="rhe-date">Nov 2024</div>
+            <div class="rhe-type">HYROX London · Mixed</div>
+            <div class="rhe-time">1:04:22</div>
+          </div>
+          <div class="race-hist-entry">
+            <div class="rhe-date">Mar 2024</div>
+            <div class="rhe-type">HYROX Manchester · Mixed</div>
+            <div class="rhe-time">1:08:55</div>
+          </div>
+          <!-- Add race form -->
+          <div style="background:rgba(255,255,255,0.25);border:1.5px dashed rgba(44,58,71,0.15);border-radius:12px;padding:10px;margin-bottom:8px;z-index:2;display:flex;flex-direction:column;gap:6px;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(44,58,71,0.4);margin-bottom:2px;">+ Add race result</div>
+            <div style="display:flex;gap:6px;">
+              <div class="glass-field" style="flex:2;margin-bottom:0;padding:8px 10px;"><div class="lbl">Race name</div><div class="val ph">HYROX London</div></div>
+              <div class="glass-field" style="flex:1;margin-bottom:0;padding:8px 10px;"><div class="lbl">City</div><div class="val ph">London</div></div>
+            </div>
+            <div style="display:flex;gap:6px;">
+              <div class="glass-field" style="flex:1;margin-bottom:0;padding:8px 10px;"><div class="lbl">Date</div><div class="val ph">MM/YYYY</div></div>
+              <div class="glass-field" style="flex:1;margin-bottom:0;padding:8px 10px;"><div class="lbl">Race type</div><div class="val ph">HYROX</div></div>
+              <div class="glass-field" style="flex:1;margin-bottom:0;padding:8px 10px;"><div class="lbl">Finish time</div><div class="val ph">1:04:22</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Photos · bio · city. Run / SkiErg / Row benchmarks only. Race results stored in race_results table (name · city · date · type · finish time). PB auto-computed. Name &amp; age not editable here — managed via account settings.</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════
+     SECTION 3: MAIN APP TABS
+════════════════════════════════ -->
+<div class="section-label">03 · Main App — Home · Races · Profile (bottom nav)</div>
+<div class="row">
+
+  <!-- HOME TAB -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S9</span> Home</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-today">
+          <div class="today-header">
+            <div class="today-greeting">Sunday, 29 March</div>
+            <div class="today-title">HOME</div>
+            <div class="today-sub">3 new matches · 1 message</div>
+          </div>
+          <div class="today-body">
+            <!-- New match notification -->
+            <div>
+              <div class="card-hd">New matches <span>See all →</span></div>
+              <div class="notify-card">
+                <div class="notify-icon">⚡</div>
+                <div class="notify-text">
+                  <div class="n-title">3 new partner matches</div>
+                  <div class="n-sub">Based on your HYROX London entry</div>
+                </div>
+              </div>
+            </div>
+            <!-- Top match preview -->
+            <div>
+              <div class="card-hd">Top match today</div>
+              <div class="match-preview">
+                <div class="mp-av">SK</div>
+                <div class="mp-info">
+                  <div class="mp-name">Sam Kim</div>
+                  <div class="mp-meta">Manchester · Pro · 58:31 PB</div>
+                </div>
+                <div class="mp-right">
+                  <div class="mp-pct">91%</div>
+                  <div class="mp-lbl">match</div>
+                </div>
+              </div>
+            </div>
+            <!-- My Races — all possible status states shown -->
+            <div>
+              <div class="card-hd">My Races <span>Add →</span></div>
+              <!-- State 1: confirmed partner -->
+              <div class="my-race-row">
+                <div class="myr-left">
+                  <div class="myr-name">HYROX BERLIN</div>
+                  <div class="myr-date">Sep 20 · Mixed Doubles</div>
+                </div>
+                <div class="myr-right"><div class="myr-matched">✓ Paired</div></div>
+              </div>
+              <!-- State 2: matching in progress — candidates found -->
+              <div class="my-race-row">
+                <div class="myr-left">
+                  <div class="myr-name">SPARTAN EDINBURGH</div>
+                  <div class="myr-date">May 3 · Edinburgh</div>
+                </div>
+                <div class="myr-right"><div class="myr-status matching">Matching ···</div></div>
+              </div>
+              <!-- State 3: race entered but matching not open yet -->
+              <div class="my-race-row">
+                <div class="myr-left">
+                  <div class="myr-name">HYROX LONDON 2026</div>
+                  <div class="myr-date">Mar 14 · Mixed Doubles</div>
+                </div>
+                <div class="myr-right"><div class="myr-status not-open">Not open yet</div></div>
+              </div>
+              <!-- Find more races nudge -->
+              <div class="find-nearby-link">📍 Find similar races near me →</div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <div class="nav-item active"><div class="nav-icon-shape"><div class="ni-today"></div></div><div class="nav-label">Home</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-races"></div></div><div class="nav-label">Races</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-profile"></div></div><div class="nav-label">Profile</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">My Races shows 3 states: ✓ Paired · Matching ··· (candidates found, pending decision) · Not open yet (too early or organiser hasn't enabled matching). "Find similar races near me" → deep-links into S10 browse with pre-filtered results.</div>
+  </div>
+
+  <!-- RACES TAB — browse/search -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S10</span> Races</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-races">
+          <div class="races-header">
+            <div class="races-title">FIND A RACE</div>
+            <div class="races-sub">Browse upcoming events · see who's looking</div>
+            <div class="races-search">
+              <span class="races-search-icon">🔍</span>
+              <span>City, country or event name…</span>
+            </div>
+          </div>
+          <!-- Competition type filter -->
+          <div class="comp-filter-row">
+            <div class="comp-chip active">All</div>
+            <div class="comp-chip">HYROX</div>
+            <div class="comp-chip">Spartan</div>
+            <div class="comp-chip">Tryka</div>
+            <div class="comp-chip">Athex</div>
+          </div>
+          <!-- City filter -->
+          <div class="city-filter-row">
+            <div class="city-chip active">All cities</div>
+            <div class="city-chip">London</div>
+            <div class="city-chip">Manchester</div>
+            <div class="city-chip">Edinburgh</div>
+            <div class="city-chip">Berlin</div>
+          </div>
+          <!-- Race listing -->
+          <div class="races-body" style="padding-top:0;gap:0;">
+            <div class="rb-card">
+              <div class="rb-top">
+                <div class="rb-comp-tag">HYROX</div>
+              </div>
+              <div class="rb-name">HYROX LONDON</div>
+              <div class="rb-meta">Apr 12 · ExCeL London</div>
+            </div>
+            <div class="rb-card">
+              <div class="rb-top">
+                <div class="rb-comp-tag">SPARTAN</div>
+              </div>
+              <div class="rb-name">SPARTAN EDINBURGH</div>
+              <div class="rb-meta">May 3 · Edinburgh</div>
+            </div>
+            <div class="rb-card">
+              <div class="rb-top">
+                <div class="rb-comp-tag">HYROX</div>
+              </div>
+              <div class="rb-name">HYROX BERLIN</div>
+              <div class="rb-meta">Sep 20 · Berlin</div>
+            </div>
+            <div class="rb-card">
+              <div class="rb-top">
+                <div class="rb-comp-tag">TRYKA</div>
+              </div>
+              <div class="rb-name">TRYKA BRISTOL</div>
+              <div class="rb-meta">Oct 4 · Bristol</div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-today"></div></div><div class="nav-label">Home</div></div>
+            <div class="nav-item active"><div class="nav-icon-shape"><div class="ni-races"></div></div><div class="nav-label">Races</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-profile"></div></div><div class="nav-label">Profile</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Browse &amp; search races. Competition + city filters. Green dot = matching active. Tap race → see top matches.</div>
+  </div>
+
+  <!-- S10b — Race category + goal selector -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S10b</span> Race → Category</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-cat">
+          <div class="cat-header">
+            <div class="cat-back">← HYROX London</div>
+            <div class="cat-title">CHOOSE FORMAT</div>
+            <div class="cat-sub">Apr 12 · ExCeL London</div>
+          </div>
+          <div class="cat-body">
+            <!-- Doubles format -->
+            <div>
+              <div class="cat-section-lbl">Doubles format</div>
+              <div class="cat-option sel">
+                <div class="cat-radio"></div>
+                <div>
+                  <div class="cat-opt-title">Mixed Doubles</div>
+                  <div class="cat-opt-sub">One male + one female athlete</div>
+                </div>
+              </div>
+              <div class="cat-option">
+                <div class="cat-radio"></div>
+                <div>
+                  <div class="cat-opt-title">Women's Doubles</div>
+                  <div class="cat-opt-sub">Two female athletes</div>
+                </div>
+              </div>
+              <div class="cat-option">
+                <div class="cat-radio"></div>
+                <div>
+                  <div class="cat-opt-title">Men's Doubles</div>
+                  <div class="cat-opt-sub">Two male athletes</div>
+                </div>
+              </div>
+            </div>
+            <!-- Goal / Division -->
+            <div>
+              <div class="cat-section-lbl">Your goal</div>
+              <div class="cat-option sel">
+                <div class="cat-radio"></div>
+                <div>
+                  <div class="cat-opt-title">Competitive — podium goal</div>
+                  <div class="cat-opt-sub">Serious training, aiming for top 10%</div>
+                </div>
+              </div>
+              <div class="cat-option">
+                <div class="cat-radio"></div>
+                <div>
+                  <div class="cat-opt-title">Strong finish — no DNF</div>
+                  <div class="cat-opt-sub">Committed, steady pace, no quitting</div>
+                </div>
+              </div>
+              <div class="cat-option">
+                <div class="cat-radio"></div>
+                <div>
+                  <div class="cat-opt-title">First race experience</div>
+                  <div class="cat-opt-sub">New to this format, just want to finish</div>
+                </div>
+              </div>
+            </div>
+            <div class="cat-next-btn">Find my match →</div>
+          </div>
+          <div class="bottom-nav">
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-today"></div></div><div class="nav-label">Home</div></div>
+            <div class="nav-item active"><div class="nav-icon-shape"><div class="ni-races"></div></div><div class="nav-label">Races</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-profile"></div></div><div class="nav-label">Profile</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">After tapping a race: pick doubles format + your goal. Athletes who don't identify as male/female select Mixed Doubles — all formats are available regardless. Tryka shows 500 vs 800 instead of format.</div>
+  </div>
+
+  <!-- S10c — Top partner matches after category chosen -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S10c</span> Matches</div>
+    <div class="phone red-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-race-detail">
+          <div class="rd-header">
+            <div class="rd-back">← HYROX London · Mixed Doubles · Competitive</div>
+            <div class="rd-title">YOUR MATCHES</div>
+            <div class="rd-race-info">
+              <div class="rdi-left">
+                <div class="rdi-date">Apr 12, 2025 · ExCeL London</div>
+                <div class="rdi-loc">Sorted by compatibility</div>
+              </div>
+              <div class="rdi-tag">HYROX</div>
+            </div>
+          </div>
+          <div class="rd-body">
+            <div class="rd-section-hd">Top partner matches</div>
+            <div class="match-row">
+              <div class="mr-av">SK</div>
+              <div class="mr-info">
+                <div class="mr-name">Sam Kim</div>
+                <div class="mr-meta">Manchester · Pro · PB 58:31</div>
+              </div>
+              <div class="mr-pct">91%</div>
+            </div>
+            <div class="match-row">
+              <div class="mr-av">JR</div>
+              <div class="mr-info">
+                <div class="mr-name">Jordan R.</div>
+                <div class="mr-meta">Bristol · Competitive · PB 1:10:05</div>
+              </div>
+              <div class="mr-pct">84%</div>
+            </div>
+            <div class="match-row">
+              <div class="mr-av">CT</div>
+              <div class="mr-info">
+                <div class="mr-name">Chris T.</div>
+                <div class="mr-meta">Edinburgh · Open · PB 1:18:44</div>
+              </div>
+              <div class="mr-pct">76%</div>
+            </div>
+            <div class="match-row">
+              <div class="mr-av">ML</div>
+              <div class="mr-info">
+                <div class="mr-name">Morgan L.</div>
+                <div class="mr-meta">Birmingham · Competitive · PB 1:07:10</div>
+              </div>
+              <div class="mr-pct">71%</div>
+            </div>
+            <div class="match-row">
+              <div class="mr-av">PH</div>
+              <div class="mr-info">
+                <div class="mr-name">Priya H.</div>
+                <div class="mr-meta">London · Pro · PB 59:48</div>
+              </div>
+              <div class="mr-pct">68%</div>
+            </div>
+            <div class="find-more-btn">Find more → start swiping</div>
+          </div>
+          <div class="bottom-nav">
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-today"></div></div><div class="nav-label">Home</div></div>
+            <div class="nav-item active"><div class="nav-icon-shape"><div class="ni-races"></div></div><div class="nav-label">Races</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-profile"></div></div><div class="nav-label">Profile</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Top 5 matches with % compatibility. Division labels: Pro / Competitive / Open (HYROX standard). "Find more → start swiping" opens swipe view.</div>
+  </div>
+
+  <!-- S11 — Another athlete's profile view (from match tap) -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S11</span> Athlete Profile View</div>
+    <div class="phone red-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-athlete">
+          <!-- Photo header — their photo -->
+          <div class="profile-photo-bg">
+            <img src="hyrox-profile.jpg" alt="" onerror="this.style.display='none'">
+            <div class="profile-photo-overlay"></div>
+            <div class="profile-photo-content">
+              <div>
+                <div class="profile-fullname">SAM KIM</div>
+                <div class="profile-sub">31 · Male · Manchester · Pro</div>
+              </div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--red);">91%</div>
+            </div>
+          </div>
+          <div class="profile-body" style="padding-bottom:130px;">
+            <!-- Training benchmarks -->
+            <div>
+              <div class="section-hd">Training benchmarks</div>
+              <div class="stats-3col">
+                <div class="pstat"><span class="ps-val">19:22</span><span class="ps-lbl">5km Run</span></div>
+                <div class="pstat"><span class="ps-val">3:18</span><span class="ps-lbl">SkiErg</span></div>
+                <div class="pstat"><span class="ps-val">3:05</span><span class="ps-lbl">Rowing</span></div>
+              </div>
+            </div>
+            <!-- PB card -->
+            <div class="best-time-card">
+              <div class="bt-left">
+                <div class="bt-label">Personal Best (PB)</div>
+                <div class="bt-race">HYROX Frankfurt</div>
+                <div class="bt-event">Oct 2024</div>
+              </div>
+              <div class="bt-val">58:31</div>
+            </div>
+            <!-- Past races with verified/unverified badges -->
+            <div>
+              <div class="section-hd">Race history</div>
+              <div class="past-race-row">
+                <div class="prr-left">
+                  <div class="prr-name">HYROX Frankfurt</div>
+                  <div class="prr-meta">Oct 2024 · Mixed Doubles · <span class="verified-badge">✓ Verified</span></div>
+                </div>
+                <div class="prr-right"><div class="prr-time">58:31</div></div>
+              </div>
+              <div class="past-race-row">
+                <div class="prr-left">
+                  <div class="prr-name">HYROX Paris</div>
+                  <div class="prr-meta">Mar 2024 · Men's Doubles · <span class="unverified-badge">Self-reported</span></div>
+                </div>
+                <div class="prr-right"><div class="prr-time">1:01:14</div></div>
+              </div>
+            </div>
+            <!-- About -->
+            <div>
+              <div class="section-hd">About</div>
+              <div class="profile-bio-card">"Training 6× per week. Looking for a serious mixed doubles partner for London. Sub-60 finish is the goal."</div>
+            </div>
+          </div>
+          <!-- Match / Pass action bar (floats above nav) -->
+          <div class="athlete-action-bar">
+            <div class="btn-pass">Pass</div>
+            <div class="btn-match">✓ Request Match</div>
+          </div>
+          <div class="bottom-nav">
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-today"></div></div><div class="nav-label">Home</div></div>
+            <div class="nav-item active"><div class="nav-icon-shape"><div class="ni-races"></div></div><div class="nav-label">Races</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-profile"></div></div><div class="nav-label">Profile</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">View of another athlete. Match % shown in header. Race history with Verified vs Self-reported badges. "Request Match" → opens chat to confirm. Once confirmed → shows on Home as "✓ Paired".</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════
+     SECTION 4: MATCH FLOW
+════════════════════════════════ -->
+<div class="section-label">04 · Match Flow — Chat · Confirm · Paired on Home</div>
+<div class="row">
+
+  <!-- S12 — Chat screen -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S12</span> Chat &amp; Confirm</div>
+    <div class="phone gold-glow">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-chat">
+          <!-- Header -->
+          <div class="chat-header">
+            <div class="chat-hd-back">←</div>
+            <div class="chat-hd-av">SK</div>
+            <div class="chat-hd-info">
+              <div class="chat-hd-name">SAM KIM</div>
+              <div class="chat-hd-race">HYROX London · Mixed Doubles · Apr 12</div>
+            </div>
+            <div class="chat-hd-pct">91%</div>
+          </div>
+
+          <!-- Messages -->
+          <div class="chat-messages">
+            <div class="chat-bubble theirs">
+              <div class="bubble-text">Hey! Just saw your match request — excited to potentially team up for London 💪</div>
+              <div class="bubble-time">10:14</div>
+            </div>
+            <div class="chat-bubble mine">
+              <div class="bubble-text">Hi Sam! Your PB of 58:31 is seriously impressive. I'm targeting sub-1:05 — think we'd push each other well?</div>
+              <div class="bubble-time">10:16</div>
+            </div>
+            <div class="chat-bubble theirs">
+              <div class="bubble-text">Definitely. I'm in the Competitive wave. Want to warm up together at ExCeL, say 7:30am?</div>
+              <div class="bubble-time">10:18</div>
+            </div>
+            <div class="chat-bubble mine">
+              <div class="bubble-text">Perfect. Let's lock it in 🔒</div>
+              <div class="bubble-time">10:19</div>
+            </div>
+          </div>
+
+          <!-- Confirm partnership card -->
+          <div class="chat-confirm-card">
+            <div class="cc-label">Partnership proposal</div>
+            <div class="cc-title">Confirm match for HYROX London?</div>
+            <div class="cc-race">Mixed Doubles · Competitive · Apr 12, 2025</div>
+            <div class="cc-actions">
+              <div class="cc-btn decline">Decline</div>
+              <div class="cc-btn confirm">✓ Confirm</div>
+            </div>
+          </div>
+
+          <!-- Input bar -->
+          <div class="chat-input-bar">
+            <div class="chat-input-field">Message Sam…</div>
+            <div class="chat-send-btn">↑</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Chat opens after "Request Match" on S11. Discuss logistics freely. Confirm card shows when both are ready — confirms the partnership and marks race as ✓ Paired on Home.</div>
+  </div>
+
+  <!-- S12b — Home after match confirmed -->
+  <div class="col">
+    <div class="col-label"><span class="screen-num">S12b</span> Home — Confirmed</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="di"></div>
+        <div class="sc-today">
+          <div class="today-header">
+            <div class="today-greeting">Sunday, 29 March</div>
+            <div class="today-title">HOME</div>
+            <div class="today-sub">Partnership confirmed 🎉</div>
+          </div>
+          <div class="today-body">
+            <!-- Partnership confirmed notification -->
+            <div>
+              <div class="card-hd">Just confirmed</div>
+              <div class="notify-card" style="border-color:rgba(74,222,128,0.25);background:rgba(74,222,128,0.07);">
+                <div class="notify-icon">🤝</div>
+                <div class="notify-text">
+                  <div class="n-title" style="color:#4ade80;">You're paired with Sam Kim!</div>
+                  <div class="n-sub">HYROX London · Mixed Doubles · Apr 12</div>
+                </div>
+              </div>
+            </div>
+            <!-- Chat shortcut -->
+            <div>
+              <div class="card-hd">Your partner</div>
+              <div class="match-preview" style="border-color:rgba(74,222,128,0.2);">
+                <div class="mp-av" style="border-color:rgba(74,222,128,0.4);">SK</div>
+                <div class="mp-info">
+                  <div class="mp-name">Sam Kim</div>
+                  <div class="mp-meta">Manchester · Pro · PB 58:31</div>
+                </div>
+                <div class="mp-right">
+                  <div style="font-size:9px;font-weight:700;color:#4ade80;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);padding:4px 8px;border-radius:7px;">Message →</div>
+                </div>
+              </div>
+            </div>
+            <!-- My Races with paired status -->
+            <div>
+              <div class="card-hd">My Races</div>
+              <div class="my-race-row">
+                <div class="myr-left">
+                  <div class="myr-name">HYROX LONDON</div>
+                  <div class="myr-date">Apr 12 · Mixed Doubles</div>
+                </div>
+                <div class="myr-right"><div class="myr-matched">✓ Paired</div></div>
+              </div>
+              <div class="my-race-row">
+                <div class="myr-left">
+                  <div class="myr-name">HYROX BERLIN</div>
+                  <div class="myr-date">Sep 20 · Mixed Doubles</div>
+                </div>
+                <div class="myr-right"><div class="myr-matched">✓ Paired</div></div>
+              </div>
+              <div class="my-race-row">
+                <div class="myr-left">
+                  <div class="myr-name">SPARTAN EDINBURGH</div>
+                  <div class="myr-date">May 3 · Edinburgh</div>
+                </div>
+                <div class="myr-right"><div class="myr-status looking">Partner needed</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-nav">
+            <div class="nav-item active"><div class="nav-icon-shape"><div class="ni-today"></div></div><div class="nav-label">Home</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-races"></div></div><div class="nav-label">Races</div></div>
+            <div class="nav-item"><div class="nav-icon-shape"><div class="ni-profile"></div></div><div class="nav-label">Profile</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-note">Home state after confirming a match. Green notification at top. Partner card with direct message link. Race shows ✓ Paired.</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════
+     FLOW DIAGRAM
+════════════════════════════════ -->
+<div class="section-label">05 · User Flow</div>
+<div style="width:100%;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:32px 40px;display:flex;align-items:center;justify-content:space-between;gap:0;flex-wrap:wrap;gap:0;">
+
+  <!-- flow nodes -->
+  <style>
+    .flow-node { display:flex;flex-direction:column;align-items:center;gap:6px; }
+    .fn-box { background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px 18px;text-align:center;min-width:110px; }
+    .fn-box.red { background:rgba(226,36,36,0.1);border-color:rgba(226,36,36,0.25); }
+    .fn-box.gold { background:rgba(212,170,80,0.1);border-color:rgba(212,170,80,0.25); }
+    .fn-title { font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;color:#fff; }
+    .fn-sub { font-size:9px;color:rgba(255,255,255,0.35);margin-top:2px; }
+    .flow-arrow { font-size:20px;color:rgba(255,255,255,0.2);margin:0 4px; }
+    .flow-split { display:flex;flex-direction:column;align-items:center;gap:8px; }
+  </style>
+
+  <div class="flow-node"><div class="fn-box"><div class="fn-title">Loading</div><div class="fn-sub">Logo · by HyPair</div></div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><div class="fn-box"><div class="fn-title">Splash</div><div class="fn-sub">Register / Log In</div></div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-split">
+    <div class="flow-node"><div class="fn-box red"><div class="fn-title">Register</div><div class="fn-sub">New user</div></div></div>
+    <div class="flow-node" style="opacity:0.5"><div class="fn-box"><div class="fn-title">Log In</div><div class="fn-sub">Returning</div></div></div>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Build Profile</div><div class="fn-sub">Name · Age · City · Gender</div></div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><div class="fn-box gold"><div class="fn-title">Your Stats</div><div class="fn-sub">5km · Stations · Best time</div></div></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><div class="fn-box red"><div class="fn-title">Today</div><div class="fn-sub">Matches · Next race</div></div></div>
+  <div class="flow-arrow">↔</div>
+  <div class="flow-node"><div class="fn-box"><div class="fn-title">Races</div><div class="fn-sub">Your entered events</div></div></div>
+  <div class="flow-arrow">↔</div>
+  <div class="flow-node"><div class="fn-box"><div class="fn-title">Profile</div><div class="fn-sub">Stats · Calendar · Edit</div></div></div>
+
+</div>
+
+<!-- NOTE PANEL -->
+<div style="width:100%;margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+  <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Race Selection</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">Removed from onboarding. Moved to Edit Profile under "Races I do" — feels natural as a preference, not a gate.</div>
+  </div>
+  <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Stats Language</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">Replaced "PRs" and "help partners find" with "your latest performance" and a friendly explanation. Less jargon.</div>
+  </div>
+  <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">Bottom Nav</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">Three tabs: Today (dashboard), Races (your events), Profile (stats + settings). Active tab = gold dot indicator.</div>
+  </div>
+  <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:18px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">What's Next</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;">Partner browse / swipe lives inside the Races tab — tap a race → see matches for that event. Contextual, not generic.</div>
+  </div>
+</div>
+
+</body>
+</html>

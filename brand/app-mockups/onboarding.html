@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1600">
+<title>HyPair — Onboarding · Glass · Tundra Light</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1600px; background: #C8C4C3; font-family: 'Barlow', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 56px 40px 72px; }
+  .sheet-title { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(44,58,71,0.4); margin-bottom: 48px; align-self: flex-start; }
+  .row { display: flex; gap: 24px; }
+  .col { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .col-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(44,58,71,0.38); font-weight: 500; }
+  .phone { width: 290px; height: 628px; background: #111; border-radius: 50px; padding: 9px; box-shadow: 0 30px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.08); flex-shrink: 0; }
+  .screen { width: 100%; height: 100%; border-radius: 42px; overflow: hidden; position: relative; }
+  .di { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 90px; height: 28px; background: #111; border-radius: 16px; z-index: 10; }
+  .btn-red { width: 100%; padding: 15px; background: rgba(226,36,36,0.9); backdrop-filter: blur(8px); border: 1px solid rgba(255,100,100,0.25); box-shadow: 0 8px 24px rgba(226,36,36,0.28); border-radius: 15px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; text-align: center; }
+  .btn-ghost { width: 100%; padding: 13px; background: rgba(255,255,255,0.4); backdrop-filter: blur(8px); border: 1.5px solid rgba(44,58,71,0.15); border-radius: 15px; font-size: 14px; font-weight: 500; color: rgba(44,58,71,0.7); text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .progress-bar { height: 3px; background: rgba(44,58,71,0.1); border-radius: 2px; overflow: hidden; margin-bottom: 20px; }
+  .progress-fill { height: 100%; background: #E22424; border-radius: 2px; }
+
+  /* SPLASH */
+  .sc1 { width:100%; height:100%; background: linear-gradient(160deg,#1e2a35 0%,#2C3A47 60%,#374D59 100%); position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 32px; }
+  .sc1::before { content:''; position:absolute; top:-80px; right:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle,rgba(226,36,36,0.2) 0%,transparent 70%); pointer-events:none; }
+  .sc1::after { content:''; position:absolute; bottom:-60px; left:-40px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(242,208,121,0.15) 0%,transparent 70%); pointer-events:none; }
+  .logo-ring { width:90px; height:90px; border-radius:24px; background:rgba(255,255,255,0.07); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 32px rgba(0,0,0,0.2); display:flex; align-items:center; justify-content:center; margin-bottom:14px; z-index:2; }
+  .sc1 .brand { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; letter-spacing:3px; color:rgba(255,255,255,0.9); text-transform:uppercase; z-index:2; margin-bottom:24px; }
+  .sc1 h1 { font-family:'Barlow Condensed',sans-serif; font-size:60px; font-weight:900; text-transform:uppercase; text-align:center; line-height:0.88; color:#fff; z-index:2; margin-bottom:12px; }
+  .sc1 h1 em { font-style:normal; color:#E22424; display:block; }
+  .sc1 .tagline { font-size:13px; font-weight:300; color:rgba(255,255,255,0.4); text-align:center; line-height:1.6; z-index:2; margin-bottom:44px; max-width:180px; }
+  .sc1 .cta-stack { width:100%; display:flex; flex-direction:column; gap:10px; z-index:2; }
+  .sc1 .log-link { font-size:12px; color:rgba(255,255,255,0.25); text-align:center; margin-top:10px; z-index:2; }
+  .sc1 .log-link span { color:rgba(255,255,255,0.55); font-weight:600; }
+
+  /* SIGN UP */
+  .sc2 { width:100%; height:100%; background:linear-gradient(150deg,#dfd8d5 0%,#e8e2df 50%,#d8d2cf 100%); position:relative; overflow:hidden; display:flex; flex-direction:column; padding:52px 20px 24px; }
+  .sc2::before { content:''; position:absolute; top:-50px; left:-50px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(226,36,36,0.18) 0%,transparent 70%); pointer-events:none; }
+  .sc2::after { content:''; position:absolute; bottom:-40px; right:-40px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle,rgba(242,208,121,0.22) 0%,transparent 70%); pointer-events:none; }
+  .top-logo { display:flex; align-items:center; gap:8px; margin-bottom:22px; z-index:2; }
+  .top-logo .mark { width:32px; height:32px; border-radius:9px; background:rgba(44,58,71,0.85); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; }
+  .top-logo .wordmark { font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:700; letter-spacing:1.5px; color:#2C3A47; text-transform:uppercase; }
+  .tabs { display:flex; background:rgba(255,255,255,0.35); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.65); border-radius:13px; padding:4px; margin-bottom:20px; z-index:2; }
+  .tab { flex:1; padding:9px; text-align:center; font-size:13px; font-weight:600; color:rgba(44,58,71,0.4); border-radius:10px; }
+  .tab.on { background:#fff; color:#2C3A47; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+  .glass-field { background:rgba(255,255,255,0.55); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.85); border-radius:13px; padding:12px 14px; margin-bottom:9px; z-index:2; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+  .glass-field .lbl { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(44,58,71,0.35); margin-bottom:2px; }
+  .glass-field .val { font-size:14px; color:#2C3A47; }
+  .glass-field .val.ph { color:rgba(44,58,71,0.25); }
+  .divider { display:flex; align-items:center; gap:10px; margin:12px 0; z-index:2; }
+  .divider hr { flex:1; border:none; border-top:1px solid rgba(44,58,71,0.1); }
+  .divider span { font-size:11px; color:rgba(44,58,71,0.3); }
+  .cta-stack { display:flex; flex-direction:column; gap:9px; z-index:2; }
+  .small-note { font-size:11px; color:rgba(44,58,71,0.3); text-align:center; line-height:1.5; margin-top:8px; z-index:2; }
+  .small-note span { color:rgba(44,58,71,0.55); font-weight:600; }
+
+  /* PROFILE BASIC */
+  .sc3 { width:100%; height:100%; background:linear-gradient(150deg,#dfd8d5 0%,#e8e2df 100%); position:relative; overflow:hidden; display:flex; flex-direction:column; padding:52px 20px 24px; }
+  .sc3::after { content:''; position:absolute; top:-60px; right:-50px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(242,208,121,0.2) 0%,transparent 70%); pointer-events:none; }
+  .sc3 h2 { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:900; text-transform:uppercase; color:#2C3A47; line-height:0.95; margin-bottom:4px; z-index:2; }
+  .sc3 .sub { font-size:12px; color:rgba(44,58,71,0.4); margin-bottom:16px; z-index:2; }
+  .photo-upload { width:72px; height:72px; border-radius:22px; background:rgba(255,255,255,0.55); backdrop-filter:blur(16px); border:1.5px dashed rgba(44,58,71,0.2); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; margin-bottom:16px; z-index:2; }
+  .photo-upload .icon { font-size:22px; }
+  .photo-upload .plbl { font-size:9px; letter-spacing:1px; text-transform:uppercase; color:rgba(44,58,71,0.35); }
+  .field-row { display:grid; grid-template-columns:1fr 1fr; gap:9px; z-index:2; }
+  .bottom { margin-top:auto; z-index:2; }
+
+  /* RACES & LEVEL */
+  .sc4 { width:100%; height:100%; background:linear-gradient(150deg,#dfd8d5 0%,#e8e2df 100%); position:relative; overflow:hidden; display:flex; flex-direction:column; padding:52px 20px 24px; }
+  .sc4::before { content:''; position:absolute; bottom:-60px; left:-40px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(226,36,36,0.12) 0%,transparent 70%); pointer-events:none; }
+  .sc4 h2 { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:900; text-transform:uppercase; color:#2C3A47; line-height:0.95; margin-bottom:4px; z-index:2; }
+  .sc4 .sub { font-size:12px; color:rgba(44,58,71,0.4); margin-bottom:14px; z-index:2; }
+  .race-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; z-index:2; }
+  .rc { border-radius:14px; padding:13px 12px; backdrop-filter:blur(16px); border:1.5px solid transparent; }
+  .rc.off { background:rgba(255,255,255,0.48); border-color:rgba(255,255,255,0.8); box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+  .rc.on { background:rgba(226,36,36,0.08); border-color:rgba(226,36,36,0.35); box-shadow:0 2px 16px rgba(226,36,36,0.1); }
+  .rc .rname { font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:1px; }
+  .rc.off .rname { color:#2C3A47; }
+  .rc.on .rname { color:#E22424; }
+  .rc .rtype { font-size:10px; }
+  .rc.off .rtype { color:rgba(44,58,71,0.38); }
+  .rc.on .rtype { color:rgba(226,36,36,0.55); }
+  .sec-label { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(44,58,71,0.35); margin-bottom:8px; z-index:2; }
+  .level-row { display:flex; gap:6px; margin-bottom:14px; z-index:2; flex-wrap:wrap; }
+  .lv { padding:7px 13px; border-radius:20px; font-size:11px; font-weight:600; backdrop-filter:blur(8px); }
+  .lv.off { background:rgba(255,255,255,0.45); border:1px solid rgba(255,255,255,0.75); color:rgba(44,58,71,0.45); }
+  .lv.on { background:rgba(44,58,71,0.82); border:1px solid rgba(255,255,255,0.1); color:#fff; }
+  .sc4 .bottom { margin-top:auto; z-index:2; }
+
+  /* YOUR STATS */
+  .sc5 { width:100%; height:100%; background:linear-gradient(150deg,#dfd8d5 0%,#e8e2df 100%); position:relative; overflow:hidden; display:flex; flex-direction:column; padding:52px 20px 24px; }
+  .sc5::before { content:''; position:absolute; top:-60px; right:-50px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(242,208,121,0.2) 0%,transparent 70%); pointer-events:none; }
+  .sc5::after { content:''; position:absolute; bottom:-50px; left:-40px; width:200px; height:200px; border-radius:50%; background:radial-gradient(circle,rgba(226,36,36,0.1) 0%,transparent 70%); pointer-events:none; }
+  .sc5 h2 { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:900; text-transform:uppercase; color:#2C3A47; line-height:0.95; margin-bottom:4px; z-index:2; }
+  .sc5 .sub { font-size:12px; color:rgba(44,58,71,0.4); margin-bottom:16px; z-index:2; }
+  .stat-note { font-size:11px; color:rgba(44,58,71,0.35); line-height:1.5; margin-bottom:14px; z-index:2; }
+  .stat-section { margin-bottom:14px; z-index:2; }
+  .stat-section-label { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(44,58,71,0.35); margin-bottom:8px; }
+  .stat-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .stat-glass {
+    background:rgba(255,255,255,0.55); backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,0.85); border-radius:13px;
+    padding:11px 13px; box-shadow:0 2px 12px rgba(0,0,0,0.04);
+  }
+  .stat-glass .lbl { font-size:9px; letter-spacing:1.2px; text-transform:uppercase; color:rgba(44,58,71,0.35); margin-bottom:3px; }
+  .stat-glass .val { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:900; color:#2C3A47; }
+  .stat-glass .val.ph { color:rgba(44,58,71,0.22); font-size:16px; font-weight:400; font-family:'Barlow',sans-serif; }
+  .verify-note {
+    display:flex; align-items:center; gap:8px;
+    background:rgba(242,208,121,0.18); backdrop-filter:blur(12px);
+    border:1px solid rgba(242,208,121,0.4); border-radius:12px;
+    padding:10px 12px; margin-bottom:14px; z-index:2;
+  }
+  .verify-note .icon { font-size:16px; flex-shrink:0; }
+  .verify-note .text { font-size:11px; color:rgba(44,58,71,0.6); line-height:1.4; }
+  .verify-note .text strong { color:#8B6914; font-weight:600; }
+  .sc5 .bottom { margin-top:auto; z-index:2; }
+</style>
+</head>
+<body>
+<p class="sheet-title">HyPair App — Onboarding Flow · Glass · Tundra Light</p>
+<div class="row">
+
+  <!-- 01 SPLASH -->
+  <div class="col">
+    <span class="col-label">01 — Splash</span>
+    <div class="phone"><div class="di"></div><div class="screen">
+      <div class="sc1">
+        <div class="logo-ring">
+          <svg viewBox="226 154.1 248 342.4" height="48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6s21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6S376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16s7.2-16,16-16s16,7.2,16,16S358.8,463.9,350,463.9z" fill="#F2D079"/>
+            <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
+            <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+          </svg>
+        </div>
+        <span class="brand">HyPair</span>
+        <h1>Meet your<em>match</em></h1>
+        <p class="tagline">Find your doubles partner for HYROX, Spartan, Tryka and Athex.</p>
+        <div class="cta-stack">
+          <div class="btn-red">Get started</div>
+          <div class="btn-ghost" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);">Log in</div>
+        </div>
+        <p class="log-link">New to hybrid racing? <span>Learn more</span></p>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 02 SIGN UP / LOG IN -->
+  <div class="col">
+    <span class="col-label">02 — Sign up / Log in</span>
+    <div class="phone"><div class="di"></div><div class="screen">
+      <div class="sc2">
+        <div class="top-logo">
+          <div class="mark">
+            <svg viewBox="226 154.1 248 342.4" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6s21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6S376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16s7.2-16,16-16s16,7.2,16,16S358.8,463.9,350,463.9z" fill="#F2D079"/>
+              <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
+              <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+            </svg>
+          </div>
+          <span class="wordmark">HyPair</span>
+        </div>
+        <div class="tabs">
+          <div class="tab on">Sign up</div>
+          <div class="tab">Log in</div>
+        </div>
+        <div class="glass-field"><div class="lbl">Full name</div><div class="val">Natalia M.</div></div>
+        <div class="glass-field"><div class="lbl">Email</div><div class="val">natalia@example.com</div></div>
+        <div class="glass-field"><div class="lbl">Password</div><div class="val">••••••••••</div></div>
+        <div class="divider"><hr><span>or continue with</span><hr></div>
+        <div class="cta-stack">
+          <div class="btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/><path d="M3.964 10.706A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.706V4.962H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.038l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.583c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.962L3.964 7.294C4.672 5.163 6.656 3.583 9 3.583z" fill="#EA4335"/></svg>
+            Google
+          </div>
+          <div class="btn-ghost">
+            <svg width="14" height="16" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-37.5-155.5-127.4C46 790.7 0 663.4 0 541.8c0-207.4 135.4-317.1 269-317.1 71 0 130.5 46.4 175 46.4 42.3 0 109.1-49.1 193.3-49.1 31 0 109.5 3.8 166.9 57.2z" fill="rgba(44,58,71,0.7)"/></svg>
+            Apple
+          </div>
+          <div class="btn-red">Create account</div>
+        </div>
+        <p class="small-note">By signing up you agree to our <span>Terms</span> and <span>Privacy Policy</span></p>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 03 PROFILE BASIC -->
+  <div class="col">
+    <span class="col-label">03 — Your profile</span>
+    <div class="phone"><div class="di"></div><div class="screen">
+      <div class="sc3">
+        <div class="progress-bar" style="z-index:2"><div class="progress-fill" style="width:33%"></div></div>
+        <h2>Build your<br>profile</h2>
+        <p class="sub">Step 1 of 3 — Basic info</p>
+        <div class="photo-upload">
+          <div class="icon">📷</div>
+          <div class="plbl">Add photo</div>
+        </div>
+        <div class="glass-field" style="z-index:2"><div class="lbl">First name</div><div class="val">Natalia</div></div>
+        <div class="field-row">
+          <div class="glass-field" style="margin-bottom:0"><div class="lbl">Age</div><div class="val">28</div></div>
+          <div class="glass-field" style="margin-bottom:0"><div class="lbl">Gender</div><div class="val ph">Select</div></div>
+        </div>
+        <div style="height:9px"></div>
+        <div class="glass-field" style="z-index:2"><div class="lbl">City</div><div class="val">London, UK</div></div>
+        <div class="glass-field" style="z-index:2"><div class="lbl">About me</div><div class="val ph">Tell partners about yourself…</div></div>
+        <div class="bottom"><div class="btn-red">Continue</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 04 RACES & LEVEL -->
+  <div class="col">
+    <span class="col-label">04 — Races &amp; level</span>
+    <div class="phone"><div class="di"></div><div class="screen">
+      <div class="sc4">
+        <div class="progress-bar" style="z-index:2"><div class="progress-fill" style="width:66%"></div></div>
+        <h2>Your races<br>&amp; level</h2>
+        <p class="sub">Step 2 of 3 — Select all that apply</p>
+        <div class="race-grid">
+          <div class="rc on"><div class="rname">HYROX</div><div class="rtype">Fitness racing</div></div>
+          <div class="rc on"><div class="rname">Spartan</div><div class="rtype">Obstacle course</div></div>
+          <div class="rc off"><div class="rname">Tryka</div><div class="rtype">Hybrid triathlon</div></div>
+          <div class="rc off"><div class="rname">Athex</div><div class="rtype">Athletic extreme</div></div>
+        </div>
+        <p class="sec-label">Your level</p>
+        <div class="level-row">
+          <div class="lv off">Beginner</div>
+          <div class="lv off">Intermediate</div>
+          <div class="lv on">Competitive</div>
+          <div class="lv off">Elite</div>
+        </div>
+        <div class="sc4 bottom"><div class="btn-red">Continue</div></div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 05 YOUR STATS -->
+  <div class="col">
+    <span class="col-label">05 — Your stats</span>
+    <div class="phone"><div class="di"></div><div class="screen">
+      <div class="sc5">
+        <div class="progress-bar" style="z-index:2"><div class="progress-fill" style="width:100%"></div></div>
+        <h2>Your stats</h2>
+        <p class="sub">Step 3 of 3 — Enter your best times</p>
+
+        <div class="stat-section">
+          <div class="stat-section-label">Running</div>
+          <div class="stat-row">
+            <div class="stat-glass"><div class="lbl">5km Run</div><div class="val">22:14</div></div>
+            <div class="stat-glass"><div class="lbl">10km Run</div><div class="val ph">Optional</div></div>
+          </div>
+        </div>
+
+        <div class="stat-section">
+          <div class="stat-section-label">HYROX Stations</div>
+          <div class="stat-row">
+            <div class="stat-glass"><div class="lbl">SkiErg</div><div class="val">3:55</div></div>
+            <div class="stat-glass"><div class="lbl">Sled Push</div><div class="val">2:42</div></div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="stat-row">
+            <div class="stat-glass"><div class="lbl">Rowing</div><div class="val">4:08</div></div>
+            <div class="stat-glass"><div class="lbl">Wall Balls</div><div class="val ph">Optional</div></div>
+          </div>
+        </div>
+
+        <div class="stat-section">
+          <div class="stat-section-label">Best race time</div>
+          <div class="stat-row">
+            <div class="stat-glass" style="grid-column:1/-1">
+              <div class="lbl">Best overall HYROX time</div>
+              <div class="val" style="color:#9A6E00">1:18:42</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="verify-note">
+          <div class="icon">📷</div>
+          <div class="text"><strong>Verify your times</strong> by uploading a screenshot of your official result — builds trust with partners.</div>
+        </div>
+
+        <div class="bottom"><div class="btn-red">Complete profile</div></div>
+      </div>
+    </div></div>
+  </div>
+
+</div>
+</body>
+</html>

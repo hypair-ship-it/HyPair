@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200, height=630">
+<title>HyPair Facebook Post</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #374D59;
+    font-family: 'Barlow', sans-serif;
+    color: #ffffff;
+    position: relative;
+  }
+
+  /* Left glow accent */
+  .glow-left {
+    position: absolute;
+    top: -80px;
+    left: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse at center, rgba(226,36,36,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Right glow */
+  .glow-right {
+    position: absolute;
+    bottom: -100px;
+    right: -60px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse at center, rgba(242,208,121,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Diagonal split line */
+  .split-line {
+    position: absolute;
+    top: 0;
+    right: 420px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(242,208,121,0.25) 30%, rgba(242,208,121,0.25) 70%, transparent 100%);
+  }
+
+  /* Left panel — main content */
+  .left {
+    position: absolute;
+    top: 0; left: 0;
+    width: 780px;
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 72px;
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #F2D079;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 24px;
+  }
+  h1 em {
+    color: #E22424;
+    font-style: normal;
+    display: block;
+  }
+
+  .body {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.60);
+    line-height: 1.6;
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 1.5px solid #E22424;
+    color: #E22424;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border-radius: 50px;
+    width: fit-content;
+  }
+
+  /* Right panel — visual */
+  .right {
+    position: absolute;
+    top: 0; right: 0;
+    width: 420px;
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 40px;
+    background: rgba(0,0,0,0.10);
+  }
+
+  .question-card {
+    width: 100%;
+    background: rgba(242,208,121,0.08);
+    border: 0.5px solid rgba(242,208,121,0.30);
+    border-radius: 16px;
+    padding: 24px 28px;
+    text-align: center;
+  }
+  .question-card .q {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 10px;
+  }
+  .question-card .a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #F2D079;
+    letter-spacing: 1px;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .match-icon {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 60px;
+    font-weight: 900;
+    color: rgba(226,36,36,0.7);
+    line-height: 1;
+  }
+
+  .races {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  .chip {
+    border: 0.5px solid rgba(242,208,121,0.30);
+    background: rgba(242,208,121,0.06);
+    color: #F2D079;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* URL watermark */
+  .url {
+    position: absolute;
+    bottom: 24px;
+    left: 72px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.20);
+    text-transform: lowercase;
+  }
+</style>
+</head>
+<body>
+  <div class="glow-left"></div>
+  <div class="glow-right"></div>
+  <div class="split-line"></div>
+
+  <!-- Left: main message -->
+  <div class="left">
+    <div class="logo-wrap">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="38">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+      </svg>
+      <span class="logo-text">HyPair</span>
+    </div>
+
+    <p class="eyebrow">Coming soon</p>
+
+    <h1>Find your<br><em>partner</em></h1>
+
+    <p class="body">The app that matches you with your HYROX doubles partner — by pace, level, and event.</p>
+
+    <div class="cta">Join the waitlist &rarr; hypair.app</div>
+  </div>
+
+  <!-- Right: visual proof of concept -->
+  <div class="right">
+    <div class="question-card">
+      <div class="q">Your pace</div>
+      <div class="a">Sub 75 min</div>
+    </div>
+
+    <div class="match-icon">⇄</div>
+
+    <div class="question-card">
+      <div class="q">Your match</div>
+      <div class="a">Same level</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="races">
+      <span class="chip">HYROX</span>
+      <span class="chip">Spartan</span>
+      <span class="chip">Tryka</span>
+      <span class="chip">Athex</span>
+    </div>
+  </div>
+
+  <div class="url">hypair.app</div>
+</body>
+</html>
