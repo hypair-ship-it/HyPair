@@ -4,215 +4,213 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Service — HyPair</title>
-<meta name="description" content="HyPair terms of service — the rules for using the HyPair app and website.">
-<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<meta name="description" content="HyPair terms of service — the rules for using the app.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg:          #374D59;
-    --bg-card:     rgba(0,0,0,0.20);
-    --gold:        #F2D079;
-    --gold-border: rgba(242,208,121,0.25);
-    --white:       #ffffff;
-    --white-60:    rgba(255,255,255,0.60);
-    --white-35:    rgba(255,255,255,0.35);
-    --white-15:    rgba(255,255,255,0.15);
-    --red:         #E22424;
+    --summit: #1B2A3B;
+    --gold: #F8C662;
+    --red: #E53935;
+    --off-white: #F5F4F0;
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #e0ddd8;
   }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--bg);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(55,77,89,0.92);
-    border-bottom: 0.5px solid var(--white-15);
-    padding: 0 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-  }
+  body { font-family: 'Barlow', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--off-white); }
+  nav { background: var(--summit); padding: 0 32px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo svg { height: 32px; width: auto; }
-  .nav-logo-text {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px; font-weight: 700; letter-spacing: 1px; color: var(--gold);
-  }
-
-  .container {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 56px 24px 80px;
-  }
-
-  .page-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 12px; display: block;
-  }
-
-  h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(32px, 7vw, 48px);
-    font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
-    color: var(--white); line-height: 1; margin-bottom: 12px;
-  }
-
-  .last-updated {
-    font-size: 13px; color: var(--white-35); margin-bottom: 48px;
-  }
-
-  h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.5px; color: var(--gold);
-    margin-top: 40px; margin-bottom: 12px;
-  }
-
-  p {
-    font-size: 15px; color: var(--white-60); line-height: 1.75;
-    margin-bottom: 14px;
-  }
-
-  p strong { color: var(--white); font-weight: 500; }
-
-  ul {
-    margin: 0 0 14px 0;
-    padding-left: 20px;
-    color: var(--white-60);
-  }
-  li {
-    font-size: 15px; line-height: 1.75; margin-bottom: 6px;
-  }
-
-  .card {
-    background: var(--bg-card);
-    border: 0.5px solid var(--gold-border);
-    border-radius: 12px;
-    padding: 20px 22px;
-    margin: 24px 0;
-  }
-  .card p { margin-bottom: 0; }
-
-  a { color: var(--gold); text-decoration: none; }
+  .nav-logo svg { height: 28px; }
+  .nav-logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; color: var(--gold); letter-spacing: 0.5px; }
+  .nav-tag { font-family: 'Barlow', sans-serif; font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase; }
+  .page-wrap { max-width: 760px; margin: 0 auto; padding: 64px 32px 96px; }
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+  h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(36px, 6vw, 52px); line-height: 1.0; color: var(--summit); text-transform: uppercase; margin-bottom: 12px; }
+  .last-updated { font-size: 13px; color: var(--muted); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .intro { font-size: 17px; font-weight: 300; color: var(--muted); margin-bottom: 48px; line-height: 1.8; }
+  h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--summit); margin-top: 48px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--gold); display: inline-block; }
+  p { margin-bottom: 16px; color: #333; }
+  ul { margin: 12px 0 20px 0; padding-left: 0; list-style: none; }
+  ul li { padding: 6px 0 6px 20px; position: relative; color: #333; border-bottom: 1px solid var(--border); }
+  ul li:last-child { border-bottom: none; }
+  ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+  .callout { background: rgba(248,198,98,0.12); border-left: 3px solid var(--gold); padding: 16px 20px; margin: 20px 0; border-radius: 0 4px 4px 0; font-size: 14px; color: #444; }
+  .callout.red { background: rgba(229,57,53,0.06); border-left-color: var(--red); }
+  strong { font-weight: 500; color: var(--summit); }
+  a { color: var(--red); text-decoration: none; }
   a:hover { text-decoration: underline; }
-
-  footer {
-    border-top: 0.5px solid var(--white-15);
-    padding: 24px; text-align: center;
-    font-size: 12px; color: var(--white-35);
-  }
-  footer a { color: var(--white-35); }
+  footer { background: var(--summit); color: rgba(255,255,255,0.5); text-align: center; padding: 28px 32px; font-size: 13px; margin-top: 80px; }
+  footer a { color: var(--gold); }
+  @media (max-width: 600px) { .page-wrap { padding: 40px 20px 64px; } nav { padding: 0 20px; } }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">
-    <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="32" width="auto" aria-hidden="true">
-      <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
-      <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
-      <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+  <a class="nav-logo" href="https://hypair.app/">
+    <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg">
+      <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+      <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+      <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
     </svg>
     <span class="nav-logo-text">HyPair</span>
   </a>
+  <span class="nav-tag">Legal</span>
 </nav>
 
-<div class="container">
+<div class="page-wrap">
 
-  <span class="page-label">Legal</span>
+  <p class="eyebrow">Legal</p>
   <h1>Terms of Service</h1>
   <p class="last-updated">Last updated: 1 June 2026</p>
 
-  <div class="card">
-    <p>By creating a HyPair account or using the HyPair app or website, you agree to these terms. Please read them — they're written in plain English. If you have questions, email <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
-  </div>
+  <p class="intro">These Terms of Service govern your use of HyPair — the race partner matching app for hybrid athletes. By creating an account or using HyPair, you agree to these terms. Please read them carefully. If you do not agree, do not use HyPair.</p>
 
   <h2>1. Who we are</h2>
-  <p>HyPair is operated by HyPair Ltd (Ireland). When these terms say "HyPair", "we", "us" or "our", they mean HyPair Ltd.</p>
-  <p>HyPair is a platform that helps hybrid race athletes find doubles partners for events like HYROX and TRYKA. We connect athletes — we are not a race organiser, ticket vendor, or event operator.</p>
+  <p><strong>HyPair Ltd</strong> is a private limited company incorporated in Ireland. References to "HyPair", "we", "us" or "our" mean HyPair Ltd. Contact us at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
 
   <h2>2. Eligibility</h2>
-  <p>You must be at least 18 years old to use HyPair. By creating an account, you confirm you are 18 or over. We may terminate accounts where we have reason to believe a user is under 18.</p>
-  <p>You must be a human. Accounts created by bots or automated tools are not permitted.</p>
+  <p>You must be at least <strong>18 years old</strong> to use HyPair. By creating an account you confirm that you are 18 or over. If we discover that a user is under 18 we will delete their account immediately.</p>
+  <p>You must be a genuine hybrid race athlete or someone interested in participating in events such as HYROX, Spartan Race, Tryka, or Athex. HyPair is not a general social network.</p>
 
   <h2>3. Your account</h2>
-  <p>You are responsible for keeping your login credentials secure. Do not share your password with anyone.</p>
-  <p>You must provide accurate information when creating your profile. Fake profiles, misrepresented pace or race history, and impersonation of other athletes are all grounds for immediate account termination.</p>
-  <p>You are responsible for all activity that occurs under your account.</p>
-
-  <h2>4. Acceptable use</h2>
-  <p>HyPair is for finding race partners. You agree not to:</p>
   <ul>
-    <li>Use HyPair for anything other than its intended purpose</li>
-    <li>Harass, abuse, threaten or intimidate other users</li>
-    <li>Post false, misleading or offensive content in your profile or messages</li>
-    <li>Solicit money, products or services from other users</li>
-    <li>Spam other athletes with unsolicited messages</li>
-    <li>Scrape, copy or redistribute user data from HyPair</li>
-    <li>Attempt to gain unauthorised access to any part of the platform</li>
-    <li>Use HyPair to promote competing services</li>
+    <li>You are responsible for keeping your login credentials secure. Do not share your password.</li>
+    <li>You must provide accurate information in your profile. Fake profiles, impersonation, or misleading pace/performance data is prohibited.</li>
+    <li>You may only have one account. Creating multiple accounts to circumvent a ban or suspension is prohibited.</li>
+    <li>You can delete your account at any time from Settings. We will remove your data within 30 days.</li>
   </ul>
-  <p>We reserve the right to remove content and suspend or terminate accounts that violate these rules, without notice.</p>
 
-  <h2>5. Your profile and content</h2>
-  <p>You own the content you post on HyPair — your photos, bio and race history are yours.</p>
-  <p>By posting content on HyPair, you grant us a limited, non-exclusive licence to display it to other users of the platform for the purpose of partner matching. We will never sell your content or use it in advertising without your explicit consent.</p>
-  <p>You are responsible for ensuring you have the right to post any content you upload (e.g. photos you own or have permission to use).</p>
+  <h2>4. What HyPair is for</h2>
+  <p>HyPair exists to help athletes find compatible doubles partners for hybrid race events. It is not a dating app, a general social network, or a platform for commercial promotion. Use it only for its intended purpose.</p>
 
-  <h2>6. Matching and partner coordination</h2>
-  <p>HyPair helps you find and connect with potential race partners. We do not guarantee that you will find a partner, that a match will result in a confirmed pairing, or that a confirmed partner will race with you on the day.</p>
-  <p>Race registrations, ticket purchases and event logistics are your responsibility. HyPair is not liable for missed events, incorrect ticket information, or any disputes between matched athletes.</p>
-  <p>Always verify race entry and ticket status directly with the event organiser before committing to a partner.</p>
-
-  <h2>7. Safety</h2>
-  <p>When meeting a training partner or race partner in person for the first time, use common sense. Meet in a public place. Tell someone where you're going.</p>
-  <p>Report any user who makes you feel unsafe using the in-app report function or by emailing <a href="mailto:hello@hypair.app">hello@hypair.app</a>. We take all reports seriously and will investigate promptly.</p>
-
-  <h2>8. Availability</h2>
-  <p>We aim to keep HyPair available at all times but we cannot guarantee uninterrupted access. We may take the service down for maintenance, updates or reasons outside our control.</p>
-  <p>We reserve the right to modify, suspend or discontinue any part of HyPair at any time. We will give reasonable notice where possible.</p>
-
-  <h2>9. Limitation of liability</h2>
-  <p>HyPair is provided "as is". To the fullest extent permitted by law, HyPair Ltd is not liable for:</p>
+  <h2>5. Acceptable use</h2>
+  <p>When using HyPair you must not:</p>
   <ul>
-    <li>Any indirect, incidental or consequential loss arising from your use of the platform</li>
-    <li>Actions or conduct of other users</li>
-    <li>Lost race entry fees, travel costs or other expenses related to a failed pairing</li>
-    <li>Interruptions to service</li>
+    <li>Harass, threaten, intimidate, or abuse other athletes</li>
+    <li>Send unsolicited commercial messages or spam</li>
+    <li>Post false, misleading, or defamatory content</li>
+    <li>Share another user's personal information without their consent</li>
+    <li>Use HyPair to arrange anything illegal</li>
+    <li>Attempt to scrape, reverse-engineer, or exploit the app or its data</li>
+    <li>Upload content that is sexually explicit, violent, or hateful</li>
+    <li>Impersonate another person or misrepresent your identity or athletic ability</li>
+    <li>Create fake events, fake profiles, or artificial matches</li>
   </ul>
-  <p>Nothing in these terms limits our liability for fraud, death or personal injury caused by our negligence, or any liability that cannot be excluded under Irish or EU law.</p>
 
-  <h2>10. Termination</h2>
-  <p>You can delete your account at any time from within the app. Deletion removes your profile from partner search immediately and your personal data within 30 days (see our <a href="/privacy.html">Privacy Policy</a>).</p>
-  <p>We may suspend or terminate your account if you breach these terms, without notice or refund.</p>
+  <div class="callout red">
+    Violations of these rules may result in immediate account suspension or permanent ban, at our sole discretion, without prior notice.
+  </div>
 
-  <h2>11. Changes to these terms</h2>
-  <p>We may update these terms as the app evolves. We'll notify active users of material changes via email or an in-app notice. The "last updated" date at the top always reflects the current version. Continued use of HyPair after changes are posted constitutes acceptance of the updated terms.</p>
+  <h2>6. Your content</h2>
+  <p>You own the content you post on HyPair — your profile photo, bio, and messages. By posting content you grant HyPair a non-exclusive, royalty-free licence to display it within the app for the purpose of providing the service.</p>
+  <p>You are responsible for any content you post. Do not post anything you do not have the right to share.</p>
+  <p>We do not claim ownership of your content and will not use it for advertising or sell it to third parties.</p>
 
-  <h2>12. Governing law</h2>
-  <p>These terms are governed by the laws of Ireland. Any disputes will be subject to the exclusive jurisdiction of the Irish courts.</p>
-  <p>If you are a consumer in the EU, you also have the right to use the <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">EU Online Dispute Resolution platform</a>.</p>
+  <h2>7. Matching, introductions and platform limitations</h2>
 
-  <h2>13. Contact</h2>
-  <p>Questions about these terms: <a href="mailto:hello@hypair.app">hello@hypair.app</a></p>
-  <p>HyPair Ltd · Ireland</p>
+  <p><strong>HyPair is an introduction platform only.</strong> We connect athletes who may be compatible as race partners. Our role ends at the introduction. We are not a race organiser, ticketing platform, event operator, booking agent, or party to any agreement made between athletes.</p>
+
+  <div class="callout red">
+    <strong>Important:</strong> HyPair does not sell race entries, process payments between athletes, or manage registrations. Any financial arrangements made between matched athletes — including splitting entry fees, travel costs, accommodation, or any other expenses — are entirely between those athletes. HyPair has no involvement in and accepts no responsibility for any such arrangements.
+  </div>
+
+  <p><strong>No-shows and commitment failures.</strong> HyPair cannot guarantee that a matched athlete will register for an event, show up on race day, or honour any commitment made through the app. If your partner withdraws, fails to appear, or does not follow through on any agreement, that is a matter between you and them. HyPair is not liable for any loss — financial or otherwise — arising from a partner's failure to participate.</p>
+
+  <p><strong>Financial disputes between athletes.</strong> Any money exchanged between athletes — whether for entry fees, travel, shared accommodation, or any other purpose — is a private transaction. HyPair is not a party to it, does not facilitate it, and is not responsible for any dispute, loss, non-payment, or fraud arising from it. If you choose to transfer money to another athlete you have met through HyPair, you do so entirely at your own risk.</p>
+
+  <p><strong>Accuracy of athlete profiles.</strong> Athletes self-report their pace, personal bests, training frequency, and other performance data. HyPair does not verify this information. We make no representation that any athlete's stated ability, fitness level, or race history is accurate. You should discuss performance expectations directly with a potential partner before making any financial commitments or race registrations.</p>
+
+  <p><strong>In-person meetings and safety.</strong> When you arrange to meet, train with, or race alongside another athlete you have connected with through HyPair, you do so at your own risk. HyPair strongly recommends that you: meet in public places initially; inform someone you trust of your plans; and use your own judgement before sharing personal contact details or financial information with another user.</p>
+
+  <p><strong>No guarantee of match quality.</strong> HyPair uses compatibility signals to suggest potential partners, but we do not guarantee that any suggested match will be suitable for your goals, pace, schedule, or race. The final decision to connect with, train alongside, or race with another athlete is entirely yours.</p>
+
+  <p>Nothing in this section limits liability for death or personal injury caused by HyPair's own negligence.</p>
+
+
+  <h2>8. Gym and venue partners</h2>
+
+  <p>HyPair works with gyms, fitness studios, and training venues ("gym partners") to promote the platform to their members. The following applies to all gym partner relationships:</p>
+
+  <p><strong>HyPair is not responsible for gym partners' actions.</strong> Gym partners are independent businesses. HyPair is not liable for any acts, omissions, advice, or conduct of any gym partner, their staff, or their facilities. Any issue arising at or with a gym partner is a matter between you and that gym.</p>
+
+  <p><strong>Gym partners do not act on behalf of HyPair.</strong> A gym listing events or promoting HyPair to members does not make that gym an agent, representative, or affiliate of HyPair Ltd. Gym partners may not make legal, financial, or contractual commitments on HyPair's behalf.</p>
+
+  <p><strong>No endorsement.</strong> The presence of a gym or event on HyPair does not constitute HyPair's endorsement of that gym's facilities, coaching, safety standards, or suitability for any particular athlete. You should conduct your own assessment before training at any venue.</p>
+
+  <p><strong>Member data.</strong> Gym partners may not share their members' personal data with HyPair without those members' explicit consent. If you believe a gym has added your data to HyPair without your permission, contact us at <a href="mailto:hello@hypair.app">hello@hypair.app</a> and we will investigate and remove your data promptly.</p>
+
+  <p><strong>Gym partner fees.</strong> Gym partners may pay HyPair a fee to list events or access partnership features. This commercial relationship does not affect how HyPair treats athletes or influence match results.</p>
+
+  <h2>9. Platform classification and misuse</h2>
+
+  <p><strong>HyPair is a sports matching platform, not a dating app.</strong> HyPair is designed exclusively for finding doubles race partners for hybrid athletic events. It is not a dating service, romantic introduction platform, or general social network. Using HyPair for romantic solicitation, sexual messaging, or any purpose other than finding race partners is a violation of these terms and may result in immediate account removal.</p>
+
+  <p><strong>Race organiser relationships.</strong> HyPair is an independent platform and is not officially affiliated with, endorsed by, or partnered with HYROX, Spartan Race, Tryka, Athex, or any other race organiser unless explicitly stated. Reference to these events is for athlete convenience only. Race organisers' own terms and conditions govern event participation.</p>
+
+  <p><strong>Reporting misuse.</strong> If another user contacts you for purposes unrelated to race partnership — including romantic solicitation, commercial promotion, or any behaviour that makes you uncomfortable — please report them immediately via the in-app report function or by emailing <a href="mailto:hello@hypair.app">hello@hypair.app</a>. We take all reports seriously and will act within 48 hours.</p>
+
+  <h2>10. Safety and user responsibility</h2>
+
+  <p>Your safety is important to us. While HyPair cannot supervise interactions between users, we ask all users to follow these guidelines:</p>
+  <ul>
+    <li>Do not share your home address with other athletes until you have established trust</li>
+    <li>Meet potential partners in public places — a gym, a race venue, or a public training location — before meeting privately</li>
+    <li>Tell a friend or family member when you are meeting someone for the first time</li>
+    <li>Trust your instincts — if something feels wrong, disengage and report it</li>
+    <li>Never transfer money to another athlete before meeting them in person and establishing trust</li>
+    <li>Do not share financial details, bank account information, or payment credentials through the app</li>
+  </ul>
+
+  <div class="callout red">
+    If you ever feel unsafe or are in immediate danger, contact the emergency services (112 or 999 in Ireland). Do not rely on HyPair as an emergency contact service.
+  </div>
+
+  <p>HyPair maintains a report and block function. Use it. Every report is reviewed by our team within 48 hours. Accounts confirmed as posing a safety risk will be suspended immediately.</p>
+
+  <h2>11. Pro subscription</h2>
+  <p>HyPair offers a free tier and a paid Pro subscription. Subscription pricing is displayed in the app at the time of purchase.</p>
+  <ul>
+    <li>Subscriptions are billed in advance on a monthly or annual basis</li>
+    <li>You may cancel at any time — cancellation takes effect at the end of the current billing period</li>
+    <li>Refunds are not provided for partial billing periods except where required by law</li>
+    <li>Prices may change with 30 days' notice</li>
+    <li>If you purchase via the App Store or Google Play, their respective billing terms apply</li>
+  </ul>
+
+  <h2>12. Availability and changes</h2>
+  <p>We aim to keep HyPair available at all times but cannot guarantee uninterrupted service. We may suspend access for maintenance, updates, or reasons beyond our control.</p>
+  <p>We may change, add, or remove features at any time. We will give reasonable notice of significant changes that affect your use of the service.</p>
+
+  <h2>13. Intellectual property</h2>
+  <p>The HyPair name, logo, brand, app design, and all underlying code are owned by HyPair Ltd. You may not copy, reproduce, or use them without our written permission.</p>
+
+  <h2>14. Limitation of liability</h2>
+  <p>To the maximum extent permitted by Irish and EU law, HyPair Ltd is not liable for:</p>
+  <ul>
+    <li>Any harm arising from interactions between users, whether in-app or in person</li>
+    <li>Loss of data, loss of revenue, or indirect losses of any kind</li>
+    <li>The accuracy of athlete profiles, pace data, or event information</li>
+    <li>Service interruptions or technical failures</li>
+  </ul>
+  <p>Nothing in these terms limits our liability for death or personal injury caused by our negligence, fraud, or anything else that cannot be excluded under Irish law.</p>
+
+  <h2>15. Governing law</h2>
+  <p>These terms are governed by the laws of <strong>Ireland</strong>. Any disputes will be subject to the exclusive jurisdiction of the Irish courts.</p>
+  <p>If you are a consumer in the EU, you may also have rights under the law of your country of residence that these terms cannot override.</p>
+
+  <h2>16. Changes to these terms</h2>
+  <p>We may update these terms from time to time. We will notify you of material changes via email or an in-app notice at least 14 days before they take effect. Continued use of HyPair after that date constitutes acceptance of the updated terms.</p>
+
+  <h2>17. Contact</h2>
+  <p>Questions about these terms: <a href="mailto:hello@hypair.app">hello@hypair.app</a><br>
+  HyPair Ltd · Ireland</p>
 
 </div>
 
 <footer>
-  <p>&copy; 2026 HyPair &nbsp;·&nbsp; <a href="/">hypair.app</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="mailto:hello@hypair.app">hello@hypair.app</a></p>
+  © 2026 HyPair · <a href="https://hypair.app">hypair.app</a> · <a href="mailto:hello@hypair.app">hello@hypair.app</a> · <a href="/privacy.html">Privacy Policy</a>
 </footer>
 
 </body>
