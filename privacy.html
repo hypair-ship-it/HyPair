@@ -133,7 +133,7 @@
 
   <span class="page-label">Legal</span>
   <h1>Privacy Policy</h1>
-  <p class="last-updated">Last updated: 30 May 2026</p>
+  <p class="last-updated">Last updated: 1 June 2026</p>
 
   <div class="card">
     <p>HyPair is a mobile app that helps athletes find doubles partners for hybrid races. This policy explains what data we collect, why we collect it, and how you can control it. If you have questions, email us at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
@@ -141,7 +141,7 @@
 
   <h2>1. Who we are</h2>
   <p>HyPair is operated by HyPair Ltd (Ireland). When this policy refers to "HyPair", "we", "us" or "our", it means HyPair Ltd.</p>
-  <p>For the purposes of GDPR, HyPair Ltd is the data controller for personal data collected through the HyPair app and website.</p>
+  <p>For the purposes of GDPR, HyPair Ltd is the data controller for personal data collected through the HyPair app and website. You can contact us at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
 
   <h2>2. What data we collect</h2>
   <p><strong>Account data</strong> — when you sign up, we collect your email address and a password (stored as a secure hash, never in plain text).</p>
@@ -163,10 +163,13 @@
 
   <h2>4. What we share</h2>
   <p>We do not sell your personal data. We do not share it with advertisers.</p>
-  <p>We share data only with:</p>
+  <p>We share data only with the following sub-processors, each bound by a Data Processing Agreement:</p>
   <ul>
-    <li><strong>Supabase</strong> (our database and authentication provider, hosted in the EU) — processes data on our behalf under a Data Processing Agreement</li>
-    <li><strong>Expo / EAS</strong> — for app distribution and push notification delivery</li>
+    <li><strong>Supabase Inc.</strong> (USA) — database and authentication. Data is stored in the EU (AWS eu-west-1). Transfers to Supabase's US infrastructure are covered by Standard Contractual Clauses (SCCs).</li>
+    <li><strong>Resend Inc.</strong> (USA) — transactional email (e.g. account confirmation, match notifications). SCCs apply.</li>
+    <li><strong>Vercel Inc.</strong> (USA) — website hosting at hypair.app. SCCs apply.</li>
+    <li><strong>Cloudflare Inc.</strong> (USA) — DNS, CDN and email routing. SCCs apply.</li>
+    <li><strong>Expo / EAS (Expo Inc., USA)</strong> — app distribution and push notification delivery. SCCs apply.</li>
     <li><strong>Other app users</strong> — your public profile (name, photo, bio, pace, race history) is visible to other authenticated athletes browsing for partners. Your email address is never shared with other users.</li>
   </ul>
 
@@ -178,7 +181,43 @@
   <p>We keep your data for as long as your account is active. If you delete your account, we delete your profile, event registrations, chat messages and partner requests within 30 days.</p>
   <p>We may retain anonymised, aggregated usage data (e.g. how many athletes registered for a race type) indefinitely for analytics purposes.</p>
 
-  <h2>7. Your rights (GDPR)</h2>
+  <h2>7. Legal basis for processing</h2>
+  <table style="width:100%;border-collapse:collapse;margin-bottom:14px;font-size:14px;">
+    <thead>
+      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.15);">
+        <th style="text-align:left;padding:8px 10px 8px 0;color:rgba(255,255,255,0.35);font-weight:500;text-transform:uppercase;letter-spacing:1px;font-size:11px;">Processing activity</th>
+        <th style="text-align:left;padding:8px 0;color:rgba(255,255,255,0.35);font-weight:500;text-transform:uppercase;letter-spacing:1px;font-size:11px;">Legal basis</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Account creation and authentication</td>
+        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Contract performance</td>
+      </tr>
+      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Displaying your profile to other athletes</td>
+        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Contract performance</td>
+      </tr>
+      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Partner matching and in-app chat</td>
+        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Contract performance</td>
+      </tr>
+      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Push notifications</td>
+        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Consent (revocable in device settings)</td>
+      </tr>
+      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
+        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">App analytics and bug fixing</td>
+        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Legitimate interests</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Transactional email (account, notifications)</td>
+        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Contract performance</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>8. Your rights (GDPR)</h2>
   <p>If you are in the EEA or UK, you have the right to:</p>
   <ul>
     <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
@@ -189,20 +228,21 @@
     <li><strong>Restriction</strong> — request that we limit how we use your data</li>
   </ul>
   <p>To exercise any of these rights, email <a href="mailto:hello@hypair.app">hello@hypair.app</a>. We will respond within 30 days.</p>
+  <p>You also have the right to lodge a complaint with your national data protection authority. In Ireland, this is the <a href="https://www.dataprotection.ie" target="_blank" rel="noopener">Data Protection Commission (DPC)</a>.</p>
 
-  <h2>8. Cookies</h2>
+  <h2>9. Cookies</h2>
   <p>The HyPair website (<a href="https://hypair.app">hypair.app</a>) uses only essential cookies required for the page to function (e.g. Cloudflare security). We do not use tracking or advertising cookies.</p>
 
-  <h2>9. Children</h2>
-  <p>HyPair is not intended for users under the age of 16. We do not knowingly collect data from anyone under 16. During sign-up, users must confirm they are 16 or over. If you believe a child has created an account, email us and we will delete it.</p>
+  <h2>10. Children</h2>
+  <p>HyPair is not intended for users under the age of 18. We do not knowingly collect data from anyone under 18. During sign-up, users must confirm they are 18 or over. If you believe a minor has created an account, email us and we will delete it.</p>
 
-  <h2>10. Security</h2>
+  <h2>11. Security</h2>
   <p>All data is transmitted over HTTPS. Passwords are hashed using industry-standard bcrypt. We use Row Level Security (RLS) in our database so users can only access their own data and the public profiles of other athletes. We conduct regular security reviews.</p>
 
-  <h2>11. Changes to this policy</h2>
+  <h2>12. Changes to this policy</h2>
   <p>We may update this policy as the app evolves. We'll notify active users of material changes via email or an in-app notice. The "last updated" date at the top of this page always reflects the current version.</p>
 
-  <h2>12. Contact</h2>
+  <h2>13. Contact</h2>
   <p>Questions about this policy or your data: <a href="mailto:hello@hypair.app">hello@hypair.app</a></p>
   <p>HyPair Ltd · Ireland</p>
 
