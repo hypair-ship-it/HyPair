@@ -7,251 +7,401 @@
 <meta name="description" content="HyPair privacy policy — how we collect, use and protect your data.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hypair.app/privacy.html">
-<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:          #374D59;
-    --bg-card:     rgba(0,0,0,0.20);
-    --gold:        #F2D079;
-    --gold-border: rgba(242,208,121,0.25);
-    --white:       #ffffff;
-    --white-60:    rgba(255,255,255,0.60);
-    --white-35:    rgba(255,255,255,0.35);
-    --white-15:    rgba(255,255,255,0.15);
-    --red:         #E22424;
+    --summit: #1B2A3B;
+    --gold: #F8C662;
+    --red: #E53935;
+    --white: #FFFFFF;
+    --off-white: #F5F4F0;
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #e0ddd8;
   }
-
-  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Barlow', sans-serif;
-    background: var(--bg);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--off-white);
   }
 
+  /* NAV */
   nav {
-    position: sticky; top: 0; z-index: 100;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    background: rgba(55,77,89,0.92);
-    border-bottom: 0.5px solid var(--white-15);
-    padding: 0 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
+    background: var(--summit);
+    padding: 0 32px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo svg { height: 32px; width: auto; }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo svg { height: 28px; }
   .nav-logo-text {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px; font-weight: 700; letter-spacing: 1px; color: var(--gold);
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+  }
+  .nav-tag {
+    font-family: 'Barlow', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
   }
 
-  .container {
-    max-width: 680px;
+  /* LAYOUT */
+  .page-wrap {
+    max-width: 760px;
     margin: 0 auto;
-    padding: 56px 24px 80px;
+    padding: 64px 32px 96px;
   }
 
-  .page-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 12px; display: block;
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
   }
 
   h1 {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(32px, 7vw, 48px);
-    font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
-    color: var(--white); line-height: 1; margin-bottom: 12px;
+    font-weight: 900;
+    font-size: clamp(36px, 6vw, 52px);
+    line-height: 1.0;
+    color: var(--summit);
+    text-transform: uppercase;
+    margin-bottom: 12px;
   }
 
   .last-updated {
-    font-size: 13px; color: var(--white-35); margin-bottom: 48px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--muted);
+    margin-bottom: 48px;
+    line-height: 1.8;
   }
 
   h2 {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.5px; color: var(--gold);
-    margin-top: 40px; margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--summit);
+    margin-top: 48px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block;
   }
 
-  p {
-    font-size: 15px; color: var(--white-60); line-height: 1.75;
-    margin-bottom: 14px;
-  }
-
-  p strong { color: var(--white); font-weight: 500; }
+  p { margin-bottom: 16px; color: #333; }
 
   ul {
-    margin: 0 0 14px 0;
-    padding-left: 20px;
-    color: var(--white-60);
+    margin: 12px 0 20px 0;
+    padding-left: 0;
+    list-style: none;
   }
-  li {
-    font-size: 15px; line-height: 1.75; margin-bottom: 6px;
+  ul li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    color: #333;
+    border-bottom: 1px solid var(--border);
+  }
+  ul li:last-child { border-bottom: none; }
+  ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
   }
 
-  .card {
-    background: var(--bg-card);
-    border: 0.5px solid var(--gold-border);
-    border-radius: 12px;
-    padding: 20px 22px;
-    margin: 24px 0;
+  .processor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
   }
-  .card p { margin-bottom: 0; }
+  .processor-table th {
+    background: var(--summit);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .processor-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #333;
+  }
+  .processor-table tr:nth-child(even) td { background: rgba(248,198,98,0.06); }
+  .processor-table tr:last-child td { border-bottom: none; }
 
-  a { color: var(--gold); text-decoration: none; }
+  .callout {
+    background: rgba(248,198,98,0.12);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: #444;
+  }
+
+  strong { font-weight: 500; color: var(--summit); }
+
+  a { color: var(--red); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
   footer {
-    border-top: 0.5px solid var(--white-15);
-    padding: 24px; text-align: center;
-    font-size: 12px; color: var(--white-35);
+    background: var(--summit);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 28px 32px;
+    font-size: 13px;
+    margin-top: 80px;
   }
-  footer a { color: var(--white-35); }
+  footer a { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .page-wrap { padding: 40px 20px 64px; }
+    nav { padding: 0 20px; }
+    .processor-table { font-size: 13px; }
+    .processor-table th, .processor-table td { padding: 8px 10px; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">
-    <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="32" width="auto" aria-hidden="true">
-      <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
-      <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
-      <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+  <a class="nav-logo" href="https://hypair.app/">
+    <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg">
+      <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+      <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+      <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
     </svg>
     <span class="nav-logo-text">HyPair</span>
   </a>
+  <span class="nav-tag">Legal</span>
 </nav>
 
-<div class="container">
+<div class="page-wrap">
 
-  <span class="page-label">Legal</span>
+  <p class="eyebrow">Legal</p>
   <h1>Privacy Policy</h1>
-  <p class="last-updated">Last updated: 1 June 2026</p>
+  <p class="last-updated">Last updated: 31 May 2026</p>
 
-  <div class="card">
-    <p>HyPair is a mobile app that helps athletes find doubles partners for hybrid races. This policy explains what data we collect, why we collect it, and how you can control it. If you have questions, email us at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
-  </div>
+  <p class="intro">HyPair is a mobile app that helps athletes find doubles partners for hybrid races — HYROX, Spartan, Tryka, and Athex. This policy explains exactly what personal data we collect, why we collect it, who we share it with, and what rights you have over it. Questions? Email us at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
 
   <h2>1. Who we are</h2>
-  <p>HyPair is operated by HyPair Ltd (Ireland). When this policy refers to "HyPair", "we", "us" or "our", it means HyPair Ltd.</p>
-  <p>For the purposes of GDPR, HyPair Ltd is the data controller for personal data collected through the HyPair app and website. You can contact us at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
+  <p>HyPair is operated by <strong>HyPair Ltd</strong>, a private limited company incorporated in Ireland. When this policy refers to "HyPair", "we", "us" or "our", it means HyPair Ltd.</p>
+  <p>For the purposes of the EU General Data Protection Regulation (GDPR), HyPair Ltd is the <strong>data controller</strong> for all personal data collected through the HyPair app and website (hypair.app).</p>
+  <p>Contact: <a href="mailto:hello@hypair.app">hello@hypair.app</a> · HyPair Ltd · Ireland</p>
 
   <h2>2. What data we collect</h2>
-  <p><strong>Account data</strong> — when you sign up, we collect your email address and a password (stored as a secure hash, never in plain text).</p>
-  <p><strong>Profile data</strong> — to help you find race partners, you can optionally provide: first and last name, date of birth, gender, city, country, profile photo, bio, training pace, race history and race goals.</p>
-  <p><strong>Event data</strong> — which races you've registered for, your format (Solo / Doubles / Mixed Doubles), and your wave start time.</p>
-  <p><strong>Matching data</strong> — partner requests you've sent or received, chat messages exchanged with other athletes, and pairing confirmations.</p>
-  <p><strong>Usage data</strong> — basic app analytics (screens visited, errors) to help us fix bugs. We do not sell this data.</p>
-  <p><strong>Push notification token</strong> — if you grant permission, we store a device token to send you match and chat notifications. You can revoke this at any time in your device settings.</p>
 
-  <h2>3. Why we collect it</h2>
-  <ul>
-    <li>To match you with compatible race partners based on pace, format and event</li>
-    <li>To enable in-app chat between matched athletes</li>
-    <li>To send you notifications about partner requests and messages</li>
-    <li>To display your public profile to other athletes browsing for partners</li>
-    <li>To improve the app and fix bugs</li>
-  </ul>
-  <p>Our legal basis under GDPR is <strong>contract performance</strong> (providing the service you signed up for) and <strong>legitimate interests</strong> (improving the app, preventing abuse).</p>
+  <p><strong>Waitlist data</strong> — if you join the waitlist at hypair.app before the app launches, we collect your email address and which race format you are training for (HYROX or Tryka). This is stored in our database and used only to notify you when the app launches.</p>
 
-  <h2>4. What we share</h2>
-  <p>We do not sell your personal data. We do not share it with advertisers.</p>
-  <p>We share data only with the following sub-processors, each bound by a Data Processing Agreement:</p>
-  <ul>
-    <li><strong>Supabase Inc.</strong> (USA) — database and authentication. Data is stored in the EU (AWS eu-west-1). Transfers to Supabase's US infrastructure are covered by Standard Contractual Clauses (SCCs).</li>
-    <li><strong>Resend Inc.</strong> (USA) — transactional email (e.g. account confirmation, match notifications). SCCs apply.</li>
-    <li><strong>Vercel Inc.</strong> (USA) — website hosting at hypair.app. SCCs apply.</li>
-    <li><strong>Cloudflare Inc.</strong> (USA) — DNS, CDN and email routing. SCCs apply.</li>
-    <li><strong>Expo / EAS (Expo Inc., USA)</strong> — app distribution and push notification delivery. SCCs apply.</li>
-    <li><strong>Other app users</strong> — your public profile (name, photo, bio, pace, race history) is visible to other authenticated athletes browsing for partners. Your email address is never shared with other users.</li>
-  </ul>
+  <p><strong>Account data</strong> — when you register, we collect your email address and a password. Passwords are stored as a secure one-way hash (bcrypt) and are never stored or transmitted in plain text.</p>
 
-  <h2>5. Your profile visibility</h2>
-  <p>Your profile is visible to other authenticated HyPair users when they browse for partners at events you've registered for. Only registered, signed-in users can see profiles — unauthenticated visitors cannot access any profile data.</p>
-  <p>You can control what appears on your profile by editing it in the app. Deleting your account removes your profile from partner search immediately.</p>
+  <p><strong>Profile data</strong> — to help you find race partners, you provide: first name, profile photo, city/country, training pace (5K), personal best times, race formats you compete in, training frequency, and a short bio. All profile fields beyond name and email are optional.</p>
 
-  <h2>6. Data retention</h2>
-  <p>We keep your data for as long as your account is active. If you delete your account, we delete your profile, event registrations, chat messages and partner requests within 30 days.</p>
-  <p>We may retain anonymised, aggregated usage data (e.g. how many athletes registered for a race type) indefinitely for analytics purposes.</p>
+  <p><strong>Event data</strong> — races you have registered for, your preferred format (doubles/mixed doubles), and your target wave time.</p>
 
-  <h2>7. Legal basis for processing</h2>
-  <table style="width:100%;border-collapse:collapse;margin-bottom:14px;font-size:14px;">
-    <thead>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.15);">
-        <th style="text-align:left;padding:8px 10px 8px 0;color:rgba(255,255,255,0.35);font-weight:500;text-transform:uppercase;letter-spacing:1px;font-size:11px;">Processing activity</th>
-        <th style="text-align:left;padding:8px 0;color:rgba(255,255,255,0.35);font-weight:500;text-transform:uppercase;letter-spacing:1px;font-size:11px;">Legal basis</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
-        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Account creation and authentication</td>
-        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Contract performance</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
-        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Displaying your profile to other athletes</td>
-        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Contract performance</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
-        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Partner matching and in-app chat</td>
-        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Contract performance</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
-        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Push notifications</td>
-        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Consent (revocable in device settings)</td>
-      </tr>
-      <tr style="border-bottom:0.5px solid rgba(255,255,255,0.08);">
-        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">App analytics and bug fixing</td>
-        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Legitimate interests</td>
-      </tr>
-      <tr>
-        <td style="padding:10px 10px 10px 0;color:rgba(255,255,255,0.6);">Transactional email (account, notifications)</td>
-        <td style="padding:10px 0;color:rgba(255,255,255,0.6);">Contract performance</td>
-      </tr>
-    </tbody>
+  <p><strong>Matching and messaging data</strong> — partner requests you send or receive, the outcome (accepted/declined), and messages exchanged with matched athletes inside the app.</p>
+
+  <p><strong>Usage and analytics data</strong> — which screens you visit, errors and crashes, and basic device information (OS version, device type). We use this to fix bugs and improve the app. We do not sell this data.</p>
+
+  <p><strong>Push notification token</strong> — if you grant permission, we store a device token to send you match alerts and chat notifications. You can revoke this at any time in your device settings.</p>
+
+  <h2>3. Why we collect it — legal basis</h2>
+
+  <table class="processor-table">
+    <tr>
+      <th>Purpose</th>
+      <th>Legal basis (GDPR Art. 6)</th>
+    </tr>
+    <tr>
+      <td>Providing the matching and messaging service you signed up for</td>
+      <td>Contract performance (Art. 6(1)(b))</td>
+    </tr>
+    <tr>
+      <td>Sending transactional emails (verification, reset, match alerts)</td>
+      <td>Contract performance (Art. 6(1)(b))</td>
+    </tr>
+    <tr>
+      <td>Improving the app, fixing bugs, preventing abuse</td>
+      <td>Legitimate interests (Art. 6(1)(f))</td>
+    </tr>
+    <tr>
+      <td>Sending the waitlist launch notification</td>
+      <td>Consent (Art. 6(1)(a)) — you can unsubscribe at any time</td>
+    </tr>
   </table>
 
-  <h2>8. Your rights (GDPR)</h2>
-  <p>If you are in the EEA or UK, you have the right to:</p>
+  <h2>4. Who we share data with</h2>
+
+  <p>We do not sell your personal data. We do not share it with advertisers. We share data only with the following data processors, all of whom are bound by data processing agreements:</p>
+
+  <table class="processor-table">
+    <tr>
+      <th>Processor</th>
+      <th>Purpose</th>
+      <th>Location</th>
+      <th>Transfer mechanism</th>
+    </tr>
+    <tr>
+      <td><strong>Supabase Inc.</strong></td>
+      <td>Database, authentication, file storage (profile photos)</td>
+      <td>US (data hosted in EU region)</td>
+      <td>Standard Contractual Clauses (SCCs)</td>
+    </tr>
+    <tr>
+      <td><strong>Resend Inc.</strong></td>
+      <td>Transactional email — verification, password reset, match notifications</td>
+      <td>US</td>
+      <td>Standard Contractual Clauses (SCCs)</td>
+    </tr>
+    <tr>
+      <td><strong>Vercel Inc.</strong></td>
+      <td>Hosting of the hypair.app website</td>
+      <td>US (CDN globally distributed)</td>
+      <td>Standard Contractual Clauses (SCCs)</td>
+    </tr>
+    <tr>
+      <td><strong>Cloudflare Inc.</strong></td>
+      <td>Email routing (hello@hypair.app), DNS, security</td>
+      <td>US (infrastructure globally distributed)</td>
+      <td>Standard Contractual Clauses (SCCs)</td>
+    </tr>
+    <tr>
+      <td><strong>Expo / EAS (Expo Inc.)</strong></td>
+      <td>Mobile app distribution and push notification delivery</td>
+      <td>US</td>
+      <td>Standard Contractual Clauses (SCCs)</td>
+    </tr>
+    <tr>
+      <td><strong>Other app users</strong></td>
+      <td>Your public profile (name, photo, bio, pace, race formats) is visible to other authenticated athletes browsing for partners. Your email address is never shared with other users.</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+  </table>
+
+  <h2>5. International data transfers</h2>
+
+  <p>Several of our processors are based in the United States. The US does not have an EU adequacy decision for all transfers. Where we transfer personal data outside the EEA, we rely on <strong>Standard Contractual Clauses (SCCs)</strong> approved by the European Commission, which provide equivalent protection to data held within the EU.</p>
+
+  <p>Supabase hosts your data in its EU region (AWS eu-west-1, Ireland) where possible.</p>
+
+  <p>You can request a copy of the relevant SCCs by emailing <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
+
+  <h2>6. Your profile visibility</h2>
+
+  <p>Your profile is visible to other authenticated HyPair users when they search for partners at events you have registered for. Only signed-in users can view profiles — unauthenticated visitors cannot access any profile data.</p>
+
+  <p>You control what appears on your profile by editing it in the app. You can set your profile to private at any time, which hides it from search results while keeping your account active. Deleting your account removes your profile from partner search immediately.</p>
+
+  <h2>7. Data retention</h2>
+
+  <ul>
+    <li><strong>Active account data</strong> — kept for as long as your account is active</li>
+    <li><strong>Deleted account data</strong> — profile, events, messages and match history deleted within 30 days of account deletion</li>
+    <li><strong>Waitlist data</strong> — email addresses kept until the app launches and the list is migrated, or until you unsubscribe</li>
+    <li><strong>Payment records</strong> — retained for 7 years as required by Irish tax law</li>
+    <li><strong>Anonymised analytics</strong> — aggregated, non-identifiable usage data may be retained indefinitely</li>
+  </ul>
+
+  <h2>8. Your rights under GDPR</h2>
+
+  <p>If you are in the EEA or UK, you have the following rights. To exercise any of them, email <a href="mailto:hello@hypair.app">hello@hypair.app</a>. We will respond within <strong>30 days</strong>.</p>
+
   <ul>
     <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
-    <li><strong>Rectification</strong> — correct inaccurate data (you can do most of this directly in the app)</li>
-    <li><strong>Erasure</strong> — request deletion of your account and personal data</li>
-    <li><strong>Portability</strong> — receive your data in a structured, machine-readable format</li>
+    <li><strong>Rectification</strong> — correct inaccurate data (most profile fields can be updated directly in the app)</li>
+    <li><strong>Erasure</strong> — request deletion of your account and all personal data</li>
+    <li><strong>Portability</strong> — receive your data in a structured, machine-readable format (JSON)</li>
     <li><strong>Objection</strong> — object to processing based on legitimate interests</li>
-    <li><strong>Restriction</strong> — request that we limit how we use your data</li>
+    <li><strong>Restriction</strong> — request that we limit how we use your data while a dispute is resolved</li>
+    <li><strong>Withdraw consent</strong> — where processing is based on consent (e.g. waitlist emails), you can withdraw at any time without affecting the lawfulness of prior processing</li>
   </ul>
-  <p>To exercise any of these rights, email <a href="mailto:hello@hypair.app">hello@hypair.app</a>. We will respond within 30 days.</p>
-  <p>You also have the right to lodge a complaint with your national data protection authority. In Ireland, this is the <a href="https://www.dataprotection.ie" target="_blank" rel="noopener">Data Protection Commission (DPC)</a>.</p>
 
-  <h2>9. Cookies</h2>
-  <p>The HyPair website (<a href="https://hypair.app">hypair.app</a>) uses only essential cookies required for the page to function (e.g. Cloudflare security). We do not use tracking or advertising cookies.</p>
+  <div class="callout">
+    You also have the right to lodge a complaint with the <strong>Data Protection Commission (DPC)</strong>, Ireland's supervisory authority, at <a href="https://www.dataprotection.ie" target="_blank">dataprotection.ie</a>, if you believe we have not handled your data lawfully.
+  </div>
 
-  <h2>10. Children</h2>
-  <p>HyPair is not intended for users under the age of 18. We do not knowingly collect data from anyone under 18. During sign-up, users must confirm they are 18 or over. If you believe a minor has created an account, email us and we will delete it.</p>
+  <h2>9. Age restriction</h2>
+
+  <p>HyPair is intended for users aged <strong>18 and over</strong>. We do not knowingly collect personal data from anyone under 18. During registration, users must confirm they are 18 or older.</p>
+
+  <p>If we become aware that a user is under 18, we will delete their account and all associated data immediately. If you believe a child has created an account, please email <a href="mailto:hello@hypair.app">hello@hypair.app</a> and we will act within 48 hours.</p>
+
+  <h2>10. Cookies</h2>
+
+  <p>The HyPair website (hypair.app) uses only <strong>strictly necessary cookies</strong> — specifically those set by Cloudflare for security and bot protection. We do not use tracking, advertising, or analytics cookies on the website.</p>
+
+  <p>The HyPair mobile app does not use cookies. It uses a secure session token stored in the device's secure storage (not accessible to other apps).</p>
 
   <h2>11. Security</h2>
-  <p>All data is transmitted over HTTPS. Passwords are hashed using industry-standard bcrypt. We use Row Level Security (RLS) in our database so users can only access their own data and the public profiles of other athletes. We conduct regular security reviews.</p>
+
+  <ul>
+    <li>All data is transmitted over HTTPS / TLS</li>
+    <li>Passwords are hashed using bcrypt — never stored or transmitted in plain text</li>
+    <li>Row Level Security (RLS) is enforced in our database — users can only access their own data and the public fields of other athletes' profiles</li>
+    <li>Profile photos are stored in access-controlled storage — only authenticated users can retrieve them</li>
+    <li>No service-role database keys are present in client-side code</li>
+    <li>We conduct regular security reviews and address vulnerabilities promptly</li>
+  </ul>
 
   <h2>12. Changes to this policy</h2>
-  <p>We may update this policy as the app evolves. We'll notify active users of material changes via email or an in-app notice. The "last updated" date at the top of this page always reflects the current version.</p>
+
+  <p>We may update this policy as the app evolves and as we add new processors or features. We will notify active users of any material changes via email or an in-app notice at least 14 days before the change takes effect. The "last updated" date at the top of this page always reflects the current version.</p>
+
+  <p>Continued use of HyPair after a notified change constitutes acceptance of the updated policy.</p>
 
   <h2>13. Contact</h2>
-  <p>Questions about this policy or your data: <a href="mailto:hello@hypair.app">hello@hypair.app</a></p>
-  <p>HyPair Ltd · Ireland</p>
+
+  <p>For any questions about this policy, your data, or to exercise your rights:</p>
+  <p>
+    <strong>Email:</strong> <a href="mailto:hello@hypair.app">hello@hypair.app</a><br>
+    <strong>Company:</strong> HyPair Ltd · Ireland<br>
+    <strong>Response time:</strong> within 30 days for all GDPR requests
+  </p>
 
 </div>
 
 <footer>
-  <p>&copy; 2026 HyPair &nbsp;·&nbsp; <a href="/">hypair.app</a> &nbsp;·&nbsp; <a href="mailto:hello@hypair.app">hello@hypair.app</a> &nbsp;·&nbsp; <a href="/terms.html">Terms</a></p>
+  © 2026 HyPair Ltd · <a href="https://hypair.app">hypair.app</a> · <a href="mailto:hello@hypair.app">hello@hypair.app</a> · <a href="https://hypair.app/privacy.html">Privacy Policy</a> · <a href="https://hypair.app/terms.html">Terms of Service</a> · <a href="https://hypair.app/cookies.html">Cookie Policy</a>
 </footer>
 
 </body>
