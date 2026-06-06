@@ -93,7 +93,7 @@
   @media (min-width: 900px) {
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 0.8fr;
       grid-template-areas:
         "chips    why"
         "h1       why"
@@ -105,7 +105,7 @@
         "cta2     cta2";
       column-gap: 64px;
       row-gap: 4px;
-      align-items: start;
+      align-items: center;
       text-align: left;
       padding: 80px 64px 100px;
     }
@@ -211,9 +211,9 @@
   }
 
   .feat {
-    display: flex; align-items: flex-start; gap: 14px;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 0;
     background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 12px; padding: 16px 18px;
+    border-radius: 12px; padding: 20px 20px;
     transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     text-align: left;
   }
@@ -223,12 +223,13 @@
     box-shadow: 0 12px 32px rgba(0,0,0,0.25);
   }
   .feat-icon {
-    width: 32px; height: 32px; flex-shrink: 0;
-    background: var(--gold-dim); border-radius: 7px;
-    display: flex; align-items: center; justify-content: center; font-size: 15px;
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: var(--gold-dim); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 17px;
+    margin-bottom: 16px;
   }
-  .feat-text strong { display: block; font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 5px; }
-  .feat-text span { font-size: 13px; color: var(--white-60); line-height: 1.65; }
+  .feat-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .feat-text span { font-size: 13px; color: var(--white-60); line-height: 1.7; }
 
   /* ── SIM SECTION ── */
   .sim-section {
