@@ -80,9 +80,38 @@
   /* ── HERO ── */
   .hero {
     position: relative; z-index: 1;
-    max-width: 640px; margin: 0 auto;
-    padding: 72px 24px 80px;
+    max-width: 1080px; margin: 0 auto;
+    padding: 72px 48px 80px;
     display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "h1      features"
+        "tagline features"
+        "chips   features"
+        "form    why"
+        "note    why"
+        "cta2    why";
+      column-gap: 64px;
+      row-gap: 4px;
+      align-items: start;
+      text-align: left;
+      padding: 80px 64px 100px;
+    }
+    .hero-logo        { display: none; }
+    h1                { grid-area: h1; margin-bottom: 12px; }
+    .tagline          { grid-area: tagline; max-width: 100%; margin-bottom: 16px; }
+    .race-strip       { grid-area: chips; justify-content: flex-start; margin-bottom: 24px; }
+    .form-wrap        { grid-area: form; max-width: 100%; }
+    .form-note        { text-align: left; }
+    .features         { grid-area: features; margin-top: 0; }
+    .why-section      { grid-area: why; margin-top: 0; }
+    .second-cta       { grid-area: cta2; text-align: left; align-items: flex-start; margin-top: 32px; }
+    .footer-note      { grid-column: 1 / -1; }
   }
 
   .hero-logo {
