@@ -107,17 +107,25 @@
       text-align: left;
       padding: 80px 64px 100px;
     }
-    .hero-logo        { display: none; }
-    h1                { grid-area: h1; margin-bottom: 12px; }
-    .tagline          { grid-area: tagline; max-width: 100%; margin-bottom: 16px; }
-    .race-strip       { grid-area: chips; justify-content: flex-start; margin-bottom: 24px; }
-    .form-wrap        { grid-area: form; max-width: 100%; }
-    .form-note        { text-align: left; }
-    .why-section      { grid-area: why; margin-top: 0; max-width: 100%; }
-    .features         { grid-area: features; margin-top: 48px; max-width: 100%;
-                        display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .sim-section      { grid-area: sim; }
-    .second-cta       { grid-area: cta2; text-align: center; align-items: center; margin-top: 48px; }
+    .hero-logo  { display: none; }
+    h1          { grid-area: h1; margin-bottom: 12px; }
+    .tagline    { grid-area: tagline; max-width: 100%; margin-bottom: 16px; }
+    .race-strip { grid-area: chips; justify-content: flex-start; margin-bottom: 24px; }
+    .form-wrap  { grid-area: form; max-width: 100%; }
+    .form-note  { text-align: left; }
+    .why-section { grid-area: why; margin-top: 0; max-width: 100%; }
+    .features   {
+      grid-area: features;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 16px !important;
+      margin-top: 48px;
+      max-width: 100% !important;
+      width: 100% !important;
+      flex-direction: unset;
+    }
+    .sim-section  { grid-area: sim; max-width: 100%; }
+    .second-cta   { grid-area: cta2; text-align: center; align-items: center; margin-top: 48px; max-width: 100%; }
   }
 
   .hero-logo {
@@ -199,12 +207,7 @@
     margin-top: 48px;
     animation: fadeup 0.6s 0.35s ease both;
   }
-  @media (min-width: 900px) {
-    .features { max-width: 100%; }
-    .why-section { max-width: 100%; }
-    .sim-section { max-width: 100%; }
-    .second-cta { max-width: 100%; }
-  }
+
   .feat {
     display: flex; align-items: flex-start; gap: 14px;
     background: var(--black-30); border: 0.5px solid var(--white-15);
