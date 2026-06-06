@@ -180,11 +180,15 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 17px; font-weight: 700; letter-spacing: 1px;
     text-transform: uppercase; cursor: pointer; white-space: nowrap;
-    transition: opacity 0.15s, transform 0.1s;
+    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-  .form-btn:hover { opacity: 0.9; }
-  .form-btn:active { transform: scale(0.97); }
-  .form-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-btn:hover {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(226,36,36,0.45), 0 4px 16px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+  }
+  .form-btn:active { transform: scale(0.97); box-shadow: none; }
+  .form-btn:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; transform: none; }
 
   .form-note { font-size: 12px; color: var(--white-35); text-align: center; margin-top: 10px; letter-spacing: 0.3px; }
 
