@@ -64,9 +64,11 @@
     background: rgba(55,77,89,0.88);
     border-bottom: 0.5px solid var(--white-15);
     padding: 0 24px;
-    display: flex; align-items: center; justify-content: space-between;
     height: 64px;
-    max-width: 100%;
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto;
+    height: 100%; display: flex; align-items: center; justify-content: space-between;
   }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .nav-logo svg { height: 36px; width: auto; }
@@ -93,9 +95,9 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
+        "chips    why"
         "h1       why"
         "tagline  why"
-        "chips    why"
         "form     why"
         "note     why"
         "features features"
@@ -274,11 +276,12 @@
 
   /* ── SECOND CTA ── */
   .second-cta {
-    width: 100%; max-width: 440px;
-    margin-top: 56px;
+    width: 100%; max-width: 800px; margin: 56px auto 0;
     text-align: center;
-    display: flex; flex-direction: column; align-items: center; gap: 18px;
-    padding-bottom: 8px;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+    padding: 64px 32px;
+    background: var(--black-30); border: 0.5px solid var(--white-15);
+    border-radius: 16px;
     animation: fadeup 0.6s 0.45s ease both;
   }
   .second-cta-headline {
@@ -395,15 +398,17 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="/">
-    <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="36" width="auto" aria-hidden="true">
-      <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
-      <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
-      <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
-    </svg>
-    <span class="nav-logo-text">HyPair</span>
-  </a>
-  <span class="nav-tag">Beta launching soon</span>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="36" width="auto" aria-hidden="true">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+      </svg>
+      <span class="nav-logo-text">HyPair</span>
+    </a>
+    <span class="nav-tag">Beta launching soon</span>
+  </div>
 </nav>
 
 <!-- WAITLIST -->
@@ -416,15 +421,15 @@
       <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
     </svg>
 
-    <h1>Meet your<br><span class="gold">match</span></h1>
-    <p class="tagline">You trained for months. Don't leave your doubles partner to chance.<br>Find your match for HYROX and Tryka — matched by pace, goal and the exact race you're entering.</p>
-
     <div class="race-strip">
       <span class="race-chip gold">HYROX</span>
       <span class="race-chip gold">Tryka</span>
       <span class="race-chip">SIM events</span>
       <span class="race-chip">More races soon</span>
     </div>
+
+    <h1>Meet your<br><span class="gold">match</span></h1>
+    <p class="tagline">You trained for months. Don't leave your doubles partner to chance.<br>Find your match for HYROX and Tryka — matched by pace, goal and the exact race you're entering.</p>
 
     <div class="form-wrap" id="form-anchor">
       <div class="form-row">
