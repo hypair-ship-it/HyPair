@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HyPair — Meet your match</title>
-<meta name="description" content="Find your doubles partner for HYROX, Spartan, Tryka and Athex — matched by pace, level and event. Join the waitlist.">
+<meta name="description" content="Find your doubles partner for HYROX and Tryka — matched by pace, level and event. Launching in Ireland. Join the waitlist.">
 <meta property="og:title" content="HyPair — Meet your match">
 <meta property="og:description" content="Stop settling for the wrong partner. HyPair matches hybrid race athletes for doubles events by pace, level and race. Join the waitlist.">
 <meta property="og:type" content="website">
@@ -345,13 +345,13 @@
     </svg>
 
     <h1>Meet your<br><span class="gold">match</span></h1>
-    <p class="tagline">You trained for months. Don't leave your doubles partner to chance.<br>Find your match for HYROX, Spartan, Tryka and more — matched by pace, goal and the exact race you're entering.</p>
+    <p class="tagline">You trained for months. Don't leave your doubles partner to chance.<br>Find your match for HYROX and Tryka — matched by pace, goal and the exact race you're entering.</p>
 
     <div class="race-strip">
       <span class="race-chip gold">HYROX</span>
-      <span class="race-chip gold">Spartan</span>
       <span class="race-chip gold">Tryka</span>
-      <span class="race-chip">+ more coming</span>
+      <span class="race-chip">SIM events</span>
+      <span class="race-chip">More races soon</span>
     </div>
 
     <div class="form-wrap" id="form-anchor">
@@ -394,7 +394,7 @@
     </div>
 
     <div class="second-cta">
-      <p class="second-cta-headline">Race season is coming.<br><span>Don't start it without a partner.</span></p>
+      <p class="second-cta-headline">TRYKA Dublin is in July.<br>HYROX Dublin is in November.<br><span>Don't start either without a partner.</span></p>
       <p class="second-cta-sub">Join the waitlist and be among the first on HyPair when beta launches.</p>
       <a href="#form-anchor" class="form-btn">Get early access →</a>
     </div>
@@ -410,9 +410,8 @@
       <p class="race-select-label">Which race are you training for?</p>
       <div class="race-options">
         <button class="race-opt" onclick="selectRace(this, 'HYROX')">HYROX</button>
-        <button class="race-opt" onclick="selectRace(this, 'Spartan')">Spartan</button>
         <button class="race-opt" onclick="selectRace(this, 'Tryka')">Tryka</button>
-        <button class="race-opt" onclick="selectRace(this, 'Athex')">Athex</button>
+        <button class="race-opt" onclick="selectRace(this, 'SIM')">SIM events</button>
       </div>
     </div>
     <div class="success-actions">
@@ -431,9 +430,14 @@
         <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
       </svg>
     </a>
-    <a href="https://www.facebook.com/profile.php?id=61579447175723" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+    <a href="https://www.facebook.com/profile.php?id=61590737153034" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    </a>
+    <a href="https://www.tiktok.com/@hypair.app" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
       </svg>
     </a>
   </div>
@@ -532,7 +536,7 @@
     if (navigator.share) {
       navigator.share({
         title: 'HyPair — Find your race partner',
-        text: 'Just signed up for HyPair — find your race partner for HYROX, Spartan, Tryka and more. Join the waitlist:',
+        text: 'Just signed up for HyPair — find your race partner for HYROX and Tryka. Join the waitlist:',
         url: window.location.href
       }).catch(() => {});
     } else {
