@@ -28,42 +28,43 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --green: #4C5F6B;
-    --green-dark: #374D59;
+    --hero-bg: #111820;
     --gold: #F2D079;
     --gold-dim: rgba(242,208,121,0.12);
     --gold-border: rgba(242,208,121,0.35);
     --red: #E22424;
     --white: #ffffff;
-    --body-text: #94A3B8;
     --white-60: rgba(255,255,255,0.6);
     --white-35: rgba(255,255,255,0.35);
     --white-15: rgba(255,255,255,0.15);
-    --white-08: rgba(255,255,255,0.08);
     --black-30: rgba(0,0,0,0.30);
-    --navy: #2C263F;
-    --section-gap: 80px;
+    /* content section (white bg) */
+    --text-heading: #0f172a;
+    --text-body: #475569;
+    --text-muted: #94A3B8;
+    --border-light: #e2e8f0;
+    --surface: #f8fafc;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Barlow', sans-serif;
-    background:
-      radial-gradient(ellipse at 28% 18%, rgba(242,208,121,0.07) 0%, transparent 55%),
-      radial-gradient(ellipse at 75% 65%, rgba(76,95,107,0.6) 0%, transparent 50%),
-      var(--green);
-    color: var(--white);
+    background: var(--white);
+    color: var(--text-heading);
     min-height: 100vh;
     overflow-x: hidden;
   }
 
+  @keyframes fadeup { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes shake  { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+
   /* ── NAV ── */
   nav {
     position: sticky; top: 0; z-index: 100;
+    background: rgba(17,24,32,0.96);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    background: rgba(55,77,89,0.88);
     border-bottom: 0.5px solid var(--white-15);
     padding: 0 24px;
     height: 64px;
@@ -86,96 +87,75 @@
 
   /* ── HERO ── */
   .hero {
-    position: relative; z-index: 1;
-    max-width: 1080px; margin: 0 auto;
-    padding: 72px 48px 80px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% 120%, rgba(242,208,121,0.13) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 110%, rgba(226,36,36,0.08) 0%, transparent 45%),
+      var(--hero-bg);
+    padding: 100px 24px 120px;
     display: flex; flex-direction: column; align-items: center; text-align: center;
+    color: var(--white);
   }
 
-  @media (min-width: 900px) {
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      grid-template-areas:
-        "chips    why"
-        "h1       why"
-        "tagline  why"
-        "form     why"
-        "note     why"
-        "features features"
-        "sim      sim"
-        "cta2     cta2";
-      column-gap: 64px;
-      row-gap: 4px;
-      align-items: center;
-      text-align: left;
-      padding: 80px 64px 100px;
-    }
-    .hero-logo  { display: none; }
-    h1          { grid-area: h1; margin-bottom: 12px; }
-    .tagline    { grid-area: tagline; max-width: 100%; margin-bottom: 16px; }
-    .race-strip { grid-area: chips; justify-content: flex-start; margin-bottom: 24px; }
-    .form-wrap  { grid-area: form; max-width: 100%; }
-    .form-note  { text-align: left; }
-    .why-section { grid-area: why; margin-top: 0; max-width: 100%; }
-    .features   {
-      grid-area: features;
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 16px !important;
-      margin-top: var(--section-gap) !important;
-      max-width: 100% !important;
-      width: 100% !important;
-      flex-direction: unset;
-    }
-    .sim-section  { grid-area: sim; max-width: 100%; }
-    .second-cta   { grid-area: cta2; text-align: center; align-items: center; margin-top: 48px; max-width: 100%; }
+  /* large faded watermark logo */
+  .hero-watermark {
+    position: absolute;
+    right: -4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52%;
+    max-width: 600px;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
   }
+  .hero-watermark svg { width: 100%; height: auto; display: block; }
+
+  /* all hero children above watermark */
+  .hero > *:not(.hero-watermark) { position: relative; z-index: 1; }
 
   .hero-logo {
-    width: 96px; height: auto; margin-bottom: 32px;
+    width: 72px; height: auto; margin-bottom: 28px;
     animation: fadeup 0.6s ease both;
   }
-  @keyframes fadeup { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
-  h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(44px, 10vw, 64px);
-    font-weight: 900; line-height: 0.95;
-    letter-spacing: 1px; text-transform: uppercase;
-    color: var(--white); margin-bottom: 16px;
-    animation: fadeup 0.6s 0.1s ease both;
-  }
-  h1 .gold { color: var(--gold); }
-
-  .tagline {
-    font-size: 17px; font-weight: 300; color: var(--body-text);
-    line-height: 1.7; max-width: 380px; margin-bottom: 28px;
-    animation: fadeup 0.6s 0.15s ease both;
-  }
-
-  /* ── RACES (hero position) ── */
   .race-strip {
     display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
-    margin-bottom: 32px;
-    animation: fadeup 0.6s 0.2s ease both;
+    margin-bottom: 24px;
+    animation: fadeup 0.6s 0.05s ease both;
   }
   .race-chip {
-    background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 20px; padding: 7px 16px;
-    font-size: 13px; color: var(--white-35); letter-spacing: 0.3px;
-    transition: all 0.2s;
+    background: rgba(255,255,255,0.07); border: 0.5px solid var(--white-15);
+    border-radius: 20px; padding: 6px 14px;
+    font-size: 12px; color: var(--white-35); letter-spacing: 0.3px;
   }
   .race-chip.gold {
     border-color: var(--gold-border); color: var(--gold);
     background: var(--gold-dim);
   }
 
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(52px, 10vw, 80px);
+    font-weight: 900; line-height: 0.92;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--white); margin-bottom: 20px;
+    animation: fadeup 0.6s 0.1s ease both;
+  }
+  h1 .gold { color: var(--gold); }
+
+  .tagline {
+    font-size: 18px; font-weight: 300; color: var(--white-60);
+    line-height: 1.65; max-width: 500px; margin-bottom: 36px;
+    animation: fadeup 0.6s 0.15s ease both;
+  }
+
   /* ── FORM ── */
-  .form-wrap { width: 100%; max-width: 440px; animation: fadeup 0.6s 0.25s ease both; }
+  .form-wrap { width: 100%; max-width: 480px; animation: fadeup 0.6s 0.2s ease both; }
   .form-row { display: flex; gap: 8px; }
   .form-input {
-    flex: 1; background: var(--black-30);
+    flex: 1; background: rgba(255,255,255,0.08);
     border: 0.5px solid var(--white-15); border-radius: 10px;
     padding: 14px 18px; font-family: 'Barlow', sans-serif;
     font-size: 15px; color: var(--white); outline: none;
@@ -184,7 +164,6 @@
   .form-input::placeholder { color: var(--white-35); }
   .form-input:focus { border-color: var(--gold); }
   .form-input.error { border-color: #e05050; animation: shake 0.3s ease; }
-  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
 
   .form-btn {
     background: var(--red); color: var(--white);
@@ -192,11 +171,10 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 17px; font-weight: 700; letter-spacing: 1px;
     text-transform: uppercase; cursor: pointer; white-space: nowrap;
-    transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
   .form-btn:hover {
-    opacity: 1;
-    box-shadow: 0 0 20px rgba(226,36,36,0.45), 0 4px 16px rgba(0,0,0,0.3);
+    box-shadow: 0 0 24px rgba(226,36,36,0.5), 0 4px 16px rgba(0,0,0,0.3);
     transform: translateY(-2px);
   }
   .form-btn:active { transform: scale(0.97); box-shadow: none; }
@@ -204,96 +182,249 @@
 
   .form-note { font-size: 12px; color: var(--white-35); text-align: center; margin-top: 10px; letter-spacing: 0.3px; }
 
+  /* ── CONTENT SECTION (white) ── */
+  .content-section {
+    background: var(--white);
+    color: var(--text-heading);
+  }
+  .content-inner {
+    max-width: 1080px; margin: 0 auto;
+    padding: 80px 48px;
+  }
+
   /* ── FEATURES ── */
+  .features-wrap {
+    margin-bottom: 64px;
+  }
+  .features-heading {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .features-heading h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-heading);
+    line-height: 1.05; margin-bottom: 12px;
+  }
+  .features-heading p {
+    font-size: 16px; color: var(--text-body); max-width: 480px; margin: 0 auto; line-height: 1.65;
+  }
   .features {
-    width: 100%; max-width: 440px;
-    display: flex; flex-direction: column; gap: 10px;
-    margin-top: 48px;
-    animation: fadeup 0.6s 0.35s ease both;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 700px) {
+    .features { grid-template-columns: 1fr; gap: 24px; }
   }
 
   .feat {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 0;
-    background: transparent; border: none;
-    border-radius: 12px; padding: 20px 20px;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
     transition: transform 0.25s;
-    text-align: left;
   }
-  .feat:hover {
-    transform: translateY(-4px);
+  .feat:hover { transform: translateY(-6px); }
+
+  /* dark app mockup card */
+  .feat-mockup {
+    width: 100%; border-radius: 20px;
+    background: #1a2230;
+    padding: 24px;
+    margin-bottom: 24px;
+    min-height: 220px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
   }
-  .feat-icon {
-    width: 36px; height: 36px; flex-shrink: 0;
-    background: var(--gold-dim); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center; font-size: 17px;
-    margin-bottom: 16px;
+  /* subtle inner glow */
+  .feat-mockup::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.07);
+    pointer-events: none;
   }
-  .feat-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
-  .feat-text span { font-size: 13px; color: var(--body-text); line-height: 1.7; }
+
+  /* — mockup UI components — */
+  .mock-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
+  }
+  .mock-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, #2e3d52, #3a4f68);
+    border: 1.5px solid rgba(242,208,121,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+  .mock-name {
+    font-size: 14px; font-weight: 600; color: #fff; line-height: 1.2;
+  }
+  .mock-sub {
+    font-size: 11px; color: rgba(255,255,255,0.4);
+  }
+  .mock-chips {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px;
+  }
+  .mock-chip {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 4px 10px; border-radius: 20px;
+    background: rgba(242,208,121,0.12); color: #F2D079;
+    border: 0.5px solid rgba(242,208,121,0.3);
+  }
+  .mock-chip.slate {
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .mock-bar-row {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;
+  }
+  .mock-bar-label { font-size: 11px; color: rgba(255,255,255,0.4); }
+  .mock-bar-val { font-size: 11px; font-weight: 600; color: #F2D079; }
+  .mock-bar {
+    width: 100%; height: 5px; background: rgba(255,255,255,0.07);
+    border-radius: 3px; margin-bottom: 14px; overflow: hidden;
+  }
+  .mock-bar-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, #F2D079, #e8b84b);
+  }
+  .mock-score-row {
+    display: flex; align-items: center; gap: 12px; margin-top: 8px;
+  }
+  .mock-score-circle {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 2.5px solid #F2D079;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .mock-score-num { font-size: 18px; font-weight: 700; color: #F2D079; line-height: 1; }
+  .mock-score-pct { font-size: 9px; color: rgba(242,208,121,0.6); letter-spacing: 0.5px; }
+  .mock-score-detail { flex: 1; }
+  .mock-score-title { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .mock-score-checks { display: flex; flex-direction: column; gap: 3px; }
+  .mock-score-check { font-size: 11px; color: rgba(255,255,255,0.45); }
+  .mock-score-check::before { content: '✓ '; color: #F2D079; }
+
+  .mock-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.06); margin: 12px 0; }
+
+  .mock-chat-bubble {
+    background: rgba(255,255,255,0.07); border-radius: 12px 12px 12px 4px;
+    padding: 10px 14px; margin-bottom: 10px;
+    font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5;
+    max-width: 85%;
+  }
+  .mock-chat-bubble.them {
+    background: rgba(242,208,121,0.15); border-radius: 12px 12px 4px 12px;
+    margin-left: auto; color: #F2D079;
+  }
+  .mock-actions {
+    display: flex; gap: 8px; margin-top: 14px;
+  }
+  .mock-btn {
+    flex: 1; padding: 8px 0; border-radius: 8px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.5px; text-align: center; cursor: default;
+  }
+  .mock-btn.primary {
+    background: #E22424; color: #fff;
+  }
+  .mock-btn.ghost {
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45);
+    border: 0.5px solid rgba(255,255,255,0.1);
+  }
+
+  /* text below mockup */
+  .feat-body strong {
+    display: block; font-size: 17px; font-weight: 700;
+    color: var(--text-heading); margin-bottom: 10px; line-height: 1.25;
+  }
+  .feat-body span { font-size: 14px; color: var(--text-body); line-height: 1.75; }
+
+  /* single CTA below cards */
+  .features-cta { text-align: center; }
+
+  /* ── TABS ── */
+  .tabs-bar {
+    display: flex; justify-content: center; gap: 4px;
+    margin-bottom: 48px;
+    border-bottom: 1.5px solid var(--border-light);
+    padding-bottom: 0;
+  }
+  .tab-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text-muted);
+    background: none; border: none; cursor: pointer;
+    padding: 12px 24px;
+    position: relative;
+    transition: color 0.2s;
+  }
+  .tab-btn::after {
+    content: ''; position: absolute; bottom: -1.5px; left: 0; right: 0;
+    height: 2px; background: var(--red); border-radius: 2px 2px 0 0;
+    transform: scaleX(0); transition: transform 0.2s;
+  }
+  .tab-btn.active { color: var(--text-heading); }
+  .tab-btn.active::after { transform: scaleX(1); }
+  .tab-btn:hover:not(.active) { color: var(--text-heading); }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
   /* ── SIM SECTION ── */
   .sim-section {
-    width: 100%; max-width: 440px;
-    margin-top: 16px;
-    background: var(--black-30);
-    border: 0.5px solid var(--white-15);
+    background: var(--surface);
+    border: 1px solid var(--border-light);
     border-radius: 12px;
-    padding: 18px 20px;
-    display: flex; align-items: flex-start; gap: 14px;
-    text-align: left;
-    animation: fadeup 0.6s 0.42s ease both;
+    padding: 20px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    margin-bottom: 48px;
   }
   .sim-icon {
-    width: 32px; height: 32px; flex-shrink: 0;
-    background: var(--white-08); border-radius: 7px;
-    display: flex; align-items: center; justify-content: center; font-size: 15px;
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: var(--border-light); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 16px;
   }
-  .sim-text strong { display: block; font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 4px; }
-  .sim-text span { font-size: 13px; color: var(--white-60); line-height: 1.65; }
+  .sim-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--text-heading); margin-bottom: 4px; }
+  .sim-text span { font-size: 14px; color: var(--text-body); line-height: 1.65; }
 
   /* ── WHY SECTION ── */
   .why-section {
-    width: 100%; max-width: 440px;
-    margin-top: 36px;
-    background: var(--black-30);
-    border: 0.5px solid var(--gold-border);
-    border-radius: 12px;
-    padding: 24px 22px;
+    background: var(--hero-bg);
+    border-radius: 16px;
+    padding: 36px 40px;
     text-align: left;
-    animation: fadeup 0.6s 0.4s ease both;
+    margin-bottom: 0;
+    color: var(--white);
   }
   .why-label {
     font-size: 10px; font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
     display: block;
   }
   .why-section p {
-    font-size: 14px;
-    color: var(--body-text);
-    line-height: 1.75;
+    font-size: 15px; color: var(--white-60); line-height: 1.8;
   }
   .why-section p + p { margin-top: 12px; }
-  .why-section p:first-of-type { font-weight: 500; color: var(--white); }
+  .why-section p:first-of-type { font-weight: 500; color: var(--white); font-size: 16px; }
 
-  /* ── SECOND CTA ── */
+  /* ── SECOND CTA (dark band) ── */
   .second-cta {
-    width: 100%; max-width: 800px; margin: 56px auto 0;
+    background: var(--hero-bg);
+    color: var(--white);
     text-align: center;
     display: flex; flex-direction: column; align-items: center; gap: 20px;
-    padding: 64px 32px;
-    background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 16px;
-    animation: fadeup 0.6s 0.45s ease both;
+    padding: 80px 32px;
   }
   .second-cta-headline {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(28px, 6vw, 36px);
+    font-size: clamp(28px, 5vw, 42px);
     font-weight: 900; text-transform: uppercase;
-    letter-spacing: 1px; color: var(--white); line-height: 1;
+    letter-spacing: 1px; color: var(--white); line-height: 1.05;
   }
   .second-cta-headline span { color: var(--gold); }
   .second-cta-sub {
-    font-size: 14px; color: var(--white-35); max-width: 300px; line-height: 1.6;
+    font-size: 15px; color: var(--white-35); max-width: 360px; line-height: 1.6;
   }
   .second-cta a.form-btn {
     display: inline-block; text-decoration: none;
@@ -301,58 +432,30 @@
   }
 
   /* ── FOOTER ── */
-  .footer-note {
-    margin-top: 32px; font-size: 12px; color: var(--white-35);
-    letter-spacing: 0.3px; animation: fadeup 0.6s 0.55s ease both;
-  }
-
   footer {
-    position: relative; z-index: 1;
+    background: var(--hero-bg);
     border-top: 0.5px solid var(--white-15);
-    padding: 24px; text-align: center;
+    padding: 28px 24px; text-align: center;
     font-size: 12px; color: var(--white-35);
   }
   footer a { color: var(--white-35); }
+  footer a:hover { color: var(--gold); }
   .footer-social {
     display: flex; justify-content: center; gap: 20px; margin-bottom: 14px;
   }
-  .footer-social a {
-    color: var(--white-35); transition: color 0.2s; display: flex;
-  }
+  .footer-social a { color: var(--white-35); transition: color 0.2s; display: flex; }
   .footer-social a:hover { color: var(--gold); }
   .footer-social svg { width: 20px; height: 20px; }
-
-  /* ── RACE SELECT (success screen) ── */
-  .race-select {
-    width: 100%; max-width: 360px; margin-bottom: 32px;
-  }
-  .race-select-label {
-    font-size: 13px; color: var(--white-35); text-transform: uppercase;
-    letter-spacing: 1.5px; margin-bottom: 14px;
-  }
-  .race-options {
-    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
-  }
-  .race-opt {
-    background: var(--black-30); border: 0.5px solid var(--white-15);
-    border-radius: 20px; padding: 9px 20px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px; font-weight: 700; letter-spacing: 0.5px;
-    color: var(--white-60); cursor: pointer; transition: all 0.2s;
-  }
-  .race-opt:hover { border-color: var(--gold); color: var(--gold); }
-  .race-opt.active {
-    background: var(--gold-dim); border-color: var(--gold); color: var(--gold);
-  }
 
   /* ── SUCCESS STATE ── */
   .success-wrap {
     display: none; flex-direction: column; align-items: center;
     text-align: center; padding: 80px 24px;
+    background: var(--hero-bg); color: var(--white);
+    min-height: 60vh;
     position: relative; z-index: 1; max-width: 480px; margin: 0 auto;
   }
   .success-wrap.active { display: flex; animation: fadeup 0.5s ease both; }
-
   .success-icon {
     width: 72px; height: 72px; border-radius: 50%;
     background: var(--red); display: flex; align-items: center;
@@ -374,25 +477,38 @@
   }
   .share-btn:hover { border-color: var(--gold); color: var(--gold); }
 
-  /* ── RESPONSIVE ── */
+  /* ── RACE SELECT (success) ── */
+  .race-select { width: 100%; max-width: 360px; margin-bottom: 32px; }
+  .race-select-label {
+    font-size: 13px; color: var(--white-35); text-transform: uppercase;
+    letter-spacing: 1.5px; margin-bottom: 14px;
+  }
+  .race-options { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .race-opt {
+    background: var(--black-30); border: 0.5px solid var(--white-15);
+    border-radius: 20px; padding: 9px 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--white-60); cursor: pointer; transition: all 0.2s;
+  }
+  .race-opt:hover { border-color: var(--gold); color: var(--gold); }
+  .race-opt.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+
+  /* ── MOBILE ── */
   @media (max-width: 480px) {
-    /* Compact hero so form is visible above the fold */
-    .hero { padding: 36px 20px 56px; }
-    .hero-logo { width: 64px; margin-bottom: 16px; }
-    h1 { margin-bottom: 12px; }
-    .tagline { font-size: 15px; line-height: 1.55; margin-bottom: 16px; }
-    /* Hide race chips above form — features below explain this */
+    .hero { padding: 64px 20px 80px; }
+    .hero-logo { width: 56px; margin-bottom: 20px; }
+    h1 { margin-bottom: 16px; }
+    .tagline { font-size: 16px; margin-bottom: 28px; }
     .race-strip { display: none; }
-    /* Form */
     .form-row { flex-direction: column; }
     .form-btn { width: 100%; }
     .nav-tag { display: none; }
+    .hero-watermark { display: none; }
+    .content-inner { padding: 48px 20px; }
+    .why-section { padding: 24px 20px; }
+    .second-cta { padding: 56px 20px; }
     .success-actions { flex-direction: column; }
-    /* Tighten lower sections */
-    .features { margin-top: 36px; }
-    .why-section { padding: 20px 18px; }
-    .second-cta { margin-top: 40px; }
-    .second-cta-headline { font-size: 26px; }
   }
 </style>
 </head>
@@ -412,9 +528,19 @@
   </div>
 </nav>
 
-<!-- WAITLIST -->
 <main id="main-content">
+
+  <!-- ── DARK HERO ── -->
   <section class="hero" id="waitlist-section">
+
+    <!-- watermark -->
+    <div class="hero-watermark" aria-hidden="true">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+      </svg>
+    </div>
 
     <svg class="hero-logo" viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" aria-label="HyPair">
       <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
@@ -440,45 +566,303 @@
       <p class="form-note">Be first when we launch. No spam, ever.</p>
     </div>
 
-    <div class="features">
-      <div class="feat">
-        <div class="feat-icon">⚡</div>
-        <div class="feat-text">
-          <strong>Browse real athlete profiles</strong>
-          <span>See pace, personal bests, race history and goals before you connect. No more guessing if someone is at your level — every profile tells you exactly who you'd be racing with.</span>
+  </section>
+
+  <!-- ── WHITE CONTENT ── -->
+  <section class="content-section">
+    <div class="content-inner">
+
+      <div class="features-wrap">
+        <div class="features-heading">
+          <h2>One app.<br>Every doubles athlete.</h2>
+          <p>Whether you're racing at an official event, training at a local gym, or running a SIM day — HyPair finds your pair.</p>
+        </div>
+
+        <!-- Tab bar -->
+        <div class="tabs-bar">
+          <button class="tab-btn active" onclick="switchTab(this, 'official')">Official Events</button>
+          <button class="tab-btn" onclick="switchTab(this, 'sim')">SIM Events</button>
+          <button class="tab-btn" onclick="switchTab(this, 'gyms')">Gym Owners</button>
+        </div>
+
+        <!-- ── TAB: OFFICIAL EVENTS ── -->
+        <div class="tab-panel active" id="tab-official">
+        <div class="features">
+
+          <!-- Card 1: Browse profiles -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div class="mock-header">
+                <div class="mock-avatar">👤</div>
+                <div>
+                  <div class="mock-name">Sarah M.</div>
+                  <div class="mock-sub">Dublin · HYROX Doubles</div>
+                </div>
+              </div>
+              <div class="mock-chips">
+                <span class="mock-chip">5:18 /km</span>
+                <span class="mock-chip">Mixed open</span>
+                <span class="mock-chip slate">Dublin RDS · Nov</span>
+              </div>
+              <div class="mock-divider"></div>
+              <div class="mock-bar-row">
+                <span class="mock-bar-label">5K pace match</span>
+                <span class="mock-bar-val">92%</span>
+              </div>
+              <div class="mock-bar"><div class="mock-bar-fill" style="width:92%"></div></div>
+              <div class="mock-bar-row">
+                <span class="mock-bar-label">Goal alignment</span>
+                <span class="mock-bar-val">88%</span>
+              </div>
+              <div class="mock-bar"><div class="mock-bar-fill" style="width:88%"></div></div>
+            </div>
+            <div class="feat-body">
+              <strong>Browse real athlete profiles</strong>
+              <span>See pace, PBs, race history and goals before you connect. Every profile tells you exactly who you'd be racing with.</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Smart matching -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div style="text-align:center; margin-bottom:14px;">
+                <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:12px;">Compatibility score</div>
+                <div class="mock-score-row" style="justify-content:center;">
+                  <div class="mock-score-circle">
+                    <span class="mock-score-num">94</span>
+                    <span class="mock-score-pct">MATCH</span>
+                  </div>
+                  <div class="mock-score-detail">
+                    <div class="mock-score-title">Strong match</div>
+                    <div class="mock-score-checks">
+                      <span class="mock-score-check">Same race &amp; format</span>
+                      <span class="mock-score-check">Pace within 5 sec/km</span>
+                      <span class="mock-score-check">Aligned finish goal</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mock-divider"></div>
+              <div class="mock-chips" style="justify-content:center;">
+                <span class="mock-chip">HYROX Dublin</span>
+                <span class="mock-chip slate">Mixed open</span>
+              </div>
+            </div>
+            <div class="feat-body">
+              <strong>Matched by pace, not luck</strong>
+              <span>HyPair scores compatibility on 5K training pace, race goal and format. A well-matched pair doesn't happen by accident.</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Lock in -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div class="mock-chat-bubble">Hey! Saw your profile — also doing Dublin RDS. Want to pair up?</div>
+              <div class="mock-chat-bubble them">Looks like a good match 👊 I'm in.</div>
+              <div class="mock-divider"></div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:8px;text-align:center;">Pair request from Sarah M.</div>
+              <div class="mock-actions">
+                <div class="mock-btn primary">Accept pair</div>
+                <div class="mock-btn ghost">Decline</div>
+              </div>
+            </div>
+            <div class="feat-body">
+              <strong>Lock in together</strong>
+              <span>Chat in-app, agree on a race plan, and confirm your pair with a two-step lock-in — so both of you are committed before race day.</span>
+            </div>
+          </div>
+
+        </div><!-- /features -->
+        </div><!-- /tab-official -->
+
+        <!-- ── TAB: SIM EVENTS ── -->
+        <div class="tab-panel" id="tab-sim">
+        <div class="features">
+
+          <!-- SIM Card 1: Find your gym's SIM -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:14px;">Upcoming SIM events near you</div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 14px;border:0.5px solid rgba(255,255,255,0.07);">
+                  <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:4px;">CrossFit Dublin City</div>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <span class="mock-chip">HYROX SIM</span>
+                    <span class="mock-chip slate">Sat 12 Jul · 4 slots left</span>
+                  </div>
+                </div>
+                <div style="background:rgba(242,208,121,0.07);border-radius:10px;padding:12px 14px;border:0.5px solid rgba(242,208,121,0.2);">
+                  <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:4px;">Energie Fitness Dundrum</div>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <span class="mock-chip">Tryka SIM</span>
+                    <span class="mock-chip slate">Sun 20 Jul · 8 slots left</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feat-body">
+              <strong>Find SIM events at local gyms</strong>
+              <span>Browse upcoming HYROX and Tryka simulation days near you — listed directly by gym owners on HyPair.</span>
+            </div>
+          </div>
+
+          <!-- SIM Card 2: Get paired before the day -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div style="text-align:center;margin-bottom:14px;">
+                <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:12px;">Paired for CrossFit Dublin City SIM</div>
+                <div class="mock-score-row" style="justify-content:center;">
+                  <div class="mock-score-circle">
+                    <span class="mock-score-num">91</span>
+                    <span class="mock-score-pct">MATCH</span>
+                  </div>
+                  <div class="mock-score-detail">
+                    <div class="mock-score-title">Ready to go</div>
+                    <div class="mock-score-checks">
+                      <span class="mock-score-check">Same gym &amp; date</span>
+                      <span class="mock-score-check">Pace within 8 sec/km</span>
+                      <span class="mock-score-check">Mixed open format</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mock-divider"></div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.35);text-align:center;">Pair confirmed · 12 Jul 2025</div>
+            </div>
+            <div class="feat-body">
+              <strong>Get paired before the day</strong>
+              <span>No more turning up solo and hoping someone shows up without a partner. Register, match, confirm — all before you walk in.</span>
+            </div>
+          </div>
+
+          <!-- SIM Card 3: Show up ready -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div class="mock-chat-bubble">Hey! We're paired for the CrossFit Dublin SIM on the 12th 🤝</div>
+              <div class="mock-chat-bubble them">Perfect — shall we warm up together at 8:45?</div>
+              <div class="mock-divider"></div>
+              <div style="text-align:center;">
+                <div style="font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:8px;">Event day checklist</div>
+                <div style="display:flex;flex-direction:column;gap:4px;text-align:left;">
+                  <span class="mock-score-check" style="font-size:12px;">Warm-up time agreed</span>
+                  <span class="mock-score-check" style="font-size:12px;">Strategy discussed</span>
+                  <span class="mock-score-check" style="font-size:12px;">Both athletes confirmed</span>
+                </div>
+              </div>
+            </div>
+            <div class="feat-body">
+              <strong>Show up ready, not scrambling</strong>
+              <span>Chat with your partner in-app, agree a plan, and arrive knowing exactly who you're racing with and what you're aiming for.</span>
+            </div>
+          </div>
+
+        </div><!-- /features -->
+        </div><!-- /tab-sim -->
+
+        <!-- ── TAB: GYM OWNERS ── -->
+        <div class="tab-panel" id="tab-gyms">
+        <div class="features">
+
+          <!-- Gym Card 1: List your event -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:14px;">Create a SIM event</div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.45);">Energie Fitness Dundrum</div>
+                <div style="display:flex;gap:8px;">
+                  <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:#F2D079;">HYROX SIM</div>
+                  <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.45);">20 Jul 2025</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.45);">Doubles slots: 16 (8 pairs)</div>
+              </div>
+              <div class="mock-actions" style="margin-top:14px;">
+                <div class="mock-btn primary">Publish event</div>
+              </div>
+            </div>
+            <div class="feat-body">
+              <strong>List your SIM event in seconds</strong>
+              <span>Add your event to HyPair — name, date, format and capacity. Athletes in your area see it immediately and start registering.</span>
+            </div>
+          </div>
+
+          <!-- Gym Card 2: Pairs fill automatically -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:14px;">Doubles sign-ups · 20 Jul</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
+                  <span style="font-size:12px;color:#fff;">Pair 1 — Sarah M. &amp; Tom R.</span>
+                  <span class="mock-chip" style="font-size:10px;">Confirmed</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
+                  <span style="font-size:12px;color:#fff;">Pair 2 — Niamh C. &amp; Dan S.</span>
+                  <span class="mock-chip" style="font-size:10px;">Confirmed</span>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
+                  <span style="font-size:12px;color:rgba(255,255,255,0.35);">Pair 3 — Matching...</span>
+                  <span class="mock-chip slate" style="font-size:10px;">Pending</span>
+                </div>
+              </div>
+            </div>
+            <div class="feat-body">
+              <strong>Athlete pairs fill automatically</strong>
+              <span>HyPair matches athletes to each other — you don't need to pair people manually on the day. Your doubles slots fill before anyone walks in.</span>
+            </div>
+          </div>
+
+          <!-- Gym Card 3: Manage waves -->
+          <div class="feat">
+            <div class="feat-mockup">
+              <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:14px;">Wave assignments · 20 Jul</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
+                  <div style="font-size:11px;color:#F2D079;font-weight:700;margin-bottom:6px;">Wave A · 09:00</div>
+                  <div style="font-size:12px;color:rgba(255,255,255,0.55);">4 pairs · Mixed open</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
+                  <div style="font-size:11px;color:#F2D079;font-weight:700;margin-bottom:6px;">Wave B · 10:30</div>
+                  <div style="font-size:12px;color:rgba(255,255,255,0.55);">4 pairs · Mixed open</div>
+                </div>
+                <div class="mock-bar-row" style="margin-top:4px;">
+                  <span class="mock-bar-label">Capacity</span>
+                  <span class="mock-bar-val">8 / 8 pairs</span>
+                </div>
+                <div class="mock-bar"><div class="mock-bar-fill" style="width:100%"></div></div>
+              </div>
+            </div>
+            <div class="feat-body">
+              <strong>Manage waves &amp; see who's coming</strong>
+              <span>Assign confirmed pairs to waves, track capacity and format breakdown — all from your gym owner dashboard.</span>
+            </div>
+          </div>
+
+        </div><!-- /features -->
+        </div><!-- /tab-gyms -->
+
+        <div class="features-cta">
+          <a href="#form-anchor" class="form-btn" style="display:inline-block;text-decoration:none;padding:16px 48px;font-size:18px;">Join the Waitlist →</a>
+        </div>
+
+      </div><!-- /features-wrap -->
+
+      <div class="sim-section">
+        <div class="sim-icon">🏋️</div>
+        <div class="sim-text">
+          <strong>Training at a gym running HYROX simulations?</strong>
+          <span>HyPair works for in-gym SIM events too — get paired before the event starts so you're not scrambling on the day.</span>
         </div>
       </div>
-      <div class="feat">
-        <div class="feat-icon">📍</div>
-        <div class="feat-text">
-          <strong>Find partners for your exact race</strong>
-          <span>Register for the event you've entered and browse athletes doing the same race, same format, same date. Chat in-app and do a two-step lock-in when you're both ready to commit.</span>
-        </div>
+
+      <div class="why-section">
+        <span class="why-label">Why we built this</span>
+        <p>Every doubles athlete has the same story.</p>
+        <p>Your partner drops out two weeks before race day. You post in a Facebook group and get no replies. You settle for someone who isn't at your level — and you feel it on the sled push.</p>
+        <p>We built HyPair because that story ends on race day, badly. There's a smarter way to find your pair.</p>
       </div>
-      <div class="feat">
-        <div class="feat-icon">🏁</div>
-        <div class="feat-text">
-          <strong>Matched by pace, not luck</strong>
-          <span>HyPair scores compatibility based on your 5K training pace, race goal and format. A well-matched doubles pair doesn't happen by accident — it starts here.</span>
-        </div>
-      </div>
+
     </div>
 
-    <div class="sim-section">
-      <div class="sim-icon">🏋️</div>
-      <div class="sim-text">
-        <strong>Training at a gym running HYROX simulations?</strong>
-        <span>HyPair works for in-gym SIM events too — get paired before the event starts so you're not scrambling on the day.</span>
-      </div>
-    </div>
-
-    <div class="why-section">
-      <span class="why-label">Why we built this</span>
-      <p>Every doubles athlete has the same story.</p>
-      <p>Your partner drops out two weeks before race day. You post in a Facebook group and get no replies. You settle for someone who isn't at your level — and you feel it on the sled push.</p>
-      <p>We built HyPair because that story ends on race day, badly. There's a smarter way to find your pair.</p>
-    </div>
-
+    <!-- dark CTA band -->
     <div class="second-cta">
       <p class="second-cta-headline">TRYKA Dublin is in July.<br>HYROX Dublin is in November.<br><span>Don't start either without a partner.</span></p>
       <p class="second-cta-sub">Join the waitlist and be among the first on HyPair when beta launches.</p>
@@ -487,7 +871,7 @@
 
   </section>
 
-  <!-- SUCCESS -->
+  <!-- ── SUCCESS ── -->
   <div class="success-wrap" id="success-section">
     <div class="success-icon">✓</div>
     <div class="success-title">You're on the list.</div>
@@ -505,6 +889,7 @@
       <button class="share-btn" onclick="shareNative(this)">Share with a training partner</button>
     </div>
   </div>
+
 </main>
 
 <footer>
@@ -531,19 +916,15 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── CONFIG ──────────────────────────────────────────────────────────────
-  // Supabase project: llkdujodseyilzbkzdbf
-  // To complete setup: paste your public key from Supabase → Settings → API
   const SUPABASE_URL = 'https://llkdujodseyilzbkzdbf.supabase.co';
   const SUPABASE_PUBLIC_KEY = 'sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si';
-  // ────────────────────────────────────────────────────────────────────────
 
-  let _joinedEmail = ''; // stored after signup to attach race selection
+  let _joinedEmail = '';
   let _lastSubmitTime = 0;
 
   async function joinWaitlist() {
     const now = Date.now();
-    if (now - _lastSubmitTime < 5000) return; // 5s cooldown between attempts
+    if (now - _lastSubmitTime < 5000) return;
     _lastSubmitTime = now;
     const input = document.getElementById('email');
     const btn = document.getElementById('submit-btn');
@@ -574,24 +955,21 @@
 
       _joinedEmail = email;
       document.getElementById('waitlist-section').style.display = 'none';
+      document.querySelector('.content-section').style.display = 'none';
       document.getElementById('success-section').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
     } catch (err) {
       btn.disabled = false;
-      btn.textContent = 'Notify me';
+      btn.textContent = 'Join the Waitlist';
       alert('Something went wrong. Please try again.');
     }
   }
 
-  // Allow Enter key on input
   document.getElementById('email').addEventListener('keydown', e => {
     if (e.key === 'Enter') joinWaitlist();
   });
 
-  // ── Race selection (PATCH race onto the waitlist row) ──────────────────
-  // Requires a 'race' column (text) on your Supabase waitlist table:
-  // ALTER TABLE waitlist ADD COLUMN race text;
   async function selectRace(btn, race) {
     document.querySelectorAll('.race-opt').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -607,13 +985,11 @@
         },
         body: JSON.stringify({ race })
       });
-    } catch(e) { /* silent — race data is a bonus, not critical */ }
+    } catch(e) { /* silent */ }
   }
-  // ────────────────────────────────────────────────────────────────────────
 
   function copyLink(btn) {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).catch(() => {});
+    navigator.clipboard.writeText(window.location.href).catch(() => {});
     btn.textContent = 'Copied!';
     setTimeout(() => btn.textContent = 'Copy link', 2500);
   }
@@ -628,6 +1004,13 @@
     } else {
       copyLink(btn);
     }
+  }
+
+  function switchTab(btn, id) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + id).classList.add('active');
   }
 </script>
 </body>
