@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HyPair — Meet your match</title>
-<meta name="description" content="Find your doubles partner for HYROX and Tryka — matched by pace, level and event. Launching in Ireland. Join the waitlist.">
+<meta name="description" content="The home for HYROX &amp; Tryka doubles athletes in Ireland. Find your perfect race partner by pace, level and event.">
 <meta property="og:title" content="HyPair — Meet your match">
 <meta property="og:description" content="Stop settling for the wrong partner. HyPair matches hybrid race athletes for doubles events by pace, level and race. Join the waitlist.">
 <meta property="og:type" content="website">
@@ -28,11 +28,11 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --hero-bg: #111820;
-    --gold: #F2D079;
-    --gold-dim: rgba(242,208,121,0.12);
-    --gold-border: rgba(242,208,121,0.35);
-    --red: #E22424;
+    --hero-bg: #1B2A3B;
+    --gold: #F8C662;
+    --gold-dim: rgba(248,198,98,0.12);
+    --gold-border: rgba(248,198,98,0.35);
+    --red: #E53935;
     --white: #ffffff;
     --white-60: rgba(255,255,255,0.6);
     --white-35: rgba(255,255,255,0.35);
@@ -90,8 +90,8 @@
     position: relative;
     overflow: hidden;
     background:
-      radial-gradient(ellipse at 50% 120%, rgba(242,208,121,0.13) 0%, transparent 55%),
-      radial-gradient(ellipse at 50% 110%, rgba(226,36,36,0.08) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 120%, rgba(248,198,98,0.13) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 110%, rgba(229,57,53,0.08) 0%, transparent 45%),
       var(--hero-bg);
     padding: 100px 24px 120px;
     display: flex; flex-direction: column; align-items: center; text-align: center;
@@ -230,7 +230,7 @@
   /* dark app mockup card */
   .feat-mockup {
     width: 100%; border-radius: 20px;
-    background: #1a2230;
+    background: #243447;
     padding: 24px;
     margin-bottom: 24px;
     min-height: 220px;
@@ -252,8 +252,8 @@
   }
   .mock-avatar {
     width: 36px; height: 36px; border-radius: 50%;
-    background: linear-gradient(135deg, #2e3d52, #3a4f68);
-    border: 1.5px solid rgba(242,208,121,0.3);
+    background: linear-gradient(135deg, #2d4258, #3a5570);
+    border: 1.5px solid rgba(248,198,98,0.3);
     display: flex; align-items: center; justify-content: center;
     font-size: 14px; flex-shrink: 0;
   }
@@ -269,8 +269,8 @@
   .mock-chip {
     font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
     padding: 4px 10px; border-radius: 20px;
-    background: rgba(242,208,121,0.12); color: #F2D079;
-    border: 0.5px solid rgba(242,208,121,0.3);
+    background: rgba(248,198,98,0.12); color: #F8C662;
+    border: 0.5px solid rgba(248,198,98,0.3);
   }
   .mock-chip.slate {
     background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5);
@@ -280,31 +280,31 @@
     display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;
   }
   .mock-bar-label { font-size: 11px; color: rgba(255,255,255,0.4); }
-  .mock-bar-val { font-size: 11px; font-weight: 600; color: #F2D079; }
+  .mock-bar-val { font-size: 11px; font-weight: 600; color: #F8C662; }
   .mock-bar {
     width: 100%; height: 5px; background: rgba(255,255,255,0.07);
     border-radius: 3px; margin-bottom: 14px; overflow: hidden;
   }
   .mock-bar-fill {
     height: 100%; border-radius: 3px;
-    background: linear-gradient(90deg, #F2D079, #e8b84b);
+    background: linear-gradient(90deg, #F8C662, #d4a832);
   }
   .mock-score-row {
     display: flex; align-items: center; gap: 12px; margin-top: 8px;
   }
   .mock-score-circle {
     width: 56px; height: 56px; border-radius: 50%;
-    border: 2.5px solid #F2D079;
+    border: 2.5px solid #F8C662;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
-  .mock-score-num { font-size: 18px; font-weight: 700; color: #F2D079; line-height: 1; }
-  .mock-score-pct { font-size: 9px; color: rgba(242,208,121,0.6); letter-spacing: 0.5px; }
+  .mock-score-num { font-size: 18px; font-weight: 700; color: #F8C662; line-height: 1; }
+  .mock-score-pct { font-size: 9px; color: rgba(248,198,98,0.6); letter-spacing: 0.5px; }
   .mock-score-detail { flex: 1; }
   .mock-score-title { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 4px; }
   .mock-score-checks { display: flex; flex-direction: column; gap: 3px; }
   .mock-score-check { font-size: 11px; color: rgba(255,255,255,0.45); }
-  .mock-score-check::before { content: '✓ '; color: #F2D079; }
+  .mock-score-check::before { content: '✓ '; color: #F8C662; }
 
   .mock-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.06); margin: 12px 0; }
 
@@ -315,8 +315,8 @@
     max-width: 85%;
   }
   .mock-chat-bubble.them {
-    background: rgba(242,208,121,0.15); border-radius: 12px 12px 4px 12px;
-    margin-left: auto; color: #F2D079;
+    background: rgba(248,198,98,0.15); border-radius: 12px 12px 4px 12px;
+    margin-left: auto; color: #F8C662;
   }
   .mock-actions {
     display: flex; gap: 8px; margin-top: 14px;
@@ -326,7 +326,7 @@
     letter-spacing: 0.5px; text-align: center; cursor: default;
   }
   .mock-btn.primary {
-    background: #E22424; color: #fff;
+    background: #E53935; color: #fff;
   }
   .mock-btn.ghost {
     background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45);
@@ -517,9 +517,9 @@
   <div class="nav-inner">
     <a class="nav-logo" href="/">
       <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="36" width="auto" aria-hidden="true">
-        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
-        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
-        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
       </svg>
       <span class="nav-logo-text">HyPair</span>
     </a>
@@ -535,23 +535,22 @@
     <!-- watermark -->
     <div class="hero-watermark" aria-hidden="true">
       <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg">
-        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
-        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
-        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
       </svg>
     </div>
 
     <svg class="hero-logo" viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" aria-label="HyPair">
-      <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
-      <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
-      <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+      <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F8C662"/>
+      <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F8C662"/>
+      <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F8C662"/>
     </svg>
 
     <div class="race-strip">
       <span class="race-chip gold">HYROX</span>
       <span class="race-chip gold">Tryka</span>
       <span class="race-chip gold">SIM events</span>
-      <span class="race-chip">More races soon</span>
     </div>
 
     <h1>Meet your<br><span class="gold">match</span></h1>
@@ -690,7 +689,7 @@
                     <span class="mock-chip slate">Sat 12 Jul · 4 slots left</span>
                   </div>
                 </div>
-                <div style="background:rgba(242,208,121,0.07);border-radius:10px;padding:12px 14px;border:0.5px solid rgba(242,208,121,0.2);">
+                <div style="background:rgba(248,198,98,0.07);border-radius:10px;padding:12px 14px;border:0.5px solid rgba(248,198,98,0.2);">
                   <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:4px;">Energie Fitness Dundrum</div>
                   <div style="display:flex;gap:6px;flex-wrap:wrap;">
                     <span class="mock-chip">Tryka SIM</span>
@@ -769,7 +768,7 @@
               <div style="display:flex;flex-direction:column;gap:10px;">
                 <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.45);">Energie Fitness Dundrum</div>
                 <div style="display:flex;gap:8px;">
-                  <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:#F2D079;">HYROX SIM</div>
+                  <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:#F8C662;">HYROX SIM</div>
                   <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.45);">20 Jul 2025</div>
                 </div>
                 <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.45);">Doubles slots: 16 (8 pairs)</div>
@@ -815,11 +814,11 @@
               <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,0.35);text-transform:uppercase;margin-bottom:14px;">Wave assignments · 20 Jul</div>
               <div style="display:flex;flex-direction:column;gap:8px;">
                 <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
-                  <div style="font-size:11px;color:#F2D079;font-weight:700;margin-bottom:6px;">Wave A · 09:00</div>
+                  <div style="font-size:11px;color:#F8C662;font-weight:700;margin-bottom:6px;">Wave A · 09:00</div>
                   <div style="font-size:12px;color:rgba(255,255,255,0.55);">4 pairs · Mixed open</div>
                 </div>
                 <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:10px 12px;">
-                  <div style="font-size:11px;color:#F2D079;font-weight:700;margin-bottom:6px;">Wave B · 10:30</div>
+                  <div style="font-size:11px;color:#F8C662;font-weight:700;margin-bottom:6px;">Wave B · 10:30</div>
                   <div style="font-size:12px;color:rgba(255,255,255,0.55);">4 pairs · Mixed open</div>
                 </div>
                 <div class="mock-bar-row" style="margin-top:4px;">
@@ -863,7 +862,7 @@
 
     <!-- dark CTA band -->
     <div class="second-cta">
-      <p class="second-cta-headline">TRYKA Dublin is in July.<br>HYROX Dublin is in November.<br><span>Don't start either without a partner.</span></p>
+      <p class="second-cta-headline">TRYKA Dublin · 3–5 July, RDS.<br>HYROX Dublin · 11–15 November, RDS.<br><span>Don't start either without a partner.</span></p>
       <p class="second-cta-sub">Join the waitlist and be among the first on HyPair when beta launches.</p>
       <a href="#form-anchor" class="form-btn">Get early access →</a>
     </div>
@@ -900,9 +899,14 @@
         <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
       </svg>
     </a>
-    <a href="https://www.facebook.com/profile.php?id=61590737153034" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+    <a href="https://www.facebook.com/HyPair/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    </a>
+    <a href="https://www.youtube.com/@hypair" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
       </svg>
     </a>
     <a href="https://www.tiktok.com/@hypair.app" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
