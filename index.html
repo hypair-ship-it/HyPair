@@ -220,6 +220,7 @@ h1 .red { color: var(--red); }
   background: #111820; border-radius: 38px; overflow: hidden;
   position: relative;
 }
+.phone-frame img { display:block; width:100%; border-radius:38px; }
 .phone-status-bar {
   display: flex; justify-content: space-between; align-items: center;
   padding: 12px 20px 0;
@@ -791,87 +792,7 @@ footer a:hover { color: var(--gold); }
     <div class="hero-phone" style="animation: fadeup 0.6s 0.1s ease both;">
       <div class="phone-wrap">
         <div class="phone-frame">
-          <div class="phone-inner">
-            <div class="phone-notch"></div>
-            <div class="phone-status-bar">
-              <span class="phone-time">9:09</span>
-              <span class="phone-icons">▲▲▲ ▊</span>
-            </div>
-            <div class="app-screen">
-              <div class="app-header">
-                <div class="app-av">N</div>
-                <div class="app-greet">
-                  <div class="app-greet-top">Good morning</div>
-                  <div class="app-greet-name">NATALIA</div>
-                </div>
-                <div class="app-bell"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-              </div>
-              <div class="race-card">
-                <div class="race-card-top">
-                  <span class="race-card-lbl">Your next race</span>
-                  <span class="race-card-status">Searching</span>
-                </div>
-                <div class="race-card-name">HYROX DUBLIN</div>
-                <div class="race-card-sub">Mixed Doubles · Dublin · 11 Nov 2026</div>
-                <div class="race-card-footer">
-                  <div>
-                    <div class="days-num">143</div>
-                    <div class="days-lbl">Days out</div>
-                  </div>
-                  <div class="fp-btn">FIND PARTNER →</div>
-                </div>
-              </div>
-              <div class="app-stats-row">
-                <div class="app-stat-box">
-                  <div class="app-stat-val">2</div>
-                  <div class="app-stat-lbl">Searching</div>
-                </div>
-                <div class="app-stat-box">
-                  <div class="app-stat-val">6:30</div>
-                  <div class="app-stat-lbl">5km pace</div>
-                </div>
-                <div class="app-stat-box">
-                  <div class="app-stat-val">3</div>
-                  <div class="app-stat-lbl">Open chats</div>
-                </div>
-              </div>
-              <div class="app-sec-lbl">My events</div>
-              <div class="ev-mini">
-                <div>
-                  <div class="ev-badge">HYROX</div>
-                  <div class="ev-name">HYROX Dublin</div>
-                  <div class="ev-loc">Dublin</div>
-                </div>
-                <div class="ev-days-badge">92d</div>
-              </div>
-              <div class="ev-mini">
-                <div>
-                  <div class="ev-badge">TRYKA</div>
-                  <div class="ev-name">TRYKA Dublin</div>
-                  <div class="ev-loc">Dublin</div>
-                </div>
-                <div class="ev-days-badge">120d</div>
-              </div>
-            </div>
-            <div class="app-tabbar">
-              <div class="app-tab active">
-                <span class="app-tab-icon">⌂</span>
-                <span class="app-tab-lbl">Home</span>
-              </div>
-              <div class="app-tab">
-                <span class="app-tab-icon">⚑</span>
-                <span class="app-tab-lbl">Events</span>
-              </div>
-              <div class="app-tab">
-                <span class="app-tab-icon">💬</span>
-                <span class="app-tab-lbl">Chats</span>
-              </div>
-              <div class="app-tab">
-                <span class="app-tab-icon">☰</span>
-                <span class="app-tab-lbl">Manage</span>
-              </div>
-            </div>
-          </div>
+          <img src="/assets/screenshots/home.png" alt="HyPair home screen — your events, partner search status and activity feed">
         </div>
         <!-- Floating compat card -->
         <div class="compat-float">
@@ -1000,88 +921,7 @@ footer a:hover { color: var(--gold); }
     </div>
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
-        <div class="phone-inner">
-          <div class="phone-notch"></div>
-          <div class="phone-status-bar">
-            <span class="phone-time">9:09</span>
-            <span class="phone-icons">▲▲▲ ▊</span>
-          </div>
-          <div class="app-screen">
-            <div class="app-header">
-              <div class="app-av">N</div>
-              <div class="app-greet">
-                <div class="app-greet-name" style="font-size:16px;font-weight:900;letter-spacing:0.5px;">EVENTS</div>
-                <div class="app-greet-top" style="margin-top:1px;">Pick your race. Find your partner.</div>
-              </div>
-            </div>
-            <div class="app-search">
-              <span>🔍</span> Search city, venue or name...
-            </div>
-            <div class="app-filters">
-              <span class="app-filter active">Filters</span>
-              <span class="app-filter">Location</span>
-              <span class="app-filter">Type</span>
-              <span class="app-filter">SIM</span>
-              <span class="app-filter">Date</span>
-            </div>
-            <div class="ev-list">
-              <div class="ev-card">
-                <div class="ev-card-top">
-                  <span class="ev-type" style="background:var(--gold-dim);color:var(--gold);border-color:var(--gold-border);">TRYKA</span>
-                  <span class="ev-d">12d</span>
-                </div>
-                <div class="ev-n">TRYKA Dublin</div>
-                <div class="ev-dt">3 Jul 2026 · RDS</div>
-                <div class="ev-foot">
-                  <span class="ev-city">Dublin</span>
-                  <span class="ev-srch">31 searching</span>
-                </div>
-              </div>
-              <div class="ev-card">
-                <div class="ev-card-top">
-                  <span class="ev-type">HYROX</span>
-                  <span class="ev-d">143d</span>
-                </div>
-                <div class="ev-n">HYROX Dublin</div>
-                <div class="ev-dt">11 Nov 2026 · RDS</div>
-                <div class="ev-foot">
-                  <span class="ev-city">Dublin</span>
-                  <span class="ev-srch">24 searching</span>
-                </div>
-              </div>
-              <div class="ev-card">
-                <div class="ev-card-top">
-                  <span class="ev-type">HYROX</span>
-                  <span class="ev-d">SIM</span>
-                </div>
-                <div class="ev-n">Bettystown SIM</div>
-                <div class="ev-dt">5 Jul 2026</div>
-                <div class="ev-foot">
-                  <span class="ev-city">Bettystown</span>
-                  <span class="ev-srch">18 searching</span>
-                </div>
-              </div>
-              <div class="ev-card">
-                <div class="ev-card-top">
-                  <span class="ev-type">HYROX</span>
-                  <span class="ev-d">143d</span>
-                </div>
-                <div class="ev-n">HYROX London</div>
-                <div class="ev-dt">11 Nov 2026</div>
-                <div class="ev-foot">
-                  <span class="ev-city">London</span>
-                  <span class="ev-srch">31 searching</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="app-tabbar">
-            <div class="app-tab"><span class="app-tab-icon">⌂</span><span class="app-tab-lbl">Home</span></div>
-            <div class="app-tab active"><span class="app-tab-icon">⚑</span><span class="app-tab-lbl">Events</span></div>
-            <div class="app-tab"><span class="app-tab-icon">💬</span><span class="app-tab-lbl">Chats</span></div>
-            <div class="app-tab"><span class="app-tab-icon">☰</span><span class="app-tab-lbl">Manage</span></div>
-          </div>
-        </div>
+        <img src="/assets/screenshots/events.png" alt="HyPair events screen listing HYROX and Tryka races with filter tabs">
       </div>
     </div>
   </div>
@@ -1092,72 +932,7 @@ footer a:hover { color: var(--gold); }
   <div class="feature-row">
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
-        <div class="phone-inner">
-          <div class="phone-notch"></div>
-          <div class="phone-status-bar">
-            <span class="phone-time">9:09</span>
-            <span class="phone-icons">▲▲▲ ▊</span>
-          </div>
-          <div class="app-screen">
-            <div class="app-header">
-              <div class="app-av">N</div>
-              <div class="app-greet">
-                <div class="app-greet-name" style="font-size:16px;font-weight:900;letter-spacing:0.5px;">CHATS</div>
-                <div class="app-greet-top" style="margin-top:1px;">Your active partner conversations</div>
-              </div>
-            </div>
-            <div class="chat-list">
-              <div class="chat-item">
-                <div class="chat-av">AS</div>
-                <div class="chat-body">
-                  <div class="chat-top">
-                    <span class="chat-name">Ante Simac</span>
-                    <span class="chat-time">25 May</span>
-                  </div>
-                  <div class="chat-prev">You: What's your target time? 🎯</div>
-                </div>
-              </div>
-              <div class="chat-item">
-                <div class="chat-av">AB</div>
-                <div class="chat-body">
-                  <div class="chat-top">
-                    <span class="chat-name">Aoife Brennan</span>
-                    <span class="chat-time">25 May</span>
-                  </div>
-                  <div class="chat-prev">You: Sounds good — locking it in</div>
-                  <div class="chat-badge paired">✓ Paired</div>
-                </div>
-              </div>
-              <div class="chat-item">
-                <div class="chat-av">JT</div>
-                <div class="chat-body">
-                  <div class="chat-top">
-                    <span class="chat-name">James Thornton</span>
-                    <span class="chat-time">2d</span>
-                  </div>
-                  <div class="chat-sub">HYROX Dublin · Mixed Doubles</div>
-                  <div class="chat-badge new-match">New match · Say hi</div>
-                </div>
-              </div>
-              <div class="chat-item">
-                <div class="chat-av">LO</div>
-                <div class="chat-body">
-                  <div class="chat-top">
-                    <span class="chat-name">Liam O'Brien</span>
-                    <span class="chat-time">19 May</span>
-                  </div>
-                  <div class="chat-prev">You: Hi Liam</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="app-tabbar">
-            <div class="app-tab"><span class="app-tab-icon">⌂</span><span class="app-tab-lbl">Home</span></div>
-            <div class="app-tab"><span class="app-tab-icon">⚑</span><span class="app-tab-lbl">Events</span></div>
-            <div class="app-tab active"><span class="app-tab-icon">💬</span><span class="app-tab-lbl">Chats</span></div>
-            <div class="app-tab"><span class="app-tab-icon">☰</span><span class="app-tab-lbl">Manage</span></div>
-          </div>
-        </div>
+        <img src="/assets/screenshots/event-detail.png" alt="HyPair event detail showing paired status, partner info and lock-in confirmation">
       </div>
     </div>
     <div class="feature-text">
