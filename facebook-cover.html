@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HyPair — Facebook Cover 820×312</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 16px;
+    font-family: 'Barlow', sans-serif;
+  }
+
+  .label {
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    width: 820px;
+    height: 312px;
+    position: relative;
+    overflow: hidden;
+    background: #2C3E45;
+  }
+
+  /* background blobs */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(0px);
+  }
+  .blob-1 {
+    width: 320px; height: 320px;
+    bottom: -80px; left: -40px;
+    background: radial-gradient(circle, rgba(55,77,60,0.85) 0%, transparent 70%);
+  }
+  .blob-2 {
+    width: 380px; height: 380px;
+    top: -120px; right: -60px;
+    background: radial-gradient(circle, rgba(120,30,40,0.75) 0%, transparent 65%);
+  }
+  .blob-3 {
+    width: 200px; height: 200px;
+    top: 20px; left: 30%;
+    background: radial-gradient(circle, rgba(44,60,70,0.6) 0%, transparent 70%);
+  }
+
+  /* gold left border line */
+  .left-line {
+    position: absolute;
+    left: 28px; top: 20px; bottom: 20px;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, rgba(242,208,121,0.6) 30%, rgba(242,208,121,0.6) 70%, transparent);
+  }
+
+  /* coming soon badge */
+  .badge {
+    position: absolute;
+    top: 20px; right: 24px;
+    background: transparent;
+    border: 1.5px solid #E22424;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: #E22424;
+  }
+
+  /* main text block */
+  .text-block {
+    position: absolute;
+    left: 52px;
+    top: 18px;
+  }
+
+  /* logo overlaid — sits between the two lines */
+  .logo-overlay {
+    position: absolute;
+    left: 48px;
+    top: 68px;
+    width: 54px;
+    height: auto;
+    opacity: 0.9;
+    z-index: 2;
+  }
+
+  .headline-meet {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 104px;
+    font-weight: 900;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: -1px;
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+
+  .headline-match {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 104px;
+    font-weight: 900;
+    line-height: 0.88;
+    text-transform: uppercase;
+    color: #E22424;
+    letter-spacing: -1px;
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+
+  .brand-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #F2D079;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .subline {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+  }
+
+  .chips {
+    display: flex;
+    gap: 8px;
+  }
+  .chip {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px;
+    color: rgba(255,255,255,0.65);
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+  }
+  .chip.active {
+    color: #F2D079;
+    border-color: rgba(242,208,121,0.4);
+    background: rgba(242,208,121,0.08);
+  }
+
+  .url {
+    position: absolute;
+    bottom: 18px; right: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.25);
+    font-family: 'Barlow', sans-serif;
+    letter-spacing: 0.5px;
+  }
+
+  /* instructions */
+  .instructions {
+    width: 820px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 16px 20px;
+    color: rgba(255,255,255,0.45);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .instructions strong { color: rgba(255,255,255,0.75); }
+  code { background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<p class="label">Facebook Cover — 820 × 312 px</p>
+
+<div class="cover">
+
+  <!-- blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- left gold line -->
+  <div class="left-line"></div>
+
+  <!-- coming soon -->
+  <div class="badge">Coming Soon</div>
+
+  <!-- logo overlaid on text -->
+  <svg class="logo-overlay" viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg">
+    <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
+    <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
+    <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
+  </svg>
+
+  <!-- text -->
+  <div class="text-block">
+    <span class="headline-meet">Meet your</span>
+    <span class="headline-match">Match.</span>
+    <span class="brand-name">HyPair</span>
+    <div class="subline">Find your doubles partner for HYROX, Tryka &amp; SIM events.</div>
+    <div class="chips">
+      <span class="chip active">HYROX</span>
+      <span class="chip active">Tryka</span>
+      <span class="chip active">SIM Events</span>
+      <span class="chip">More races soon</span>
+    </div>
+  </div>
+
+  <div class="url">hypair.app</div>
+
+</div>
+
+<div class="instructions">
+  <strong>To export as PNG:</strong> Open in Chrome at 100% zoom (Cmd+0) → right-click the cover → Inspect → in Console: <code>document.querySelector('.cover').scrollIntoView()</code> then screenshot &amp; crop.<br>
+  Or run: <code>npx puppeteer-cli screenshot --selector .cover --output hypair-facebook-cover.png facebook-cover.html</code>
+</div>
+
+</body>
+</html>

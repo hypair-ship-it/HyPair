@@ -439,7 +439,7 @@ footer a:hover { color: var(--gold); }
     <p class="tagline">HYROX Dublin at the RDS is one of Ireland's biggest doubles fields. HyPair matches Dublin athletes by 5K pace, finish goal and format — so you're paired before the start line.</p>
 
     <div class="countdown-stat">
-      <span class="countdown-num">143</span>
+      <span class="countdown-num" id="days-to-race">—</span>
       <span class="countdown-lbl">days to race day</span>
     </div>
 
@@ -539,8 +539,8 @@ footer a:hover { color: var(--gold); }
   <div class="related-inner">
     <p>Also looking for</p>
     <ul class="related-links">
-      <li><a href="/hyrox-doubles-partner.html">All HYROX doubles partner matching</a></li>
-      <li><a href="/tryka-dublin.html">Tryka Dublin partner (3–5 July)</a></li>
+      <li><a href="/hyrox-doubles-partner">All HYROX doubles partner matching</a></li>
+      <li><a href="/tryka-dublin">Tryka Dublin partner (3–5 July)</a></li>
     </ul>
   </div>
 </section>
@@ -564,7 +564,8 @@ footer a:hover { color: var(--gold); }
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
     </a>
   </div>
-  <p>&copy; 2026 HyPair &nbsp;·&nbsp; <a href="mailto:hello@hypair.app">hello@hypair.app</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms.html">Terms</a></p>
+  <p>&copy; 2026 HyPair &nbsp;·&nbsp; <a href="mailto:hello@hypair.app">hello@hypair.app</a> &nbsp;·&nbsp; <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms</a> &nbsp;·&nbsp; <a href="/cookies">Cookies</a></p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.5;">HyPair is not affiliated with or endorsed by HYROX or Tryka.</p>
 </footer>
 
 <script>
@@ -603,6 +604,8 @@ async function joinWaitlist() {
   }
 }
 document.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('days-to-race');
+  if (el) el.textContent = Math.ceil((new Date('2026-11-11') - new Date()) / 86400000);
   const emailEl = document.getElementById('email');
   if (emailEl) emailEl.addEventListener('keydown', e => { if (e.key === 'Enter') joinWaitlist(); });
 });
