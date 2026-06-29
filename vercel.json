@@ -1,5 +1,4 @@
 {
-  "rootDirectory": "web",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/for-gyms", "destination": "/site/for-gyms.html" },
