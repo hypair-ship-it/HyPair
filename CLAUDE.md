@@ -15,53 +15,57 @@ separate repo: `github.com/hypair-ship-it/HyPairApp`.
 ## Repo structure
 
 ```
-/
-├── index.html                     Main landing page
-├── for-gyms.html                  SEO landing page — gym owners
-├── hyrox-dublin.html              SEO landing page — HYROX Dublin
-├── tryka-dublin.html              SEO landing page — Tryka Dublin
-├── hyrox-doubles-partner.html     SEO landing page — doubles partner search
-├── terms.html                     Terms of Service
-├── privacy.html                   Privacy Policy
-├── cookies.html                   Cookie Policy
+HyPair/                              ← repo root (project container)
 │
-├── favicon.ico / favicon.svg      Site favicon (both formats)
-├── og-image.jpg                   Open Graph image (1200×630)
-├── og-card.svg                    OG card source
-├── robots.txt                     Search crawler rules
-├── sitemap.xml                    XML sitemap
-├── vercel.json                    Vercel config (clean URLs)
-├── googleb13411129c6994e3.html    Google Search Console verification
+├── web/                             ← web root — everything Vercel serves
+│   ├── index.html                   Main landing page (hypair.app)
+│   ├── favicon.ico / favicon.svg    Site favicon
+│   ├── og-image.jpg / og-card.svg   Open Graph image
+│   ├── robots.txt / sitemap.xml     SEO config
+│   ├── googleb13411129c6994e3.html  Google Search Console verification
+│   ├── site/                        All other pages (served via Vercel rewrites)
+│   │   ├── for-gyms.html            → hypair.app/for-gyms
+│   │   ├── hyrox-dublin.html        → hypair.app/hyrox-dublin
+│   │   ├── tryka-dublin.html        → hypair.app/tryka-dublin
+│   │   ├── hyrox-doubles-partner.html → hypair.app/hyrox-doubles-partner
+│   │   ├── terms.html               → hypair.app/terms
+│   │   ├── privacy.html             → hypair.app/privacy
+│   │   └── cookies.html             → hypair.app/cookies
+│   └── assets/
+│       └── icons/                   PWA notification icons
 │
-├── brand/
-│   ├── logo/
-│   │   ├── swiss-alps/            Dark-theme logo set (SVG, PNG, ICO)
-│   │   └── tundra-light/          Light-theme logo set (SVG, PNG, ICO)
-│   └── social/
-│       ├── swiss-alps/            Dark-theme social cover images (all platforms)
-│       ├── tundra-light/          Light-theme social cover images (all platforms)
-│       ├── posts/                 Exported social post images
-│       └── reference/             Reference images (hyrox-profile.jpg, etc.)
+├── brand/                           ← all design assets (not served publicly)
+│   ├── swiss-alps/                  Dark theme
+│   │   ├── logo/                    Logos (SVG, PNG, ICO)
+│   │   └── social/                  Social covers (FB, IG, LinkedIn, Twitter, Zoom)
+│   ├── tundra-light/                Light theme
+│   │   ├── logo/                    Logos (SVG, PNG, ICO)
+│   │   └── social/                  Social covers (FB, IG, LinkedIn, Twitter, Zoom)
+│   ├── social/
+│   │   ├── posts/                   Published post images
+│   │   └── inspiration/             Reference / source images
+│   └── BRAND.md                     Design system reference (colours, fonts, tokens)
 │
-├── assets/
-│   └── icons/                     App icons (notification-icon, notification-icon-192)
+├── screenshots/                     App UI screenshots (used for marketing)
 │
-└── BRAND.md                       Design system reference (colours, fonts, tokens)
+├── vercel.json                      Vercel config — must stay at repo root
+└── CLAUDE.md                        This file
 ```
 
-**All HTML files must remain at root** — their paths are live URLs indexed by
-Google. Do not move them without adding Vercel rewrites first.
+**`vercel.json` must stay at repo root** — Vercel reads it before applying `rootDirectory`.
 
 ---
 
-## index.html architecture
+## web/index.html architecture
 
-Everything — HTML, CSS, and JavaScript — lives in `index.html`. No build step,
-no package manager, no framework. Open directly in a browser to preview, or run:
+Everything — HTML, CSS, and JavaScript — lives in `web/index.html`. No build step,
+no package manager, no framework. Preview locally:
 
 ```bash
-python3 -m http.server 3456
+python3 -m http.server 3456 --directory web
 ```
+
+Or use the `.claude/launch.json` config which is already set up.
 
 ### Page states
 
@@ -82,8 +86,8 @@ Supabase webhook.
 ### Design tokens
 
 CSS custom properties in `:root`. Key tokens:
-- `--red: #E22424` — primary action colour
-- `--gold: #D4AA50` — achievement / race accent
+- `--red: #E22424` — primary action colour (matches app `Colors.red`)
+- `--gold: #D4AA50` — achievement / race accent (matches app `Colors.gold`)
 - `--hero-bg: #0F1318` — dark hero background
 - `--light-bg: #F2F2EF` — light content section
 
@@ -112,7 +116,7 @@ Google Fonts loaded in `<head>`:
 
 ## SEO landing pages
 
-Each SEO page is self-contained HTML at its own URL:
+Each page is self-contained HTML in `web/site/`, served at a clean URL via `vercel.json` rewrites:
 
 | File | URL | Target keyword |
 |---|---|---|
@@ -121,13 +125,14 @@ Each SEO page is self-contained HTML at its own URL:
 | `tryka-dublin.html` | `/tryka-dublin` | Tryka Dublin partner |
 | `hyrox-doubles-partner.html` | `/hyrox-doubles-partner` | HYROX doubles partner |
 
-When adding a new SEO page: add it to `sitemap.xml` and update `robots.txt` if needed.
+When adding a new SEO page: add the file to `web/site/`, add a rewrite to `vercel.json`, and add the URL to `web/sitemap.xml`.
 
 ---
 
 ## Related repos & resources
 
-- **App repo:** `github.com/hypair-ship-it/HyPairApp` (React Native / Expo)
-- **App CLAUDE.md:** in root of HyPairApp repo — full app context
+- **App repo:** `github.com/hypair-ship-it/HyPairApp` — React Native / Expo app
+- **App CLAUDE.md:** `HyPairApp/CLAUDE.md` — full app architecture, DB schema, design rules
+- **Brand guide:** `brand/BRAND.md` in this repo
 - **Notion HQ:** https://app.notion.com/p/32b1c734a8f781138577c191fa51d4db
-- **Brand guide:** `BRAND.md` in this repo
+- **Project map:** https://app.notion.com/p/38e1c734a8f781778290df0289ee7c79
