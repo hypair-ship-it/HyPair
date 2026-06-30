@@ -199,6 +199,8 @@
 - [x] Messages injection hole closed
 - [x] Profiles block unauthenticated reads
 - [x] No service-role key in client code
+- [ ] **Supabase: disable GraphQL API** — Supabase dashboard → Settings → API → uncheck "Enable GraphQL". Clears ~20 remaining advisor warnings (pg_graphql_anon/authenticated_table_exposed). Not a real risk since app uses REST, but clean it up.
+- [ ] **Supabase: review remaining 12 authenticated SECURITY DEFINER warnings** — `fn_close_other_requests_on_confirm`, `fn_guard_match_request_participants`, `fn_reset_user_events_on_cancel`, `fn_sync_user_events`, `sync_user_events_on_match_change` are trigger functions and likely fine, but verify none need explicit REVOKE from authenticated.
 
 ### Features
 - [x] Full auth flow (sign-up, log-in, forgot password, OTP verify)
