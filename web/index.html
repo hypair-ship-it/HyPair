@@ -1127,6 +1127,7 @@ footer a:hover { color: var(--gold); }
   const SUPABASE_PUBLIC_KEY = 'sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si';
 
   let _joinedEmail = '';
+  let _joinedId = null;
   let _lastSubmitTime = 0;
   let _selectedRace = null;
 
@@ -1163,13 +1164,14 @@ footer a:hover { color: var(--gold); }
           'Content-Type': 'application/json',
           'apikey': SUPABASE_PUBLIC_KEY,
           'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
-          'Prefer': 'return=minimal'
+          'Prefer': 'return=representation'
         },
         body: JSON.stringify({ email, ...(_selectedRace ? { race: _selectedRace } : {}) })
       });
       if (!res.ok && res.status !== 409) throw new Error('Failed');
 
       _joinedEmail = email;
+      try { const rows = await res.json(); _joinedId = rows?.[0]?.id ?? null; } catch (e) { _joinedId = null; }
       document.getElementById('waitlist-section').style.display = 'none';
       document.querySelectorAll('.stats-bar, .light-section, .feature-section, .dark-section, .faq-section, .second-cta').forEach(el => el.style.display = 'none');
       document.getElementById('success-section').classList.add('active');
@@ -1190,9 +1192,9 @@ footer a:hover { color: var(--gold); }
   async function selectRace(btn, race) {
     document.querySelectorAll('.race-opt').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    if (!_joinedEmail) return;
+    if (!_joinedId) return;
     try {
-      await fetch(`${SUPABASE_URL}/rest/v1/waitlist?email=eq.${encodeURIComponent(_joinedEmail)}`, {
+      await fetch(`${SUPABASE_URL}/rest/v1/waitlist?id=eq.${encodeURIComponent(_joinedId)}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
