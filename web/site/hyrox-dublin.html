@@ -8,20 +8,20 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Find a HYROX Dublin Doubles Partner — November 2026 | HyPair">
 <meta property="og:description" content="HYROX Dublin runs 11–15 November 2026 at the RDS Arena. Find your doubles partner now — matched by 5K pace, goals and format on HyPair.">
-<meta property="og:image" content="/og-image.svg">
+<meta property="og:image" content="/og-image.jpg">
 <meta property="og:url" content="https://hypair.app/hyrox-dublin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Find a HYROX Dublin Doubles Partner — November 2026 | HyPair">
 <meta name="twitter:description" content="HYROX Dublin runs 11–15 November 2026 at the RDS Arena. Find your doubles partner now on HyPair.">
-<meta name="twitter:image" content="/og-image.svg">
+<meta name="twitter:image" content="/og-image.jpg">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hypair.app/hyrox-dublin">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="dns-prefetch" href="https://llkdujodseyilzbkzdbf.supabase.co">
 <link rel="preconnect" href="https://llkdujodseyilzbkzdbf.supabase.co">
 <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-<link rel="icon" href="/favicon.svg" sizes="any">
-<link rel="apple-touch-icon" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -255,6 +255,88 @@ h1 .red { color: var(--red); }
 .form-btn:active { transform: scale(0.97); }
 .form-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
 .form-note { font-size: 13px; color: var(--white-35); text-align: center; }
+
+/* ── MATCH CARD ── */
+.match-section { background: var(--white); padding: 80px 24px; }
+.match-section-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.match-section-inner .overline { text-align: left; }
+.match-section-inner h2 { text-align: left; }
+.match-desc { font-size: 16px; color: var(--text-body); line-height: 1.8; margin-bottom: 28px; max-width: 440px; }
+.match-card {
+  background: #13181F; border-radius: 24px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+}
+.match-card-athlete {
+  display: flex; align-items: center; gap: 14px; padding: 24px 24px 0;
+}
+.match-card-photo {
+  width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: top;
+  border: 2px solid rgba(255,255,255,0.12); flex-shrink: 0;
+}
+.match-card-info { flex: 1; }
+.match-card-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 900; color: #fff; letter-spacing: 0.3px;
+}
+.match-card-meta { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.match-card-tags { display: flex; gap: 6px; padding: 12px 24px 0; flex-wrap: wrap; }
+.match-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold); background: rgba(242,208,121,0.12);
+  border: 1px solid rgba(242,208,121,0.3); border-radius: 100px; padding: 4px 10px;
+}
+.match-compat-block {
+  margin: 20px 24px 0;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 20px;
+}
+.match-pct-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.match-pct-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 900; color: var(--gold); letter-spacing: 0.5px;
+}
+.match-pct-circle {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 2px solid var(--gold); background: rgba(242,208,121,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 900; color: var(--gold);
+}
+.match-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.match-row:last-of-type { border-bottom: none; }
+.match-row-label { font-size: 12px; color: rgba(255,255,255,0.5); }
+.match-row-sub { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 1px; }
+.match-badge-aligned {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: #4ADE80; display: flex; align-items: center; gap: 4px;
+}
+.match-badge-gap {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: #FB923C; display: flex; align-items: center; gap: 4px;
+}
+.match-finish-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px; border-top: 1px solid rgba(255,255,255,0.06);
+}
+.match-finish-lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.match-finish-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 900; color: var(--gold);
+}
+.match-cta-bar {
+  background: var(--red); padding: 16px 24px; text-align: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--white); cursor: default;
+}
+@media (max-width: 960px) {
+  .match-section-inner { grid-template-columns: 1fr; gap: 40px; }
+  .match-section-inner .match-card { max-width: 440px; }
+}
 
 /* ── SECTIONS ── */
 .overline {
@@ -493,6 +575,78 @@ footer a:hover { color: var(--gold); }
           <span class="event-detail-val">Find yours on HyPair — matched by pace &amp; goal</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="match-section">
+  <div class="match-section-inner">
+    <div>
+      <p class="overline">Real matches, real athletes</p>
+      <h2>This is what a HyPair match looks like.</h2>
+      <p class="match-desc">Alex found Claire on HyPair — same age group, aligned goal, and a team finish target of under 53 minutes. Two Dublin athletes who'd never have crossed paths otherwise.</p>
+      <ul class="check-list">
+        <li>Matched by pace, goal and division</li>
+        <li>Both registered for HYROX Dublin</li>
+        <li>Connected before the race — not on the day</li>
+      </ul>
+    </div>
+    <div class="match-card">
+      <div class="match-card-athlete">
+        <img class="match-card-photo"
+          src="https://images.pexels.com/photos/35419768/pexels-photo-35419768/free-photo-of-woman-preparing-for-workout-in-gym-environment.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&fit=crop"
+          alt="Claire Byrne — HYROX Dublin athlete"
+          width="56" height="56">
+        <div class="match-card-info">
+          <div class="match-card-name">Claire Byrne</div>
+          <div class="match-card-meta">38 · Female · Dublin, Ireland</div>
+        </div>
+      </div>
+      <div class="match-card-tags">
+        <span class="match-tag">HYROX</span>
+        <span class="match-tag">TRYKA</span>
+      </div>
+      <div class="match-compat-block">
+        <div class="match-pct-row">
+          <div class="match-pct-label">90% MATCH</div>
+          <div class="match-pct-circle">90</div>
+        </div>
+        <div class="match-row">
+          <div>
+            <div class="match-row-label">Goal</div>
+            <div class="match-row-sub">Relaxed · same as you</div>
+          </div>
+          <div class="match-badge-aligned">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Aligned
+          </div>
+        </div>
+        <div class="match-row">
+          <div>
+            <div class="match-row-label">Pace</div>
+            <div class="match-row-sub">6:10/km</div>
+          </div>
+          <div class="match-badge-gap">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Gap
+          </div>
+        </div>
+        <div class="match-row">
+          <div>
+            <div class="match-row-label">Age group</div>
+            <div class="match-row-sub">38 · same division</div>
+          </div>
+          <div class="match-badge-aligned">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Aligned
+          </div>
+        </div>
+      </div>
+      <div class="match-finish-row">
+        <span class="match-finish-lbl">Est. Team Finish</span>
+        <span class="match-finish-val">~52:17</span>
+      </div>
+      <div class="match-cta-bar">Connect for HYROX Dublin</div>
     </div>
   </div>
 </section>
