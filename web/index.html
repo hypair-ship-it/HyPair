@@ -786,6 +786,7 @@ footer a:hover { color: var(--gold); }
             </svg>
           </span>
           <input class="form-input" id="email" type="email" placeholder="you@email.com" autocomplete="email" aria-label="Email address">
+          <input type="text" id="hp-field" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
           <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Join Waitlist →</button>
         </div>
         <div class="form-race" id="form-race">
@@ -1143,6 +1144,15 @@ footer a:hover { color: var(--gold); }
   }
 
   async function joinWaitlist() {
+    // Honeypot — real users never see or fill this field; bots that
+    // auto-fill every input do. Silently pretend it worked.
+    const hp = document.getElementById('hp-field');
+    if (hp && hp.value) {
+      document.getElementById('waitlist-section').style.display = 'none';
+      document.getElementById('success-section').classList.add('active');
+      return;
+    }
+
     const now = Date.now();
     if (now - _lastSubmitTime < 5000) return;
     _lastSubmitTime = now;
@@ -1162,6 +1172,12 @@ footer a:hover { color: var(--gold); }
     btn.disabled = true;
     btn.textContent = 'Joining...';
 
+    // Mint the row's id client-side so we can reference it later (e.g. the
+    // race-preference PATCH below) without needing a post-insert SELECT —
+    // anon has no SELECT policy on waitlist by design, so return=representation
+    // fails RLS even though the INSERT itself succeeds.
+    const newId = crypto.randomUUID();
+
     try {
       const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
         method: 'POST',
@@ -1169,14 +1185,14 @@ footer a:hover { color: var(--gold); }
           'Content-Type': 'application/json',
           'apikey': SUPABASE_PUBLIC_KEY,
           'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
-          'Prefer': 'return=representation'
+          'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ email, ...(_selectedRace ? { race: _selectedRace } : {}) })
+        body: JSON.stringify({ id: newId, email, ...(_selectedRace ? { race: _selectedRace } : {}) })
       });
       if (!res.ok && res.status !== 409) throw new Error('Failed');
 
       _joinedEmail = email;
-      try { const rows = await res.json(); _joinedId = rows?.[0]?.id ?? null; } catch (e) { _joinedId = null; }
+      _joinedId = res.ok ? newId : null; // 409 = already on waitlist under a different id we don't know
       document.getElementById('waitlist-section').style.display = 'none';
       document.querySelectorAll('.stats-bar, .light-section, .feature-section, .dark-section, .faq-section, .second-cta').forEach(el => el.style.display = 'none');
       document.getElementById('success-section').classList.add('active');
