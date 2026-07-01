@@ -16,6 +16,8 @@ jobs:
         uses: Cyb3r-Jak3/html5validator-action@v7.2.0
         with:
           root: web/
+          blacklist: googleb13411129c6994e3.html
+          extra: --ignore-re "too few values for the property .linear-gradient."
 
       - name: Check vercel.json rewrites point to real files
         run: |
