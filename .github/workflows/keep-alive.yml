@@ -1,0 +1,17 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Twice a week — comfortably inside the 7-day auto-pause window even if a run is delayed
+    - cron: '17 9 * * 1,4'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase to prevent free-tier auto-pause
+        run: |
+          curl -sf "https://llkdujodseyilzbkzdbf.supabase.co/rest/v1/waitlist?select=id&limit=1" \
+            -H "apikey: sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si" \
+            -H "Authorization: Bearer sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si"
