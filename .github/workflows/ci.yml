@@ -27,7 +27,9 @@ jobs:
             let ok = true;
             for (const r of cfg.rewrites || []) {
               const path = 'web' + r.destination;
-              if (!fs.existsSync(path)) {
+              // cleanUrls: true resolves an extensionless destination to its
+              // .html file automatically on Vercel, so check both forms.
+              if (!fs.existsSync(path) && !fs.existsSync(path + '.html')) {
                 console.error('Missing rewrite target: ' + r.destination);
                 ok = false;
               }
