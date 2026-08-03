@@ -12,12 +12,12 @@
     }
   ],
   "rewrites": [
-    { "source": "/for-gyms", "destination": "/site/for-gyms.html" },
-    { "source": "/hyrox-dublin", "destination": "/site/hyrox-dublin.html" },
-    { "source": "/tryka-dublin", "destination": "/site/tryka-dublin.html" },
-    { "source": "/hyrox-doubles-partner", "destination": "/site/hyrox-doubles-partner.html" },
-    { "source": "/terms", "destination": "/site/terms.html" },
-    { "source": "/privacy", "destination": "/site/privacy.html" },
-    { "source": "/cookies", "destination": "/site/cookies.html" }
+    { "source": "/for-gyms", "destination": "/site/for-gyms" },
+    { "source": "/hyrox-dublin", "destination": "/site/hyrox-dublin" },
+    { "source": "/tryka-dublin", "destination": "/site/tryka-dublin" },
+    { "source": "/hyrox-doubles-partner", "destination": "/site/hyrox-doubles-partner" },
+    { "source": "/terms", "destination": "/site/terms" },
+    { "source": "/privacy", "destination": "/site/privacy" },
+    { "source": "/cookies", "destination": "/site/cookies" }
   ]
 }
