@@ -10,14 +10,5 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
-  ],
-  "rewrites": [
-    { "source": "/for-gyms", "destination": "/site/for-gyms" },
-    { "source": "/hyrox-dublin", "destination": "/site/hyrox-dublin" },
-    { "source": "/tryka-dublin", "destination": "/site/tryka-dublin" },
-    { "source": "/hyrox-doubles-partner", "destination": "/site/hyrox-doubles-partner" },
-    { "source": "/terms", "destination": "/site/terms" },
-    { "source": "/privacy", "destination": "/site/privacy" },
-    { "source": "/cookies", "destination": "/site/cookies" }
   ]
 }

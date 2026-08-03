@@ -23,14 +23,13 @@ HyPair/                              ← repo root (project container)
 │   ├── og-image.jpg / og-card.svg   Open Graph image
 │   ├── robots.txt / sitemap.xml     SEO config
 │   ├── googleb13411129c6994e3.html  Google Search Console verification
-│   ├── site/                        All other pages (served via Vercel rewrites)
-│   │   ├── for-gyms.html            → hypair.app/for-gyms
-│   │   ├── hyrox-dublin.html        → hypair.app/hyrox-dublin
-│   │   ├── tryka-dublin.html        → hypair.app/tryka-dublin
-│   │   ├── hyrox-doubles-partner.html → hypair.app/hyrox-doubles-partner
-│   │   ├── terms.html               → hypair.app/terms
-│   │   ├── privacy.html             → hypair.app/privacy
-│   │   └── cookies.html             → hypair.app/cookies
+│   ├── for-gyms.html                → hypair.app/for-gyms
+│   ├── hyrox-dublin.html            → hypair.app/hyrox-dublin
+│   ├── tryka-dublin.html            → hypair.app/tryka-dublin
+│   ├── hyrox-doubles-partner.html   → hypair.app/hyrox-doubles-partner
+│   ├── terms.html                   → hypair.app/terms
+│   ├── privacy.html                 → hypair.app/privacy
+│   ├── cookies.html                 → hypair.app/cookies
 │   └── assets/
 │       └── icons/                   PWA notification icons
 │
@@ -116,7 +115,13 @@ Google Fonts loaded in `<head>`:
 
 ## SEO landing pages
 
-Each page is self-contained HTML in `web/site/`, served at a clean URL via `vercel.json` rewrites:
+Each page is self-contained HTML directly in `web/`, served at its clean URL by
+`cleanUrls: true` in `vercel.json` — no rewrite needed (the same mechanism that
+serves `web/index.html` at `/`). An earlier version of this repo nested these
+under `web/site/` with explicit `vercel.json` rewrites to the clean path; that
+combination of `rewrites` + `cleanUrls` proved unreliable in production (404s
+that two separate fix attempts couldn't resolve), so the pages were moved to
+`web/` root instead, removing the rewrites entirely.
 
 | File | URL | Target keyword |
 |---|---|---|
@@ -125,7 +130,7 @@ Each page is self-contained HTML in `web/site/`, served at a clean URL via `verc
 | `tryka-dublin.html` | `/tryka-dublin` | Tryka Dublin partner |
 | `hyrox-doubles-partner.html` | `/hyrox-doubles-partner` | HYROX doubles partner |
 
-When adding a new SEO page: add the file to `web/site/`, add a rewrite to `vercel.json`, and add the URL to `web/sitemap.xml`.
+When adding a new SEO page: add the file directly to `web/`, and add the URL to `web/sitemap.xml`. Do not use a `vercel.json` rewrite for this — see above.
 
 ---
 

@@ -17,3 +17,5 @@ Thumbs.db
 
 # Legal documents — do not commit
 legal/
+.vercel
+.env*
