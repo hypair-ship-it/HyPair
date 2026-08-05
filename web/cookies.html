@@ -29,7 +29,7 @@
 @font-face { font-family: 'Barlow Condensed'; font-style: normal; font-weight: 900; font-display: swap; src: url('/assets/fonts/barlow-condensed-900.woff2') format('woff2'); }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --summit: #1B2A3B; --gold: #F8C662; --red: #E53935;
+    --summit: #1B2A3B; --gold: #F2D079; --red: #E22424;
     --off-white: #F5F4F0; --text: #1a1a1a; --muted: #555; --border: #e0ddd8;
   }
   body { font-family: 'Barlow', sans-serif; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--off-white); }
@@ -90,7 +90,7 @@
   <p>Similar technologies — like local storage and session tokens — work in a similar way and are covered by this policy.</p>
 
   <h2>2. What we use</h2>
-  <p>HyPair uses only <strong>strictly necessary</strong> and <strong>functional</strong> cookies. We do not use advertising cookies, tracking pixels, or third-party analytics cookies.</p>
+  <p>HyPair uses only <strong>strictly necessary</strong> and <strong>functional</strong> cookies. We do not use advertising cookies, tracking pixels, or third-party analytics cookies. We do use Vercel Web Analytics on the website — it's cookieless (see below), so it doesn't appear in the table.</p>
 
   <table>
     <tr>
@@ -131,7 +131,7 @@
   </table>
 
   <div class="callout">
-    <strong>No advertising or analytics cookies.</strong> HyPair does not use Google Analytics, Facebook Pixel, or any other third-party tracking or advertising technology. We do not track you across other websites.
+    <strong>No advertising or tracking cookies.</strong> HyPair does not use Google Analytics, Facebook Pixel, or any other third-party tracking or advertising technology, and we do not track you across other websites. We do use <strong>Vercel Web Analytics</strong> — a cookieless, privacy-friendly tool that counts aggregate page views without setting a cookie, fingerprinting your device, or collecting any personal data.
   </div>
 
   <h2>3. Strictly necessary cookies</h2>
@@ -142,12 +142,13 @@
 
   <h2>5. What we don't use</h2>
   <ul>
-    <li>Google Analytics or any other web analytics platform</li>
-    <li>Facebook Pixel or any social media tracking</li>
+    <li>Google Analytics, Facebook Pixel, or any other cookie-based or fingerprinting analytics</li>
+    <li>Social media tracking</li>
     <li>Advertising or retargeting cookies</li>
     <li>Third-party cookies from ad networks</li>
     <li>A/B testing or heatmap tools</li>
   </ul>
+  <p>The one exception is <strong>Vercel Web Analytics</strong> (see section 2) — it's cookieless and collects no personal data, so it isn't a cookie by any definition, but we're calling it out here for full transparency.</p>
 
   <h2>6. Managing cookies</h2>
   <p>You can control cookies through your browser settings. Most browsers allow you to block, delete, or get notified about cookies. However, blocking strictly necessary cookies (Cloudflare) may prevent the HyPair website from loading correctly.</p>

@@ -110,12 +110,14 @@ Clean and approachable. Used for the mobile app UI and any light-background cont
 | Tundra | `#EFEBEA` | 239, 235, 234 | Primary background |
 | Summit Dark | `#2C3A47` | 44, 58, 71 | Text, logo, nav |
 | Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent (shared with primary) |
+| App Gold | `#F0B429` | 240, 180, 41 | Match %, PBs, badges, achievement accent — app only, distinct from Sun Valley |
 | White | `#ffffff` | 255, 255, 255 | Cards, surfaces |
 
 **Tundra Light Colour Rules**
 - Never use on the public website — Tundra is for the app only
 - Red CTA colour is shared across both schemes for consistency
 - Summit Dark replaces white for all text
+- App Gold is deliberately a different hex from Swiss Alps' Sun Valley — the app's achievement accent doesn't need to match the website's logo/warmth accent
 
 ---
 

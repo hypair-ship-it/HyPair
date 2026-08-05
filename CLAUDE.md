@@ -86,7 +86,7 @@ Supabase webhook.
 
 CSS custom properties in `:root`. Key tokens:
 - `--red: #E22424` — primary action colour (matches app `Colors.red`)
-- `--gold: #D4AA50` — achievement / race accent (matches app `Colors.gold`)
+- `--gold: #F2D079` — "Sun Valley", logo/brand warmth accent (per `brand/BRAND.md` §3 Swiss Alps palette — the app's own gold, `Colors.GOLD` `#F0B429`, is intentionally different; see `brand/BRAND.md` Tundra Light section)
 - `--hero-bg: #0F1318` — dark hero background
 - `--light-bg: #F2F2EF` — light content section
 

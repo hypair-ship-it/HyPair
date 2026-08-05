@@ -31,8 +31,8 @@
 
   :root {
     --summit: #1B2A3B;
-    --gold: #F8C662;
-    --red: #E53935;
+    --gold: #F2D079;
+    --red: #E22424;
     --white: #FFFFFF;
     --off-white: #F5F4F0;
     --text: #1a1a1a;
@@ -257,7 +257,7 @@
 
   <p><strong>Matching and messaging data</strong> — partner requests you send or receive, the outcome (accepted/declined), and messages exchanged with matched athletes inside the app.</p>
 
-  <p><strong>Usage and analytics data</strong> — which screens you visit, errors and crashes, and basic device information (OS version, device type). We use this to fix bugs and improve the app. We do not sell this data.</p>
+  <p><strong>Usage and analytics data</strong> — which screens you visit, errors and crashes, basic device information (OS version, device type), and in-app activity events tied to your account (e.g. onboarding progress, match requests sent/received, and safety actions like blocking or reporting another user). We use this to fix bugs, understand where users get stuck, and enforce our Terms of Service. We do not sell this data.</p>
 
   <p><strong>Push notification token</strong> — if you grant permission, we store a device token to send you match alerts and chat notifications. You can revoke this at any time in your device settings.</p>
 
@@ -311,7 +311,7 @@
     </tr>
     <tr>
       <td><strong>Vercel Inc.</strong></td>
-      <td>Hosting of the hypair.app website</td>
+      <td>Hosting of the hypair.app website, plus cookieless Web Analytics (aggregate page-view counts only — no personal data, no cookies, no cross-site tracking)</td>
       <td>US (CDN globally distributed)</td>
       <td>Standard Contractual Clauses (SCCs)</td>
     </tr>
@@ -347,7 +347,7 @@
 
   <p>Your profile is visible to other authenticated HyPair users when they search for partners at events you have registered for. Only signed-in users can view profiles — unauthenticated visitors cannot access any profile data.</p>
 
-  <p>You control what appears on your profile by editing it in the app. You can set your profile to private at any time, which hides it from search results while keeping your account active. Deleting your account removes your profile from partner search immediately.</p>
+  <p>You control what appears on your profile by editing it in the app. Visibility is scoped to the events you register for — you won't appear in partner search for an event unless you've registered for it. If another user blocks you, your profile is hidden from them (and theirs from you) in both directions. Deleting your account removes your profile from partner search immediately.</p>
 
   <h2>7. Data retention</h2>
 
@@ -385,7 +385,7 @@
 
   <h2>10. Cookies</h2>
 
-  <p>The HyPair website (hypair.app) uses only <strong>strictly necessary cookies</strong> — specifically those set by Cloudflare for security and bot protection. We do not use tracking, advertising, or analytics cookies on the website.</p>
+  <p>The HyPair website (hypair.app) uses only <strong>strictly necessary cookies</strong> — specifically those set by Cloudflare for security and bot protection. We do not use tracking, advertising, or analytics cookies on the website. We do use Vercel's cookieless Web Analytics to count aggregate page views — see our <a href="https://hypair.app/cookies">Cookie Policy</a> for details.</p>
 
   <p>The HyPair mobile app does not use cookies. It uses a secure session token stored in the device's secure storage (not accessible to other apps).</p>
 
