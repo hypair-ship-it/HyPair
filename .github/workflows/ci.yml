@@ -36,3 +36,70 @@ jobs:
             }
             process.exit(ok ? 0 : 1);
           "
+
+      - name: Check brand colours are consistent across web/*.html
+        run: |
+          node -e "
+            const fs = require('fs');
+            const path = require('path');
+
+            // Canonical Swiss Alps palette — see brand/BRAND.md §3.
+            // Every web page hardcodes its own :root block and SVG fills
+            // (no shared stylesheet), so drift has to be caught by scanning
+            // literal hex values, not by trusting a single source file.
+            const CANONICAL = {
+              gold: '#F2D079',   // Sun Valley — logo / brand accent
+              red: '#E22424',    // Swiss Alps Red — CTAs
+              summit: '#2C3A47', // Summit Dark — nav/text
+            };
+            const CANONICAL_HEXES = new Set(Object.values(CANONICAL).map(h => h.toLowerCase()));
+
+            // Historical invented/off-spec values that have drifted in before.
+            // Any occurrence of these anywhere means a page reverted or copied
+            // from a stale template.
+            const BLOCKLIST = ['#D4AA50', '#F8C662', '#E53935'].map(h => h.toLowerCase());
+
+            const dir = 'web';
+            const files = fs.readdirSync(dir).filter(f => f.endsWith('.html'));
+            let ok = true;
+
+            for (const file of files) {
+              const full = path.join(dir, file);
+              const text = fs.readFileSync(full, 'utf8');
+              const lower = text.toLowerCase();
+
+              for (const bad of BLOCKLIST) {
+                if (lower.includes(bad)) {
+                  console.error(\`\${full}: found deprecated brand colour \${bad} — should be one of \${JSON.stringify(CANONICAL)}\`);
+                  ok = false;
+                }
+              }
+
+              // --gold / --red CSS custom properties must match canonical exactly.
+              for (const [name, canonicalHex] of Object.entries(CANONICAL)) {
+                if (name === 'summit') continue; // not exposed as a CSS var everywhere
+                const re = new RegExp('--' + name + '(?:-[a-z]+)?:\\\\s*(#[0-9A-Fa-f]{3,6})\\\\b', 'g');
+                let m;
+                while ((m = re.exec(text))) {
+                  const varName = m[0].split(':')[0].trim();
+                  if (varName !== '--' + name) continue; // skip --gold-dim, --gold-border, etc.
+                  if (m[1].toLowerCase() !== canonicalHex.toLowerCase()) {
+                    console.error(\`\${full}: \${varName} is \${m[1]}, expected \${canonicalHex}\`);
+                    ok = false;
+                  }
+                }
+              }
+
+              // Hardcoded SVG fills must be one of the canonical brand hexes.
+              const fillRe = /fill=\"(#[0-9A-Fa-f]{3,6})\"/g;
+              let fm;
+              while ((fm = fillRe.exec(text))) {
+                if (!CANONICAL_HEXES.has(fm[1].toLowerCase())) {
+                  console.error(\`\${full}: hardcoded fill=\${fm[1]} is not a canonical brand colour (\${JSON.stringify(CANONICAL)})\`);
+                  ok = false;
+                }
+              }
+            }
+
+            process.exit(ok ? 0 : 1);
+          "
