@@ -56,8 +56,19 @@ jobs:
 
             // Historical invented/off-spec values that have drifted in before.
             // Any occurrence of these anywhere means a page reverted or copied
-            // from a stale template.
+            // from a stale template. Checked in both hex and decimal rgb(a)
+            // form — a past drift slipped through as rgba(248,198,98,...),
+            // the decimal form of #F8C662, which a hex-only scan missed.
             const BLOCKLIST = ['#D4AA50', '#F8C662', '#E53935'].map(h => h.toLowerCase());
+            const hexToRgbTriplet = (hex) => {
+              const n = hex.slice(1);
+              const full = n.length === 3 ? n.split('').map(c => c + c).join('') : n;
+              const r = parseInt(full.slice(0, 2), 16);
+              const g = parseInt(full.slice(2, 4), 16);
+              const b = parseInt(full.slice(4, 6), 16);
+              return \`\${r},\\\\s*\${g},\\\\s*\${b}\`;
+            };
+            const BLOCKLIST_RGB_RE = BLOCKLIST.map(h => new RegExp('rgba?\\\\(\\\\s*' + hexToRgbTriplet(h) + '\\\\b', 'i'));
 
             const dir = 'web';
             const files = fs.readdirSync(dir).filter(f => f.endsWith('.html'));
@@ -71,6 +82,13 @@ jobs:
               for (const bad of BLOCKLIST) {
                 if (lower.includes(bad)) {
                   console.error(\`\${full}: found deprecated brand colour \${bad} — should be one of \${JSON.stringify(CANONICAL)}\`);
+                  ok = false;
+                }
+              }
+
+              for (let i = 0; i < BLOCKLIST.length; i++) {
+                if (BLOCKLIST_RGB_RE[i].test(text)) {
+                  console.error(\`\${full}: found deprecated brand colour \${BLOCKLIST[i]} in decimal rgb(a) form — should be one of \${JSON.stringify(CANONICAL)}\`);
                   ok = false;
                 }
               }
