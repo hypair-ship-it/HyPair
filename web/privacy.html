@@ -251,7 +251,7 @@
 
   <p><strong>Account data</strong> — when you register, we collect your email address and a password. Passwords are stored as a secure one-way hash (bcrypt) and are never stored or transmitted in plain text.</p>
 
-  <p><strong>Profile data</strong> — to help you find race partners, you provide: first name, profile photo, city/country, training pace (5K), personal best times, race formats you compete in, training frequency, and a short bio. All profile fields beyond name and email are optional.</p>
+  <p><strong>Profile data</strong> — to help you find race partners, you provide: first and last name, date of birth, gender, profile photo, city/country, training pace (5K), personal best times, race formats you compete in, training frequency, and a short bio. Date of birth is used for an age check and gender for HYROX/TRYKA competition category matching. All profile fields beyond name, email, date of birth, and gender are optional.</p>
 
   <p><strong>Event data</strong> — races you have registered for, your preferred format (doubles/mixed doubles), and your target wave time.</p>
 
@@ -328,6 +328,12 @@
       <td>Standard Contractual Clauses (SCCs)</td>
     </tr>
     <tr>
+      <td><strong>Sentry (Functional Software, Inc.)</strong></td>
+      <td>Crash and error reporting — tied to the screen/action where an error occurred, not directly to your name or email</td>
+      <td>US</td>
+      <td>Standard Contractual Clauses (SCCs)</td>
+    </tr>
+    <tr>
       <td><strong>Other app users</strong></td>
       <td>Your public profile (name, photo, bio, pace, race formats) is visible to other authenticated athletes browsing for partners. Your email address is never shared with other users.</td>
       <td>N/A</td>
@@ -345,15 +351,15 @@
 
   <h2>6. Your profile visibility</h2>
 
-  <p>Your profile is visible to other authenticated HyPair users when they search for partners at events you have registered for. Only signed-in users can view profiles — unauthenticated visitors cannot access any profile data.</p>
+  <p>Once your profile is approved, it's visible to any other authenticated HyPair user, not only people registered for the same event — event-based partner search is how most people will actually find you, but it isn't a hard access boundary. Only signed-in users can view profiles — unauthenticated visitors cannot access any profile data.</p>
 
-  <p>You control what appears on your profile by editing it in the app. Visibility is scoped to the events you register for — you won't appear in partner search for an event unless you've registered for it. If another user blocks you, your profile is hidden from them (and theirs from you) in both directions. Deleting your account removes your profile from partner search immediately.</p>
+  <p>You control what appears on your profile by editing it in the app. You won't appear in partner search for a specific event unless you've registered for it, but your profile itself isn't restricted to only those you share an event with. If another user blocks you, your profile is hidden from them (and theirs from you) in both directions. Deleting your account removes your profile from partner search immediately.</p>
 
   <h2>7. Data retention</h2>
 
   <ul>
     <li><strong>Active account data</strong> — kept for as long as your account is active</li>
-    <li><strong>Deleted account data</strong> — profile, events, messages and match history deleted within 30 days of account deletion</li>
+    <li><strong>Deleted account data</strong> — profile, events, messages and match history are deleted immediately when you delete your account in Settings</li>
     <li><strong>Waitlist data</strong> — email addresses kept until the app launches and the list is migrated, or until you unsubscribe</li>
     <li><strong>Payment records</strong> — retained for 7 years as required by Irish tax law</li>
     <li><strong>Anonymised analytics</strong> — aggregated, non-identifiable usage data may be retained indefinitely</li>
