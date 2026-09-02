@@ -55,6 +55,7 @@
   --gold:        #F2D079;
   --gold-dim:    rgba(242,208,121,0.12);
   --gold-border: rgba(242,208,121,0.35);
+  --gold-gradient-end: #d4a832;
   --overline:    #C8952A;
   --white-70:    rgba(255,255,255,0.70);
   --white-60:    rgba(255,255,255,0.60);
@@ -348,7 +349,7 @@ h1 .red { color: var(--red); }
 .compat-bar-lbl { font-size: 8px; color: var(--white-35); }
 .compat-bar-val { font-size: 8px; font-weight: 700; color: var(--gold); }
 .mini-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; margin-bottom: 5px; }
-.mini-bar-fill { height: 100%; border-radius: 2px; background-image: linear-gradient(90deg, var(--gold), #d4a832); }
+.mini-bar-fill { height: 100%; border-radius: 2px; background-image: linear-gradient(90deg, var(--gold), var(--gold-gradient-end)); }
 
 /* ── STATS BAR ── */
 .stats-bar {
@@ -1093,7 +1094,7 @@ footer a:hover { color: var(--gold); }
   </div>
   <div class="success-actions">
     <button class="share-btn" onclick="copyLink(this)">Copy link</button>
-    <button class="share-btn" onclick="shareNative(this)">Share with a training partner</button>
+    <button class="share-btn" onclick="shareNative(this)">Share with a race partner</button>
   </div>
 </div>
 

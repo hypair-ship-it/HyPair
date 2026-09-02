@@ -92,6 +92,8 @@ Inspired by the energy of alpine race environments. Slate base, red for urgency 
 | White 15% | `rgba(255,255,255,0.15)` | Borders, dividers |
 | Sun Valley dim | `rgba(242,208,121,0.12)` | Icon backgrounds, subtle highlights |
 | Sun Valley border | `rgba(242,208,121,0.35)` | Chip borders, card accents |
+| Overline / eyebrow accent | `#C8952A` | Eyebrow labels and small icon strokes on light backgrounds — Sun Valley itself is too pale for AA text contrast there |
+| Gold gradient end | `#d4a832` | Darker stop paired with Sun Valley in gold progress-bar gradients |
 
 **Swiss Alps Colour Rules**
 - Red is the action colour — all buttons, CTAs, and the headline accent word

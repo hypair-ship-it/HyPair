@@ -50,9 +50,22 @@ jobs:
             const CANONICAL = {
               gold: '#F2D079',   // Sun Valley — logo / brand accent
               red: '#E22424',    // Swiss Alps Red — CTAs
-              summit: '#2C3A47', // Summit Dark — nav/text
+              // Summit Dark on light backgrounds (BRAND.md §2 Logo Colours) —
+              // used for hardcoded SVG logo fills on the white nav. A DIFFERENT
+              // literal value from --summit below, which is Summit Dark as a
+              // nav/surface background colour (BRAND.md §3) — same brand name,
+              // two legitimately different hexes depending on role.
+              summit: '#2C3A47',
             };
             const CANONICAL_HEXES = new Set(Object.values(CANONICAL).map(h => h.toLowerCase()));
+
+            // CSS custom properties checked by exact value, independent of the
+            // fill-only CANONICAL set above — each fixed a real drift incident.
+            const CSS_VARS = {
+              summit: '#374D59',          // nav/surface Summit Dark (BRAND.md §3) — was found drifted to #1B2A3B on 4 legal pages, unguarded, 30 Aug 2026
+              overline: '#C8952A',        // Overline/eyebrow accent (BRAND.md §3 Functional table)
+              'gold-gradient-end': '#d4a832', // Gold gradient end (BRAND.md §3 Functional table)
+            };
 
             // Historical invented/off-spec values that have drifted in before.
             // Any occurrence of these anywhere means a page reverted or copied
@@ -103,6 +116,20 @@ jobs:
                   if (varName !== '--' + name) continue; // skip --gold-dim, --gold-border, etc.
                   if (m[1].toLowerCase() !== canonicalHex.toLowerCase()) {
                     console.error(\`\${full}: \${varName} is \${m[1]}, expected \${canonicalHex}\`);
+                    ok = false;
+                  }
+                }
+              }
+
+              // --summit / --overline / --gold-gradient-end CSS custom
+              // properties — each a real drift incident once unguarded
+              // (found live as #1B2A3B / undocumented / undocumented).
+              for (const [name, canonicalHex] of Object.entries(CSS_VARS)) {
+                const re = new RegExp('--' + name + ':\\\\s*(#[0-9A-Fa-f]{3,6})\\\\b', 'g');
+                let m;
+                while ((m = re.exec(text))) {
+                  if (m[1].toLowerCase() !== canonicalHex.toLowerCase()) {
+                    console.error(\`\${full}: --\${name} is \${m[1]}, expected \${canonicalHex}\`);
                     ok = false;
                   }
                 }

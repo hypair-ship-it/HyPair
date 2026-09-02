@@ -19,3 +19,6 @@ Thumbs.db
 legal/
 .vercel
 .env*
+
+# Supabase CLI local link cache
+supabase/.temp/
