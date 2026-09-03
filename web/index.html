@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="a0N0QHqhqHHp9kZ1i6BB7kj7HHuK9sHPWs3AKSWmuZc" />
 <title>HyPair — Meet your match</title>
-<meta name="description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. The fastest way to race with someone at your level.">
+<meta name="description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HyPair — Meet Your Match">
-<meta property="og:description" content="Find your HYROX doubles partner. Match by pace, goals, and availability.">
+<meta property="og:description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store.">
 <meta property="og:image" content="/og-image.jpg">
 <meta property="og:url" content="https://hypair.app">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="HyPair — Meet Your Match">
-<meta name="twitter:description" content="Find your HYROX doubles partner. Match by pace, goals, and availability.">
+<meta name="twitter:description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store.">
 <meta name="twitter:image" content="/og-image.jpg">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hypair.app/">
@@ -32,6 +32,7 @@
   "url": "https://hypair.app",
   "applicationCategory": "SportsApplication",
   "operatingSystem": "iOS, Android",
+  "downloadUrl": "https://apps.apple.com/app/hypair-race-partner-finder/id6797554752",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
   "publisher": { "@type": "Organization", "name": "HyPair", "url": "https://hypair.app" }
 }
@@ -157,6 +158,23 @@ h1 .red { color: var(--red); }
 .tagline {
   font-size: 17px; font-weight: 300; color: var(--white-60);
   line-height: 1.75; max-width: 460px; margin-bottom: 36px;
+}
+
+/* App Store badge */
+.appstore-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #000; border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 12px; padding: 10px 18px;
+  text-decoration: none; margin-bottom: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.appstore-badge:hover { box-shadow: 0 0 20px rgba(255,255,255,0.15); transform: translateY(-1px); }
+.appstore-badge-icon { width: 24px; height: 24px; color: var(--white); flex-shrink: 0; }
+.appstore-badge-text { display: flex; flex-direction: column; color: var(--white); line-height: 1.2; }
+.appstore-badge-text small { font-size: 11px; }
+.appstore-badge-text strong { font-size: 19px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
+.hero-cta-divider {
+  font-size: 12px; color: var(--white-35); margin-bottom: 14px;
 }
 
 /* Form */
@@ -751,7 +769,7 @@ footer a:hover { color: var(--gold); }
       <a href="#for-gyms">For gyms</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="#form-anchor" class="nav-cta">Join Waitlist</a>
+    <a href="https://apps.apple.com/app/hypair-race-partner-finder/id6797554752" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the App →</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -775,10 +793,19 @@ footer a:hover { color: var(--gold); }
     <div class="hero-text" style="animation: fadeup 0.6s ease both;">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Beta launching soon · Ireland
+        Live on the App Store · Ireland
       </div>
       <h1>Meet your<br><span class="red">match.</span></h1>
       <p class="tagline">You trained for months — don't leave your doubles partner to chance. HyPair pairs you for HYROX, Tryka and SIM events by pace, goal and the exact race you're entering.</p>
+
+      <a href="https://apps.apple.com/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
+        <svg class="appstore-badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.05 12.536c-.03-2.05 1.68-3.033 1.756-3.08-.955-1.396-2.44-1.588-2.965-1.61-1.35-.137-2.556.79-3.222.79-.667 0-1.69-.77-2.775-.75-1.423.022-2.746.83-3.474 2.107-1.484 2.573-.38 6.372 1.056 8.457.703 1.017 1.538 2.157 2.634 2.117 1.056-.04 1.454-.683 2.73-.683 1.274 0 1.634.683 2.75.662 1.135-.02 1.856-1.023 2.55-2.045.803-1.176 1.135-2.32 1.155-2.383-.026-.012-2.164-.833-2.195-3.582zM14.2 5.94c.61-.74.98-1.694.895-2.677-.87.033-1.902.573-2.532 1.302-.567.65-1.02 1.62-.89 2.577.94.073 1.925-.478 2.527-1.202z"/>
+        </svg>
+        <span class="appstore-badge-text"><small>Download on the</small><strong>App Store</strong></span>
+      </a>
+
+      <div class="hero-cta-divider">Racing Android? Get notified at launch</div>
 
       <div class="form-wrap" id="form-anchor">
         <div class="form-row" id="form-row">
@@ -789,7 +816,7 @@ footer a:hover { color: var(--gold); }
           </span>
           <input class="form-input" id="email" type="email" placeholder="you@email.com" autocomplete="email" aria-label="Email address">
           <input type="text" id="hp-field" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
-          <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Join Waitlist →</button>
+          <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Notify me →</button>
         </div>
         <div class="form-race" id="form-race">
           <button class="form-race-chip" onclick="selectFormRace(this,'HYROX')" type="button">HYROX</button>
@@ -810,7 +837,7 @@ footer a:hover { color: var(--gold); }
           <span class="av">A</span>
           <span class="av">N</span>
         </div>
-        <span class="hero-social-text">Be first when we launch. <strong>No spam, ever.</strong></span>
+        <span class="hero-social-text">Free to download. <strong>No spam, ever.</strong></span>
       </div>
     </div>
 
@@ -1041,7 +1068,7 @@ footer a:hover { color: var(--gold); }
           Which events does HyPair support?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>HyPair supports HYROX doubles, Tryka doubles, and gym-run SIM events. We're starting in Ireland and expanding from there — if your event or city isn't listed yet, join the waitlist and let us know.</p></div>
+        <div class="faq-a"><p>HyPair supports HYROX doubles, Tryka doubles, and gym-run SIM events. We're starting in Ireland and expanding from there — if your event or city isn't listed yet, <a href="mailto:hello@hypair.app">get in touch</a> and let us know.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
@@ -1055,14 +1082,14 @@ footer a:hover { color: var(--gold); }
           Is HyPair free to use?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>Yes — HyPair is free for athletes during beta. We'll be transparent if that changes. Gym owners will have a free tier to list events, with optional premium tools for managing larger events.</p></div>
+        <div class="faq-a"><p>Yes — HyPair is free for athletes. We'll be transparent if that changes. Gym owners will have a free tier to list events, with optional premium tools for managing larger events.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
-          When does HyPair launch?
+          Is HyPair available now?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>We're in beta now — join the waitlist to be among the first users. TRYKA Dublin at the RDS runs 3–5 July, and HYROX Dublin at the RDS runs 11–15 November 2026. We're building so you're paired before both.</p></div>
+        <div class="faq-a"><p>Yes — HyPair is live on the App Store now. Download it and start matching today. HYROX Dublin at the RDS runs 11–15 November 2026 — get paired before race day. Android is coming; join the waitlist above to be notified.</p></div>
       </div>
     </div>
   </div>
@@ -1071,19 +1098,18 @@ footer a:hover { color: var(--gold); }
 <!-- ── SECOND CTA ── -->
 <section class="dark-section second-cta">
   <p class="second-cta-headline">
-    <span>TRYKA Dublin · 3–5 July.</span><br>
-    HYROX Dublin · 11–15 November.<br>
-    Don't start either without a partner.
+    <span>HYROX Dublin · 11–15 November.</span><br>
+    Don't line up on race day without a partner.
   </p>
-  <p class="second-cta-sub">Both at the RDS. Join the waitlist and be paired before race day.</p>
-  <a href="#form-anchor" class="second-cta-btn">Get early access →</a>
+  <p class="second-cta-sub">At the RDS. Download HyPair and be paired before race day.</p>
+  <a href="https://apps.apple.com/app/hypair-race-partner-finder/id6797554752" class="second-cta-btn" target="_blank" rel="noopener noreferrer">Get the App →</a>
 </section>
 
 <!-- ── SUCCESS STATE ── -->
 <div class="success-wrap" id="success-section">
   <div class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
   <div class="success-title">You're on the list.</div>
-  <p class="success-body">We'll reach out the moment HyPair launches. Until then — keep training.</p>
+  <p class="success-body">We'll email you the moment HyPair lands on Android. Until then — <a href="https://apps.apple.com/app/hypair-race-partner-finder/id6797554752" target="_blank" rel="noopener noreferrer" style="color:inherit;">it's already live on iOS</a>.</p>
   <div class="race-select">
     <p class="race-select-label">Which race are you training for?</p>
     <div class="race-options">
@@ -1202,7 +1228,7 @@ footer a:hover { color: var(--gold); }
 
     } catch (err) {
       btn.disabled = false;
-      btn.textContent = 'Join Waitlist →';
+      btn.textContent = 'Notify me →';
       row.classList.add('shake');
       setTimeout(() => row.classList.remove('shake'), 800);
     }
