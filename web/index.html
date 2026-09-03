@@ -218,23 +218,6 @@ h1 .red { color: var(--red); }
 .form-race-chip:hover { border-color: var(--gold); color: var(--gold); }
 .form-race-chip.active { background: rgba(242,208,121,0.15); border-color: var(--gold); color: var(--gold); }
 
-/* Hero chips */
-.hero-training {
-  display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
-}
-.training-label { font-size: 13px; color: var(--white-35); }
-.race-chip {
-  border: 1px solid var(--white-35); border-radius: 100px; padding: 5px 14px;
-  font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700;
-  letter-spacing: 0.5px; color: var(--white-60);
-}
-.race-chip.gold { border-color: var(--gold-border); color: var(--gold); background: var(--gold-dim); }
-
-/* Hero social proof */
-.hero-social { display: flex; align-items: center; gap: 12px; }
-.hero-social-text { font-size: 13px; color: var(--white-35); }
-.hero-social-text strong { color: var(--white-60); font-weight: 600; }
-
 /* ── PHONE FRAME ── */
 .phone-wrap { position: relative; display: flex; justify-content: center; }
 .phone-frame {
@@ -817,15 +800,6 @@ footer a:hover { color: var(--gold); }
         </div>
       </div>
 
-      <div class="hero-training">
-        <span class="training-label">Training for</span>
-        <span class="race-chip gold">HYROX</span>
-        <span class="race-chip">TRYKA</span>
-        <span class="race-chip">SIM</span>
-      </div>
-      <div class="hero-social">
-        <span class="hero-social-text">Free to download. <strong>No spam, ever.</strong></span>
-      </div>
     </div>
 
     <!-- Phone column -->
@@ -1253,7 +1227,7 @@ footer a:hover { color: var(--gold); }
     if (navigator.share) {
       navigator.share({
         title: 'HyPair — Find your race partner',
-        text: 'Just signed up for HyPair — find your race partner for HYROX and Tryka. Join the waitlist:',
+        text: 'HyPair — find your race partner for HYROX and Tryka. Live now on the App Store:',
         url: window.location.href
       }).catch(() => {});
     } else {
