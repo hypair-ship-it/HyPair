@@ -7,30 +7,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://hypair.app/hyrox-doubles-partner</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hypair.app/hyrox-dublin</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hypair.app/tryka-dublin</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://hypair.app/events</loc>
-    <lastmod>2026-09-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://hypair.app/for-gyms</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
