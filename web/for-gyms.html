@@ -204,7 +204,7 @@ h1 {
 h1 .red { color: var(--red); }
 .tagline {
   font-size: 17px; font-weight: 300; color: var(--white-60);
-  line-height: 1.75; max-width: 520px; margin: 0 auto 36px;
+  line-height: 1.75; max-width: 520px; margin: 0 auto 36px; text-wrap: pretty;
 }
 
 /* Hero CTA (mailto, not form) */
@@ -218,7 +218,7 @@ h1 .red { color: var(--red); }
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .hero-cta-btn:hover { box-shadow: 0 0 24px rgba(226,36,36,0.5); transform: translateY(-2px); }
-.hero-cta-note { font-size: 13px; color: var(--white-35); }
+.hero-cta-note { font-size: 13px; color: var(--white-35); text-wrap: pretty; }
 
 /* ── SECTIONS ── */
 .overline {
@@ -232,14 +232,14 @@ h2 {
   font-weight: 900; letter-spacing: -0.5px; line-height: 1.0;
   color: var(--text-dark); margin-bottom: 16px;
 }
-.section-sub { font-size: 17px; color: var(--text-body); line-height: 1.75; max-width: 580px; margin: 0 auto 56px; }
+.section-sub { font-size: 17px; color: var(--text-body); line-height: 1.75; max-width: 580px; margin: 0 auto 56px; text-wrap: pretty; }
 
 /* ── GYM FEATURES (dark cards) ── */
 .dark-section { background: var(--dark-bg); color: var(--white); padding: 80px 24px; }
 .dark-section-inner { max-width: 1120px; margin: 0 auto; }
 .dark-section-head { text-align: center; margin-bottom: 56px; }
 .dark-section h2 { color: var(--white); }
-.dark-sub { font-size: 17px; color: var(--white-60); max-width: 580px; line-height: 1.75; margin: 0 auto 0; }
+.dark-sub { font-size: 17px; color: var(--white-60); max-width: 580px; line-height: 1.75; margin: 0 auto 0; text-wrap: pretty; }
 .gym-cards {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
 }
@@ -264,7 +264,7 @@ h2 {
   gap: 80px; align-items: center;
 }
 .feature-text h2 { text-align: left; color: var(--text-dark); }
-.feature-desc { font-size: 16px; color: var(--text-body); line-height: 1.8; margin-bottom: 28px; max-width: 440px; }
+.feature-desc { font-size: 16px; color: var(--text-body); line-height: 1.8; margin-bottom: 28px; max-width: 440px; text-wrap: pretty; }
 .check-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
 .check-list li {
   display: flex; align-items: center; gap: 12px;
@@ -301,7 +301,7 @@ h2 {
 .bottom-cta { background: var(--dark-bg); padding: 80px 24px; text-align: center; }
 .bottom-cta-inner { max-width: 640px; margin: 0 auto; }
 .bottom-cta h2 { color: var(--white); margin-bottom: 8px; }
-.bottom-cta-sub { font-size: 17px; color: var(--white-60); line-height: 1.65; margin-bottom: 40px; }
+.bottom-cta-sub { font-size: 17px; color: var(--white-60); line-height: 1.65; margin-bottom: 40px; text-wrap: pretty; }
 .cta-btn {
   display: inline-block; text-decoration: none;
   background: var(--red); color: var(--white);
