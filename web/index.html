@@ -157,7 +157,8 @@ h1 {
 h1 .red { color: var(--red); }
 .tagline {
   font-size: 17px; font-weight: 300; color: var(--white-60);
-  line-height: 1.75; max-width: 460px; margin-bottom: 36px;
+  line-height: 1.75; max-width: 480px; margin-bottom: 36px;
+  text-wrap: pretty;
 }
 
 /* App Store badge */
@@ -617,18 +618,6 @@ h2 {
   letter-spacing: 1px; color: var(--white); margin-bottom: 10px;
 }
 .success-body { font-size: 16px; color: var(--white-60); max-width: 300px; line-height: 1.65; margin-bottom: 32px; }
-.race-select { width: 100%; max-width: 360px; margin-bottom: 32px; }
-.race-select-label { font-size: 13px; color: var(--white-35); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
-.race-options { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.race-opt {
-  background: rgba(0,0,0,0.3); border: 0.5px solid var(--white-15);
-  border-radius: 20px; padding: 9px 20px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 16px; font-weight: 700; letter-spacing: 0.5px;
-  color: var(--white-60); cursor: pointer; transition: all 0.2s;
-}
-.race-opt:hover { border-color: var(--gold); color: var(--gold); }
-.race-opt.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
 .success-actions { display: flex; gap: 10px; }
 .share-btn {
   background: rgba(0,0,0,0.3); border: 0.5px solid var(--white-15);
@@ -768,7 +757,7 @@ footer a:hover { color: var(--gold); }
         Live on the App Store · Ireland & UK
       </div>
       <h1>Meet your<br><span class="red">match.</span></h1>
-      <p class="tagline">You trained for months — don't leave your doubles partner to chance. HyPair matches you with HYROX and Tryka athletes at your exact pace and goal.</p>
+      <p class="tagline">You trained for months — don't leave your doubles partner to&nbsp;chance. HyPair matches you with HYROX and Tryka athletes at your exact pace and goal.</p>
 
       <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
         <svg class="appstore-badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1069,17 +1058,8 @@ footer a:hover { color: var(--gold); }
   <div class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
   <div class="success-title">You're on the list.</div>
   <p class="success-body">We'll email you the moment HyPair lands on Android. Until then — <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" target="_blank" rel="noopener noreferrer" style="color:inherit;">it's already live on iOS</a>.</p>
-  <div class="race-select">
-    <p class="race-select-label">Which race are you training for?</p>
-    <div class="race-options">
-      <button class="race-opt" onclick="selectRace(this, 'HYROX')">HYROX</button>
-      <button class="race-opt" onclick="selectRace(this, 'Tryka')">Tryka</button>
-      <button class="race-opt" onclick="selectRace(this, 'SIM')">SIM events</button>
-    </div>
-  </div>
   <div class="success-actions">
-    <button class="share-btn" onclick="copyLink(this)">Copy link</button>
-    <button class="share-btn" onclick="shareNative(this)">Share with a race partner</button>
+    <button class="share-btn" onclick="shareLink(this)">Share with a race partner</button>
   </div>
 </div>
 
@@ -1119,8 +1099,6 @@ footer a:hover { color: var(--gold); }
   const SUPABASE_URL = 'https://llkdujodseyilzbkzdbf.supabase.co';
   const SUPABASE_PUBLIC_KEY = 'sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si';
 
-  let _joinedEmail = '';
-  let _joinedId = null;
   let _lastSubmitTime = 0;
   let _selectedCountry = null;
 
@@ -1159,12 +1137,6 @@ footer a:hover { color: var(--gold); }
     btn.disabled = true;
     btn.textContent = 'Joining...';
 
-    // Mint the row's id client-side so we can reference it later (e.g. the
-    // race-preference PATCH below) without needing a post-insert SELECT —
-    // anon has no SELECT policy on waitlist by design, so return=representation
-    // fails RLS even though the INSERT itself succeeds.
-    const newId = crypto.randomUUID();
-
     try {
       const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
         method: 'POST',
@@ -1174,12 +1146,10 @@ footer a:hover { color: var(--gold); }
           'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
           'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ id: newId, email, ...(_selectedCountry ? { country: _selectedCountry } : {}) })
+        body: JSON.stringify({ email, ...(_selectedCountry ? { country: _selectedCountry } : {}) })
       });
       if (!res.ok && res.status !== 409) throw new Error('Failed');
 
-      _joinedEmail = email;
-      _joinedId = res.ok ? newId : null; // 409 = already on waitlist under a different id we don't know
       document.getElementById('waitlist-section').style.display = 'none';
       document.querySelectorAll('.stats-bar, .light-section, .feature-section, .dark-section, .faq-section, .second-cta').forEach(el => el.style.display = 'none');
       document.getElementById('success-section').classList.add('active');
@@ -1197,39 +1167,18 @@ footer a:hover { color: var(--gold); }
     if (e.key === 'Enter') joinWaitlist();
   });
 
-  async function selectRace(btn, race) {
-    document.querySelectorAll('.race-opt').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    if (!_joinedId) return;
-    try {
-      await fetch(`${SUPABASE_URL}/rest/v1/waitlist?id=eq.${encodeURIComponent(_joinedId)}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': SUPABASE_PUBLIC_KEY,
-          'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({ race })
-      });
-    } catch(e) { /* silent */ }
-  }
-
-  function copyLink(btn) {
-    navigator.clipboard.writeText(window.location.href).catch(() => {});
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy link', 2500);
-  }
-
-  function shareNative(btn) {
+  function shareLink(btn) {
+    const url = window.location.href;
     if (navigator.share) {
       navigator.share({
         title: 'HyPair — Find your race partner',
         text: 'HyPair — find your race partner for HYROX and Tryka. Live now on the App Store:',
-        url: window.location.href
+        url
       }).catch(() => {});
     } else {
-      copyLink(btn);
+      navigator.clipboard.writeText(url).catch(() => {});
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Share with a race partner', 2500);
     }
   }
 
