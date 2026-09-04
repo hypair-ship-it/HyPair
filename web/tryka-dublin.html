@@ -419,7 +419,7 @@ footer a:hover { color: var(--gold); }
 <div class="urgency-banner">
   <div class="urgency-banner-inner">
     <span class="urgency-dot"></span>
-    Tryka Dublin · RDS Arena · 3–5 July 2026 · <span class="days-num">12</span> days away
+    Tryka Dublin · RDS Arena · 3–5 July 2026<span id="banner-countdown-clause"> · <span class="days-num">12</span> days away</span>
   </div>
 </div>
 
@@ -458,12 +458,12 @@ footer a:hover { color: var(--gold); }
   <div class="page-hero-inner">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      Tryka Dublin · 3–5 July 2026 · RDS Arena · <span class="days-num">12</span> days
+      Tryka Dublin · 3–5 July 2026 · RDS Arena<span id="badge-countdown-clause"> · <span class="days-num">12</span> days</span>
     </div>
     <h1>Tryka Dublin is<br><span class="red">3–5 July.</span></h1>
-    <p class="tagline">That's <span class="days-num">12</span> days. If you don't have a doubles partner locked in, HyPair matches you by 5K pace and finish goal — right now.</p>
+    <p class="tagline"><span id="tagline-countdown-clause">That's <span class="days-num">12</span> days. </span>If you don't have a doubles partner locked in, HyPair matches you by 5K pace and finish goal — right now.</p>
 
-    <div class="countdown-stat">
+    <div class="countdown-stat" id="countdown-stat-block">
       <span class="countdown-num days-num">12</span>
       <span class="countdown-lbl">days to race day</span>
     </div>
@@ -479,7 +479,7 @@ footer a:hover { color: var(--gold); }
         <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Join Waitlist →</button>
       </div>
     </div>
-    <p class="form-note">No spam. <span class="days-num">12</span> days is tight — we'll reach out immediately.</p>
+    <p class="form-note">No spam. We'll reach out immediately<span id="formnote-countdown-clause"> — <span class="days-num">12</span> days is tight</span>.</p>
   </div>
 </section>
 
@@ -487,8 +487,8 @@ footer a:hover { color: var(--gold); }
   <div class="feature-row">
     <div class="feature-text">
       <p class="overline">Tryka Dublin · RDS Arena</p>
-      <h2><span class="days-num">12</span> days. Don't leave it to chance.</h2>
-      <p class="feature-desc">Tryka Dublin is one of the first major Tryka events in Ireland. With <span class="days-num">12</span> days to go, the window to find and lock in a well-matched doubles partner is closing fast. HyPair gets you matched by pace and goal — not just whoever's available on the day.</p>
+      <h2><span id="feature-h2-clause"><span class="days-num">12</span> days. </span>Don't leave it to chance.</h2>
+      <p class="feature-desc">Tryka Dublin is one of the first major Tryka events in Ireland. The window to find and lock in a well-matched doubles partner is closing fast<span id="feature-desc-clause"> — just <span class="days-num">12</span> days out</span>. HyPair gets you matched by pace and goal — not just whoever's available on the day.</p>
       <ul class="check-list">
         <li>Matched for Tryka format and division</li>
         <li>Dublin athletes only</li>
@@ -496,7 +496,7 @@ footer a:hover { color: var(--gold); }
       </ul>
     </div>
     <div>
-      <div class="urgency-box">
+      <div class="urgency-box" id="urgency-box-block">
         <span class="urgency-box-num days-num">12</span>
         <div class="urgency-box-label">Days to Tryka Dublin</div>
         <div class="urgency-box-sub">3–5 July 2026 · RDS Arena, Dublin<br>Find your partner. Lock it in. Show up ready.</div>
@@ -510,7 +510,7 @@ footer a:hover { color: var(--gold); }
     <div class="steps-head">
       <p class="overline">Fast-track to your partner</p>
       <h2>Three steps. Before race day.</h2>
-      <p class="section-sub"><span class="days-num">12</span> days is tight but it's enough. Sign up, get matched, lock in.</p>
+      <p class="section-sub"><span id="steps-sub-clause"><span class="days-num">12</span> days is tight but it's enough. </span>Sign up, get matched, lock in.</p>
     </div>
     <div class="steps">
       <div class="step-card">
@@ -538,7 +538,7 @@ footer a:hover { color: var(--gold); }
 <section class="bottom-cta">
   <div class="bottom-cta-inner">
     <h2>Tryka Dublin · RDS · 3–5 July.</h2>
-    <p class="bottom-cta-sub"><span class="days-num">12</span> days. Don't start without a partner.</p>
+    <p class="bottom-cta-sub"><span id="bottomcta-clause"><span class="days-num">12</span> days. </span>Don't start without a partner.</p>
     <a href="/#form-anchor" class="cta-btn">Find My Partner →</a>
   </div>
 </section>
@@ -558,7 +558,7 @@ footer a:hover { color: var(--gold); }
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
   </div>
   <div class="success-title">You're on the list.</div>
-  <p class="success-body">We'll reach out right away. <span class="days-num">12</span> days — keep training.</p>
+  <p class="success-body">We'll reach out right away. Keep training<span id="success-clause"> — only <span class="days-num">12</span> days left</span>.</p>
 </div>
 
 </main>
@@ -618,6 +618,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const daysToTryka = Math.max(0, Math.ceil((new Date('2026-07-03') - new Date()) / 86400000));
 document.querySelectorAll('.days-num').forEach(el => el.textContent = daysToTryka);
+if (daysToTryka === 0) {
+  ['banner-countdown-clause','badge-countdown-clause','tagline-countdown-clause','countdown-stat-block','formnote-countdown-clause','feature-h2-clause','feature-desc-clause','urgency-box-block','steps-sub-clause','bottomcta-clause','success-clause'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+}
 
 function toggleMobileNav(btn) {
   const isOpen = btn.classList.toggle('open');
