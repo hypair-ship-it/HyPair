@@ -346,24 +346,6 @@ h1 .red { color: var(--red); }
 .mini-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; margin-bottom: 5px; }
 .mini-bar-fill { height: 100%; border-radius: 2px; background-image: linear-gradient(90deg, var(--gold), var(--gold-gradient-end)); }
 
-/* ── STATS BAR ── */
-.stats-bar {
-  background: #0C1016;
-  border-top: 0.5px solid rgba(255,255,255,0.06);
-  padding: 32px 24px;
-}
-.stats-inner {
-  max-width: 1120px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-}
-.stat { text-align: center; }
-.stat-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 44px; font-weight: 900; line-height: 1; color: var(--red);
-  display: block; margin-bottom: 6px;
-}
-.stat-label { font-size: 13px; color: var(--white-35); }
-
 /* ── SHARED SECTION STYLES ── */
 .light-section { background: var(--light-bg); padding: 88px 24px; }
 .section-inner { max-width: 1120px; margin: 0 auto; }
@@ -382,7 +364,7 @@ h2 {
 }
 .section-sub {
   font-size: 17px; color: var(--text-body); line-height: 1.75;
-  max-width: 580px; margin: 0 auto 56px;
+  max-width: 580px; margin: 0 auto 56px; text-wrap: pretty;
 }
 
 /* ── USE CASE CARDS ── */
@@ -450,7 +432,7 @@ h2 {
 .feature-text h2 { text-align: left; }
 .feature-desc {
   font-size: 16px; color: var(--text-body); line-height: 1.8;
-  margin-bottom: 28px; max-width: 440px;
+  margin-bottom: 28px; max-width: 440px; text-wrap: pretty;
 }
 .check-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
 .check-list li {
@@ -533,7 +515,7 @@ h2 {
 .dark-section h2 { color: var(--white); max-width: 760px; }
 .dark-section.centered h2 { margin: 0 auto 16px; }
 .dark-sub {
-  font-size: 17px; color: var(--white-60); max-width: 620px; line-height: 1.75; margin-bottom: 56px;
+  font-size: 17px; color: var(--white-60); max-width: 620px; line-height: 1.75; margin-bottom: 56px; text-wrap: pretty;
 }
 .dark-section.centered .dark-sub { margin: 0 auto 56px; }
 .gym-cards {
@@ -576,7 +558,7 @@ h2 {
 .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--red); color: #fff; }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
 .faq-item.open .faq-a { max-height: 300px; }
-.faq-a p { padding-bottom: 20px; font-size: 15px; color: var(--text-body); line-height: 1.8; }
+.faq-a p { padding-bottom: 20px; font-size: 15px; color: var(--text-body); line-height: 1.8; text-wrap: pretty; }
 
 /* ── SECOND CTA ── */
 .second-cta {
@@ -617,7 +599,7 @@ h2 {
   font-size: 40px; font-weight: 900; text-transform: uppercase;
   letter-spacing: 1px; color: var(--white); margin-bottom: 10px;
 }
-.success-body { font-size: 16px; color: var(--white-60); max-width: 300px; line-height: 1.65; margin-bottom: 32px; }
+.success-body { font-size: 16px; color: var(--white-60); max-width: 300px; line-height: 1.65; margin-bottom: 32px; text-wrap: pretty; }
 .success-actions { display: flex; gap: 10px; }
 .share-btn {
   background: rgba(0,0,0,0.3); border: 0.5px solid var(--white-15);
@@ -681,7 +663,6 @@ footer a:hover { color: var(--gold); }
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; gap: 56px; padding: 72px 0; }
   .hero-phone { order: -1; }
-  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .usecase-cards { grid-template-columns: 1fr; }
   .hiw-head { flex-direction: column; gap: 8px; }
   .hiw-head-right { text-align: left; max-width: 100%; }
@@ -700,8 +681,6 @@ footer a:hover { color: var(--gold); }
   .hero-phone { display: none; }
   h1 { font-size: 56px; }
   .tagline { font-size: 16px; }
-  .stats-inner { grid-template-columns: repeat(2, 1fr); }
-  .stat-num { font-size: 36px; }
   .light-section { padding: 64px 20px; }
   .dark-section { padding: 64px 20px; }
   .feature-row { padding: 64px 20px; }
@@ -793,7 +772,7 @@ footer a:hover { color: var(--gold); }
     <div class="hero-phone" style="animation: fadeup 0.6s 0.1s ease both;">
       <div class="phone-wrap">
         <div class="phone-frame">
-          <img src="/assets/screenshots/home.png" alt="HyPair home screen — your events, partner search status and activity feed">
+          <img src="/assets/screenshots/home.png?v=20260903" alt="HyPair home screen — your events, partner search status and activity feed">
         </div>
         <!-- Floating compat card -->
         <div class="compat-float">
@@ -822,28 +801,6 @@ footer a:hover { color: var(--gold); }
 
   </div>
 </section>
-
-<!-- ── STATS BAR ── -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat">
-      <span class="stat-num">Open</span>
-      <span class="stat-label">to every athlete, right now</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">2</span>
-      <span class="stat-label">formats — HYROX · Tryka</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">5 sec/km</span>
-      <span class="stat-label">pace-match precision</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">2-step</span>
-      <span class="stat-label">pair lock-in before race day</span>
-    </div>
-  </div>
-</div>
 
 <!-- ── FOR ATHLETES / USE CASES ── -->
 <section class="light-section" id="for-athletes">
@@ -922,7 +879,7 @@ footer a:hover { color: var(--gold); }
     </div>
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
-        <img src="/assets/screenshots/events.png" alt="HyPair events screen listing HYROX and Tryka races with filter tabs">
+        <img src="/assets/screenshots/events.png?v=20260903" alt="HyPair events screen listing HYROX and Tryka races with filter tabs">
       </div>
     </div>
   </div>
@@ -933,7 +890,7 @@ footer a:hover { color: var(--gold); }
   <div class="feature-row">
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
-        <img src="/assets/screenshots/event-detail.png" alt="HyPair event detail showing your entry, ticket status and active conversations">
+        <img src="/assets/screenshots/event-detail.png?v=20260903" alt="HyPair event detail showing your entry, ticket status and active conversations">
       </div>
     </div>
     <div class="feature-text">
@@ -964,7 +921,7 @@ footer a:hover { color: var(--gold); }
     </div>
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
-        <img src="/assets/screenshots/celebration.png" alt="HyPair celebration screen — RACE TOGETHER with pace comparison after both athletes confirm">
+        <img src="/assets/screenshots/celebration.png?v=20260903" alt="HyPair celebration screen — RACE TOGETHER with pace comparison after both athletes confirm">
       </div>
     </div>
   </div>
@@ -1151,7 +1108,7 @@ footer a:hover { color: var(--gold); }
       if (!res.ok && res.status !== 409) throw new Error('Failed');
 
       document.getElementById('waitlist-section').style.display = 'none';
-      document.querySelectorAll('.stats-bar, .light-section, .feature-section, .dark-section, .faq-section, .second-cta').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.light-section, .feature-section, .dark-section, .faq-section, .second-cta').forEach(el => el.style.display = 'none');
       document.getElementById('success-section').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
