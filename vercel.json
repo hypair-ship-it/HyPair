@@ -1,5 +1,10 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/tryka-dublin", "destination": "/", "permanent": true },
+    { "source": "/hyrox-dublin", "destination": "/", "permanent": true },
+    { "source": "/hyrox-doubles-partner", "destination": "/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
