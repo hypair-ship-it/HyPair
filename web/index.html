@@ -207,7 +207,8 @@ h1 .red { color: var(--red); }
 .form-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
 
 /* Race selector inside form */
-.form-race { display: flex; gap: 8px; margin-top: 10px; }
+.form-race { display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.form-race-label { font-size: 13px; color: var(--white-35); }
 .form-race-chip {
   flex: 1; padding: 9px 4px; border-radius: 8px; border: 1.5px solid rgba(255,255,255,0.18);
   background: transparent; color: rgba(255,255,255,0.55);
@@ -395,23 +396,19 @@ h2 {
   transition: transform 0.25s, box-shadow 0.25s;
 }
 .usecase-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-.usecase-card.featured {
-  background: #FDF5E4; border-color: rgba(200,149,42,0.25);
-}
 .usecase-icon {
   width: 44px; height: 44px; border-radius: 10px; background: #F5EDD8;
   display: flex; align-items: center; justify-content: center;
   font-size: 20px; margin-bottom: 20px;
 }
-.usecase-card.featured .usecase-icon { background: rgba(200,149,42,0.2); }
 .usecase-card h3 {
   font-family: 'Barlow', sans-serif;
   font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;
 }
 .usecase-card p { font-size: 14px; color: var(--text-body); line-height: 1.75; }
-.most-wanted {
+.coming-soon-tag {
   display: inline-block; margin-top: 16px;
-  background: var(--red); color: var(--white);
+  background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border);
   font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
   border-radius: 100px; padding: 4px 12px;
 }
@@ -768,10 +765,10 @@ footer a:hover { color: var(--gold); }
     <div class="hero-text" style="animation: fadeup 0.6s ease both;">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Live on the App Store · Ireland
+        Live on the App Store · Ireland & UK
       </div>
       <h1>Meet your<br><span class="red">match.</span></h1>
-      <p class="tagline">You trained for months — don't leave your doubles partner to chance. HyPair pairs you for HYROX, Tryka and SIM events by pace, goal and the exact race you're entering.</p>
+      <p class="tagline">You trained for months — don't leave your doubles partner to chance. HyPair matches you with HYROX and Tryka athletes at your exact pace and goal.</p>
 
       <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
         <svg class="appstore-badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -794,9 +791,10 @@ footer a:hover { color: var(--gold); }
           <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Notify me</button>
         </div>
         <div class="form-race" id="form-race">
-          <button class="form-race-chip" onclick="selectFormRace(this,'HYROX')" type="button">HYROX</button>
-          <button class="form-race-chip" onclick="selectFormRace(this,'TRYKA')" type="button">TRYKA</button>
-          <button class="form-race-chip" onclick="selectFormRace(this,'Both')" type="button">Both</button>
+          <span class="form-race-label">Which country?</span>
+          <button class="form-race-chip" onclick="selectFormCountry(this,'Ireland')" type="button">Ireland</button>
+          <button class="form-race-chip" onclick="selectFormCountry(this,'UK')" type="button">UK</button>
+          <button class="form-race-chip" onclick="selectFormCountry(this,'Other')" type="button">Other</button>
         </div>
       </div>
 
@@ -844,8 +842,8 @@ footer a:hover { color: var(--gold); }
       <span class="stat-label">to every athlete, right now</span>
     </div>
     <div class="stat">
-      <span class="stat-num">3</span>
-      <span class="stat-label">formats — HYROX · Tryka · SIM</span>
+      <span class="stat-num">2</span>
+      <span class="stat-label">formats — HYROX · Tryka</span>
     </div>
     <div class="stat">
       <span class="stat-num">5 sec/km</span>
@@ -864,7 +862,7 @@ footer a:hover { color: var(--gold); }
     <div class="usecase-head">
       <p class="overline">One app · Every doubles athlete</p>
       <h2>However you race, HyPair finds your pair.</h2>
-      <p class="section-sub">Official events, in-gym SIM days, or training at your local box — three ways to find a partner who's actually at your level.</p>
+      <p class="section-sub">Official HYROX and Tryka events today — gym SIM days coming soon. Find a partner who's actually at your level.</p>
     </div>
     <div class="usecase-cards">
       <div class="usecase-card">
@@ -872,16 +870,16 @@ footer a:hover { color: var(--gold); }
         <h3>Official events</h3>
         <p>Racing HYROX or Tryka at an official event? Find a partner matched to your exact race, format and finish goal.</p>
       </div>
-      <div class="usecase-card featured">
+      <div class="usecase-card">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h3>Gym SIM days</h3>
-        <p>Training at a gym running HYROX simulations? Get paired before the event starts — no scrambling on the day.</p>
-        <div class="most-wanted">Most wanted</div>
+        <p>Training at a gym running HYROX or Tryka simulations? We're building matching for SIM days next — download now to be ready when it lands.</p>
+        <div class="coming-soon-tag">Coming soon</div>
       </div>
       <div class="usecase-card">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h3>Gym owners</h3>
-        <p>Run SIM events? List them in seconds and let HyPair pair athletes automatically. Your doubles slots fill before anyone walks in.</p>
+        <p>Run SIM events? List them with us — we're building automatic pairing next, so your doubles slots fill before anyone walks in.</p>
       </div>
     </div>
   </div>
@@ -987,23 +985,23 @@ footer a:hover { color: var(--gold); }
 <section class="dark-section centered" id="for-gyms">
   <div class="section-inner centered">
     <div class="gym-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> For gym owners</div>
-    <h2>Run a SIM event? Fill your doubles slots automatically.</h2>
-    <p class="dark-sub">List your HYROX or Tryka simulation day in seconds. Athletes in your area see it immediately, register, and HyPair pairs them to each other — so your slots fill before anyone walks in.</p>
+    <h2>Run a SIM event? We'll help you fill your doubles slots.</h2>
+    <p class="dark-sub">Email us your HYROX or Tryka simulation day and we'll get it in front of athletes in your area. We're building automatic pairing next — so slots fill before anyone walks in.</p>
     <div class="gym-cards">
       <div class="gym-card">
         <div class="gym-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E22424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <h3>List your event in seconds</h3>
-        <p>Add your event — name, date, format and capacity. Athletes in your area see it immediately and start registering.</p>
+        <h3>Tell us about your event</h3>
+        <p>Email us your event — name, date, format and capacity. We'll get it set up and start putting it in front of athletes in your area.</p>
       </div>
       <div class="gym-card">
         <div class="gym-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E22424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Pairs fill automatically</h3>
-        <p>HyPair matches athletes to each other. You don't need to pair people manually on the day. Slots fill before anyone walks in.</p>
+        <h3>Automatic pairing — coming soon</h3>
+        <p>We're building pace-and-goal matching so athletes pair themselves before the event starts. Until then, we'll help you pair registrations by hand.</p>
       </div>
       <div class="gym-card">
         <div class="gym-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E22424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>See who's signed up</h3>
-        <p>Track registrations and confirmed pairs for each event — all from your gym owner dashboard.</p>
+        <p>We'll keep you posted on registrations and pairs for your event by email — a self-serve gym owner dashboard is on the way.</p>
       </div>
     </div>
   </div>
@@ -1022,14 +1020,14 @@ footer a:hover { color: var(--gold); }
           What is HyPair?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>HyPair is a partner-matching app for hybrid race athletes. It pairs you with a doubles partner for HYROX, Tryka and in-gym SIM events — matched by 5K pace, finish goal and the exact race you're entering.</p></div>
+        <div class="faq-a"><p>HyPair is a partner-matching app for hybrid race athletes. It pairs you with a doubles partner for HYROX and Tryka by 5K pace and finish goal. Matching for gym-run SIM events is coming soon.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
           Which events does HyPair support?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>HyPair supports HYROX doubles, Tryka doubles, and gym-run SIM events. We're starting in Ireland and expanding from there — if your event or city isn't listed yet, <a href="mailto:hello@hypair.app">get in touch</a> and let us know.</p></div>
+        <div class="faq-a"><p>HyPair supports HYROX doubles and Tryka doubles today, with gym-run SIM events coming soon. We're starting in Ireland and the UK and expanding from there — if your event or city isn't listed yet, <a href="mailto:hello@hypair.app">get in touch</a> and let us know.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
@@ -1124,12 +1122,12 @@ footer a:hover { color: var(--gold); }
   let _joinedEmail = '';
   let _joinedId = null;
   let _lastSubmitTime = 0;
-  let _selectedRace = null;
+  let _selectedCountry = null;
 
-  function selectFormRace(btn, race) {
+  function selectFormCountry(btn, country) {
     document.querySelectorAll('.form-race-chip').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    _selectedRace = race;
+    _selectedCountry = country;
   }
 
   async function joinWaitlist() {
@@ -1176,7 +1174,7 @@ footer a:hover { color: var(--gold); }
           'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
           'Prefer': 'return=minimal'
         },
-        body: JSON.stringify({ id: newId, email, ...(_selectedRace ? { race: _selectedRace } : {}) })
+        body: JSON.stringify({ id: newId, email, ...(_selectedCountry ? { country: _selectedCountry } : {}) })
       });
       if (!res.ok && res.status !== 409) throw new Error('Failed');
 
