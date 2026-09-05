@@ -20,7 +20,7 @@ HyPair/                              ← repo root (project container)
 ├── web/                             ← web root — everything Vercel serves
 │   ├── index.html                   Main landing page (hypair.app)
 │   ├── favicon.ico / favicon.svg    Site favicon
-│   ├── og-image.jpg / og-card.svg   Open Graph image
+│   ├── og-image.jpg                 Open Graph image (referenced in index.html)
 │   ├── robots.txt / sitemap.xml     SEO config
 │   ├── googleb13411129c6994e3.html  Google Search Console verification
 │   ├── for-gyms.html                → hypair.app/for-gyms
@@ -30,7 +30,8 @@ HyPair/                              ← repo root (project container)
 │   ├── support.html                 → hypair.app/support
 │   ├── vercel.json                  Vercel config — must live inside web/ (the Root Directory)
 │   └── assets/
-│       └── icons/                   PWA notification icons
+│       ├── fonts/                   Self-hosted Barlow/Barlow Condensed woff2 files
+│       └── screenshots/             App UI screenshots actually used on the site
 │
 ├── brand/                           ← all design assets (not served publicly)
 │   ├── swiss-alps/                  Dark theme
@@ -43,8 +44,6 @@ HyPair/                              ← repo root (project container)
 │   │   ├── posts/                   Published post images
 │   │   └── inspiration/             Reference / source images
 │   └── BRAND.md                     Design system reference (colours, fonts, tokens)
-│
-├── screenshots/                     App UI screenshots (used for marketing)
 │
 └── CLAUDE.md                        This file
 ```
