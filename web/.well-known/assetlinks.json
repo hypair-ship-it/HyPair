@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.hypair.mobile",
+      "sha256_cert_fingerprints": [
+        "B4:A1:FE:F6:27:12:CC:23:30:10:EE:35:BA:23:73:31:B0:E6:81:CD:1D:1B:C6:F1:55:17:04:C4:A3:00:ED:B1"
+      ]
+    }
+  }
+]
