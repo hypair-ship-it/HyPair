@@ -24,12 +24,11 @@ HyPair/                              ← repo root (project container)
 │   ├── robots.txt / sitemap.xml     SEO config
 │   ├── googleb13411129c6994e3.html  Google Search Console verification
 │   ├── for-gyms.html                → hypair.app/for-gyms
-│   ├── hyrox-dublin.html            → hypair.app/hyrox-dublin
-│   ├── tryka-dublin.html            → hypair.app/tryka-dublin
-│   ├── hyrox-doubles-partner.html   → hypair.app/hyrox-doubles-partner
 │   ├── terms.html                   → hypair.app/terms
 │   ├── privacy.html                 → hypair.app/privacy
 │   ├── cookies.html                 → hypair.app/cookies
+│   ├── support.html                 → hypair.app/support
+│   ├── vercel.json                  Vercel config — must live inside web/ (the Root Directory)
 │   └── assets/
 │       └── icons/                   PWA notification icons
 │
@@ -47,11 +46,17 @@ HyPair/                              ← repo root (project container)
 │
 ├── screenshots/                     App UI screenshots (used for marketing)
 │
-├── vercel.json                      Vercel config — must stay at repo root
 └── CLAUDE.md                        This file
 ```
 
-**`vercel.json` must stay at repo root** — Vercel reads it before applying `rootDirectory`.
+**`vercel.json` must live inside `web/`** (the project's Vercel "Root Directory" is set to `web` in
+the dashboard) — a copy at the git repo root is silently ignored: `redirects` and `headers` never
+applied, with no error or warning anywhere, while `cleanUrls`-style file serving kept working
+regardless (that part isn't sourced from the config file at all). Confirmed 4 Sep 2026 after
+`/hyrox-dublin` etc. redirects silently no-opped in production for a day. Diagnose this class of bug
+by comparing response headers on a real page vs `curl`-ing a definitely-nonexistent path — if the
+security headers defined in `vercel.json` are missing on *every* response, the file isn't being read
+at all, regardless of what its content says.
 
 ---
 
@@ -116,7 +121,7 @@ Google Fonts loaded in `<head>`:
 ## SEO landing pages
 
 Each page is self-contained HTML directly in `web/`, served at its clean URL by
-`cleanUrls: true` in `vercel.json` — no rewrite needed (the same mechanism that
+`cleanUrls: true` in `web/vercel.json` — no rewrite needed (the same mechanism that
 serves `web/index.html` at `/`). An earlier version of this repo nested these
 under `web/site/` with explicit `vercel.json` rewrites to the clean path; that
 combination of `rewrites` + `cleanUrls` proved unreliable in production (404s
@@ -126,11 +131,15 @@ that two separate fix attempts couldn't resolve), so the pages were moved to
 | File | URL | Target keyword |
 |---|---|---|
 | `for-gyms.html` | `/for-gyms` | gym owners, SIM events |
-| `hyrox-dublin.html` | `/hyrox-dublin` | HYROX Dublin partner |
-| `tryka-dublin.html` | `/tryka-dublin` | Tryka Dublin partner |
-| `hyrox-doubles-partner.html` | `/hyrox-doubles-partner` | HYROX doubles partner |
 
-When adding a new SEO page: add the file directly to `web/`, and add the URL to `web/sitemap.xml`. Do not use a `vercel.json` rewrite for this — see above.
+`hyrox-dublin.html`, `tryka-dublin.html` and `hyrox-doubles-partner.html` existed here at various
+points but were retired 4 Sep 2026 — a dedicated static page per event doesn't scale (a new one
+would be needed every time a race is announced), and none were linked from the homepage anyway.
+Their old URLs 301-redirect to `/` via `web/vercel.json`; do not recreate this pattern for a new
+event without discussing it first.
+
+When adding a new SEO page: add the file directly to `web/`, and add the URL to `web/sitemap.xml`.
+Do not use a `vercel.json` rewrite for this — see above.
 
 ---
 
