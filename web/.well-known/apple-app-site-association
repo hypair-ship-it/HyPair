@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "AN47YJC783.app.hypair.mobile",
+        "paths": ["/reset-password"]
+      },
+      {
+        "appID": "AN47YJC783.app.hypair.mobile.staging",
+        "paths": ["/reset-password"]
+      }
+    ]
+  }
+}
