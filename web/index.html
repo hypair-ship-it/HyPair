@@ -307,31 +307,11 @@ h1 .red { color: var(--red); }
 
 /* Floating compat card */
 .compat-float {
-  position: absolute; bottom: 100px; right: -32px; width: 158px;
-  background: var(--dark-bg); border-radius: 12px; padding: 11px;
+  position: absolute; bottom: 100px; right: -48px; width: 210px;
+  border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
   border: 0.5px solid rgba(255,255,255,0.08);
 }
-.compat-float-lbl { font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white-35); margin-bottom: 7px; }
-.compat-row { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; }
-.compat-av {
-  width: 26px; height: 26px; border-radius: 50%; background: var(--white-08);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 700; color: var(--gold); flex-shrink: 0;
-}
-.compat-name { font-size: 11px; font-weight: 700; color: #fff; }
-.compat-sub { font-size: 9px; color: var(--white-35); }
-.compat-match-badge {
-  background: var(--gold-dim); border: 0.5px solid var(--gold-border);
-  border-radius: 100px; padding: 3px 8px;
-  font-size: 9px; font-weight: 700; color: var(--gold); margin-bottom: 7px;
-  display: inline-block;
-}
-.compat-bar-row { display: flex; justify-content: space-between; margin-bottom: 2px; }
-.compat-bar-lbl { font-size: 8px; color: var(--white-35); }
-.compat-bar-val { font-size: 8px; font-weight: 700; color: var(--gold); }
-.mini-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; margin-bottom: 5px; }
-.mini-bar-fill { height: 100%; border-radius: 2px; background-image: linear-gradient(90deg, var(--gold), var(--gold-gradient-end)); }
 
 /* ── SHARED SECTION STYLES ── */
 .light-section { background: var(--light-bg); padding: 88px 24px; }
@@ -763,27 +743,7 @@ footer a:hover { color: var(--gold); }
           <img src="/assets/screenshots/home.png?v=20260903" alt="HyPair home screen — your events, partner search status and activity feed">
         </div>
         <!-- Floating compat card -->
-        <div class="compat-float">
-          <div class="compat-float-lbl">Compatibility</div>
-          <div class="compat-row">
-            <div class="compat-av">C</div>
-            <div>
-              <div class="compat-name">Ciaran B.</div>
-              <div class="compat-sub">Dublin · Tryka Mixed 800</div>
-            </div>
-          </div>
-          <div class="compat-match-badge">100 MATCH</div>
-          <div class="compat-bar-row">
-            <span class="compat-bar-lbl">Goal</span>
-            <span class="compat-bar-val">✓ Aligned</span>
-          </div>
-          <div class="mini-bar"><div class="mini-bar-fill" style="width:100%"></div></div>
-          <div class="compat-bar-row">
-            <span class="compat-bar-lbl">5K pace</span>
-            <span class="compat-bar-val">100%</span>
-          </div>
-          <div class="mini-bar"><div class="mini-bar-fill" style="width:100%"></div></div>
-        </div>
+        <img class="compat-float" src="/assets/screenshots/compat-card.png?v=20260905" alt="HyPair compatibility card — match score, goal, pace and age-group alignment for a potential partner">
       </div>
     </div>
 
