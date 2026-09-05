@@ -19,21 +19,27 @@ jobs:
           blacklist: googleb13411129c6994e3.html
           extra: --ignore-re "too few values for the property .linear-gradient."
 
-      - name: Check vercel.json rewrites point to real files
+      - name: Check vercel.json rewrites/redirects point to real files
         run: |
           node -e "
             const fs = require('fs');
             const cfg = JSON.parse(fs.readFileSync('web/vercel.json', 'utf8'));
             let ok = true;
-            for (const r of cfg.rewrites || []) {
-              const path = 'web' + r.destination;
+
+            const checkInternalTarget = (destination, label) => {
+              if (/^https?:\/\//.test(destination)) return; // external target, not ours to validate
+              const path = 'web' + (destination === '/' ? '/index.html' : destination);
               // cleanUrls: true resolves an extensionless destination to its
               // .html file automatically on Vercel, so check both forms.
               if (!fs.existsSync(path) && !fs.existsSync(path + '.html')) {
-                console.error('Missing rewrite target: ' + r.destination);
+                console.error('Missing ' + label + ' target: ' + destination);
                 ok = false;
               }
-            }
+            };
+
+            for (const r of cfg.rewrites || []) checkInternalTarget(r.destination, 'rewrite');
+            for (const r of cfg.redirects || []) checkInternalTarget(r.destination, 'redirect');
+
             process.exit(ok ? 0 : 1);
           "
 
