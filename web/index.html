@@ -184,9 +184,9 @@ h1 .red { color: var(--red); }
   display: flex; align-items: center; gap: 8px;
   background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
   border-radius: 12px; padding: 6px 6px 6px 16px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.form-row:focus-within { border-color: rgba(255,255,255,0.35); }
+.form-row:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim); }
 .form-row.shake { animation: shake 0.3s ease; border-color: #e05050; }
 .form-icon { color: var(--white-35); flex-shrink: 0; line-height: 1; }
 .form-icon svg { display: block; }
