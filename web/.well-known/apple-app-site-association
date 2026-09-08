@@ -4,11 +4,11 @@
     "details": [
       {
         "appID": "AN47YJC783.app.hypair.mobile",
-        "paths": ["/reset-password"]
+        "paths": ["/reset-password", "/event/*", "/athlete/*"]
       },
       {
         "appID": "AN47YJC783.app.hypair.mobile.staging",
-        "paths": ["/reset-password"]
+        "paths": ["/reset-password", "/event/*", "/athlete/*"]
       }
     ]
   }
