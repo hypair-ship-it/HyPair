@@ -8,5 +8,15 @@
         "8C:5A:10:64:1A:53:45:7E:DF:B9:F9:C5:25:F4:D3:1C:F6:46:EC:7C:DE:5B:FB:64:68:C2:F0:8C:0F:96:BC:4C"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.hypair.mobile.staging",
+      "sha256_cert_fingerprints": [
+        "A2:D3:5F:16:71:4A:03:8B:CE:85:0B:D5:5E:4B:22:27:F6:AC:BC:7D:17:E4:61:F2:85:09:41:B5:D5:A1:3A:3A"
+      ]
+    }
   }
 ]
