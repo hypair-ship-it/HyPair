@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="a0N0QHqhqHHp9kZ1i6BB7kj7HHuK9sHPWs3AKSWmuZc" />
 <title>HyPair — Meet your match</title>
-<meta name="description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store.">
+<meta name="description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store and Google Play.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HyPair — Meet Your Match">
-<meta property="og:description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store.">
+<meta property="og:description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store and Google Play.">
 <meta property="og:image" content="/og-image.jpg">
 <meta property="og:url" content="https://hypair.app">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="HyPair — Meet Your Match">
-<meta name="twitter:description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store.">
+<meta name="twitter:description" content="Find your HYROX doubles partner. Match by pace, goals, and availability. Live now on the App Store and Google Play.">
 <meta name="twitter:image" content="/og-image.jpg">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hypair.app/">
@@ -79,7 +79,6 @@ body {
 }
 
 @keyframes fadeup { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
-@keyframes shake  { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
 
 /* ── NAV ── */
 nav {
@@ -174,38 +173,8 @@ h1 .red { color: var(--red); }
 .appstore-badge-text { display: flex; flex-direction: column; color: var(--white); line-height: 1.2; }
 .appstore-badge-text small { font-size: 11px; }
 .appstore-badge-text strong { font-size: 19px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
-.hero-cta-divider {
-  font-size: 12px; color: var(--white-35); margin-bottom: 14px;
-}
-
-/* Form */
-.form-wrap { width: 100%; max-width: 480px; margin-bottom: 24px; }
-.form-row {
-  display: flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 12px; padding: 6px 6px 6px 16px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.form-row:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-dim); }
-.form-row.shake { animation: shake 0.3s ease; border-color: #e05050; }
-.form-icon { color: var(--white-35); flex-shrink: 0; line-height: 1; }
-.form-icon svg { display: block; }
-.form-input {
-  flex: 1; background: transparent; border: none;
-  padding: 8px 0; font-family: 'Barlow', sans-serif;
-  font-size: 15px; color: var(--white); outline: none;
-}
-.form-input::placeholder { color: var(--white-35); }
-.form-btn {
-  background: var(--red); color: var(--white); border: none; border-radius: 8px;
-  padding: 12px 20px; font-family: 'Barlow Condensed', sans-serif;
-  font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-  cursor: pointer; white-space: nowrap; flex-shrink: 0;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.form-btn:hover { box-shadow: 0 0 20px rgba(226,36,36,0.5); transform: translateY(-1px); }
-.form-btn:active { transform: scale(0.97); }
-.form-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+.store-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+.store-badges .appstore-badge { margin-bottom: 0; }
 
 /* ── PHONE FRAME ── */
 .phone-wrap { position: relative; display: flex; justify-content: center; }
@@ -555,34 +524,6 @@ h2 {
 }
 .second-cta-btn:hover { box-shadow: 0 0 24px rgba(226,36,36,0.5); transform: translateY(-2px); }
 
-/* ── SUCCESS STATE ── */
-.success-wrap {
-  display: none; flex-direction: column; align-items: center;
-  text-align: center; padding: 100px 24px 80px;
-  background: var(--hero-bg); color: var(--white);
-  min-height: 100vh; width: 100%;
-}
-.success-wrap.active { display: flex; animation: fadeup 0.5s ease both; }
-.success-icon {
-  width: 72px; height: 72px; border-radius: 50%;
-  background: var(--red); display: flex; align-items: center;
-  justify-content: center; font-size: 30px; color: var(--white); margin-bottom: 24px;
-}
-.success-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 40px; font-weight: 900; text-transform: uppercase;
-  letter-spacing: 1px; color: var(--white); margin-bottom: 10px;
-}
-.success-body { font-size: 16px; color: var(--white-60); max-width: 300px; line-height: 1.65; margin-bottom: 32px; text-wrap: pretty; }
-.success-actions { display: flex; gap: 10px; }
-.share-btn {
-  background: rgba(0,0,0,0.3); border: 0.5px solid var(--white-15);
-  border-radius: 10px; padding: 12px 20px;
-  font-size: 14px; color: var(--white-60); cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
-}
-.share-btn:hover { border-color: var(--gold); color: var(--gold); }
-
 /* ── FOOTER ── */
 footer {
   background: var(--dark-bg); border-top: 0.5px solid var(--white-15);
@@ -659,7 +600,6 @@ footer a:hover { color: var(--gold); }
   .dark-section { padding: 64px 20px; }
   .feature-row { padding: 64px 20px; }
   .faq-section { padding: 64px 20px; }
-  .success-actions { flex-direction: column; }
 }
 </style>
   <script>if(!localStorage.getItem('hypair_owner')){var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s);}</script>
@@ -683,7 +623,7 @@ footer a:hover { color: var(--gold); }
       <a href="#for-gyms">For gyms</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the App</a>
+    <a href="#get-app" class="nav-cta">Get the App</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -700,38 +640,34 @@ footer a:hover { color: var(--gold); }
 <main id="main-content">
 
 <!-- ── HERO ── -->
-<section class="hero" id="waitlist-section">
+<section class="hero" id="get-app">
   <div class="hero-inner">
 
     <!-- Text column -->
     <div class="hero-text" style="animation: fadeup 0.6s ease both;">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        Live on the App Store · Ireland & UK
+        Live on iOS &amp; Android · Ireland &amp; UK
       </div>
       <h1>Meet your<br><span class="red">match.</span></h1>
       <p class="tagline">You trained for months — don't leave your doubles partner to&nbsp;chance. HyPair matches you with HYROX and Tryka athletes at your exact pace and goal.</p>
 
-      <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
-        <svg class="appstore-badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.05 12.536c-.03-2.05 1.68-3.033 1.756-3.08-.955-1.396-2.44-1.588-2.965-1.61-1.35-.137-2.556.79-3.222.79-.667 0-1.69-.77-2.775-.75-1.423.022-2.746.83-3.474 2.107-1.484 2.573-.38 6.372 1.056 8.457.703 1.017 1.538 2.157 2.634 2.117 1.056-.04 1.454-.683 2.73-.683 1.274 0 1.634.683 2.75.662 1.135-.02 1.856-1.023 2.55-2.045.803-1.176 1.135-2.32 1.155-2.383-.026-.012-2.164-.833-2.195-3.582zM14.2 5.94c.61-.74.98-1.694.895-2.677-.87.033-1.902.573-2.532 1.302-.567.65-1.02 1.62-.89 2.577.94.073 1.925-.478 2.527-1.202z"/>
-        </svg>
-        <span class="appstore-badge-text"><small>Download on the</small><strong>App Store</strong></span>
-      </a>
-
-      <div class="hero-cta-divider">Racing Android? Get notified at launch</div>
-
-      <div class="form-wrap" id="form-anchor">
-        <div class="form-row" id="form-row">
-          <span class="form-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-            </svg>
-          </span>
-          <input class="form-input" id="email" type="email" placeholder="you@email.com" autocomplete="email" aria-label="Email address">
-          <input type="text" id="hp-field" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
-          <button class="form-btn" id="submit-btn" onclick="joinWaitlist()">Notify me</button>
-        </div>
+      <div class="store-badges">
+        <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
+          <svg class="appstore-badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.05 12.536c-.03-2.05 1.68-3.033 1.756-3.08-.955-1.396-2.44-1.588-2.965-1.61-1.35-.137-2.556.79-3.222.79-.667 0-1.69-.77-2.775-.75-1.423.022-2.746.83-3.474 2.107-1.484 2.573-.38 6.372 1.056 8.457.703 1.017 1.538 2.157 2.634 2.117 1.056-.04 1.454-.683 2.73-.683 1.274 0 1.634.683 2.75.662 1.135-.02 1.856-1.023 2.55-2.045.803-1.176 1.135-2.32 1.155-2.383-.026-.012-2.164-.833-2.195-3.582zM14.2 5.94c.61-.74.98-1.694.895-2.677-.87.033-1.902.573-2.532 1.302-.567.65-1.02 1.62-.89 2.577.94.073 1.925-.478 2.527-1.202z"/>
+          </svg>
+          <span class="appstore-badge-text"><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=app.hypair.mobile" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Get HyPair on Google Play">
+          <svg class="appstore-badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.6 2.4c-.4.4-.6.9-.6 1.5v16.2c0 .6.2 1.1.6 1.5l.1.1L13 12.3v-.2L3.7 2.3l-.1.1z"/>
+            <path d="M16.2 15.5 13 12.3v-.2l3.2-3.2 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.7 2.1z"/>
+            <path d="M16.2 8.5 13 11.7 3.7 2.4c.3-.2.7-.2 1.1 0l11.4 6.1z"/>
+            <path d="M16.2 15.5 4.8 21.6c-.4.2-.8.2-1.1 0l9.3-9.3 3.2 3.2z"/>
+          </svg>
+          <span class="appstore-badge-text"><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
       </div>
 
     </div>
@@ -946,7 +882,7 @@ footer a:hover { color: var(--gold); }
           Is HyPair available now?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>Yes — HyPair is live on the App Store now. Download it and start matching today, whichever HYROX or Tryka event you're entering. Android is coming; join the waitlist above to be notified.</p></div>
+        <div class="faq-a"><p>Yes — HyPair is live on the App Store and Google Play now. Download it and start matching today, whichever HYROX or Tryka event you're entering.</p></div>
       </div>
     </div>
   </div>
@@ -959,18 +895,8 @@ footer a:hover { color: var(--gold); }
     Don't line up on race day without a partner.
   </p>
   <p class="second-cta-sub">Download HyPair and be paired before race day.</p>
-  <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="second-cta-btn" target="_blank" rel="noopener noreferrer">Get the App</a>
+  <a href="#get-app" class="second-cta-btn">Get the App</a>
 </section>
-
-<!-- ── SUCCESS STATE ── -->
-<div class="success-wrap" id="success-section">
-  <div class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-  <div class="success-title">You're on the list.</div>
-  <p class="success-body">We'll email you the moment HyPair lands on Android. Until then — <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" target="_blank" rel="noopener noreferrer" style="color:inherit;">it's already live on iOS</a>.</p>
-  <div class="success-actions">
-    <button class="share-btn" onclick="shareLink(this)">Share with a race partner</button>
-  </div>
-</div>
 
 </main>
 
@@ -1005,85 +931,6 @@ footer a:hover { color: var(--gold); }
 </footer>
 
 <script>
-  const SUPABASE_URL = 'https://llkdujodseyilzbkzdbf.supabase.co';
-  const SUPABASE_PUBLIC_KEY = 'sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si';
-
-  let _lastSubmitTime = 0;
-
-  async function joinWaitlist() {
-    // Honeypot — real users never see or fill this field; bots that
-    // auto-fill every input do. Silently pretend it worked.
-    const hp = document.getElementById('hp-field');
-    if (hp && hp.value) {
-      document.getElementById('waitlist-section').style.display = 'none';
-      document.getElementById('success-section').classList.add('active');
-      return;
-    }
-
-    const now = Date.now();
-    if (now - _lastSubmitTime < 5000) return;
-    _lastSubmitTime = now;
-
-    const input = document.getElementById('email');
-    const btn   = document.getElementById('submit-btn');
-    const row   = document.getElementById('form-row');
-    const email = input.value.trim();
-
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      row.classList.add('shake');
-      input.focus();
-      setTimeout(() => row.classList.remove('shake'), 800);
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = 'Joining...';
-
-    try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': SUPABASE_PUBLIC_KEY,
-          'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({ email })
-      });
-      if (!res.ok && res.status !== 409) throw new Error('Failed');
-
-      document.getElementById('waitlist-section').style.display = 'none';
-      document.querySelectorAll('.light-section, .feature-section, .dark-section, .faq-section, .second-cta').forEach(el => el.style.display = 'none');
-      document.getElementById('success-section').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'Notify me';
-      row.classList.add('shake');
-      setTimeout(() => row.classList.remove('shake'), 800);
-    }
-  }
-
-  document.getElementById('email').addEventListener('keydown', e => {
-    if (e.key === 'Enter') joinWaitlist();
-  });
-
-  function shareLink(btn) {
-    const url = window.location.href;
-    if (navigator.share) {
-      navigator.share({
-        title: 'HyPair — Find your race partner',
-        text: 'HyPair — find your race partner for HYROX and Tryka. Live now on the App Store:',
-        url
-      }).catch(() => {});
-    } else {
-      navigator.clipboard.writeText(url).catch(() => {});
-      btn.textContent = 'Copied!';
-      setTimeout(() => btn.textContent = 'Share with a race partner', 2500);
-    }
-  }
-
   function toggleMobileNav(btn) {
     const isOpen = btn.classList.toggle('open');
     btn.setAttribute('aria-expanded', isOpen);
