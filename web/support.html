@@ -122,7 +122,33 @@
   }
   .contact-card p { margin-bottom: 8px; color: #333; }
   .contact-card a { font-weight: 600; }
-  .contact-card .response-time { font-size: 14px; color: var(--muted); margin-top: 12px; margin-bottom: 0; }
+  .contact-card .response-time { font-size: 14px; color: var(--muted); margin-top: 16px; margin-bottom: 0; }
+  .form-field { margin-bottom: 16px; }
+  .form-field label {
+    display: block; font-size: 13px; font-weight: 600; color: var(--summit);
+    margin-bottom: 6px;
+  }
+  .form-field input, .form-field textarea, .form-field select {
+    width: 100%; font-family: 'Barlow', sans-serif; font-size: 15px;
+    padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); background: var(--white);
+    transition: border-color 0.15s;
+  }
+  .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+    outline: none; border-color: var(--gold);
+  }
+  .form-field textarea { resize: vertical; }
+  #contact-form.shake { animation: shake 0.3s ease; }
+  @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+  #contact-submit {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px;
+    letter-spacing: 1px; text-transform: uppercase;
+    background: var(--red); color: var(--white); border: none;
+    border-radius: 6px; padding: 12px 24px; cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  #contact-submit:hover { box-shadow: 0 0 20px rgba(226,36,36,0.35); transform: translateY(-1px); }
+  #contact-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
 
   h2 {
     font-family: 'Barlow Condensed', sans-serif;
@@ -187,11 +213,46 @@
 
   <p class="eyebrow">Support</p>
   <h1>We're Here to Help</h1>
-  <p class="intro">Questions about your account, a match, or something not working right? Reach out and we'll get back to you.</p>
+  <p class="intro">Bug reports and feature requests go through the app — use the "Report a bug" option in Settings. This form is for everything else: gym partnerships, asking about a country we're not in yet, or a general question.</p>
 
-  <div class="contact-card">
-    <p><strong>Email:</strong> <a href="mailto:hello@hypair.app">hello@hypair.app</a></p>
-    <p class="response-time">We aim to respond within 48 hours.</p>
+  <div class="contact-card" id="contact">
+    <form id="contact-form">
+      <div class="form-field">
+        <label for="contact-category">What's this about? *</label>
+        <select id="contact-category" required>
+          <option value="" disabled selected>Choose one</option>
+          <option value="gym">Gym partnership</option>
+          <option value="region">App not available in my region</option>
+          <option value="general">General question</option>
+        </select>
+      </div>
+      <div class="form-field" id="field-gym-name" hidden>
+        <label for="contact-gym-name">Gym name</label>
+        <input id="contact-gym-name" type="text">
+      </div>
+      <div class="form-field" id="field-country" hidden>
+        <label for="contact-country">Which country are you in?</label>
+        <input id="contact-country" type="text">
+      </div>
+      <div class="form-field">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" type="text" autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label for="contact-email">Email *</label>
+        <input id="contact-email" type="email" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="contact-message">Message *</label>
+        <textarea id="contact-message" rows="5" required></textarea>
+      </div>
+      <input type="text" id="contact-hp" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+      <button type="submit" id="contact-submit">Send message</button>
+    </form>
+    <div id="contact-success" style="display:none;">
+      <p style="margin-bottom:0;"><strong>Thanks — your message is in.</strong> We aim to respond within 48 hours.</p>
+    </div>
+    <p class="response-time">Or email us directly at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
   </div>
 
   <h2>Common Questions</h2>
@@ -223,5 +284,88 @@
 </footer>
 
   <script>if(!localStorage.getItem('hypair_owner')){var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s);}</script>
+  <script>
+    const SUPABASE_URL = 'https://lsxprzoxoarfakhxhoab.supabase.co';
+    const SUPABASE_PUBLIC_KEY = 'sb_publishable_9U61L_y4qyiXga9-VK0rFw_oaDrGmIT';
+    let _lastContactSubmit = 0;
+
+    const categorySelect = document.getElementById('contact-category');
+    const fieldGymName = document.getElementById('field-gym-name');
+    const fieldCountry = document.getElementById('field-country');
+
+    function updateConditionalFields() {
+      fieldGymName.hidden = categorySelect.value !== 'gym';
+      fieldCountry.hidden = categorySelect.value !== 'region';
+    }
+    categorySelect.addEventListener('change', updateConditionalFields);
+
+    // Pre-select category from ?category=gym|region|general, e.g. links from
+    // the gym section or FAQ on the homepage.
+    const preselect = new URLSearchParams(location.search).get('category');
+    if (preselect && ['gym', 'region', 'general'].includes(preselect)) {
+      categorySelect.value = preselect;
+      updateConditionalFields();
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const now = Date.now();
+      if (now - _lastContactSubmit < 5000) return;
+
+      const form = e.target;
+      const hp = document.getElementById('contact-hp');
+      if (hp && hp.value) { showContactSuccess(); return; }
+
+      const category = categorySelect.value;
+      const name     = document.getElementById('contact-name').value.trim();
+      const email    = document.getElementById('contact-email').value.trim();
+      const message  = document.getElementById('contact-message').value.trim();
+      const gymName  = document.getElementById('contact-gym-name').value.trim();
+      const country  = document.getElementById('contact-country').value.trim();
+
+      if (!category || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || !message) {
+        form.classList.add('shake');
+        setTimeout(() => form.classList.remove('shake'), 800);
+        return;
+      }
+
+      _lastContactSubmit = now;
+      const btn = document.getElementById('contact-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_PUBLIC_KEY,
+            'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            type: category,
+            name: name || null,
+            email,
+            message,
+            gym_name: category === 'gym' ? (gymName || null) : null,
+            country: category === 'region' ? (country || null) : null
+          })
+        });
+        if (!res.ok) throw new Error('Failed');
+        showContactSuccess();
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+        form.classList.add('shake');
+        setTimeout(() => form.classList.remove('shake'), 800);
+      }
+    });
+
+    function showContactSuccess() {
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('contact-success').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
