@@ -50,34 +50,78 @@
   }
 
   nav {
-    background: var(--summit);
-    padding: 0 32px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    height: 68px;
   }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
+  .nav-inner {
+    max-width: 1120px; margin: 0 auto;
+    height: 100%; display: flex; align-items: center; gap: 8px;
   }
-  .nav-logo svg { height: 28px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; margin-right: 16px; }
+  .nav-logo svg { height: 30px; width: auto; }
   .nav-logo-text {
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    color: var(--gold);
-    letter-spacing: 0.5px;
+    font-size: 22px; font-weight: 700; letter-spacing: 0.5px; color: #0F1117;
   }
-  .nav-tag {
-    font-family: 'Barlow', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+  .nav-links { display: flex; gap: 2px; flex: 1; }
+  .nav-links a {
+    font-size: 15px; color: #4A5568; text-decoration: none;
+    padding: 8px 14px; border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-links a:hover { color: #0F1117; background: #F2F2EF; }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    background: var(--red); color: var(--white);
+    border-radius: 10px; padding: 10px 22px;
+    text-decoration: none; white-space: nowrap; flex-shrink: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-cta:hover { box-shadow: 0 0 20px rgba(226,36,36,0.45); transform: translateY(-1px); }
+  .hamburger-btn {
+    display: none;
+    width: 38px; height: 38px;
+    background: transparent; border: none; cursor: pointer;
+    flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    border-radius: 8px; padding: 8px; flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .hamburger-btn:hover { background: #F2F2EF; }
+  .hamburger-btn span {
+    display: block; width: 18px; height: 2px;
+    background: #0F1117; border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+  }
+  .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 60px; left: 0; right: 0;
+    background: var(--white); border-bottom: 1px solid var(--border);
+    padding: 8px 16px 20px; z-index: 99;
+    flex-direction: column; gap: 2px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 16px; font-weight: 500; color: #4A5568;
+    text-decoration: none; padding: 13px 8px; border-radius: 8px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s, color 0.2s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { background: #F2F2EF; color: #0F1117; }
+  @media (max-width: 640px) {
+    nav { height: 60px; }
+    .nav-links { display: none; }
+    .nav-cta { font-size: 13px; padding: 9px 16px; }
+    .hamburger-btn { display: flex; }
   }
 
   .page-wrap {
@@ -198,20 +242,37 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="https://hypair.app/">
-    <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg">
-      <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079"/>
-      <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079"/>
-      <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079"/>
-    </svg>
-    <span class="nav-logo-text">HyPair</span>
-  </a>
-  <span class="nav-tag">Support</span>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="30" aria-hidden="true">
+        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#2C3A47"/>
+        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#2C3A47"/>
+        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#2C3A47"/>
+      </svg>
+      <span class="nav-logo-text">HyPair</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#for-athletes">For athletes</a>
+      <a href="/#for-gyms">For gyms</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <a href="/#get-app" class="nav-cta">Get the App</a>
+    <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="/#how-it-works">How it works</a>
+  <a href="/#for-athletes">For athletes</a>
+  <a href="/#for-gyms">For gyms</a>
+  <a href="/#faq">FAQ</a>
+</div>
 
 <div class="page-wrap">
 
-  <p class="eyebrow">Support</p>
+  <p class="eyebrow">Get in touch</p>
   <h1>We're Here to Help</h1>
   <p class="intro">Bug reports and feature requests go through the app — use the "Report a bug" option in Settings. This form is for everything else: gym partnerships, asking about a country we're not in yet, or a general question.</p>
 
@@ -366,6 +427,24 @@
       document.getElementById('contact-form').style.display = 'none';
       document.getElementById('contact-success').style.display = 'block';
     }
+
+    function toggleMobileNav(btn) {
+      const isOpen = btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+      btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('open', isOpen);
+      menu.setAttribute('aria-hidden', !isOpen);
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        const btn = document.querySelector('.hamburger-btn');
+        if (!btn) return;
+        btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Open menu');
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.remove('open'); menu.setAttribute('aria-hidden', 'true');
+      });
+    });
   </script>
 </body>
 </html>
