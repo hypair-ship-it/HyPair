@@ -70,21 +70,19 @@ python3 -m http.server 3456 --directory web
 
 Or use the `.claude/launch.json` config which is already set up.
 
-### Page states
+### Waitlist retired (5 Sep 2026)
 
-Two states toggled by JavaScript:
-- **Waitlist state** (`#waitlist-section`): hero with email capture form
-- **Success state** (`#success-section`): shown after form submission
-
-### Supabase integration (active)
-
-Waitlist emails are written to the `waitlist` table in Supabase project
-`llkdujodseyilzbkzdbf`. Constants at the top of the `<script>` block:
-- `SUPABASE_URL`
-- `SUPABASE_ANON_KEY`
-
-A welcome email edge function (`send-welcome-email`) fires on INSERT via a
-Supabase webhook.
+`index.html` had a waitlist state/success state toggled by JS, backed by Supabase
+(email capture form writing to the `waitlist` table, `SUPABASE_URL`/`SUPABASE_ANON_KEY`
+constants, a `send-welcome-email` edge function on INSERT). Both iOS and Android are now
+live, so the site was rewritten to App Store/Google Play download CTAs — the waitlist
+form, JS, and Supabase constants were removed from `index.html` entirely. The `waitlist`
+table and its RLS policies still exist in the Supabase project but nothing on the live
+site writes to them anymore. `privacy.html` was updated to match on 14 Sep 2026, including
+a legacy-data disclosure for the historical rows still sitting in the `waitlist` table —
+don't reintroduce waitlist language there without also reviving an actual collection
+mechanism, and don't drop the legacy-data disclosure until those historical rows are
+actually deleted from Supabase.
 
 ### Design tokens
 
@@ -109,7 +107,7 @@ Google Fonts loaded in `<head>`:
 | Service | Detail |
 |---|---|
 | Hosting | Vercel — auto-deploys from `main` branch |
-| Database | Supabase `llkdujodseyilzbkzdbf` — `waitlist` table |
+| Database | Supabase `llkdujodseyilzbkzdbf` — `waitlist` table (legacy, retired 5 Sep 2026 — no longer written to, see below) |
 | Email | Resend (smtp.resend.com:465) from `hello@hypair.app` |
 | DNS | Porkbun — DKIM, SPF, MX, DMARC all live |
 | Analytics | Vercel Analytics (snippet in every HTML page) |
