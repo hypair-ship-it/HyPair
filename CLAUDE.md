@@ -109,10 +109,10 @@ closed) and the form/JS/`SUPABASE_URL`/`SUPABASE_ANON_KEY` constants were remove
 `index.html` entirely. If you see a reference to `#waitlist-section` or a waitlist Supabase
 write anywhere, it's stale; the site only links out to the real App Store/Play listings now.
 The `waitlist` table and its RLS policies still exist in the Supabase project
-(`llkdujodseyilzbkzdbf`) but nothing on the live site writes to them anymore —
-`privacy.html` carries a legacy-data disclosure for those historical rows (added 14 Sep
-2026); don't drop that disclosure until the rows are actually deleted from Supabase, and
-don't reintroduce waitlist language without also reviving a real collection mechanism.
+(`llkdujodseyilzbkzdbf`) but nothing on the live site writes to them anymore. The 9
+historical rows were deleted on 14 Sep 2026 (table is now empty); `privacy.html`'s
+legacy-data disclosure was updated to past tense to match. Don't reintroduce waitlist
+language without also reviving a real collection mechanism.
 
 Nav: How it works · For athletes · For gyms · FAQ · **Contact** (→ `/support#contact-athletes`)
 · Get the App. The "Contact" link exists so an individual athlete has a path to the contact
