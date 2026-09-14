@@ -104,9 +104,15 @@ Or use the `.claude/launch.json` config which is already set up.
 
 Hero leads with App Store/Google Play badges (white background, so they stand out against the
 dark hero — they used to be black, which blended in). There is **no waitlist form** on this
-site — the waitlist was retired 14 Sep 2026 (9 signups, emailed and closed). If you see a
-reference to `#waitlist-section` or a waitlist Supabase write anywhere, it's stale; the site
-only links out to the real App Store/Play listings now.
+site — the waitlist was retired 5 Sep 2026 (both iOS and Android live, 9 signups emailed and
+closed) and the form/JS/`SUPABASE_URL`/`SUPABASE_ANON_KEY` constants were removed from
+`index.html` entirely. If you see a reference to `#waitlist-section` or a waitlist Supabase
+write anywhere, it's stale; the site only links out to the real App Store/Play listings now.
+The `waitlist` table and its RLS policies still exist in the Supabase project
+(`llkdujodseyilzbkzdbf`) but nothing on the live site writes to them anymore —
+`privacy.html` carries a legacy-data disclosure for those historical rows (added 14 Sep
+2026); don't drop that disclosure until the rows are actually deleted from Supabase, and
+don't reintroduce waitlist language without also reviving a real collection mechanism.
 
 Nav: How it works · For athletes · For gyms · FAQ · **Contact** (→ `/support#contact-athletes`)
 · Get the App. The "Contact" link exists so an individual athlete has a path to the contact
@@ -128,7 +134,9 @@ scroll past a full athlete form with no cue that a gym form existed below it).
   gym section CTA, FAQ links) uses this scheme — if you add a new link into support.html, match
   it, not the old flat `?category=gym#contact` scheme (retired 14 Sep 2026).
 - Both forms POST directly to `${SUPABASE_URL}/rest/v1/contact_messages` with the public
-  anon key — see Supabase section below for the schema.
+  anon key — see Supabase section below for the schema. This is a *different* Supabase
+  project (`lsxprzoxoarfakhxhoab`, production) from the retired waitlist's
+  (`llkdujodseyilzbkzdbf`) — don't conflate the two.
 
 ### Design tokens
 
@@ -185,8 +193,9 @@ assuming it's platform-side.
 | Service | Detail |
 |---|---|
 | Hosting | Vercel — auto-deploys from `main` branch |
-| Database | Supabase `lsxprzoxoarfakhxhoab` (production) — `contact_messages` table |
-| Email | Resend, via the `notify-contact-message` Edge Function, from `hello@hypair.app` |
+| Database | Supabase `lsxprzoxoarfakhxhoab` (production) — `contact_messages` table (active) |
+| Database (legacy) | Supabase `llkdujodseyilzbkzdbf` — `waitlist` table, retired 5 Sep 2026, no longer written to |
+| Email | Resend (smtp.resend.com:465) from `hello@hypair.app`, sent via the `notify-contact-message` Edge Function |
 | DNS | Porkbun — DKIM, SPF, MX, DMARC all live |
 | Analytics | Vercel Analytics (snippet in every HTML page) |
 | Search | Google Search Console verified |
