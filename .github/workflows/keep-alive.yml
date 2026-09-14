@@ -12,6 +12,5 @@ jobs:
     steps:
       - name: Ping Supabase to prevent free-tier auto-pause
         run: |
-          curl -sf "https://llkdujodseyilzbkzdbf.supabase.co/rest/v1/waitlist?select=id&limit=1" \
-            -H "apikey: sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si" \
-            -H "Authorization: Bearer sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si"
+          curl -sf "https://llkdujodseyilzbkzdbf.supabase.co/auth/v1/health" \
+            -H "apikey: sb_publishable_JB5lxGDinFj-p83mKesPmw_TOqyN9Si"
