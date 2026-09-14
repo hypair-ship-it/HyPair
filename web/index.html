@@ -313,6 +313,9 @@ h2 {
   display: flex; align-items: center; justify-content: center;
   font-size: 20px; margin-bottom: 20px;
 }
+.usecase-card.fun { border-color: rgba(226,36,36,0.12); background: linear-gradient(180deg, rgba(226,36,36,0.04), var(--white) 60%); }
+.usecase-card.fun .usecase-icon { background: rgba(226,36,36,0.12); }
+.usecase-card.fun .usecase-icon svg { stroke: var(--red); }
 .usecase-card h3 {
   font-family: 'Barlow', sans-serif;
   font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;
@@ -709,7 +712,7 @@ footer a:hover { color: var(--gold); }
         <h3>Actually at your level</h3>
         <p>Done pairing up with whoever asked first? At your gym sim, it can feel awkward asking someone — you don't know if they have a partner, you don't want to hold anyone back. HyPair matches by pace, finish goal and format — so you race with someone who's actually the right fit.</p>
       </div>
-      <div class="usecase-card">
+      <div class="usecase-card fun">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <h3>Want to meet people through sport</h3>
         <p>Not everyone is chasing a PB. Some athletes enter HYROX or Tryka because they want to compete, have fun, and meet new people along the way. HyPair shows you who's out there — filter by event, location and goal, and find someone who's racing for the same reasons you are.</p>
@@ -773,24 +776,14 @@ footer a:hover { color: var(--gold); }
   </div>
 </section>
 
-<!-- ── EVENT DETAIL / REGISTER ── -->
+<!-- ── CELEBRATION / IT'S A MATCH ── -->
 <section class="feature-section" style="background: var(--light-bg);">
   <div class="feature-row">
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
-        <img src="/assets/screenshots/event-detail.png?v=20260905" alt="HyPair event detail showing your entry, ticket status and active conversations">
+        <img src="/assets/screenshots/celebration.png?v=20260903" alt="HyPair celebration screen — RACE TOGETHER with pace comparison after both athletes confirm">
       </div>
     </div>
-    <div class="feature-text">
-      <p class="overline">Register · Track your entry</p>
-      <h2>All your events, entries and active partner conversations in one place.</h2>
-    </div>
-  </div>
-</section>
-
-<!-- ── CELEBRATION / IT'S A MATCH ── -->
-<section class="feature-section">
-  <div class="feature-row">
     <div class="feature-text">
       <p class="overline">It's a match · Race together</p>
       <h2>You've found your partner. Now race.</h2>
@@ -800,9 +793,19 @@ footer a:hover { color: var(--gold); }
         <li>Pace comparison at a glance</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- ── EVENT DETAIL / REGISTER ── -->
+<section class="feature-section">
+  <div class="feature-row">
+    <div class="feature-text">
+      <p class="overline">Register · Track your entry</p>
+      <h2>All your events, entries and active partner conversations in one place.</h2>
+    </div>
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
-        <img src="/assets/screenshots/celebration.png?v=20260903" alt="HyPair celebration screen — RACE TOGETHER with pace comparison after both athletes confirm">
+        <img src="/assets/screenshots/event-detail.png?v=20260905" alt="HyPair event detail showing your entry, ticket status and active conversations">
       </div>
     </div>
   </div>
