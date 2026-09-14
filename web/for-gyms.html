@@ -118,7 +118,9 @@ nav {
   font-size: 15px; color: var(--text-body); text-decoration: none;
   padding: 8px 14px; border-radius: 8px;
   transition: color 0.2s, background 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
+.nav-links a:hover, .nav-links a:active, .nav-links a:focus { text-decoration: none; }
 .nav-links a:hover { color: var(--text-dark); background: var(--light-bg); }
 .nav-cta {
   font-family: 'Barlow Condensed', sans-serif;
@@ -127,6 +129,7 @@ nav {
   border-radius: 10px; padding: 10px 22px;
   text-decoration: none; white-space: nowrap; flex-shrink: 0;
   transition: transform 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 .nav-cta:hover { box-shadow: 0 0 20px rgba(226,36,36,0.45); transform: translateY(-1px); }
 
@@ -162,8 +165,10 @@ nav {
   text-decoration: none; padding: 13px 8px; border-radius: 8px;
   border-bottom: 1px solid var(--border);
   transition: background 0.2s, color 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 .mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover, .mobile-menu a:active, .mobile-menu a:focus { text-decoration: none; }
 .mobile-menu a:hover { background: var(--light-bg); color: var(--text-dark); }
 
 /* ── PAGE HERO (dark, gym owner style) ── */
