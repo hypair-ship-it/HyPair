@@ -20,7 +20,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="dns-prefetch" href="https://llkdujodseyilzbkzdbf.supabase.co">
 <link rel="preconnect" href="https://llkdujodseyilzbkzdbf.supabase.co">
-<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script type="application/ld+json">
@@ -28,7 +28,7 @@
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   "name": "HyPair",
-  "description": "Partner-matching app for HYROX and Tryka doubles athletes. Match by 5K pace, race goal and event.",
+  "description": "Partner-matching app for HYROX and Tryka doubles athletes. Match by pace, race goal and event.",
   "url": "https://hypair.app",
   "applicationCategory": "SportsApplication",
   "operatingSystem": "iOS, Android",
@@ -307,7 +307,7 @@ h2 {
 .usecase-head { text-align: center; margin-bottom: 48px; }
 .usecase-head h2 { margin-bottom: 12px; }
 .usecase-cards {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;
 }
 .usecase-card {
   background: var(--white); border-radius: 16px; padding: 28px;
@@ -451,10 +451,10 @@ h2 {
 .gym-more-link {
   display: inline-block; margin-top: 16px;
   font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px;
-  color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-border);
-  padding-bottom: 2px;
+  color: var(--white-60); text-decoration: none;
+  transition: color 0.2s;
 }
-.gym-more-link:hover { border-bottom-color: var(--gold); }
+.gym-more-link:hover { color: var(--gold); }
 .gym-cards {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
 }
@@ -626,6 +626,7 @@ footer a:hover { color: var(--gold); }
       <a href="#for-athletes">For athletes</a>
       <a href="#for-gyms">For gyms</a>
       <a href="#faq">FAQ</a>
+      <a href="/support#contact-athletes">Contact</a>
     </div>
     <a href="#get-app" class="nav-cta">Get the App</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
@@ -639,6 +640,7 @@ footer a:hover { color: var(--gold); }
   <a href="#for-athletes">For athletes</a>
   <a href="#for-gyms">For gyms</a>
   <a href="#faq">FAQ</a>
+  <a href="/support#contact-athletes">Contact</a>
 </div>
 
 <main id="main-content">
@@ -654,7 +656,7 @@ footer a:hover { color: var(--gold); }
         Live on iOS &amp; Android
       </div>
       <h1>Meet your<br><span class="red">match.</span></h1>
-      <p class="tagline">Finding the right doubles partner for HYROX and Tryka shouldn't be left to chance — whoever asks first, whoever you happened to train with, whoever posts in the Facebook group at the right time.</p>
+      <p class="tagline">Finding the right doubles partner for HYROX and Tryka shouldn't be left to chance — whoever asks first, whoever you happened to train with, whoever posts in the Facebook group at the right time. Whether you need someone fast or just want to meet the right person to race with — HyPair matches you by pace, goals and the race you're actually entering.</p>
 
       <div class="store-badges">
         <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
@@ -695,7 +697,7 @@ footer a:hover { color: var(--gold); }
   <div class="section-inner">
     <div class="usecase-head">
       <p class="overline">One app · Every doubles athlete</p>
-      <h2>However you race, HyPair finds your pair.</h2>
+      <h2>HyPair finds your pair — whatever your goal, wherever you're racing.</h2>
       <p class="section-sub">Whatever's got you looking for a partner, HyPair matches you by pace, goal and the exact race you're entering.</p>
     </div>
     <div class="usecase-cards">
@@ -707,12 +709,17 @@ footer a:hover { color: var(--gold); }
       <div class="usecase-card">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h3>Racing somewhere new</h3>
-        <p>Signed up for HYROX Barcelona and don't know a soul? Browse athletes entered for that event — locals or fellow travellers — and find a partner before you land.</p>
+        <p>Entering a race in a new city — or just want to combine travel with competing? Browse athletes entered for that event, locals or fellow travellers, and find a partner before you arrive.</p>
       </div>
       <div class="usecase-card">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>Actually at your level</h3>
-        <p>Done pairing up with "whoever's free"? HyPair matches by 5K pace, finish goal and format — so you're racing with someone who can actually hold your pace.</p>
+        <p>Done pairing up with whoever asked first? At your gym sim, it can feel awkward asking someone — you don't know if they have a partner, you don't want to hold anyone back. HyPair matches by pace, finish goal and format — so you race with someone who's actually the right fit.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Want to meet people through sport</h3>
+        <p>Not everyone is chasing a PB. Some athletes enter HYROX or Tryka because they want to compete, have fun, and meet new people along the way. HyPair shows you who's out there — filter by event, location and goal, and find someone who's racing for the same reasons you are.</p>
       </div>
     </div>
   </div>
@@ -733,19 +740,19 @@ footer a:hover { color: var(--gold); }
         <div class="step-num">1</div>
         <div class="step-divider"></div>
         <h3>Browse &amp; get matched</h3>
-        <p>Set your race, pace and goal. HyPair scores compatibility on 5K pace, format and finish target — and surfaces your best partners.</p>
+        <p>Set your race, pace and goal. HyPair scores compatibility on pace, format and finish goal — and surfaces your best partners.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div class="step-divider"></div>
         <h3>Chat &amp; lock in</h3>
-        <p>Message your match in-app, agree a race plan, and confirm with a two-step pair lock-in so you're both committed.</p>
+        <p>Message your match in-app, get to know each other, agree your race plan and confirm. Simple.</p>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-divider"></div>
         <h3>Show up ready</h3>
-        <p>Arrive knowing exactly who you're racing with and what you're aiming for — not hoping someone turns up.</p>
+        <p>Arrive knowing exactly who you're racing with and what you're both aiming for — ready to race from the start line.</p>
       </div>
     </div>
   </div>
@@ -757,11 +764,12 @@ footer a:hover { color: var(--gold); }
     <div class="feature-text">
       <p class="overline">Browse · Real profiles</p>
       <h2>See exactly who you'd be racing with.</h2>
-      <p class="feature-desc">5K pace, finish goal and bio — every profile tells you exactly who you'd be racing with before you connect. Filter by city, format and the events near you.</p>
+      <p class="feature-desc">Pace, finish goal and bio — every profile tells you exactly who you'd be racing with before you connect. Filter by city, format and the events near you.</p>
       <ul class="check-list">
-        <li>5K pace &amp; training profile</li>
-        <li>Filter by city, format &amp; event</li>
-        <li>Goals shown before you connect</li>
+        <li>Photo, pace and estimated pair finish time</li>
+        <li>Goal — competitive or just here for the experience</li>
+        <li>Age group and training frequency</li>
+        <li>Filter by city, format and event</li>
       </ul>
     </div>
     <div class="feature-phone">
@@ -782,13 +790,7 @@ footer a:hover { color: var(--gold); }
     </div>
     <div class="feature-text">
       <p class="overline">Register · Track your entry</p>
-      <h2>Everything about your race, in one place.</h2>
-      <p class="feature-desc">See your entry details, ticket status and active partner conversations for each event — all from one screen. Browse more partners or jump straight to chat.</p>
-      <ul class="check-list">
-        <li>Entry format &amp; wave target</li>
-        <li>Ticket status visible to partners</li>
-        <li>Active chats per event</li>
-      </ul>
+      <h2>All your events, entries and active partner conversations in one place.</h2>
     </div>
   </div>
 </section>
@@ -799,7 +801,7 @@ footer a:hover { color: var(--gold); }
     <div class="feature-text">
       <p class="overline">It's a match · Race together</p>
       <h2>You've found your partner. Now race.</h2>
-      <p class="feature-desc">When both athletes confirm, HyPair locks in the pair and closes other conversations automatically. Paces compared, plans made — show up ready.</p>
+      <p class="feature-desc">When both athletes confirm, you're paired. Paces compared, plans made — show up ready.</p>
       <ul class="check-list">
         <li>Two-step mutual confirmation</li>
         <li>Pace comparison at a glance</li>
@@ -839,7 +841,7 @@ footer a:hover { color: var(--gold); }
       <div class="gym-cta">
         <h3>Interested in listing your events?</h3>
         <p>We're working directly with gyms in Ireland and the UK. If your gym runs HYROX or Tryka simulation events and you'd like to get involved, get in touch.</p>
-        <a href="/support?category=gym#contact" class="second-cta-btn">Get in touch →</a>
+        <a href="/support?audience=gym&amp;category=list_events#contact-gyms" class="second-cta-btn">Get in touch</a>
       </div>
     </div>
     <div>
@@ -861,35 +863,35 @@ footer a:hover { color: var(--gold); }
           What is HyPair?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>HyPair is a partner-matching app for hybrid race athletes. It pairs you with a doubles partner for HYROX and Tryka by 5K pace and finish goal, so you're not scrambling for a teammate the week before race day.</p></div>
+        <div class="faq-a"><p>HyPair is a partner-matching app for HYROX and Tryka doubles athletes. It matches you by pace, finish goal and the exact race you're entering — so you find the right partner, not just whoever's available.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
           Which events does HyPair support?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>HyPair supports HYROX doubles and Tryka doubles today, for official events across Ireland, the UK, Europe, the USA, Canada, Australia and South Africa. Gym-run SIM events are starting with gyms in Ireland and the UK first — if your event or city isn't listed yet, <a href="/support?category=general#contact">get in touch</a> and let us know.</p></div>
+        <div class="faq-a"><p>HyPair supports HYROX doubles and Tryka doubles, for official events and gym simulation events. We're live across Ireland, the UK, Europe, the US, Canada, Australia and South Africa. If your event or city isn't listed yet, <a href="/support?audience=athlete&amp;category=general#contact-athletes">get in touch</a> and let us know.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
           How does the matching algorithm work?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>HyPair scores compatibility based on three factors: 5K training pace (within 3% is ideal), race format and division, and finish goal alignment. The closer the match on all three, the higher the compatibility score shown on each profile.</p></div>
+        <div class="faq-a"><p>HyPair scores compatibility based on running pace, race format and division, and finish goal. The closer the match on all three, the higher the compatibility score shown on each profile.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
           Is HyPair free to use?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>Yes — HyPair is free for athletes. We'll be transparent if that changes. Gym owners will have a free tier to list events, with optional premium tools for managing larger events.</p></div>
+        <div class="faq-a"><p>Yes — HyPair is free for athletes. We'll be transparent if that changes. For gyms, get in touch to find out how listing your events works.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
           Is HyPair available now?
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a"><p>Yes — HyPair is live on the App Store and Google Play across Ireland, the UK, Europe, the USA, Canada, Australia and South Africa. Download it and start matching today, whichever HYROX or Tryka event you're entering. Not in one of those countries yet? <a href="/support?category=region#contact">Let us know</a> and we'll factor it into where we expand next.</p></div>
+        <div class="faq-a"><p>Yes — HyPair is live on the App Store and Google Play. Download it and start matching today. Not in a supported country yet? <a href="/support?audience=athlete&amp;category=country#contact-athletes">Let us know</a> and we'll factor it into where we expand next.</p></div>
       </div>
     </div>
   </div>
@@ -899,7 +901,7 @@ footer a:hover { color: var(--gold); }
 <section class="dark-section second-cta">
   <p class="second-cta-headline">
     <span>Racing HYROX or Tryka?</span><br>
-    Don't line up on race day without a partner.
+    Find your doubles partner before race day.
   </p>
   <p class="second-cta-sub">Download HyPair and be paired before race day.</p>
   <a href="#get-app" class="second-cta-btn">Get the App</a>

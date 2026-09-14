@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support — HyPair</title>
-<meta name="description" content="Get help with HyPair — contact us or check common questions about finding a race partner.">
+<title>Get in touch — HyPair</title>
+<meta name="description" content="Get in touch with HyPair — for athletes and gyms. Contact us or check common questions.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hypair.app/support">
-<meta property="og:title" content="Support — HyPair">
-<meta property="og:description" content="Get help with HyPair — contact us or check common questions about finding a race partner.">
+<meta property="og:title" content="Get in touch — HyPair">
+<meta property="og:description" content="Get in touch with HyPair — for athletes and gyms. Contact us or check common questions.">
 <meta property="og:image" content="/og-image.jpg">
 <meta property="og:url" content="https://hypair.app/support">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Support — HyPair">
-<meta name="twitter:description" content="Get help with HyPair — contact us or check common questions about finding a race partner.">
+<meta name="twitter:title" content="Get in touch — HyPair">
+<meta name="twitter:description" content="Get in touch with HyPair — for athletes and gyms. Contact us or check common questions.">
 <meta name="twitter:image" content="/og-image.jpg">
-<link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
@@ -130,15 +130,6 @@
     padding: 64px 32px 96px;
   }
 
-  .eyebrow {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--red);
-    margin-bottom: 16px;
-  }
-
   h1 {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 900;
@@ -182,17 +173,17 @@
     outline: none; border-color: var(--gold);
   }
   .form-field textarea { resize: vertical; }
-  #contact-form.shake { animation: shake 0.3s ease; }
+  .contact-card form.shake { animation: shake 0.3s ease; }
   @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
-  #contact-submit {
+  .contact-card button[type="submit"] {
     font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px;
     letter-spacing: 1px; text-transform: uppercase;
     background: var(--red); color: var(--white); border: none;
     border-radius: 6px; padding: 12px 24px; cursor: pointer;
     transition: box-shadow 0.2s, transform 0.2s;
   }
-  #contact-submit:hover { box-shadow: 0 0 20px rgba(226,36,36,0.35); transform: translateY(-1px); }
-  #contact-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+  .contact-card button[type="submit"]:hover { box-shadow: 0 0 20px rgba(226,36,36,0.35); transform: translateY(-1px); }
+  .contact-card button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
 
   h2 {
     font-family: 'Barlow Condensed', sans-serif;
@@ -207,6 +198,8 @@
     border-bottom: 2px solid var(--gold);
     display: inline-block;
   }
+
+  .section-sub { font-size: 15px; color: var(--muted); margin-top: 0; margin-bottom: 24px; line-height: 1.7; }
 
   .faq-item { margin-bottom: 28px; }
   .faq-item h3 {
@@ -272,45 +265,86 @@
 
 <div class="page-wrap">
 
-  <p class="eyebrow">Get in touch</p>
-  <h1>We're Here to Help</h1>
-  <p class="intro">Bug reports and feature requests go through the app — use the "Report a bug" option in Settings. This form is for everything else: gym partnerships, asking about a country we're not in yet, or a general question.</p>
+  <h1>Get in touch</h1>
+  <p class="intro">For athletes and gyms — we're here.</p>
 
-  <div class="contact-card" id="contact">
-    <form id="contact-form">
+  <h2 id="contact-athletes">For athletes</h2>
+  <p class="section-sub">Can't find an answer in the app? Get in touch.</p>
+  <div class="contact-card">
+    <form id="contact-form-athletes">
       <div class="form-field">
-        <label for="contact-category">What's this about? *</label>
-        <select id="contact-category" required>
+        <label for="athlete-name">Name</label>
+        <input id="athlete-name" type="text" autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label for="athlete-email">Email *</label>
+        <input id="athlete-email" type="email" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="athlete-category">What's this about? *</label>
+        <select id="athlete-category" required>
           <option value="" disabled selected>Choose one</option>
-          <option value="gym">Gym partnership</option>
-          <option value="region">App not available in my region</option>
+          <option value="country">App not available in my country</option>
+          <option value="cant_download">I can't download the app</option>
+          <option value="report_block">I want to report or block someone</option>
+          <option value="delete_account">I want to delete my account</option>
+          <option value="broken">Something's broken</option>
           <option value="general">General question</option>
         </select>
       </div>
-      <div class="form-field" id="field-gym-name" hidden>
-        <label for="contact-gym-name">Gym name</label>
-        <input id="contact-gym-name" type="text">
-      </div>
-      <div class="form-field" id="field-country" hidden>
-        <label for="contact-country">Which country are you in?</label>
-        <input id="contact-country" type="text">
-      </div>
       <div class="form-field">
-        <label for="contact-name">Name</label>
-        <input id="contact-name" type="text" autocomplete="name">
+        <label for="athlete-message">Message *</label>
+        <textarea id="athlete-message" rows="5" required></textarea>
       </div>
-      <div class="form-field">
-        <label for="contact-email">Email *</label>
-        <input id="contact-email" type="email" autocomplete="email" required>
-      </div>
-      <div class="form-field">
-        <label for="contact-message">Message *</label>
-        <textarea id="contact-message" rows="5" required></textarea>
-      </div>
-      <input type="text" id="contact-hp" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
-      <button type="submit" id="contact-submit">Send message</button>
+      <input type="text" id="athlete-hp" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+      <button type="submit" id="athlete-submit">Send message</button>
     </form>
-    <div id="contact-success" style="display:none;">
+    <div id="athlete-success" style="display:none;">
+      <p style="margin-bottom:0;"><strong>Thanks — your message is in.</strong> We aim to respond within 48 hours.</p>
+    </div>
+    <p class="response-time">Or email us directly at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
+  </div>
+
+  <h2 id="contact-gyms">For gyms</h2>
+  <p class="section-sub">We're working directly with gyms in Ireland and the UK. Get in touch if you run HYROX or Tryka simulation events.</p>
+  <div class="contact-card">
+    <form id="contact-form-gyms">
+      <div class="form-field">
+        <label for="gym-name">Name</label>
+        <input id="gym-name" type="text" autocomplete="name">
+      </div>
+      <div class="form-field">
+        <label for="gym-email">Email *</label>
+        <input id="gym-email" type="email" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label for="gym-gymname">Gym name</label>
+        <input id="gym-gymname" type="text">
+      </div>
+      <div class="form-field">
+        <label for="gym-location">Location</label>
+        <input id="gym-location" type="text" placeholder="City, country">
+      </div>
+      <div class="form-field">
+        <label for="gym-website">Website</label>
+        <input id="gym-website" type="url" placeholder="https://">
+      </div>
+      <div class="form-field">
+        <label for="gym-category">What's this about? *</label>
+        <select id="gym-category" required>
+          <option value="" disabled selected>Choose one</option>
+          <option value="list_events">I'd like to list my simulation events</option>
+          <option value="general">General gym enquiry</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="gym-message">Message *</label>
+        <textarea id="gym-message" rows="5" required></textarea>
+      </div>
+      <input type="text" id="gym-hp" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+      <button type="submit" id="gym-submit">Send message</button>
+    </form>
+    <div id="gym-success" style="display:none;">
       <p style="margin-bottom:0;"><strong>Thanks — your message is in.</strong> We aim to respond within 48 hours.</p>
     </div>
     <p class="response-time">Or email us directly at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
@@ -348,84 +382,96 @@
   <script>
     const SUPABASE_URL = 'https://lsxprzoxoarfakhxhoab.supabase.co';
     const SUPABASE_PUBLIC_KEY = 'sb_publishable_9U61L_y4qyiXga9-VK0rFw_oaDrGmIT';
-    let _lastContactSubmit = 0;
 
-    const categorySelect = document.getElementById('contact-category');
-    const fieldGymName = document.getElementById('field-gym-name');
-    const fieldCountry = document.getElementById('field-country');
+    function wireContactForm({ formId, submitId, successId, type, categoryId, fields }) {
+      const form = document.getElementById(formId);
+      const categorySelect = document.getElementById(categoryId);
+      let lastSubmit = 0;
 
-    function updateConditionalFields() {
-      fieldGymName.hidden = categorySelect.value !== 'gym';
-      fieldCountry.hidden = categorySelect.value !== 'region';
-    }
-    categorySelect.addEventListener('change', updateConditionalFields);
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const now = Date.now();
+        if (now - lastSubmit < 5000) return;
 
-    // Pre-select category from ?category=gym|region|general, e.g. links from
-    // the gym section or FAQ on the homepage.
-    const preselect = new URLSearchParams(location.search).get('category');
-    if (preselect && ['gym', 'region', 'general'].includes(preselect)) {
-      categorySelect.value = preselect;
-      updateConditionalFields();
-    }
+        const hp = form.querySelector('input[name="company"]');
+        if (hp && hp.value) { showSuccess(); return; }
 
-    document.getElementById('contact-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const now = Date.now();
-      if (now - _lastContactSubmit < 5000) return;
+        const category = categorySelect.value;
+        const email = document.getElementById(fields.email).value.trim();
+        const message = document.getElementById(fields.message).value.trim();
 
-      const form = e.target;
-      const hp = document.getElementById('contact-hp');
-      if (hp && hp.value) { showContactSuccess(); return; }
+        if (!category || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || !message) {
+          form.classList.add('shake');
+          setTimeout(() => form.classList.remove('shake'), 800);
+          return;
+        }
 
-      const category = categorySelect.value;
-      const name     = document.getElementById('contact-name').value.trim();
-      const email    = document.getElementById('contact-email').value.trim();
-      const message  = document.getElementById('contact-message').value.trim();
-      const gymName  = document.getElementById('contact-gym-name').value.trim();
-      const country  = document.getElementById('contact-country').value.trim();
+        lastSubmit = now;
+        const btn = document.getElementById(submitId);
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
 
-      if (!category || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || !message) {
-        form.classList.add('shake');
-        setTimeout(() => form.classList.remove('shake'), 800);
-        return;
+        const body = {
+          type,
+          category,
+          name: document.getElementById(fields.name).value.trim() || null,
+          email,
+          message,
+          gym_name: fields.gymName ? (document.getElementById(fields.gymName).value.trim() || null) : null,
+          location: fields.location ? (document.getElementById(fields.location).value.trim() || null) : null,
+          website: fields.website ? (document.getElementById(fields.website).value.trim() || null) : null
+        };
+
+        try {
+          const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SUPABASE_PUBLIC_KEY,
+              'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify(body)
+          });
+          if (!res.ok) throw new Error('Failed');
+          showSuccess();
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = 'Send message';
+          form.classList.add('shake');
+          setTimeout(() => form.classList.remove('shake'), 800);
+        }
+      });
+
+      function showSuccess() {
+        form.style.display = 'none';
+        document.getElementById(successId).style.display = 'block';
       }
+    }
 
-      _lastContactSubmit = now;
-      const btn = document.getElementById('contact-submit');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-
-      try {
-        const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': SUPABASE_PUBLIC_KEY,
-            'Authorization': `Bearer ${SUPABASE_PUBLIC_KEY}`,
-            'Prefer': 'return=minimal'
-          },
-          body: JSON.stringify({
-            type: category,
-            name: name || null,
-            email,
-            message,
-            gym_name: category === 'gym' ? (gymName || null) : null,
-            country: category === 'region' ? (country || null) : null
-          })
-        });
-        if (!res.ok) throw new Error('Failed');
-        showContactSuccess();
-      } catch (err) {
-        btn.disabled = false;
-        btn.textContent = 'Send message';
-        form.classList.add('shake');
-        setTimeout(() => form.classList.remove('shake'), 800);
-      }
+    wireContactForm({
+      formId: 'contact-form-athletes', submitId: 'athlete-submit', successId: 'athlete-success',
+      type: 'athlete', categoryId: 'athlete-category',
+      fields: { name: 'athlete-name', email: 'athlete-email', message: 'athlete-message' }
     });
 
-    function showContactSuccess() {
-      document.getElementById('contact-form').style.display = 'none';
-      document.getElementById('contact-success').style.display = 'block';
+    wireContactForm({
+      formId: 'contact-form-gyms', submitId: 'gym-submit', successId: 'gym-success',
+      type: 'gym', categoryId: 'gym-category',
+      fields: { name: 'gym-name', email: 'gym-email', message: 'gym-message', gymName: 'gym-gymname', location: 'gym-location', website: 'gym-website' }
+    });
+
+    // Pre-select category from ?audience=athlete|gym&category=<code>, e.g.
+    // links from the homepage nav, gym section or FAQ.
+    const params = new URLSearchParams(location.search);
+    const audience = params.get('audience');
+    const presetCategory = params.get('category');
+    if (audience === 'gym' && presetCategory) {
+      const select = document.getElementById('gym-category');
+      if ([...select.options].some(o => o.value === presetCategory)) select.value = presetCategory;
+    } else if (audience === 'athlete' && presetCategory) {
+      const select = document.getElementById('athlete-category');
+      if ([...select.options].some(o => o.value === presetCategory)) select.value = presetCategory;
     }
 
     function toggleMobileNav(btn) {
