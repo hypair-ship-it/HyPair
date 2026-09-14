@@ -163,15 +163,18 @@ Both fonts are available free on Google Fonts: [fonts.google.com](https://fonts.
 ### Supported Races (current)
 Always refer to these in this order when listing:
 1. HYROX (all caps)
-2. Spartan
-3. Tryka
-4. Athex
+2. Tryka
 
-"+ more coming" when listing all four together.
+Scope is intentionally limited to these two — Spartan and Athex are explicitly out of
+scope (matches `HyPairApp/CLAUDE.md` and this repo's own `CLAUDE.md`); don't reference
+them, and don't frame the list with "+ more coming" — there's no roadmap commitment to
+expand beyond HYROX and Tryka.
 
 ### Social Accounts
 - Instagram: `@hypair.app` — https://www.instagram.com/hypair.app
-- Facebook: https://www.facebook.com/profile.php?id=61579447175723
+- Facebook: https://www.facebook.com/HyPair/
+- No TikTok on the website — the handle is claimed but parked, not posted to (see this
+  repo's `CLAUDE.md` standing content rules)
 
 ### Post Format
 - Square 1:1 (1080×1080px) for feed posts
@@ -182,7 +185,7 @@ Always refer to these in this order when listing:
 ### Core Hashtags
 ```
 #HyPair #HYROX #HYROXdoubles #HybridAthlete #RacePartner
-#HybridTraining #FunctionalFitness #Spartan #Tryka #Athex
+#HybridTraining #FunctionalFitness #Tryka
 ```
 
 ### Background Styles (approved for social)
@@ -199,40 +202,53 @@ Always refer to these in this order when listing:
 | Layer | Tool | Notes |
 |---|---|---|
 | Website | Vercel | Auto-deploys from GitHub main branch |
-| Domain | hypair.app via Porkbun | DNS pointed to Vercel |
-| Database | Supabase (PostgreSQL) | Production project — auth, profiles, matching, events. See CLAUDE.md's Infrastructure section for current schema |
-| Email routing | Porkbun | hello@hypair.app, DKIM/SPF/MX/DMARC live |
-| Mobile app | Expo (React Native) | Live — iOS (App Store) + Android (Google Play) |
-| Email sending | Resend | Transactional emails — verification, reset, match alerts |
+| Domain / DNS | Porkbun | DKIM, SPF, MX, DMARC all live; DNS points to Vercel. The site does not sit behind Cloudflare or any CDN/security layer (see `web/privacy.html`) |
+| Database | Supabase (PostgreSQL) | Production project — auth, profiles, matching, events, and the website's own `contact_messages` table all live here. See CLAUDE.md's Infrastructure section for current schema |
+| Email | Resend (`smtp.resend.com:465`) | Sends from `hello@hypair.app` — transactional app emails plus the `notify-contact-message` Edge Function for contact-form submissions |
+| Mobile app | Expo (React Native) | Live — iOS (App Store) + Android (Google Play), separate repo `HyPairApp` |
 
 ### Supabase Projects
-- **Production**: `https://lsxprzoxoarfakhxhoab.supabase.co` — the app's live database (profiles, matching, events, messages, etc.)
-- **Legacy (sandbox)**: `https://llkdujodseyilzbkzdbf.supabase.co` — the original project before the Aug 2026 production split; its `waitlist` table is empty (deleted 14 Sep 2026) and nothing writes to it anymore
+- **Production**: `https://lsxprzoxoarfakhxhoab.supabase.co` — the app's live database
+  (profiles, matching, events, messages, etc.); the website's `contact_messages` table
+  (support.html's athlete/gym forms write here via the public anon key) also lives here.
+- **Legacy (sandbox)**: `https://llkdujodseyilzbkzdbf.supabase.co` — the original project
+  before the Aug 2026 production split. Its `waitlist` table is empty (all historical rows
+  deleted 14 Sep 2026) and nothing writes to it anymore.
 
 ---
 
 ## 7. Brand Assets Checklist
 
+Checked against the actual files under `brand/swiss-alps/` and `brand/tundra-light/`
+(re-verified 14 Sep 2026) — several items below were unchecked for months after the
+asset actually existed; the file itself is the source of truth, not this list's history.
+
 ### Swiss Alps scheme
-- [x] SVG logo — Sun Valley on Summit slate
-- [x] Website live at hypair.app (App Store + Google Play download page)
-- [ ] SVG logo — Sun Valley on black
-- [ ] Icon only SVG (transparent, Sun Valley)
-- [ ] App icon 1024×1024px
-- [ ] Favicon set (already using PNG from Fiverr kit)
-- [ ] Instagram post graphics (4 × 1080px)
+- [x] SVG logo — Sun Valley on Summit slate (`brand/swiss-alps/logo/hypair-logo-colour.svg`)
+- [x] Website live at hypair.app, App live on the App Store + Google Play
+- [ ] SVG logo — Sun Valley on black (`hypair-logo-on-background.svg` here is on Summit
+      slate, not black — a true black-background variant doesn't exist yet)
+- [ ] Icon only SVG (transparent, Sun Valley) — only a PNG (`hypair-icon-only.png`) exists
+- [ ] App icon 1024×1024px — the real App Store/Play icon lives in the `HyPairApp` repo's
+      native build config, not here; nothing 1024×1024 exists in this repo
+- [x] Favicon set — `web/favicon.ico` / `web/favicon.svg`, custom (dark bg + gold mark),
+      not the old Fiverr-kit PNG this item originally referred to
+- [x] Instagram post graphics — `brand/social/posts/` has real published post images/videos
 - [ ] Figma brand file
 
 ### Tundra Light scheme (app)
-- [ ] SVG logo — Summit Dark on Tundra cream
+- [x] SVG logo — Summit Dark on Tundra cream (`brand/tundra-light/logo/hypair-logo-on-background.svg`)
 - [ ] SVG logo — Summit Dark on white
-- [ ] Icon only SVG (transparent, Summit Dark)
+- [ ] Icon only SVG (transparent, Summit Dark) — only a PNG exists
 - [ ] App icon 1024×1024px (light version)
 - [ ] Figma component library
 
 ---
 
 ## 8. File Structure
+
+This is the brand/design half of the repo only — see this repo's `CLAUDE.md` for the full
+tree, including `web/` (the actual site Vercel serves), `legal/`, and `supabase/`.
 
 ```
 HyPair/                              ← repo root
