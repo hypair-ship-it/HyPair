@@ -188,7 +188,7 @@ Always refer to these in this order when listing:
 ### Background Styles (approved for social)
 | Style | Hex | When to use |
 |---|---|---|
-| Summit | `#4C5F6B` | Default — waitlist, community, matching posts |
+| Summit | `#4C5F6B` | Default — community, matching posts, general use |
 | Summit Dark | `#374D59` | Problem/solution posts, bold statements |
 | Black | `#0a0a0a` | Maximum contrast, high-impact statements |
 
@@ -200,14 +200,14 @@ Always refer to these in this order when listing:
 |---|---|---|
 | Website | Vercel | Auto-deploys from GitHub main branch |
 | Domain | hypair.app via Porkbun | DNS pointed to Vercel |
-| Database | Supabase (PostgreSQL) | Waitlist + race data |
-| Email | Cloudflare Email Routing → Gmail | Forward only for now |
-| Mobile app | Expo (React Native) | Planned — iOS + Android |
-| Email sending | Resend (planned) | Transactional + launch emails |
+| Database | Supabase (PostgreSQL) | Production project — auth, profiles, matching, events. See CLAUDE.md's Infrastructure section for current schema |
+| Email routing | Porkbun | hello@hypair.app, DKIM/SPF/MX/DMARC live |
+| Mobile app | Expo (React Native) | Live — iOS (App Store) + Android (Google Play) |
+| Email sending | Resend | Transactional emails — verification, reset, match alerts |
 
-### Supabase Project
-- Project URL: `https://llkdujodseyilzbkzdbf.supabase.co`
-- Tables: `waitlist (id, email, race, created_at)`
+### Supabase Projects
+- **Production**: `https://lsxprzoxoarfakhxhoab.supabase.co` — the app's live database (profiles, matching, events, messages, etc.)
+- **Legacy (sandbox)**: `https://llkdujodseyilzbkzdbf.supabase.co` — the original project before the Aug 2026 production split; its `waitlist` table is empty (deleted 14 Sep 2026) and nothing writes to it anymore
 
 ---
 
@@ -215,7 +215,7 @@ Always refer to these in this order when listing:
 
 ### Swiss Alps scheme
 - [x] SVG logo — Sun Valley on Summit slate
-- [x] Waitlist website live at hypair.app
+- [x] Website live at hypair.app (App Store + Google Play download page)
 - [ ] SVG logo — Sun Valley on black
 - [ ] Icon only SVG (transparent, Sun Valley)
 - [ ] App icon 1024×1024px
@@ -235,27 +235,25 @@ Always refer to these in this order when listing:
 ## 8. File Structure
 
 ```
-HyPair/
-├── index.html              — Waitlist landing page
-├── favicon.ico             — Browser favicon
-├── BRAND.md                — This file
-├── CLAUDE.md               — Claude Code instructions
-└── brand/
-    ├── logo/
-    │   ├── swiss-alps/     — Swiss Alps colour scheme assets
-    │   │   ├── hypair-logo-colour.svg
-    │   │   ├── hypair-logo-on-black.svg
-    │   │   └── hypair-icon-only.svg
-    │   ├── tundra-light/   — Tundra Light colour scheme assets
-    │   │   ├── hypair-logo-colour.svg
-    │   │   └── hypair-icon-only.svg
-    │   └── (original Fiverr kit files)
-    └── social/
-        ├── hypair-instagram-profile.png
-        ├── post-waitlist.html
-        └── (Instagram post exports 1080×1080px)
+HyPair/                              ← repo root
+├── web/                             ← web root — everything Vercel serves (hypair.app)
+│   ├── index.html                   Main landing page — App Store/Google Play CTAs
+│   ├── privacy.html / terms.html / cookies.html / support.html
+│   ├── for-gyms.html
+│   └── ...                          favicons, sitemap.xml, vercel.json, etc.
+├── brand/                           ← design assets (not served publicly)
+│   ├── swiss-alps/                  Dark theme — logo/ and social/ (FB, IG, LinkedIn, Twitter, Zoom)
+│   ├── tundra-light/                Light theme — logo/ and social/ (FB, IG, LinkedIn, Twitter, Zoom)
+│   ├── social/
+│   │   ├── posts/                   Published post images/videos
+│   │   └── inspiration/             Reference / source images
+│   └── BRAND.md                     This file
+├── supabase/                        Local Supabase config
+├── CLAUDE.md                        Claude Code instructions
+├── LAUNCH_CHECKLIST.md
+└── TODO.md
 ```
 
 ---
 
-*Last updated: March 2026. Maintained by the HyPair founding team.*
+*Last updated: 14 Sep 2026. Maintained by the HyPair founding team.*
