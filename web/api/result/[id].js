@@ -62,7 +62,7 @@ module.exports = async function handler(req, res) {
   const title = escapeHtml(result.event_name);
   const time = result.total_time ? ` — ${escapeHtml(result.total_time)}` : '';
   const description = `Just finished ${title}${time} on HyPair. Find your next race partner.`;
-  const resultUrl = `https://hypair.app/result/${encodeURIComponent(id)}`;
+  const resultUrl = `https://hypair.app/api/result/${encodeURIComponent(id)}`;
   const cardUrl = `https://hypair.app/api/result/${encodeURIComponent(id)}/card.png`;
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
