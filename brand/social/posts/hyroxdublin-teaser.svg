@@ -1,0 +1,25 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#0a0a0a"/>
+
+  <!-- Logo mark + wordmark -->
+  <g transform="translate(80,64) scale(0.187)">
+    <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079" transform="translate(-226,-154.1)"/>
+    <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079" transform="translate(-226,-154.1)"/>
+    <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079" transform="translate(-226,-154.1)"/>
+  </g>
+  <text x="142" y="106" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="1" fill="#F2D079">HyPair</text>
+
+  <!-- Eyebrow -->
+  <text x="80" y="420" font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="4" fill="#E22424">HYROX &#183; DOUBLES</text>
+
+  <!-- Headline -->
+  <text x="78" y="540" font-family="Arial, sans-serif" font-size="86" font-weight="700" fill="#ffffff">HYROX Dublin</text>
+  <text x="78" y="636" font-family="Arial, sans-serif" font-size="86" font-weight="700" fill="#ffffff">is coming.</text>
+
+  <!-- Event line -->
+  <text x="80" y="740" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#F2D079">11&#8211;15 Nov &#183; The RDS</text>
+
+  <!-- Supporting line -->
+  <text x="80" y="920" font-family="Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.7)">Doubles tickets only work as a pair.</text>
+  <text x="80" y="962" font-family="Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.7)">Find yours before race day.</text>
+</svg>
