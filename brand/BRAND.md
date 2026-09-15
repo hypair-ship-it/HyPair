@@ -113,6 +113,7 @@ Clean and approachable. Used for the mobile app UI and any light-background cont
 | Summit Dark | `#2C3A47` | 44, 58, 71 | Text, logo, nav |
 | Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent (shared with primary) |
 | App Gold | `#F0B429` | 240, 180, 41 | Match %, PBs, badges, achievement accent — app only, distinct from Sun Valley |
+| Gold Deep | `#8C5A00` | 140, 90, 0 | Light-theme ACCENT — App Gold fails AA contrast on Tundra's light background, so light mode substitutes this darker gold instead |
 | White | `#ffffff` | 255, 255, 255 | Cards, surfaces |
 
 **Tundra Light Colour Rules**
@@ -120,6 +121,7 @@ Clean and approachable. Used for the mobile app UI and any light-background cont
 - Red CTA colour is shared across both schemes for consistency
 - Summit Dark replaces white for all text
 - App Gold is deliberately a different hex from Swiss Alps' Sun Valley — the app's achievement accent doesn't need to match the website's logo/warmth accent
+- Gold Deep (`constants/Colors.ts` `GOLD_DEEP`, `constants/Theme.ts` `lightTheme.ACCENT`) is App Gold's light-mode replacement, not a separate design choice — same role, swapped for contrast
 
 ---
 
