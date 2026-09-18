@@ -341,10 +341,6 @@ h2 {
 }
 
 /* ── FEATURE SECTIONS ── */
-.compat-card-display {
-  width: 100%; max-width: 320px; border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12); border: 1px solid var(--border);
-}
 .feature-section { background: var(--white); }
 .feature-row {
   max-width: 1120px; margin: 0 auto;
@@ -757,7 +753,9 @@ footer a:hover { color: var(--gold); }
 <section class="feature-section" style="background: var(--light-bg);">
   <div class="feature-row">
     <div class="feature-phone">
-      <img class="compat-card-display" src="/assets/screenshots/compat-card.png?v=20260905" alt="HyPair compatibility card showing match score, goal, pace and age-group alignment with a potential partner">
+      <div class="phone-frame" style="width:252px;">
+        <img src="/assets/screenshots/find-partner.png?v=20260918" alt="HyPair find a partner screen listing athletes with photo, match score, pace and ticket status">
+      </div>
     </div>
     <div class="feature-text">
       <p class="overline">Browse · Athletes</p>
