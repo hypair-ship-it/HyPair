@@ -320,6 +320,25 @@ h2 {
   font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;
 }
 .usecase-card p { font-size: 14px; color: var(--text-body); line-height: 1.75; }
+.styles-teaser {
+  margin-top: 20px;
+  background: var(--white); border: 1px solid var(--gold-border);
+  border-radius: 20px; padding: 36px 40px;
+  display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center;
+}
+.styles-teaser h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px; font-weight: 900; letter-spacing: -0.3px;
+  color: var(--text-dark); margin-bottom: 10px;
+}
+.styles-teaser-text p { font-size: 15px; color: var(--text-body); line-height: 1.7; margin-bottom: 22px; max-width: 440px; }
+.styles-teaser .second-cta-btn { padding: 13px 30px; font-size: 14px; }
+.styles-teaser-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.style-chip {
+  font-size: 13px; font-weight: 600; color: var(--text-body);
+  background: var(--light-bg); border: 1px solid var(--border);
+  border-radius: 100px; padding: 8px 16px; white-space: nowrap;
+}
 
 /* ── HOW IT WORKS ── */
 .hiw-head {
@@ -452,14 +471,6 @@ h2 {
   transition: color 0.2s, border-color 0.2s;
 }
 .gym-more-link:hover { color: var(--gold); border-color: var(--gold-border); }
-.usecase-more-link {
-  display: inline-block; margin-top: 40px;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.5px;
-  color: var(--text-body); text-decoration: none;
-  border: 1px solid var(--border); border-radius: 100px; padding: 10px 20px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.usecase-more-link:hover { color: var(--red); border-color: var(--red); }
 .gym-cards {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
 }
@@ -596,6 +607,9 @@ footer a:hover { color: var(--gold); }
   .feature-row { grid-template-columns: 1fr; gap: 40px; padding: 64px 24px; }
   .feature-phone { order: -1; }
   .gym-cards { grid-template-columns: 1fr; }
+  .styles-teaser { grid-template-columns: 1fr; padding: 32px 28px; text-align: center; }
+  .styles-teaser-text p { margin-left: auto; margin-right: auto; }
+  .styles-teaser-chips { justify-content: center; }
 }
 @media (max-width: 640px) {
   nav { height: 60px; }
@@ -723,8 +737,22 @@ footer a:hover { color: var(--gold); }
         <p>Not everyone is chasing a PB. Some athletes enter HYROX or Tryka because they want to compete, have fun, and meet new people along the way. HyPair shows you who's out there — filter by event, location and goal, and find someone who's racing for the same reasons you are.</p>
       </div>
     </div>
-    <div style="text-align:center;">
-      <a href="/race-styles" class="usecase-more-link">See your race style</a>
+    <div class="styles-teaser">
+      <div class="styles-teaser-text">
+        <p class="overline" style="margin-bottom:8px;">New · Race styles</p>
+        <h3>Which one are you?</h3>
+        <p>Every athlete has a race pattern — where you're strong, where you fade, how you pace it. See all seven styles, and who pairs best with each.</p>
+        <a href="/race-styles" class="second-cta-btn">Find out more</a>
+      </div>
+      <div class="styles-teaser-chips">
+        <span class="style-chip">Pacemaker</span>
+        <span class="style-chip">Anchor</span>
+        <span class="style-chip">Finisher</span>
+        <span class="style-chip">Steady Hand</span>
+        <span class="style-chip">Fast Starter</span>
+        <span class="style-chip">Closer</span>
+        <span class="style-chip">Transition Grinder</span>
+      </div>
     </div>
   </div>
 </section>
