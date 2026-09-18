@@ -340,37 +340,11 @@ h2 {
   border-radius: 100px; padding: 8px 16px; white-space: nowrap;
 }
 
-/* ── HOW IT WORKS ── */
-.hiw-head {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  gap: 40px; margin-bottom: 40px;
-}
-.hiw-head-right {
-  font-size: 15px; color: var(--text-body); max-width: 320px;
-  line-height: 1.75; text-align: left; flex-shrink: 0;
-  padding-top: 8px;
-}
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.step-card { background: var(--white); border-radius: 16px; padding: 28px; }
-.step-num {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--red); color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 17px; font-weight: 900; margin-bottom: 20px;
-}
-.step-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 20px; }
-.step-card h3 {
-  font-family: 'Barlow', sans-serif;
-  font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px;
-}
-.step-card p { font-size: 14px; color: var(--text-body); line-height: 1.75; }
-.step-card-img {
-  width: 100%; border-radius: 12px; margin-top: 4px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12); border: 1px solid var(--border);
-}
-
 /* ── FEATURE SECTIONS ── */
+.compat-card-display {
+  width: 100%; max-width: 320px; border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12); border: 1px solid var(--border);
+}
 .feature-section { background: var(--white); }
 .feature-row {
   max-width: 1120px; margin: 0 auto;
@@ -605,9 +579,6 @@ footer a:hover { color: var(--gold); }
   .hero-inner { grid-template-columns: 1fr; gap: 56px; padding: 72px 0; }
   .hero-phone { order: -1; }
   .usecase-cards { grid-template-columns: 1fr; }
-  .hiw-head { flex-direction: column; gap: 8px; }
-  .hiw-head-right { text-align: left; max-width: 100%; }
-  .steps { grid-template-columns: 1fr; }
   .feature-row { grid-template-columns: 1fr; gap: 40px; padding: 64px 24px; }
   .feature-phone { order: -1; }
   .gym-cards { grid-template-columns: 1fr; }
@@ -762,56 +733,42 @@ footer a:hover { color: var(--gold); }
 </section>
 
 <!-- ── HOW IT WORKS ── -->
-<section class="light-section" id="how-it-works" style="padding-top: 0;">
-  <div class="section-inner">
-    <div class="hiw-head">
-      <div>
-        <p class="overline">How it works</p>
-        <h2>Matched by pace, not luck.</h2>
-      </div>
-      <p class="hiw-head-right">A well-matched pair doesn't happen by accident. Three steps from sign-up to start line.</p>
-    </div>
-    <div class="steps">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-divider"></div>
-        <h3>Browse &amp; get matched</h3>
-        <p>Every profile needs a real photo. Set your pace, goal, race format and the event you're entering — HyPair shows you everyone else signed up for that same event and format, each with a match score for how compatible you are.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-divider"></div>
-        <h3>Chat &amp; lock in</h3>
-        <p>Message your match in-app, get to know each other, agree your race plan and confirm. Simple.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-divider"></div>
-        <h3>Show up ready</h3>
-        <img class="step-card-img" src="/assets/screenshots/compat-card.png?v=20260905" alt="HyPair compatibility card showing match score, goal, pace and age-group alignment with a potential partner">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── BROWSE / REAL PROFILES ── -->
+<!-- ── BROWSE / EVENTS ── -->
 <section class="feature-section">
   <div class="feature-row">
     <div class="feature-text">
-      <p class="overline">Browse · Real profiles</p>
-      <h2>See exactly who you'd be racing with.</h2>
-      <p class="feature-desc">Pace, finish goal and bio — every profile tells you exactly who you'd be racing with before you connect. Filter by city, format and the events near you.</p>
+      <p class="overline">Browse · Events</p>
+      <h2>Pick the race you're actually entering.</h2>
+      <p class="feature-desc">Filter by location, format and division — official HYROX and Tryka races or gym simulation events — and find exactly the one you're racing.</p>
       <ul class="check-list">
-        <li>Photo, pace and estimated pair finish time</li>
-        <li>Goal — competitive or just here for the experience</li>
-        <li>Age group</li>
-        <li>Filter by city, format and event</li>
+        <li>HYROX and Tryka, official races and SIM events</li>
+        <li>Filter by city and format</li>
+        <li>See who else is already entered</li>
       </ul>
     </div>
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
         <img src="/assets/screenshots/events.png?v=20260903" alt="HyPair events screen listing HYROX and Tryka races with filter tabs">
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BROWSE / ATHLETES ── -->
+<section class="feature-section" style="background: var(--light-bg);">
+  <div class="feature-row">
+    <div class="feature-phone">
+      <img class="compat-card-display" src="/assets/screenshots/compat-card.png?v=20260905" alt="HyPair compatibility card showing match score, goal, pace and age-group alignment with a potential partner">
+    </div>
+    <div class="feature-text">
+      <p class="overline">Browse · Athletes</p>
+      <h2>See exactly who you'd be racing with.</h2>
+      <p class="feature-desc">Pace, finish goal and bio — every profile tells you exactly who you'd be racing with before you connect.</p>
+      <ul class="check-list">
+        <li>Photo, pace and estimated pair finish time</li>
+        <li>Goal — competitive or just here for the experience</li>
+        <li>Age group</li>
+      </ul>
     </div>
   </div>
 </section>
