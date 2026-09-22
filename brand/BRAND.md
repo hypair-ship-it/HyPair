@@ -79,6 +79,8 @@ Inspired by the energy of alpine race environments. Slate base, red for urgency 
 |---|---|---|---|
 | Summit | `#4C5F6B` | 76, 95, 107 | Primary background |
 | Summit Dark | `#374D59` | 55, 77, 89 | Nav, darker surfaces |
+| Hero background | `#0F1318` | 15, 19, 24 | Hero section on pages with a white nav (`index.html`, `for-gyms.html`, `race-styles.html`) — deliberately darker than Summit Dark, not a drift |
+| Dark section background | `#13181F` | 19, 24, 31 | Dark feature sections / footer on the same white-nav pages, plus the favicon background |
 | Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent, action |
 | Sun Valley | `#F2D079` | 242, 208, 121 | Logo, brand warmth, chips |
 | White | `#ffffff` | 255, 255, 255 | Body text on dark backgrounds |
@@ -100,6 +102,7 @@ Inspired by the energy of alpine race environments. Slate base, red for urgency 
 - Sun Valley yellow is the brand colour — logo only, race chips, decorative use
 - Never use red as a background for large areas
 - Summit slate is the brand home — default to Summit Dark for nav backgrounds
+- **Two legitimate nav treatments, not drift**: legal/utility pages (`privacy.html`, `terms.html`, `cookies.html`, `support.html`, `reset-password.html`) use Summit Dark for the nav bar itself. Marketing pages (`index.html`, `for-gyms.html`, `race-styles.html`) use a white nav instead, saving Hero background/Dark section background for hero and feature sections. Both are correct for their context — don't unify them.
 
 ---
 

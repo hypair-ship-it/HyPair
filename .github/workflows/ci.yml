@@ -63,7 +63,6 @@ jobs:
               // two legitimately different hexes depending on role.
               summit: '#2C3A47',
             };
-            const CANONICAL_HEXES = new Set(Object.values(CANONICAL).map(h => h.toLowerCase()));
 
             // CSS custom properties checked by exact value, independent of the
             // fill-only CANONICAL set above — each fixed a real drift incident.
@@ -71,7 +70,23 @@ jobs:
               summit: '#374D59',          // nav/surface Summit Dark (BRAND.md §3) — was found drifted to #1B2A3B on 4 legal pages, unguarded, 30 Aug 2026
               overline: '#C8952A',        // Overline/eyebrow accent (BRAND.md §3 Functional table)
               'gold-gradient-end': '#d4a832', // Gold gradient end (BRAND.md §3 Functional table)
+              // Hero/section dark backgrounds on index.html/for-gyms.html/race-styles.html —
+              // deliberately darker than --summit (those pages use a white nav, reserving the
+              // darkest values for hero/feature sections instead). Found completely unguarded
+              // 22 Sep 2026 — added here and to BRAND.md §3 at the same time.
+              'hero-bg': '#0F1318',
+              'dark-bg': '#13181F',
             };
+
+            // Every hex used as a raw fill=/stroke= literal must be either a
+            // CANONICAL brand colour or one of the pinned CSS_VARS values —
+            // e.g. the Overline accent (#C8952A) is documented (BRAND.md §3)
+            // specifically for "small icon strokes on light backgrounds", so
+            // it has to be allowed here too, not just in its own --overline
+            // declaration check below.
+            const CANONICAL_HEXES = new Set(
+              [...Object.values(CANONICAL), ...Object.values(CSS_VARS)].map(h => h.toLowerCase())
+            );
 
             // Historical invented/off-spec values that have drifted in before.
             // Any occurrence of these anywhere means a page reverted or copied
@@ -147,6 +162,19 @@ jobs:
               while ((fm = fillRe.exec(text))) {
                 if (!CANONICAL_HEXES.has(fm[1].toLowerCase())) {
                   console.error(\`\${full}: hardcoded fill=\${fm[1]} is not a canonical brand colour (\${JSON.stringify(CANONICAL)})\`);
+                  ok = false;
+                }
+              }
+
+              // Hardcoded SVG strokes — same rule as fill=, previously unchecked
+              // entirely (found 22 Sep 2026: for-gyms.html/index.html's inline
+              // usecase/gym-card icons set stroke="#E22424" literally, so a future
+              // --red change would silently go stale here with zero CI signal).
+              const strokeRe = /stroke=\"(#[0-9A-Fa-f]{3,6})\"/g;
+              let sm;
+              while ((sm = strokeRe.exec(text))) {
+                if (!CANONICAL_HEXES.has(sm[1].toLowerCase())) {
+                  console.error(\`\${full}: hardcoded stroke=\${sm[1]} is not a canonical brand colour (\${JSON.stringify(CANONICAL)})\`);
                   ok = false;
                 }
               }
