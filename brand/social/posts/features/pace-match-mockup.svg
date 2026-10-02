@@ -1,0 +1,35 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="4" seed="7" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.30  0 0 0 0 0.37  0 0 0 0 0.42  0.9 0.9 0 0 -0.35"/>
+    </filter>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F1318" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0F1318" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="top"><rect x="0" y="0" width="1080" height="560"/></clipPath>
+  </defs>
+
+  <rect width="1080" height="1080" fill="#4C5F6B"/>
+
+  <g clip-path="url(#top)">
+    <rect width="1080" height="560" fill="#13181F"/>
+    <rect width="1080" height="560" filter="url(#grain)"/>
+    <rect width="1080" height="560" fill="url(#fade)"/>
+  </g>
+
+  <g transform="translate(80,64) scale(0.187)">
+    <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#F2D079" transform="translate(-226,-154.1)"/>
+    <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#F2D079" transform="translate(-226,-154.1)"/>
+    <polygon points="401.5,336.6 298.5,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#F2D079" transform="translate(-226,-154.1)"/>
+  </g>
+  <text x="142" y="106" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="1" fill="#F2D079">HyPair</text>
+
+  <text x="80" y="690" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4" fill="#F2D079">FEATURE</text>
+  <text x="78" y="790" font-family="Arial, sans-serif" font-size="96" font-weight="700" fill="#ffffff">Pace match</text>
+
+  <text x="80" y="862" font-family="Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.85)">Your pace decides who you race with.</text>
+  <text x="80" y="904" font-family="Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.85)">We match you with athletes at your level,</text>
+  <text x="80" y="946" font-family="Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.85)">so nobody is dragging, or being dragged.</text>
+</svg>
