@@ -12,8 +12,7 @@ instead of mockups.
   `png-export/` folder for the finals, screenshots, and captions. Currently birmingham,
   boston, dublin-series2 (Tryka Series 2 Race 1), hyrox-dublin, tampa, and
   tryka-grand-finale-lisbon. The event's unposted teaser SVG lives in its folder.
-  (`boston-carousel/` still sits at the top level until the Boston post is confirmed live,
-  then it folds into `events/boston/`.)
+  (Boston was folded into `events/boston/` on 2 Oct after its post went live.)
 - **`features/`** — Thursday feature posts (texture-layout mockups, e.g. Pace match).
 - **`gyms/`** — gym-facing assets: the founding-gym cold email/DM sequence (sim-partner
   promo, general share, feedback poll, app-preview proof) and `public-carousel/`, the public
@@ -22,7 +21,7 @@ instead of mockups.
 - **`_templates/`** — generic launch slides kept as editable sources for new cities.
 - **`_archive/`** — finished events and old material: `2026-09/launch-carousel/` (the 14 Sep
   launch set) and `reference-archive/`. Move an event folder here once the race has happened.
-- **`_moments/`** — the three-posting-moments plan and `make_moment1.py` (B2C session).
+- **`_templates/moments/`** — the three-posting-moments plan and `make_moment1.py` (B2C session).
 
 ## The 4 slides (in `_archive/2026-09/launch-carousel/`; generic sources in `_templates/`)
 
@@ -128,5 +127,5 @@ works for that one post. Check `_needs-decision/` before reusing anything from t
 The launch carousel covers "we exist" for a new market. Nothing yet covers "race week is
 here, last chance to find a partner" urgency for a specific approaching event — the
 teaser SVGs now live inside their event folders (`events/hyrox-dublin/`, `events/dublin-series2/`,
-`events/birmingham/`); the three-moments plan in `_moments/` has superseded this gap for group posts. Birmingham (27–28 Oct) is the nearest upcoming
+`events/birmingham/`); the three-moments plan in `_templates/moments/` has superseded this gap for group posts. Birmingham (27–28 Oct) is the nearest upcoming
 race as of 29 Sep — good candidate to build the first proper version of this against.

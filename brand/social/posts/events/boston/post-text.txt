@@ -1,0 +1,31 @@
+HYROX BOSTON - MOMENT 3 (final week)   race 8-11 Oct 2026
+
+WHEN:    Fri 2 Oct, 5:30pm Irish time (12:30pm ET). Anywhere 5-7pm Irish time is fine.
+IMAGES:  4 images, in this order, from brand/social/posts/events/boston/png-export/
+           1. slide1-hook.png
+           2. slide2-partner-dropped-out.png
+           3. slide3-not-whoever-asked-first.png
+           4. slide4-connecting-hybrid-athletes.png
+NO TRYKA in US posts. One post per group.
+
+------------------------------------------------------------
+GROUP 1: HYROX Boston 2026 (public, 3.7K)
+POST AS: HyPair (the Page). Your join request must be approved first.
+https://www.facebook.com/groups/1893649848013340
+
+TEXT TO PASTE:
+
+Racing HYROX Boston (8-11 Oct) and still need a doubles partner? We built HyPair to solve exactly this. It matches you by pace and goal, not just whoever happens to ask first. Free to download: https://hypair.app Good luck out there 💪
+
+------------------------------------------------------------
+GROUP 2: HYROX Boston (private, 4.2K)
+POST AS: yourself (personal profile). Pages are not allowed in this group. Skip it if you are not approved.
+https://www.facebook.com/groups/1094885069405998
+Rules: no ticket sales.
+
+TEXT TO PASTE:
+
+Racing HYROX Boston (8-11 Oct) and still need a doubles partner? I built an app for exactly this. It matches you by pace and goal, not just whoever happens to ask first. Free on the App Store and Google Play: https://hypair.app. Good luck out there 💪
+
+------------------------------------------------------------
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.
