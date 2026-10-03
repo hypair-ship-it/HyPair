@@ -5,8 +5,8 @@
     { "source": "/hyrox-dublin", "destination": "/", "permanent": true },
     { "source": "/hyrox-doubles-partner", "destination": "/", "permanent": true },
     { "source": "/events", "destination": "/", "permanent": true },
-    { "source": "/event/:id*", "destination": "/", "permanent": false },
-    { "source": "/athlete/:id*", "destination": "/", "permanent": false }
+    { "source": "/event/:id*", "destination": "/?ref=invite", "permanent": false },
+    { "source": "/athlete/:id*", "destination": "/?ref=invite", "permanent": false }
   ],
   "headers": [
     {

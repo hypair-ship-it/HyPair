@@ -151,6 +151,15 @@ h1 .red { color: var(--red); }
   line-height: 1.75; max-width: 480px; margin-bottom: 36px;
   text-wrap: pretty;
 }
+/* Invite links (/event/*, /athlete/* redirect here with ?ref=invite): say so, in place of the generic pitch */
+.invite-only { display: none; }
+.invite .invite-only { display: block; }
+.invite .default-only { display: none; }
+.invite-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: #F2D079; margin-bottom: 14px;
+}
 
 /* App Store badge */
 .appstore-badge {
@@ -598,6 +607,7 @@ footer a:hover { color: var(--gold); }
   .faq-section { padding: 64px 20px; }
 }
 </style>
+  <script>if(/[?&]ref=invite(&|$)/.test(location.search)){document.documentElement.classList.add('invite');}</script>
   <script>if(!localStorage.getItem('hypair_owner')){var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s);}</script>
 </head>
 <body>
@@ -641,8 +651,10 @@ footer a:hover { color: var(--gold); }
 
     <!-- Text column -->
     <div class="hero-text" style="animation: fadeup 0.6s ease both;">
+      <p class="invite-eyebrow invite-only">You've been invited</p>
       <h1>Meet your<br><span class="red">match.</span></h1>
-      <p class="tagline">Finding the right doubles partner for HYROX and Tryka shouldn't be left to chance — whoever asks first, whoever you happened to train with, whoever posts in the Facebook group at the right time. HyPair matches you by pace, goal and the race you're actually entering.</p>
+      <p class="tagline invite-only">Someone invited you to race on HyPair. Download the app to join them — then you can see the event, find a doubles partner and get on the start line together.</p>
+      <p class="tagline default-only">Finding the right doubles partner for HYROX and Tryka shouldn't be left to chance — whoever asks first, whoever you happened to train with, whoever posts in the Facebook group at the right time. HyPair matches you by pace, goal and the race you're actually entering.</p>
 
       <div class="store-badges">
         <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
