@@ -261,11 +261,17 @@
 
   <p><strong>Usage and analytics data</strong> — which screens you visit, errors and crashes, basic device information (OS version, device type), and in-app activity events tied to your account (e.g. onboarding progress, match requests sent/received, and safety actions like blocking or reporting another user). We use this to fix bugs, understand where users get stuck, and enforce our Terms of Service. We do not sell this data.</p>
 
-  <p><strong>Push notification token</strong> — if you grant permission, we store a device token to send you match alerts and chat notifications. You can revoke this at any time in your device settings.</p>
+  <p><strong>Push notification token</strong> — if you grant permission, we store a device token to send you match alerts and chat notifications. The token is passed to Expo's push service and on to Apple's or Google's notification service to deliver the message. You can revoke this at any time in your device settings.</p>
+
+  <p><strong>Emails, pushes and in-app notifications we send</strong> — besides the emails that make the service work (verification, password reset, match alerts), we send: a reminder if you have not finished setting up your profile (an email and, if you have allowed notifications, a push), reminders to log your race result, notices about events you have joined (for example wave times shared, a change, or a cancellation), and a push when enough athletes have joined an event you are interested in. We also keep a list of the notifications shown in the app's bell. The reminder emails include an unsubscribe link, which stops those reminders and the matching pushes; you can switch off pushes at any time in your device settings.</p>
 
   <p><strong>Device location</strong> — if you tap the "Nearby" filter on the Events screen and grant location permission, we request a one-time, approximate (not precise) location fix from your device to sort/filter events by distance from you. We do not store this location or track it in the background — it's used only in the moment, on your device, to filter the list you're viewing. You can deny or revoke location permission at any time in your device settings; the app works fully without it.</p>
 
-  <p><strong>Gym owner data</strong> — if you set up a gym profile, we collect your gym's business name, address, phone number, website, and Instagram handle.</p>
+  <p><strong>Gym owner data</strong> — if you set up a gym profile, we collect your gym's business name, address, phone number, website, and Instagram handle. If you ask to set up a gym in the app, we also keep your request: the gym's name, town and country, a phone number if you give one, its status, and the reason we gave if it was declined.</p>
+
+  <p><strong>What a gym organiser can see</strong> — if you register for an event run by a gym organiser, that organiser can see your registration for that event: your name, photo, race format, goal, pace, wave and whether you have paid. They cannot see your email address or your exact date of birth.</p>
+
+  <p><strong>Website contact form</strong> — if you write to us through hypair.app/support, we store your name, email address and message (and, for gyms, the gym's name, location and website) so we can reply. We keep them for as long as needed to deal with your enquiry and any follow-up, and you can ask us to delete them at any time by emailing <a href="mailto:hello@hypair.app">hello@hypair.app</a>. They are not linked to an app account, so deleting your account in the app does not remove them.</p>
 
   <p><strong>Athlete data entered by a gym owner</strong> — a gym owner organising an event can manually add a non-app athlete's name, pace, and race format for their own event management. This is data about a third party, not about you if you're the athlete in question and haven't created an account — if you believe a gym has added your details and want them removed, contact <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
 
@@ -283,6 +289,14 @@
     <tr>
       <td>Sending transactional emails (verification, reset, match alerts)</td>
       <td>Contract performance (Art. 6(1)(b))</td>
+    </tr>
+    <tr>
+      <td>Event notices for events you joined (wave times shared, changes, cancellations)</td>
+      <td>Contract performance (Art. 6(1)(b))</td>
+    </tr>
+    <tr>
+      <td>Reminders (finish setting up your profile, log your race result) and the push when enough athletes have joined an event you are interested in</td>
+      <td>Legitimate interests (Art. 6(1)(f)) — you can opt out with the unsubscribe link or in your device settings</td>
     </tr>
     <tr>
       <td>Improving the app, fixing bugs, preventing abuse</td>
@@ -332,6 +346,12 @@
       <td>Standard Contractual Clauses (SCCs)</td>
     </tr>
     <tr>
+      <td><strong>Apple Inc. and Google LLC</strong></td>
+      <td>Delivering push notifications to iPhones and Android devices (through Expo's push service)</td>
+      <td>US</td>
+      <td>Standard Contractual Clauses (SCCs) or the EU–US Data Privacy Framework</td>
+    </tr>
+    <tr>
       <td><strong>Sentry (Functional Software, Inc.)</strong></td>
       <td>Crash and error reporting — tied to the screen/action where an error occurred, not directly to your name or email</td>
       <td>US</td>
@@ -339,7 +359,7 @@
     </tr>
     <tr>
       <td><strong>Other app users</strong></td>
-      <td>Your public profile (name, photo, bio, pace, race formats) is visible to other authenticated athletes browsing for partners. Your email address is never shared with other users.</td>
+      <td>Your public profile (name, photo, bio, pace, race formats) is visible to other authenticated athletes browsing for partners. If you register for a gym's event, that gym's organiser can also see your registration for it (see Section 2). Your email address is never shared with other users.</td>
       <td>N/A</td>
       <td>N/A</td>
     </tr>
@@ -365,6 +385,8 @@
     <li><strong>Active account data</strong> — kept for as long as your account is active</li>
     <li><strong>Deleted account data</strong> — your profile and event registrations are deleted immediately when you delete your account in Settings. Messages you sent have their content redacted (replaced with a placeholder); match history is anonymised — your identity is removed from the record, but the record itself (and the other party's copy of any shared conversation) is retained rather than deleted, so we don't destroy data that belongs to someone else's account too</li>
     <li><strong>Moderation records</strong> — kept for as long as needed to protect users and to handle legal claims. If you delete your account, any note you wrote on a report you made is erased, and your identity is removed from reports you made or that were made about you. The category, the outcome and the copy of the flagged message stay with the report as evidence, no longer linked to an account</li>
+    <li><strong>Athlete data entered by a gym owner</strong> — kept with the event it was entered for. If the gym owner deletes their account these entries are not deleted automatically; email <a href="mailto:hello@hypair.app">hello@hypair.app</a> and we will remove them</li>
+    <li><strong>Website contact-form messages</strong> — kept for as long as needed to deal with your enquiry and any follow-up, and deleted on request</li>
     <li><strong>Legacy waitlist data</strong> — pre-launch entries were fully deleted on 14 Sep 2026, once the waitlist was retired</li>
     <li><strong>Anonymised analytics</strong> — aggregated, non-identifiable usage data may be retained indefinitely</li>
   </ul>
