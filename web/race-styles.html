@@ -224,12 +224,13 @@ h2 {
 .styles-section { background: var(--light-bg); padding: 56px 24px 80px; }
 .styles-grid {
   max-width: 1120px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
 }
 .style-card {
   background: var(--white); border: 1px solid var(--border);
   border-radius: 16px; padding: 28px;
   display: flex; flex-direction: column;
+  flex: 0 1 calc(33.333% - 11px);
 }
 .style-card h3 {
   font-family: 'Barlow Condensed', sans-serif;
@@ -304,7 +305,7 @@ footer a:hover { color: var(--gold); }
 .footer-social svg { width: 20px; height: 20px; }
 
 @media (max-width: 960px) {
-  .styles-grid { grid-template-columns: 1fr 1fr; }
+  .style-card { flex-basis: calc(50% - 8px); }
 }
 @media (max-width: 640px) {
   nav { height: 60px; }
@@ -314,7 +315,7 @@ footer a:hover { color: var(--gold); }
   .page-hero { padding: 64px 20px; }
   h1 { font-size: 40px; }
   .intro-section, .styles-section, .callout-section, .future-section, .bottom-cta { padding: 56px 20px; }
-  .styles-grid { grid-template-columns: 1fr; }
+  .style-card { flex-basis: 100%; }
   .tags-grid { grid-template-columns: 1fr; }
 }
 </style>
