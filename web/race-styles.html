@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Race Styles — Find Your HYROX &amp; Tryka Racing Pattern | HyPair</title>
-<meta name="description" content="Every HYROX and Tryka doubles athlete races a little differently. Six race styles, what they mean for pacing, and who they pair best with.">
+<meta name="description" content="Every HYROX and Tryka doubles athlete has a race pattern. Five styles, what they mean, and who pairs best with each.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Race Styles — Find Your HYROX &amp; Tryka Racing Pattern | HyPair">
-<meta property="og:description" content="Every HYROX and Tryka doubles athlete races a little differently. Six race styles, what they mean for pacing, and who they pair best with.">
+<meta property="og:description" content="Every HYROX and Tryka doubles athlete has a race pattern. Five styles, what they mean, and who pairs best with each.">
 <meta property="og:image" content="/og-image.jpg">
 <meta property="og:url" content="https://hypair.app/race-styles">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Race Styles — Find Your HYROX &amp; Tryka Racing Pattern | HyPair">
-<meta name="twitter:description" content="Every HYROX and Tryka doubles athlete races a little differently. Six race styles, what they mean for pacing, and who they pair best with.">
+<meta name="twitter:description" content="Every HYROX and Tryka doubles athlete has a race pattern. Five styles, what they mean, and who pairs best with each.">
 <meta name="twitter:image" content="/og-image.jpg">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hypair.app/race-styles">
@@ -30,7 +30,7 @@
       "@id": "https://hypair.app/race-styles",
       "url": "https://hypair.app/race-styles",
       "name": "Race Styles — Find Your HYROX & Tryka Racing Pattern | HyPair",
-      "description": "Every HYROX and Tryka doubles athlete races a little differently. Six race styles, what they mean for pacing, and who they pair best with.",
+      "description": "Every HYROX and Tryka doubles athlete has a race pattern. Five styles, what they mean, and who pairs best with each.",
       "isPartOf": { "@id": "https://hypair.app" }
     },
     {
@@ -244,6 +244,24 @@ h2 {
 }
 .style-row p { font-size: 14.5px; color: var(--text-body); line-height: 1.65; }
 
+/* ── TAGS ── */
+.tags-head { text-align: center; max-width: 720px; margin: 48px auto 20px; }
+.tags-head .overline { margin-bottom: 0; }
+.tags-grid {
+  max-width: 760px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.tag-card {
+  background: transparent; border: 1px solid var(--border);
+  border-radius: 14px; padding: 20px 24px;
+}
+.tag-card h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px; font-weight: 700; letter-spacing: 0.2px;
+  color: var(--text-dark); margin-bottom: 6px;
+}
+.tag-card p { font-size: 14px; color: var(--text-body); line-height: 1.6; }
+
 /* ── GOAL CALLOUT ── */
 .callout-section { background: var(--dark-bg); padding: 64px 24px; }
 .callout-inner {
@@ -285,11 +303,8 @@ footer a:hover { color: var(--gold); }
 .footer-social a:hover { color: var(--gold); }
 .footer-social svg { width: 20px; height: 20px; }
 
-.styles-grid .style-card:last-child { grid-column: 2; }
-
 @media (max-width: 960px) {
   .styles-grid { grid-template-columns: 1fr 1fr; }
-  .styles-grid .style-card:last-child { grid-column: auto; }
 }
 @media (max-width: 640px) {
   nav { height: 60px; }
@@ -300,6 +315,7 @@ footer a:hover { color: var(--gold); }
   h1 { font-size: 40px; }
   .intro-section, .styles-section, .callout-section, .future-section, .bottom-cta { padding: 56px 20px; }
   .styles-grid { grid-template-columns: 1fr; }
+  .tags-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -342,8 +358,8 @@ footer a:hover { color: var(--gold); }
       <span class="hero-badge-dot"></span>
       Race styles
     </div>
-    <h1>Everyone races HYROX and Tryka a little <span class="red">differently.</span></h1>
-    <p class="tagline">Some of that shows up in your pace. Some of it shows up in how you spend your effort — where you're strong, where you fade, and how you pace the middle of the race. There's no wrong way to race. But knowing your pattern helps you race smarter, and helps you find a partner who complements it, not just matches your pace.</p>
+    <h1>Every athlete has a pattern. <span class="red">We found five.</span></h1>
+    <p class="tagline">It's not random, and it's not infinite — the same handful of patterns keep showing up, race after race. Knowing yours helps you race smarter, and helps you find a partner who complements it, not just matches your pace.</p>
   </div>
 </section>
 
@@ -352,7 +368,7 @@ footer a:hover { color: var(--gold); }
   <div class="section-head">
     <p class="overline">Why this matters for doubles</p>
     <h2>You can split the stations. You can't split the runs.</h2>
-    <p class="section-sub">In HYROX and Tryka doubles, you and your partner can divide the stations between you however you like — but every run is shared, and the team only moves as fast as whichever of you is slower that lap. That's most of doubles strategy in one sentence: your partner's strengths can cover your weak stations, but nobody can run a leg for you. Recognising your own pattern, and your partner's, does most of the rest.</p>
+    <p class="section-sub">In hybrid competition doubles, you and your partner can divide the stations between you however you like — but every run is shared, and the team only moves as fast as whichever of you is slower that lap. That one rule is why these patterns matter: your partner's strengths can cover your weak stations, but nobody can run a leg for you. Recognising your own pattern, and your partner's, does most of the rest.</p>
   </div>
 </section>
 
@@ -370,10 +386,6 @@ footer a:hover { color: var(--gold); }
         <div class="style-label">Best paired with</div>
         <p>A station specialist — you take on more of the running volume, they strip sled and carry time off both your legs.</p>
       </div>
-      <div class="style-row">
-        <div class="style-label">Watch for</div>
-        <p>Going out too hot early because the pace feels easy. The team's overall time still depends on both of you finishing.</p>
-      </div>
     </div>
 
     <div class="style-card">
@@ -385,26 +397,6 @@ footer a:hover { color: var(--gold); }
       <div class="style-row">
         <div class="style-label">Best paired with</div>
         <p>A Pacemaker whose run pace you can actually hold. The gap can't be minutes, or the runs undo everything you saved on stations.</p>
-      </div>
-      <div class="style-row">
-        <div class="style-label">Watch for</div>
-        <p>Choosing a partner on strength alone. The team only moves as fast as your combined running.</p>
-      </div>
-    </div>
-
-    <div class="style-card">
-      <h3>The Finisher</h3>
-      <div class="style-row">
-        <div class="style-label">The pattern</div>
-        <p>Strong at bodyweight stations — wall balls, burpees, lunges — but the time goes back at the pulling and machine stations: ski erg, rowing, sled pull.</p>
-      </div>
-      <div class="style-row">
-        <div class="style-label">Best paired with</div>
-        <p>Someone strong on the machine stations — the mirror image of your gaps, not someone who shares them.</p>
-      </div>
-      <div class="style-row">
-        <div class="style-label">Watch for</div>
-        <p>Treating "strong at bodyweight" as strong everywhere. The pulling stations are where doubles strategy earns you back the most time.</p>
       </div>
     </div>
 
@@ -418,10 +410,6 @@ footer a:hover { color: var(--gold); }
         <div class="style-label">Best paired with</div>
         <p>Almost anyone — which makes you a great first doubles partner for someone racing HYROX or Tryka for the first time.</p>
       </div>
-      <div class="style-row">
-        <div class="style-label">Watch for</div>
-        <p>Becoming the one who absorbs an uneven split by default. Agree the split before the race, not mid-race.</p>
-      </div>
     </div>
 
     <div class="style-card">
@@ -433,10 +421,6 @@ footer a:hover { color: var(--gold); }
       <div class="style-row">
         <div class="style-label">Best paired with</div>
         <p>Someone who paces the middle of the race for both of you — happy to hold you back early so you're not paying for it at station six.</p>
-      </div>
-      <div class="style-row">
-        <div class="style-label">Watch for</div>
-        <p>Letting the first ten minutes decide the race. Bank patience, not just pace.</p>
       </div>
     </div>
 
@@ -450,28 +434,22 @@ footer a:hover { color: var(--gold); }
         <div class="style-label">Best paired with</div>
         <p>A Fast Starter, if you can agree a shared plan: you cover their fade, they cover your slow start, and the average comes out ahead.</p>
       </div>
-      <div class="style-row">
-        <div class="style-label">Watch for</div>
-        <p>Starting so conservatively your partner spends the whole first half convinced something's wrong.</p>
-      </div>
     </div>
 
-    <div class="style-card">
-      <h3>The Transition Grinder</h3>
-      <div class="style-row">
-        <div class="style-label">The pattern</div>
-        <p>Solid runs, solid stations individually — but the time between them quietly adds up across the race.</p>
-      </div>
-      <div class="style-row">
-        <div class="style-label">Best paired with</div>
-        <p>Someone who's raced doubles before and can keep both of you moving between stations without either of you noticing the gap.</p>
-      </div>
-      <div class="style-row">
-        <div class="style-label">Watch for</div>
-        <p>The easiest style to fix on this list — practising transitions under fatigue closes more time than almost anything else here.</p>
-      </div>
-    </div>
+  </div>
 
+  <div class="tags-head">
+    <p class="overline">Two things that show up on top of your style</p>
+  </div>
+  <div class="tags-grid">
+    <div class="tag-card">
+      <h4>Slow transitions</h4>
+      <p>A pattern that can sit on top of any style. Solid runs, solid stations individually — but the time between them adds up across the race.</p>
+    </div>
+    <div class="tag-card">
+      <h4>The burpee gap</h4>
+      <p>Strong everywhere else, but losing time specifically at burpees. A narrow pattern, not a sign of a weaker overall level.</p>
+    </div>
   </div>
 </section>
 
