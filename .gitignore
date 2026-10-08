@@ -22,3 +22,6 @@ legal/
 
 # Supabase CLI local link cache
 supabase/.temp/
+
+# Dependencies
+node_modules/
