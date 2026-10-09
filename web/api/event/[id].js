@@ -3,7 +3,7 @@
 // Before this, /event/:id redirected straight to the home page, so every shared event
 // looked identical in WhatsApp/Facebook/iMessage. Now a chat app's preview robot gets
 // this event's own Open Graph tags (name, date, city, a card image), and a real visitor
-// is sent on to the existing "You've been invited" landing (/?ref=invite).
+// is sent on to the event invite page (/invite?e=<id>, web/invite.html), which names the event and says how to join.
 //
 // Deliberately NOT an HTTP redirect for the robot: most robots follow 3xx and would then
 // read the home page's generic tags. A meta refresh + script moves people instead.
@@ -11,7 +11,7 @@
 // Installed apps never get here: /event/* is a Universal Link / App Link, so the phone
 // hands the tap to the app before the browser is involved.
 //
-// A draft, hidden or unknown event gets a plain redirect to the landing page (the
+// A draft, hidden or unknown event gets a plain redirect to the invite page without an event (the
 // generic site card), exactly as before. No athlete data is read or shown.
 //
 // :id is the event's full id or its 6-character short code (hypair.app/event/K7M2QX).
@@ -21,7 +21,7 @@
 
 const { isShortCode, fetchEvent, escapeHtml, whenWhere } = require('../_eventShare');
 
-const LANDING = '/?ref=invite';
+const LANDING = '/invite';   // the event invite page (web/invite.html); an event id is added as ?e=
 
 module.exports = async function handler(req, res) {
   const { id } = req.query;
@@ -36,7 +36,7 @@ module.exports = async function handler(req, res) {
 
   // The landing page looks the event up again by id, to say which event the link was for. id is a
   // UUID taken from the database row, so it is safe in a URL and in the script below.
-  const landing = `${LANDING}&e=${encodeURIComponent(ev.id)}`;
+  const landing = `${LANDING}?e=${encodeURIComponent(ev.id)}`;
   const title = escapeHtml(`${ev.name} — HyPair`);
   const formats = Array.isArray(ev.formats) && ev.formats.length ? ` Formats: ${ev.formats.join(', ')}.` : '';
   const description = escapeHtml(`${whenWhere(ev)}.${formats} Find your partner and sign up on HyPair.`);
