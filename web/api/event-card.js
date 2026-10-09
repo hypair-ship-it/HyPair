@@ -23,6 +23,7 @@ const SUPABASE_PUBLIC_KEY = 'sb_publishable_9U61L_y4qyiXga9-VK0rFw_oaDrGmIT';
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 const GOLD = '#F2D079';
+const RED = '#E22424';   // the app's primary-button red
 const INK = '#0F1318';
 
 // The brand mark (same paths as favicon.svg), cropped to the mark itself, as an image Satori can draw.
@@ -105,13 +106,31 @@ function glow() {
   }, []);
 }
 
+function redGlow() {
+  return el('div', {
+    position: 'absolute', display: 'flex', left: '-260px', bottom: '-380px', width: '760px', height: '760px', borderRadius: '380px',
+    backgroundImage: 'radial-gradient(circle, rgba(226,36,36,0.16) 0%, rgba(226,36,36,0) 68%)',
+  }, []);
+}
+
+// Small red marker in front of the gold line at the top (a dot, not a stripe).
+function eyebrow(text) {
+  return el('div', { display: 'flex', alignItems: 'center', marginBottom: 14 }, [
+    el('div', { display: 'flex', width: 14, height: 14, borderRadius: 7, backgroundColor: RED, marginRight: 16 }, []),
+    el('div', { display: 'flex', fontSize: 26, fontWeight: 700, letterSpacing: 7, color: GOLD }, text),
+  ]);
+}
+
 function footer() {
   return el('div', { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }, [
     el('div', { display: 'flex', alignItems: 'center' }, [
       { type: 'img', props: { src: markSvg(GOLD), width: 26, height: 36, style: { marginRight: 14 } } },
       el('div', { display: 'flex', fontSize: 32, fontWeight: 700, color: 'rgba(255,255,255,0.92)', letterSpacing: 0.5 }, 'HyPair'),
     ]),
-    el('div', { display: 'flex', fontSize: 28, fontWeight: 500, color: 'rgba(255,255,255,0.55)' }, 'hypair.app'),
+    // The one call to action: the same red as the app's main buttons.
+    el('div', { display: 'flex', alignItems: 'center', backgroundColor: RED, borderRadius: 999, padding: '14px 34px' }, [
+      el('div', { display: 'flex', fontSize: 30, fontWeight: 700, color: '#fff', letterSpacing: 0.5 }, 'Join on HyPair'),
+    ]),
   ]);
 }
 
@@ -124,8 +143,9 @@ function eventCard(ev) {
 
   return el('div', background(), [
     glow(),
+    redGlow(),
     el('div', { display: 'flex', flexDirection: 'column' }, [
-      el('div', { display: 'flex', fontSize: 26, fontWeight: 700, letterSpacing: 7, color: GOLD, marginBottom: 14 }, eyebrowFor(ev)),
+      eyebrow(eyebrowFor(ev)),
       el('div', { display: 'flex', fontFamily: 'Bebas', fontSize: nameSize(shortened(ev.name)), lineHeight: 0.98, letterSpacing: 1.5, color: '#fff', maxWidth: '1000px' }, shortened(ev.name)),
       when && el('div', { display: 'flex', fontFamily: 'Bebas', fontSize: 58, letterSpacing: 3, color: GOLD, marginTop: 22 }, when.toUpperCase()),
       place && el('div', { display: 'flex', fontSize: 34, fontWeight: 500, color: 'rgba(255,255,255,0.72)', marginTop: 4 }, place),
@@ -143,8 +163,9 @@ function eventCard(ev) {
 function genericCard() {
   return el('div', background(), [
     glow(),
+    redGlow(),
     el('div', { display: 'flex', flexDirection: 'column' }, [
-      el('div', { display: 'flex', fontSize: 26, fontWeight: 700, letterSpacing: 7, color: GOLD, marginBottom: 14 }, 'HYROX  ·  TRYKA'),
+      eyebrow('HYROX  ·  TRYKA'),
       el('div', { display: 'flex', fontFamily: 'Bebas', fontSize: 168, lineHeight: 0.98, letterSpacing: 1.5, color: '#fff' }, 'Meet your match'),
       el('div', { display: 'flex', fontSize: 36, fontWeight: 500, color: 'rgba(255,255,255,0.72)', marginTop: 18 }, 'Find a doubles partner for your next race'),
     ]),
