@@ -14,11 +14,12 @@
 // A draft, hidden or unknown event gets a plain redirect to the landing page (the
 // generic site card), exactly as before. No athlete data is read or shown.
 //
+// :id is the event's full id or its 6-character short code (hypair.app/event/K7M2QX).
 // Redirected from /event/:id by vercel.json. `?v=...` on the link is ignored here; it
 // only exists so a changed message (wave times, results) is a different URL to WhatsApp,
 // which remembers previews per URL for days.
 
-const { isEventId, fetchEvent, escapeHtml, whenWhere } = require('../_eventShare');
+const { isShortCode, fetchEvent, escapeHtml, whenWhere } = require('../_eventShare');
 
 const LANDING = '/?ref=invite';
 
@@ -34,13 +35,14 @@ module.exports = async function handler(req, res) {
   }
 
   // The landing page looks the event up again by id, to say which event the link was for. id is a
-  // validated UUID (fetchEvent returned a row only for one), so it is safe in a URL and in the script below.
-  const landing = `${LANDING}&e=${encodeURIComponent(id)}`;
+  // UUID taken from the database row, so it is safe in a URL and in the script below.
+  const landing = `${LANDING}&e=${encodeURIComponent(ev.id)}`;
   const title = escapeHtml(`${ev.name} — HyPair`);
   const formats = Array.isArray(ev.formats) && ev.formats.length ? ` Formats: ${ev.formats.join(', ')}.` : '';
   const description = escapeHtml(`${whenWhere(ev)}.${formats} Find your partner and sign up on HyPair.`);
-  const pageUrl = `https://hypair.app/event/${encodeURIComponent(id)}`;
-  const cardUrl = `https://hypair.app/api/event-card?id=${encodeURIComponent(id)}`;
+  // The link that was opened is the canonical one: a short link stays short in the preview.
+  const pageUrl = `https://hypair.app/event/${isShortCode(id) ? encodeURIComponent(id.toUpperCase()) : encodeURIComponent(id)}`;
+  const cardUrl = `https://hypair.app/api/event-card?id=${encodeURIComponent(ev.id)}`;
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   // Events change (date, name); keep previews fresh enough but protect the function from bursts.

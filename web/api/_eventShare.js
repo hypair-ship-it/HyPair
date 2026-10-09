@@ -15,11 +15,27 @@ function isEventId(id) {
   return typeof id === 'string' && UUID.test(id);
 }
 
-async function fetchEvent(id) {
-  if (!isEventId(id)) return null;
+// Short links: hypair.app/event/K7M2QX. Six characters, no 0/O/1/I/L (events.short_code, always capitals in the
+// database; matched here without regard to case).
+const SHORT_CODE = /^[A-HJKMNP-Za-hjkmnp-z2-9]{6}$/;
+
+function isShortCode(value) {
+  return typeof value === 'string' && SHORT_CODE.test(value);
+}
+
+/**
+ * A live event by its full id OR its short code, or null (unknown, draft, hidden, or the lookup failed).
+ * Returns the id too, since a code link still needs the id for the card image and the landing page.
+ * The full-id lookup never mentions short_code, so it keeps working on a database that has no codes yet.
+ */
+async function fetchEvent(idOrCode) {
+  let filter;
+  if (isEventId(idOrCode)) filter = `id=eq.${encodeURIComponent(idOrCode)}`;
+  else if (isShortCode(idOrCode)) filter = `short_code=eq.${encodeURIComponent(idOrCode.toUpperCase())}`;
+  else return null;
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/events?id=eq.${encodeURIComponent(id)}&is_live=eq.true&select=name,date,date_end,start_time,city,formats,is_sim`,
+      `${SUPABASE_URL}/rest/v1/events?${filter}&is_live=eq.true&select=id,name,date,date_end,start_time,city,formats,is_sim`,
       { headers: { apikey: SUPABASE_PUBLIC_KEY, Authorization: `Bearer ${SUPABASE_PUBLIC_KEY}` } },
     );
     if (!res.ok) return null;
@@ -57,4 +73,4 @@ function whenWhere(ev) {
   return [prettyDate(ev.date), prettyTime(ev.start_time), ev.city].filter(Boolean).join(' · ');
 }
 
-module.exports = { SUPABASE_URL, isEventId, fetchEvent, escapeHtml, prettyDate, prettyTime, whenWhere };
+module.exports = { SUPABASE_URL, isEventId, isShortCode, fetchEvent, escapeHtml, prettyDate, prettyTime, whenWhere };
