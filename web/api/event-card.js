@@ -4,10 +4,11 @@
 // has to make or upload a picture: the chat app fetches this URL itself when the link is pasted.
 // No JSX here (this site has no build step), so the card is a plain element tree.
 //
-// Design (founder feedback 9 Oct 2026): the EVENT is the hero, not HyPair. Event name in the brand's
-// display font (Bebas Neue), the date in gold, the place, the formats as quiet pills, and one small
-// HyPair mark at the bottom. No stripe, no "find your partner" slogan. A gym should be able to post
-// this as "we're running this event", with HyPair as the way to join.
+// Design (founder feedback 9 Oct 2026, twice): built on the brand's own social-post system (brand/BRAND.md,
+// "Swiss Alps"): solid Summit slate background, the gold mark + wordmark top-left, a letter-spaced RED
+// line (the only red), a big white headline, white-toned details, Sun Valley gold only for the logo and the
+// format chips. No gradients, glows, stripes or buttons. HyPair appears once (top-left): the chat app already
+// prints the domain under the picture, and the gym's event is the point of the card.
 //
 // Same data and limits as api/event/[id].js: live events only, no athlete data, no gym name (gyms
 // are not readable logged out). A draft, hidden or unknown event gets the generic HyPair card.
@@ -22,9 +23,9 @@ const SUPABASE_URL = 'https://lsxprzoxoarfakhxhoab.supabase.co';
 const SUPABASE_PUBLIC_KEY = 'sb_publishable_9U61L_y4qyiXga9-VK0rFw_oaDrGmIT';
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-const GOLD = '#F2D079';
-const RED = '#E22424';   // the app's primary-button red
-const INK = '#0F1318';
+const GOLD = '#F2D079';   // Sun Valley: logo and chips only
+const RED = '#E22424';    // Swiss Alps Red: the one accent line
+const SUMMIT = '#4C5F6B'; // brand background for social
 
 // The brand mark (same paths as favicon.svg), cropped to the mark itself, as an image Satori can draw.
 function markSvg(fill) {
@@ -59,11 +60,10 @@ async function fetchEvent(id) {
 // Fonts are static files on this same site (assets/fonts/*.ttf); Satori cannot read woff2.
 async function loadFonts(origin) {
   const get = async (file) => (await fetch(`${origin}/assets/fonts/${file}`)).arrayBuffer();
-  const [bebas, barlow, barlowBold] = await Promise.all([get('BebasNeue-Regular.ttf'), get('Barlow-Medium.ttf'), get('Barlow-Bold.ttf')]);
+  const [medium, bold] = await Promise.all([get('Barlow-Medium.ttf'), get('Barlow-Bold.ttf')]);
   return [
-    { name: 'Bebas', data: bebas, weight: 400, style: 'normal' },
-    { name: 'Barlow', data: barlow, weight: 500, style: 'normal' },
-    { name: 'Barlow', data: barlowBold, weight: 700, style: 'normal' },
+    { name: 'Barlow', data: medium, weight: 500, style: 'normal' },
+    { name: 'Barlow', data: bold, weight: 700, style: 'normal' },
   ];
 }
 
@@ -73,103 +73,81 @@ function eyebrowFor(ev) {
   return ev.is_sim ? `${series} SIMULATION` : series;
 }
 
-/** Event names vary from "Dublin" to a full sentence; shrink the type so two lines always fit. */
+/**
+ * Event names run from "Dublin" to a full sentence. Pick the largest type size whose estimated wrapped height
+ * (words wrap, so a character is counted at about 0.58 of the size) fits the 210px the headline may use.
+ */
 function nameSize(name) {
   const n = name.length;
-  if (n <= 14) return 168;
-  if (n <= 24) return 132;
-  if (n <= 36) return 104;
-  if (n <= 48) return 84;
-  if (n <= 64) return 68;
-  return 56;
+  for (const size of [140, 120, 104, 92, 80, 72, 64, 56, 50]) {
+    const perLine = 1040 / (0.58 * size);
+    const lines = Math.ceil(n / perLine);
+    if (lines * size * 1.04 <= 210) return size;
+  }
+  return 44;
 }
 
-/** Past ~90 characters even the smallest size would run to a third line. */
+/** Past ~90 characters even the smallest size would run long. */
 function shortened(name) {
   return name.length > 90 ? `${name.slice(0, 87).trimEnd()}…` : name;
 }
 
-function background() {
-  return {
-    display: 'flex', position: 'relative', flexDirection: 'column', justifyContent: 'space-between',
-    width: '1200px', height: '630px', padding: '64px 72px',
-    backgroundColor: INK,
-    backgroundImage: 'linear-gradient(135deg, #0F1318 0%, #141B24 60%, #1A2430 100%)',
-    color: '#fff', fontFamily: 'Barlow',
-  };
-}
-
-function glow() {
+function canvas(children) {
   return el('div', {
-    position: 'absolute', display: 'flex', right: '-220px', top: '-260px', width: '760px', height: '760px', borderRadius: '380px',
-    backgroundImage: 'radial-gradient(circle, rgba(242,208,121,0.20) 0%, rgba(242,208,121,0) 68%)',
-  }, []);
+    display: 'flex', flexDirection: 'column', width: '1200px', height: '630px', padding: '60px 76px',
+    backgroundColor: SUMMIT, color: '#fff', fontFamily: 'Barlow',
+  }, children);
 }
 
-function redGlow() {
-  return el('div', {
-    position: 'absolute', display: 'flex', left: '-260px', bottom: '-380px', width: '760px', height: '760px', borderRadius: '380px',
-    backgroundImage: 'radial-gradient(circle, rgba(226,36,36,0.16) 0%, rgba(226,36,36,0) 68%)',
-  }, []);
+// The brand lockup, as on the social posts: gold mark, gold wordmark, top-left.
+function lockup() {
+  return el('div', { display: 'flex', alignItems: 'center' }, [
+    { type: 'img', props: { src: markSvg(GOLD), width: 31, height: 42, style: { marginRight: 16 } } },
+    el('div', { display: 'flex', fontSize: 40, fontWeight: 700, color: GOLD }, 'HyPair'),
+  ]);
 }
 
-// Small red marker in front of the gold line at the top (a dot, not a stripe).
+// The red line above the headline, letter-spaced capitals, as on the posts.
 function eyebrow(text) {
-  return el('div', { display: 'flex', alignItems: 'center', marginBottom: 14 }, [
-    el('div', { display: 'flex', width: 14, height: 14, borderRadius: 7, backgroundColor: RED, marginRight: 16 }, []),
-    el('div', { display: 'flex', fontSize: 26, fontWeight: 700, letterSpacing: 7, color: GOLD }, text),
-  ]);
+  return el('div', { display: 'flex', fontSize: 28, fontWeight: 700, letterSpacing: 8, color: RED, marginBottom: 18 }, text);
 }
 
-function footer() {
-  return el('div', { display: 'flex', alignItems: 'center', justifyContent: 'space-between' }, [
-    el('div', { display: 'flex', alignItems: 'center' }, [
-      { type: 'img', props: { src: markSvg(GOLD), width: 26, height: 36, style: { marginRight: 14 } } },
-      el('div', { display: 'flex', fontSize: 32, fontWeight: 700, color: 'rgba(255,255,255,0.92)', letterSpacing: 0.5 }, 'HyPair'),
-    ]),
-    // The one call to action: the same red as the app's main buttons.
-    el('div', { display: 'flex', alignItems: 'center', backgroundColor: RED, borderRadius: 999, padding: '14px 34px' }, [
-      el('div', { display: 'flex', fontSize: 30, fontWeight: 700, color: '#fff', letterSpacing: 0.5 }, 'Join on HyPair'),
-    ]),
-  ]);
+function chip(label) {
+  return el('div', {
+    display: 'flex', fontSize: 24, fontWeight: 500, color: GOLD, backgroundColor: 'rgba(242,208,121,0.12)',
+    border: '1.5px solid rgba(242,208,121,0.35)', borderRadius: 999, padding: '7px 22px', marginRight: 12,
+  }, label);
 }
 
 function eventCard(ev) {
-  const when = [prettyDate(ev.date), typeof ev.start_time === 'string' && /^\d{2}:\d{2}/.test(ev.start_time) ? ev.start_time.slice(0, 5) : ''].filter(Boolean).join('  ·  ');
+  const name = shortened(ev.name);
+  const when = [prettyDate(ev.date), typeof ev.start_time === 'string' && /^\d{2}:\d{2}/.test(ev.start_time) ? ev.start_time.slice(0, 5) : ''].filter(Boolean).join('   ·   ');
   const place = [ev.city, ev.country].filter(Boolean).join(', ');
   // Four formats and "+N more": an official race can list eight, and half a list reads as a mistake.
   const all = Array.isArray(ev.formats) ? ev.formats : [];
   const formats = all.length > 5 ? [...all.slice(0, 4), `+${all.length - 4} more`] : all;
 
-  return el('div', background(), [
-    glow(),
-    redGlow(),
-    el('div', { display: 'flex', flexDirection: 'column' }, [
+  return canvas([
+    lockup(),
+    el('div', { display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', paddingTop: 20 }, [
       eyebrow(eyebrowFor(ev)),
-      el('div', { display: 'flex', fontFamily: 'Bebas', fontSize: nameSize(shortened(ev.name)), lineHeight: 0.98, letterSpacing: 1.5, color: '#fff', maxWidth: '1000px' }, shortened(ev.name)),
-      when && el('div', { display: 'flex', fontFamily: 'Bebas', fontSize: 58, letterSpacing: 3, color: GOLD, marginTop: 22 }, when.toUpperCase()),
-      place && el('div', { display: 'flex', fontSize: 34, fontWeight: 500, color: 'rgba(255,255,255,0.72)', marginTop: 4 }, place),
-      formats.length > 0 && el('div', { display: 'flex', marginTop: 26 },
-        formats.map((f) => el('div', {
-          display: 'flex', fontSize: 24, fontWeight: 500, color: 'rgba(255,255,255,0.85)', backgroundColor: 'rgba(255,255,255,0.08)',
-          border: '1.5px solid rgba(255,255,255,0.16)', borderRadius: 999, padding: '7px 20px', marginRight: 12,
-        }, f))),
+      el('div', { display: 'flex', fontSize: nameSize(name), fontWeight: 700, lineHeight: 1.04, letterSpacing: -1.5, color: '#fff', maxWidth: '1040px' }, name),
+      when && el('div', { display: 'flex', fontSize: 46, fontWeight: 700, color: '#fff', marginTop: 26 }, when),
+      place && el('div', { display: 'flex', fontSize: 34, fontWeight: 500, color: 'rgba(255,255,255,0.72)', marginTop: 6 }, place),
+      formats.length > 0 && el('div', { display: 'flex', marginTop: 28 }, formats.map(chip)),
     ].filter(Boolean)),
-    footer(),
   ]);
 }
 
 // Unknown, draft or hidden event: the brand card.
 function genericCard() {
-  return el('div', background(), [
-    glow(),
-    redGlow(),
-    el('div', { display: 'flex', flexDirection: 'column' }, [
+  return canvas([
+    lockup(),
+    el('div', { display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center' }, [
       eyebrow('HYROX  ·  TRYKA'),
-      el('div', { display: 'flex', fontFamily: 'Bebas', fontSize: 168, lineHeight: 0.98, letterSpacing: 1.5, color: '#fff' }, 'Meet your match'),
-      el('div', { display: 'flex', fontSize: 36, fontWeight: 500, color: 'rgba(255,255,255,0.72)', marginTop: 18 }, 'Find a doubles partner for your next race'),
+      el('div', { display: 'flex', fontSize: 120, fontWeight: 700, lineHeight: 1.04, letterSpacing: -2, color: '#fff' }, 'Meet your match.'),
+      el('div', { display: 'flex', fontSize: 38, fontWeight: 500, color: 'rgba(255,255,255,0.72)', marginTop: 22 }, 'Find a doubles partner for your next race.'),
     ]),
-    footer(),
   ]);
 }
 
