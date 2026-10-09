@@ -33,6 +33,9 @@ module.exports = async function handler(req, res) {
     return;
   }
 
+  // The landing page looks the event up again by id, to say which event the link was for. id is a
+  // validated UUID (fetchEvent returned a row only for one), so it is safe in a URL and in the script below.
+  const landing = `${LANDING}&e=${encodeURIComponent(id)}`;
   const title = escapeHtml(`${ev.name} — HyPair`);
   const formats = Array.isArray(ev.formats) && ev.formats.length ? ` Formats: ${ev.formats.join(', ')}.` : '';
   const description = escapeHtml(`${whenWhere(ev)}.${formats} Find your partner and sign up on HyPair.`);
@@ -61,12 +64,12 @@ module.exports = async function handler(req, res) {
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${cardUrl}">
-<meta http-equiv="refresh" content="0;url=${LANDING}">
+<meta http-equiv="refresh" content="0;url=${escapeHtml(landing)}">
 <style>body{background:#0F1318;color:#fff;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}a{color:#F2D079;}</style>
 </head>
 <body>
-<p>Taking you to HyPair… <a href="${LANDING}">Continue</a></p>
-<script>window.location.replace('${LANDING}');</script>
+<p>Taking you to HyPair… <a href="${escapeHtml(landing)}">Continue</a></p>
+<script>window.location.replace('${landing}');</script>
 </body>
 </html>`);
 };

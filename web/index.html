@@ -161,6 +161,15 @@ h1 .red { color: var(--red); }
   color: #F2D079; margin-bottom: 14px;
 }
 
+/* Invite landing: which event, and what to do next (filled in from the link's event id) */
+.invite-event { margin: 0 0 20px; padding: 14px 18px; border: 1px solid var(--gold-border); background: var(--gold-dim); border-radius: 12px; max-width: 480px; }
+.invite-event-name { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; line-height: 1.15; color: var(--white); }
+.invite-event-meta { font-size: 15px; color: var(--white-60); margin-top: 4px; }
+.invite-steps { list-style: none; counter-reset: step; max-width: 480px; margin: 0 0 28px; padding: 0; }
+.invite-steps li { counter-increment: step; position: relative; padding: 6px 0 6px 40px; font-size: 16px; line-height: 1.5; color: var(--white-60); }
+.invite-steps li::before { content: counter(step); position: absolute; left: 0; top: 6px; width: 26px; height: 26px; border-radius: 50%; background: var(--gold-dim); border: 1px solid var(--gold-border); color: var(--gold); font-weight: 700; font-size: 14px; text-align: center; line-height: 24px; }
+.invite-steps strong { color: var(--white); font-weight: 600; }
+
 /* App Store badge */
 .appstore-badge {
   display: inline-flex; align-items: center; gap: 10px;
@@ -654,6 +663,16 @@ footer a:hover { color: var(--gold); }
       <p class="invite-eyebrow invite-only">You've been invited</p>
       <h1>Meet your<br><span class="red">match.</span></h1>
       <p class="tagline invite-only">Someone invited you to race on HyPair. Download the app to join them — then you can see the event, find a doubles partner and get on the start line together.</p>
+      <div class="invite-event invite-only" id="invite-event" hidden>
+        <div class="invite-event-name" id="invite-event-name"></div>
+        <div class="invite-event-meta" id="invite-event-meta"></div>
+      </div>
+      <ol class="invite-steps invite-only" aria-label="How to join">
+        <li><strong>Download HyPair</strong> (free) from the App Store or Google Play.</li>
+        <li><strong>Create your profile</strong>: it takes a couple of minutes.</li>
+        <li>Open the <strong>Events</strong> tab, find <strong id="invite-step-event">this event</strong> and tap <strong>Join</strong>.</li>
+        <li><strong>Find your partner</strong>, chat and lock it in.<span id="invite-wave-note" hidden> The gym will send your wave time.</span></li>
+      </ol>
       <p class="tagline default-only">Finding the right doubles partner for HYROX and Tryka shouldn't be left to chance — whoever asks first, whoever you happened to train with, whoever posts in the Facebook group at the right time. HyPair matches you by pace, goal and the race you're actually entering.</p>
 
       <div class="store-badges">
@@ -941,6 +960,28 @@ footer a:hover { color: var(--gold); }
     document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+</script>
+<script>
+/* Invite landing: show which event the link was for. The event is looked up by id (live events only, public
+   fields name/date/city), never taken from the URL text, so a crafted link cannot put words on this page. */
+(function () {
+  if (!document.documentElement.classList.contains('invite')) return;
+  var m = location.search.match(/[?&]e=([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(&|$)/i);
+  if (!m) return;
+  fetch('https://lsxprzoxoarfakhxhoab.supabase.co/rest/v1/events?id=eq.' + m[1] + '&is_live=eq.true&select=name,date,city,is_sim', {
+    headers: { apikey: 'sb_publishable_9U61L_y4qyiXga9-VK0rFw_oaDrGmIT' }
+  }).then(function (r) { return r.ok ? r.json() : []; }).then(function (rows) {
+    var ev = rows && rows[0];
+    if (!ev || !ev.name) return;
+    var d = new Date(ev.date + 'T00:00:00Z');
+    var when = isNaN(d.getTime()) ? '' : d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+    document.getElementById('invite-event-name').textContent = ev.name;
+    document.getElementById('invite-event-meta').textContent = [when, ev.city].filter(Boolean).join(' · ');
+    document.getElementById('invite-step-event').textContent = ev.name;
+    document.getElementById('invite-wave-note').hidden = !ev.is_sim;
+    document.getElementById('invite-event').hidden = false;
+  }).catch(function () {});
+})();
 </script>
 </body>
 </html>
