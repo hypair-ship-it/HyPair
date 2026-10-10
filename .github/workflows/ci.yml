@@ -32,7 +32,10 @@ jobs:
               const path = 'web' + (target === '/' ? '/index.html' : target);
               // cleanUrls: true resolves an extensionless destination to its
               // .html file automatically on Vercel, so check both forms.
-              if (!fs.existsSync(path) && !fs.existsSync(path + '.html')) {
+              // A :param segment under /api/ is a dynamic serverless function
+              // file named [param].js (e.g. /api/event/:id -> web/api/event/[id].js).
+              const fnPath = path.replace(/:(\w+)/g, (m, p) => '[' + p + ']') + '.js';
+              if (!fs.existsSync(path) && !fs.existsSync(path + '.html') && !fs.existsSync(fnPath)) {
                 console.error('Missing ' + label + ' target: ' + destination);
                 ok = false;
               }
