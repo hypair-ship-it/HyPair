@@ -35,7 +35,7 @@ async function fetchEvent(idOrCode) {
   else return null;
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/events?${filter}&is_live=eq.true&select=id,name,date,date_end,start_time,city,formats,is_sim`,
+      `${SUPABASE_URL}/rest/v1/events?${filter}&is_live=eq.true&select=id,name,date,date_end,start_time,city,formats,is_sim,waves_published`,
       { headers: { apikey: SUPABASE_PUBLIC_KEY, Authorization: `Bearer ${SUPABASE_PUBLIC_KEY}` } },
     );
     if (!res.ok) return null;

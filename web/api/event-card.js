@@ -46,7 +46,7 @@ async function fetchEvent(id) {
   if (!id || !UUID.test(id)) return null;
   try {
     const res = await fetch(
-      `${SUPABASE_URL}/rest/v1/events?id=eq.${encodeURIComponent(id)}&is_live=eq.true&select=name,type,is_sim,date,date_end,start_time,city,country,formats`,
+      `${SUPABASE_URL}/rest/v1/events?id=eq.${encodeURIComponent(id)}&is_live=eq.true&select=name,type,is_sim,date,date_end,start_time,city,country,formats,waves_published`,
       { headers: { apikey: SUPABASE_PUBLIC_KEY, Authorization: `Bearer ${SUPABASE_PUBLIC_KEY}` } },
     );
     if (!res.ok) return null;
@@ -119,7 +119,7 @@ function chip(label) {
   }, label);
 }
 
-function eventCard(ev) {
+function eventCard(ev, wavesOut) {
   const name = shortened(ev.name);
   const when = [prettyDate(ev.date), typeof ev.start_time === 'string' && /^\d{2}:\d{2}/.test(ev.start_time) ? ev.start_time.slice(0, 5) : ''].filter(Boolean).join('   ·   ');
   const place = [ev.city, ev.country].filter(Boolean).join(', ');
@@ -130,7 +130,7 @@ function eventCard(ev) {
   return canvas([
     lockup(),
     el('div', { display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', paddingTop: 20 }, [
-      eyebrow(eyebrowFor(ev)),
+      eyebrow(wavesOut ? 'WAVE TIMES ARE OUT' : eyebrowFor(ev)),
       el('div', { display: 'flex', fontSize: nameSize(name), fontWeight: 700, lineHeight: 1.04, letterSpacing: -1.5, color: '#fff', maxWidth: '1040px' }, name),
       when && el('div', { display: 'flex', fontSize: 46, fontWeight: 700, color: '#fff', marginTop: 26 }, when),
       place && el('div', { display: 'flex', fontSize: 34, fontWeight: 500, color: 'rgba(255,255,255,0.72)', marginTop: 6 }, place),
@@ -156,8 +156,10 @@ export default async function handler(request) {
   const ev = await fetchEvent(url.searchParams.get('id'));
   // If the fonts cannot be fetched the card still renders, in the default font, rather than failing outright.
   const fonts = await loadFonts(url.origin).catch(() => []);
+  // ?v=waves only changes the picture once the gym has really shared the waves.
+  const wavesOut = url.searchParams.get('v') === 'waves' && ev?.waves_published === true;
 
-  return new ImageResponse(ev ? eventCard(ev) : genericCard(), {
+  return new ImageResponse(ev ? eventCard(ev, wavesOut) : genericCard(), {
     width: 1200,
     height: 630,
     fonts,
