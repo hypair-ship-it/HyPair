@@ -10,6 +10,8 @@ Each folder is one capture session, named `YYYY-MM-<purpose>`:
 | `originals/` | Full-size PNGs straight from the iPhone 17 Pro Simulator (1206x2622). Use these for the App Store and for anything else that is not Google Play. |
 | `play-store/` | The eight JPEGs uploaded to Google Play, numbered in upload order (1206x2387, trimmed to Google's 2:1 limit, no transparency). |
 | `play-store-extras/` | Two spare Play-ready pictures. |
+| `apple-store/` | The same eight screens for the App Store, in upload order: 1206x2622 JPEG, no transparency (Apple rejects alpha; the raw simulator PNGs have it). 1206x2622 is Apple's accepted size for the required iPhone Dynamic Island (6.3-inch class) slot; other sizes are scaled down from it. Apple allows up to 10 per size. |
+| `apple-store-extras/` | Two spare App Store pictures (gym dashboard, chats list) if you want 9 and 10. |
 
 ## Where the data comes from
 Every picture is the HyPair Staging app on the SANDBOX database with made-up demo accounts, never production
