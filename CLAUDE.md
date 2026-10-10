@@ -67,13 +67,27 @@ HyPair/                              ← repo root (project container)
 │   ├── swiss-alps/                  Dark theme
 │   │   ├── logo/                    Logos (SVG, PNG, ICO)
 │   │   └── social/                  Social covers (FB, IG, LinkedIn, Twitter, Zoom)
-│   ├── tundra-light/                Light theme
-│   │   ├── logo/                    Logos (SVG, PNG, ICO)
-│   │   └── social/                  Social covers (FB, IG, LinkedIn, Twitter, Zoom)
-│   ├── social/
-│   │   ├── posts/                   Published post images
+│   ├── tundra-light/                Light theme (same logo/ + social/ layout)
+│   ├── badges/                      Apple / Google Play store badges (SVG, PNG)
+│   ├── email/                       Founding-gym outreach emails (HTML) + gym-onboarding-screens/
+│   ├── print/                       Gym poster (A4) and handout (A5), HTML + PDF
+│   ├── app-screenshots/             Marketing screenshots of the app, one folder per capture session
+│   │   └── 2026-10-store-listing/   originals/ (full size), play-store/ (uploaded to Google Play), play-store-extras/
+│   │                                Demo accounts only (sandbox), never real members. See its README.md
+│   ├── social/                      Social media workflow
+│   │   ├── PLANNER.md               What to post when
+│   │   ├── LOCALIZATION_PLAYBOOK.md
+│   │   ├── real-users.sql           Production query: list of real athletes (read-only)
+│   │   ├── sandbox-restore/         SQL + README to undo sandbox changes made for screenshot shoots
+│   │   ├── posts/                   events/<city>/, features/, gyms/, _templates/, _archive/ (each with png-export/)
 │   │   └── inspiration/             Reference / source images
 │   └── BRAND.md                     Design system reference (colours, fonts, tokens)
+│
+├── legal/                           ← company documents (constitution PDFs, bank checklist, beneficial-owners register
+│                                      template). Gitignored on purpose: lives only on the founders' Macs. Never commit.
+│
+├── supabase/                        Local Supabase CLI link cache only (gitignored)
+├── .github/workflows/               ci.yml (checks, incl. the vercel.json rewrite check), keep-alive.yml
 │
 └── CLAUDE.md                        This file
 ```
