@@ -22,7 +22,7 @@
 // only exists so a changed message (wave times, results) is a different URL to WhatsApp,
 // which remembers previews per URL for days.
 
-const { isShortCode, fetchEvent, escapeHtml, whenWhere } = require('../_eventShare');
+const { isShortCode, fetchEvent, fetchHostGym, escapeHtml, whenWhere } = require('../_eventShare');
 
 const LANDING = '/invite';   // the event invite page (web/invite.html); an event id is added as ?e=
 
@@ -39,13 +39,15 @@ module.exports = async function handler(req, res) {
 
   // The landing page looks the event up again by id, to say which event the link was for. id is a
   // UUID taken from the database row, so it is safe in a URL and in the script below.
+  const gym = ev.is_sim ? await fetchHostGym(ev.id) : null;
+  const hosted = gym ? `Hosted by ${gym}. ` : '';
   const landing = `${LANDING}?e=${encodeURIComponent(ev.id)}`;
   const waves = v === 'waves' && ev.waves_published === true;
   const title = escapeHtml(waves ? `Wave times: ${ev.name} — HyPair` : `${ev.name} — HyPair`);
   const formats = Array.isArray(ev.formats) && ev.formats.length ? ` Formats: ${ev.formats.join(', ')}.` : '';
   const description = escapeHtml(waves
-    ? `Wave times are out for ${ev.name}. ${whenWhere(ev)}. Find your wave in HyPair.`
-    : `${whenWhere(ev)}.${formats} Find your partner and sign up on HyPair.`);
+    ? `Wave times are out for ${ev.name}. ${hosted}${whenWhere(ev)}. Find your wave in HyPair.`
+    : `${hosted}${whenWhere(ev)}.${formats} Find your partner and sign up on HyPair.`);
   // og:url keeps the ?v=waves tag: Facebook caches by this canonical address, so dropping it would bring back the old picture.
   const pageUrl = `https://hypair.app/event/${isShortCode(id) ? encodeURIComponent(id.toUpperCase()) : encodeURIComponent(id)}${waves ? '?v=waves' : ''}`;
   const cardUrl = `https://hypair.app/api/event-card?id=${encodeURIComponent(ev.id)}${waves ? '&v=waves' : ''}`;

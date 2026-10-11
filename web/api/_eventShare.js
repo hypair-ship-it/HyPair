@@ -2,7 +2,8 @@
 // (api/event-card.js). Underscore prefix: Vercel does not turn this file into a route.
 //
 // Only reads what any logged-out visitor can already read: a LIVE event's name, date,
-// start time, city and formats (policy events_public_read). Nothing about athletes,
+// start time, city and formats (policy events_public_read), plus the host gym's NAME through
+// public_event_host_gym (nothing else about the gym). Nothing about athletes,
 // and nothing for draft or hidden events (the query returns no row, so the caller
 // falls back to the generic site card).
 
@@ -46,6 +47,27 @@ async function fetchEvent(idOrCode) {
   }
 }
 
+/**
+ * The host gym's name for a live event, or null (no gym, draft, hidden, or the lookup failed, including a database that
+ * does not have the function yet). Logged-out visitors cannot read the gyms table, so this goes through
+ * public_event_host_gym(uuid), which returns that one text value and nothing else.
+ */
+async function fetchHostGym(eventId) {
+  if (!isEventId(eventId)) return null;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/public_event_host_gym`, {
+      method: 'POST',
+      headers: { apikey: SUPABASE_PUBLIC_KEY, Authorization: `Bearer ${SUPABASE_PUBLIC_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p_event: eventId }),
+    });
+    if (!res.ok) return null;
+    const name = await res.json();
+    return typeof name === 'string' && name.trim() ? name.trim() : null;
+  } catch {
+    return null;
+  }
+}
+
 function escapeHtml(s) {
   return String(s)
     .replace(/&/g, '&amp;')
@@ -73,4 +95,4 @@ function whenWhere(ev) {
   return [prettyDate(ev.date), prettyTime(ev.start_time), ev.city].filter(Boolean).join(' · ');
 }
 
-module.exports = { SUPABASE_URL, isEventId, isShortCode, fetchEvent, escapeHtml, prettyDate, prettyTime, whenWhere };
+module.exports = { SUPABASE_URL, isEventId, isShortCode, fetchEvent, fetchHostGym, escapeHtml, prettyDate, prettyTime, whenWhere };

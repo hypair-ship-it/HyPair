@@ -10,8 +10,9 @@
 // format chips. No gradients, glows, stripes or buttons. HyPair appears once (top-left): the chat app already
 // prints the domain under the picture, and the gym's event is the point of the card.
 //
-// Same data and limits as api/event/[id].js: live events only, no athlete data, no gym name (gyms
-// are not readable logged out). A draft, hidden or unknown event gets the generic HyPair card.
+// Same data and limits as api/event/[id].js: live events only, no athlete data. The host gym's NAME (and nothing
+// else about the gym) comes from public_event_host_gym, since gyms are not readable logged out; it shares the
+// place line ("Iron Forge Gym · Leeds, United Kingdom"). A draft, hidden or unknown event gets the generic HyPair card.
 //
 // Edge runtime cannot require() the shared helper, so the few lines needed are repeated here.
 
@@ -55,6 +56,32 @@ async function fetchEvent(id) {
   } catch {
     return null;
   }
+}
+
+// The host gym's name via the one-value function (see api/_eventShare.js); null when there is none or the call fails.
+async function fetchHostGym(id) {
+  if (!id || !UUID.test(id)) return null;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/public_event_host_gym`, {
+      method: 'POST',
+      headers: { apikey: SUPABASE_PUBLIC_KEY, Authorization: `Bearer ${SUPABASE_PUBLIC_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p_event: id }),
+    });
+    if (!res.ok) return null;
+    const name = await res.json();
+    return typeof name === 'string' && name.trim() ? name.trim() : null;
+  } catch {
+    return null;
+  }
+}
+
+/** "Iron Forge Gym · Leeds, United Kingdom"; the country goes first if the line would run long, the gym name is cut at 40. */
+function placeLine(gym, city, country) {
+  const place = [city, country].filter(Boolean).join(', ');
+  if (!gym) return place;
+  const g = gym.length > 40 ? `${gym.slice(0, 39).trimEnd()}…` : gym;
+  const full = [g, place].filter(Boolean).join('  ·  ');
+  return full.length <= 58 ? full : [g, city].filter(Boolean).join('  ·  ');
 }
 
 // Fonts are static files on this same site (assets/fonts/*.ttf); Satori cannot read woff2.
@@ -119,10 +146,10 @@ function chip(label) {
   }, label);
 }
 
-function eventCard(ev, wavesOut) {
+function eventCard(ev, wavesOut, gym) {
   const name = shortened(ev.name);
   const when = [prettyDate(ev.date), typeof ev.start_time === 'string' && /^\d{2}:\d{2}/.test(ev.start_time) ? ev.start_time.slice(0, 5) : ''].filter(Boolean).join('   ·   ');
-  const place = [ev.city, ev.country].filter(Boolean).join(', ');
+  const place = placeLine(gym, ev.city, ev.country);
   // Four formats and "+N more": an official race can list eight, and half a list reads as a mistake.
   const all = Array.isArray(ev.formats) ? ev.formats : [];
   const formats = all.length > 5 ? [...all.slice(0, 4), `+${all.length - 4} more`] : all;
@@ -154,12 +181,13 @@ function genericCard() {
 export default async function handler(request) {
   const url = new URL(request.url);
   const ev = await fetchEvent(url.searchParams.get('id'));
+  const gym = ev?.is_sim ? await fetchHostGym(url.searchParams.get('id')) : null;
   // If the fonts cannot be fetched the card still renders, in the default font, rather than failing outright.
   const fonts = await loadFonts(url.origin).catch(() => []);
   // ?v=waves only changes the picture once the gym has really shared the waves.
   const wavesOut = url.searchParams.get('v') === 'waves' && ev?.waves_published === true;
 
-  return new ImageResponse(ev ? eventCard(ev, wavesOut) : genericCard(), {
+  return new ImageResponse(ev ? eventCard(ev, wavesOut, gym) : genericCard(), {
     width: 1200,
     height: 630,
     fonts,

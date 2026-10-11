@@ -133,6 +133,18 @@ h1 { font-weight: 700; font-size: clamp(44px, 9vw, 96px); line-height: 1.04; let
     var w = document.getElementById('when'); if (when) { w.textContent = when; w.hidden = false; }
     var place = [ev.city, ev.country].filter(Boolean).join(', ');
     var p = document.getElementById('where'); if (place) { p.textContent = place; p.hidden = false; }
+    /* The host gym's name only, through a one-value function (gyms are not readable logged out). Fails quietly. */
+    if (ev.is_sim) {
+      fetch('https://lsxprzoxoarfakhxhoab.supabase.co/rest/v1/rpc/public_event_host_gym', {
+        method: 'POST',
+        headers: { apikey: 'sb_publishable_9U61L_y4qyiXga9-VK0rFw_oaDrGmIT', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ p_event: m[1] })
+      }).then(function (r) { return r.ok ? r.json() : null; }).then(function (gym) {
+        if (typeof gym !== 'string' || !gym.trim()) return;
+        p.textContent = gym.trim() + (place ? '  ·  ' + place : '');
+        p.hidden = false;
+      }).catch(function () {});
+    }
     var formats = Array.isArray(ev.formats) ? ev.formats : [];
     var shown = formats.length > 5 ? formats.slice(0, 4).concat(['+' + (formats.length - 4) + ' more']) : formats;
     var c = document.getElementById('chips');
