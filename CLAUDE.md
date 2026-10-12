@@ -246,5 +246,6 @@ Do not use a `vercel.json` rewrite for this — see above.
 - **App repo:** `github.com/hypair-ship-it/HyPairApp` — React Native / Expo app
 - **App CLAUDE.md:** `HyPairApp/CLAUDE.md` — full app architecture, DB schema, design rules
 - **Brand guide:** `brand/BRAND.md` in this repo
-- **Notion HQ:** https://app.notion.com/p/32b1c734a8f781138577c191fa51d4db
-- **Project map:** https://app.notion.com/p/38e1c734a8f781778290df0289ee7c79
+- **Notion HQ:** https://app.notion.com/p/3c61c734a8f781188e5cea35496c0ac2
+- **Codebase map (repos, screens, config, edge functions):** https://app.notion.com/p/3c71c734a8f781458518f03cd09be3fd (CTO page; replaces the retired Project Map)
+- **Accounts, infrastructure and env-var inventory:** https://app.notion.com/p/32b1c734a8f78140b080cba167d53426 (Technical & Ops Reference)
