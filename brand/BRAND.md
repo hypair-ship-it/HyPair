@@ -12,6 +12,8 @@ Connect hybrid athletes with their perfect race partner — same event, same pac
 ### Slogan
 **Meet your match**
 
+The mobile app's welcome screen and splash say **Find your partner** instead (decided 10 Oct 2026): at that point the person is deciding what the app does, so it names the job. "Meet your match" stays the slogan for the website, emails and social. Don't change either to match the other.
+
 ### Brand Personality
 - **Energetic** — we speak to athletes who push hard
 - **Direct** — no fluff, no filler, just what matters
@@ -36,7 +38,7 @@ Connect hybrid athletes with their perfect race partner — same event, same pac
 The HyPair icon is a geometric symbol combining a U-shape (representing two athletes) and an arch with a circle — referencing the structure of a race. It is the primary brand asset and should be treated with care.
 
 ### Name
-Always written as **HyPair** — camelCase, never HYPAIR or Hypair. The capitalisation reflects the two words: Hy (hybrid) + Pair (matching partner).
+Always written as **HyPair** — camelCase, never HYPAIR or Hypair — in running text, on the website and in emails. One deliberate exception: the mobile app's welcome screen shows the all-caps wordmark **HYPAIR** as display styling (decided 8 Oct 2026). The capitalisation reflects the two words: Hy (hybrid) + Pair (matching partner).
 
 ### Versions
 | Version | Usage |
@@ -50,7 +52,7 @@ Always written as **HyPair** — camelCase, never HYPAIR or Hypair. The capitali
 |---|---|---|
 | Summit slate `#4C5F6B` | Sun Valley `#F2D079` | Sun Valley `#F2D079` |
 | Black `#0a0a0a` | Sun Valley `#F2D079` | Sun Valley `#F2D079` |
-| Tundra cream `#EFEBEA` | Summit dark `#2C3A47` | Summit dark `#2C3A47` |
+| Tundra cream `#EDE7E3` | Summit dark `#2C3A47` | Summit dark `#2C3A47` |
 | White `#ffffff` | Summit dark `#2C3A47` | Summit dark `#2C3A47` |
 
 ### Clear Space
@@ -80,6 +82,7 @@ Inspired by the energy of alpine race environments. Slate base, red for urgency 
 | Summit | `#4C5F6B` | 76, 95, 107 | Primary background |
 | Summit Dark | `#374D59` | 55, 77, 89 | Nav, darker surfaces |
 | Hero background | `#0F1318` | 15, 19, 24 | Hero section on pages with a white nav (`index.html`, `for-gyms.html`, `race-styles.html`) — deliberately darker than Summit Dark, not a drift |
+| Email dark | `#0F1318` | 15, 19, 24 | Outer background and header band of every transactional email (same value as Hero background). The older `#0d1117` in the analytics digest and profile-status emails was retired on 10 Oct 2026 |
 | Dark section background | `#13181F` | 19, 24, 31 | Dark feature sections / footer on the same white-nav pages, plus the favicon background |
 | Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent, action |
 | Sun Valley | `#F2D079` | 242, 208, 121 | Logo, brand warmth, chips |
@@ -112,7 +115,7 @@ Clean and approachable. Used for the mobile app UI and any light-background cont
 
 | Name | Hex | RGB | Usage |
 |---|---|---|---|
-| Tundra | `#EFEBEA` | 239, 235, 234 | Primary background |
+| Tundra | `#EDE7E3` | 237, 231, 227 | Primary background. One value everywhere: the app's `CREAM` (`constants/Colors.ts`) and the light email layouts use it. Changed on 10 Oct 2026 from a near-identical older cream (the app is where it is used). The public website's pale page backgrounds (`#F2F2EF` etc.) are a separate web treatment and were left as they are |
 | Summit Dark | `#2C3A47` | 44, 58, 71 | Text, logo, nav |
 | Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent (shared with primary) |
 | App Gold | `#F0B429` | 240, 180, 41 | Match %, PBs, badges, achievement accent — app only, distinct from Sun Valley |
@@ -134,7 +137,7 @@ Clean and approachable. Used for the mobile app UI and any light-background cont
 
 | Role | Font | Weight | Usage |
 |---|---|---|---|
-| Display / Headlines | Barlow Condensed | 900 (Black) | Hero headlines, post headlines, app screens |
+| Display / Headlines | Barlow Condensed | 900 (Black) | Hero headlines, post headlines (the mobile app uses Bebas Neue for its display headings, decided 8 Oct 2026) |
 | Display / Sub-headlines | Barlow Condensed | 700 (Bold) | Section headers, card titles |
 | Body | Barlow | 300 (Light) | Taglines, descriptions, body copy |
 | Body emphasis | Barlow | 500 (Medium) | Feature titles, labels |
