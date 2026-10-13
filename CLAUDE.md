@@ -128,6 +128,8 @@ historical rows were deleted on 14 Sep 2026 (table is now empty); `privacy.html`
 legacy-data disclosure was updated to past tense to match. Don't reintroduce waitlist
 language without also reviving a real collection mechanism.
 
+**Privacy policy date is tied to the app (Ref 395, 13 Oct 2026).** The app stamps each new account with `PRIVACY_POLICY_VERSION` (`constants/Legal.ts` in HyPairApp) = this page's "Last updated" date as YYYY-MM-DD. Whenever you change the policy text and its date, bump that constant in the app repo in the same session, or the app records consent against a version no longer shown. `__tests__/privacyPolicyVersion.test.ts` in the app repo fails its pre-push check if they differ (it reads this file from a checkout beside it).
+
 Nav: How it works · For athletes · For gyms · FAQ · **Contact** (→ `/support#contact-athletes`)
 · Get the App. The "Contact" link exists so an individual athlete has a path to the contact
 page from the homepage — it didn't always.
