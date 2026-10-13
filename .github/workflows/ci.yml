@@ -94,10 +94,10 @@ jobs:
 
             // Historical invented/off-spec values that have drifted in before.
             // Any occurrence of these anywhere means a page reverted or copied
-            // from a stale template. Checked in both hex and decimal rgb(a)
+            // from a stale template. (#0F1117 was a stray near-duplicate of the hero dark #0F1318, folded in 13 Oct 2026, app Ref 400.) Checked in both hex and decimal rgb(a)
             // form — a past drift slipped through as rgba(248,198,98,...),
             // the decimal form of #F8C662, which a hex-only scan missed.
-            const BLOCKLIST = ['#D4AA50', '#F8C662', '#E53935'].map(h => h.toLowerCase());
+            const BLOCKLIST = ['#D4AA50', '#F8C662', '#E53935', '#0F1117'].map(h => h.toLowerCase());
             const hexToRgbTriplet = (hex) => {
               const n = hex.slice(1);
               const full = n.length === 3 ? n.split('').map(c => c + c).join('') : n;

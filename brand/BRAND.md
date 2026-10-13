@@ -82,7 +82,7 @@ Inspired by the energy of alpine race environments. Slate base, red for urgency 
 | Summit | `#4C5F6B` | 76, 95, 107 | Primary background |
 | Summit Dark | `#374D59` | 55, 77, 89 | Nav, darker surfaces |
 | Hero background | `#0F1318` | 15, 19, 24 | Hero section on pages with a white nav (`index.html`, `for-gyms.html`, `race-styles.html`) — deliberately darker than Summit Dark, not a drift |
-| Email dark | `#0F1318` | 15, 19, 24 | Outer background and header band of every transactional email (same value as Hero background). The older `#0d1117` in the analytics digest and profile-status emails was retired on 10 Oct 2026 |
+| Email dark | `#0F1318` | 15, 19, 24 | Outer background and header band of every transactional email (same value as Hero background). The older `#0d1117` in the analytics digest and profile-status emails was retired on 10 Oct 2026, and the stray `#0F1117` (website text colour, staff emails) on 13 Oct 2026 |
 | Dark section background | `#13181F` | 19, 24, 31 | Dark feature sections / footer on the same white-nav pages, plus the favicon background |
 | Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent, action |
 | Sun Valley | `#F2D079` | 242, 208, 121 | Logo, brand warmth, chips |
