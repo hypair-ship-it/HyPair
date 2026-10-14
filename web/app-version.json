@@ -1,0 +1,14 @@
+{
+  "note": "Read by the HyPair app to offer 'Update available'. Change 'latest' ONLY after the new version is live in the App Store / Google Play (a prompt that sends people to a store page with no update is worse than none). 'minimum' forces the update and cannot be dismissed: emergencies only. Keep it valid JSON; the app ignores the file if it cannot read it.",
+  "ios": {
+    "latest": "1.3.0",
+    "minimum": "1.0.0",
+    "storeUrl": "https://apps.apple.com/app/hypair-race-partner-finder/id6797554752"
+  },
+  "android": {
+    "latest": "1.3.0",
+    "minimum": "1.0.0",
+    "storeUrl": "https://play.google.com/store/apps/details?id=app.hypair.mobile"
+  },
+  "whatsNew": ""
+}
