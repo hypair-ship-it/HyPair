@@ -7,7 +7,7 @@ Guidance for Claude Code when working in this repository (HyPair website).
 ## Project overview
 
 HyPair is a mobile app that matches athletes with doubles partners for **HYROX** and
-**Tryka** — official events and gym simulation events. Matching is based on pace, finish
+**TRYKA** — official events and gym simulation events. Matching is based on pace, finish
 goal, race format, and the specific event entered. It is **not** a dating app and not a
 general fitness app. Spartan and Athex are explicitly out of scope — remove any reference
 if found; an earlier version of this doc listed them as in-scope, which was wrong.

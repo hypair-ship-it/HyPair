@@ -171,12 +171,12 @@ Both fonts are available free on Google Fonts: [fonts.google.com](https://fonts.
 ### Supported Races (current)
 Always refer to these in this order when listing:
 1. HYROX (all caps)
-2. Tryka
+2. TRYKA (all caps, like HYROX)
 
 Scope is intentionally limited to these two — Spartan and Athex are explicitly out of
 scope (matches `HyPairApp/CLAUDE.md` and this repo's own `CLAUDE.md`); don't reference
 them, and don't frame the list with "+ more coming" — there's no roadmap commitment to
-expand beyond HYROX and Tryka.
+expand beyond HYROX and TRYKA.
 
 ### Social Accounts
 - Instagram: `@hypair.app` — https://www.instagram.com/hypair.app
@@ -193,7 +193,7 @@ expand beyond HYROX and Tryka.
 ### Core Hashtags
 ```
 #HyPair #HYROX #HYROXdoubles #HybridAthlete #RacePartner
-#HybridTraining #FunctionalFitness #Tryka
+#HybridTraining #FunctionalFitness #TRYKA
 ```
 
 ### Background Styles (approved for social)
