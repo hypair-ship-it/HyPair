@@ -143,7 +143,30 @@
       <td>HyPair</td>
       <td>Until you clear the app's data</td>
     </tr>
+    <tr>
+      <td><strong>@hypair:home_cache:v1</strong></td>
+      <td>Local setting</td>
+      <td>A copy of what your Home screen last showed, so it appears straight away when you open the app: names, profile photo links, event details and the latest chat line for each pairing. It is replaced every time Home reloads.</td>
+      <td>HyPair</td>
+      <td>Up to 7 days; cleared when you sign out</td>
+    </tr>
+    <tr>
+      <td><strong>@hypair:celebrated:&lt;pairing&gt;</strong></td>
+      <td>Local setting</td>
+      <td>Remembers that you have already seen the "you're paired" celebration for a pairing, so it only shows once. Stores a marker and the pairing's reference number, nothing else.</td>
+      <td>HyPair</td>
+      <td>Until you clear the app's data</td>
+    </tr>
+    <tr>
+      <td><strong>@hypair:lockin_snooze:&lt;chat&gt;</strong></td>
+      <td>Local setting</td>
+      <td>When you chose "Later" on a lock-in reminder, so it stays quiet for a day (with one last reminder before the 48-hour window ends). Stores a time and the chat's reference number.</td>
+      <td>HyPair</td>
+      <td>Until you clear the app's data</td>
+    </tr>
   </table>
+
+  <p>The <strong>website</strong> checks for one flag in your browser's local storage, <strong>hypair_owner</strong>. The website never sets it. A HyPair team member can set it by hand in their own browser so their visits are not counted in our page-view statistics; if it is present, the analytics script is not loaded. Visitors do not have it, and it contains no personal data.</p>
 
   <div class="callout">
     <strong>No advertising or tracking cookies.</strong> HyPair does not use Google Analytics, Facebook Pixel, or any other third-party tracking or advertising technology, and we do not track you across other websites. We do use <strong>Vercel Web Analytics</strong> — a cookieless, privacy-friendly tool that counts aggregate page views without setting a cookie, fingerprinting your device, or collecting any personal data.
