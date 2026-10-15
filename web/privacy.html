@@ -236,7 +236,7 @@
 
   <p class="eyebrow">Legal</p>
   <h1>Privacy Policy</h1>
-  <p class="last-updated">Last updated: 14 Oct 2026</p>
+  <p class="last-updated">Last updated: 15 Oct 2026</p>
 
   <p class="intro">HyPair is a mobile app that helps athletes find doubles partners for hybrid races — HYROX and Tryka. This policy explains exactly what personal data we collect, why we collect it, who we share it with, and what rights you have over it. Questions? Email us at <a href="mailto:hello@hypair.app">hello@hypair.app</a>.</p>
 
@@ -251,13 +251,15 @@
 
   <p><strong>Account data</strong> — when you register, we collect your email address and a password. Passwords are stored as a secure one-way hash (bcrypt) and are never stored or transmitted in plain text.</p>
 
-  <p><strong>Profile data</strong> — to help you find race partners, you provide: first and last name, date of birth, gender, profile photo, city/country, training pace, personal best times, race formats you compete in, training frequency, and a short bio. Date of birth is used for an age check and gender for HYROX/TRYKA competition category matching. Name, email, date of birth, gender and country are needed to create a profile. Every other profile field is optional.</p>
+  <p><strong>Profile data</strong> — to help you find race partners, you provide: first and last name, date of birth, gender, profile photo, city/country, training pace, personal best times, race formats you compete in, training frequency, and a short bio. Date of birth is used for an age check and gender for HYROX/TRYKA competition category matching. Name, email, date of birth, gender and country are needed to create a profile. Every other profile field is optional. You can also log race results (race, date, division and time) and add notes to your finish-time estimates.</p>
 
   <p><strong>Gym membership</strong> — you can choose the gym you train at from the gyms already on HyPair. We store which gym you chose, whether that gym has confirmed you, and when. Until the gym confirms it, only you and that gym's owner can see it. Once confirmed, it is shown on your profile to other HyPair users. You can remove it at any time in Edit profile, and the gym's owner can remove it too. We also keep the time of each request you make, only to stop repeated requests. This data is deleted if you delete your account or the gym leaves HyPair.</p>
 
   <p><strong>Event data</strong> — races you have registered for, your preferred format (doubles/mixed doubles), and your target wave time.</p>
 
   <p><strong>Matching and messaging data</strong> — partner requests you send or receive, the outcome (accepted/declined), and messages exchanged with matched athletes inside the app.</p>
+  <p><strong>Block list</strong> — if you block someone, we store who you blocked and when, so you cannot see or contact each other. It is deleted if either of you deletes your account.</p>
+  <p><strong>Name search</strong> — when you search for a member to invite, we record that you searched and when, never what you typed. We use it only to limit how many searches one person can make.</p>
 
   <p><strong>Moderation records</strong> — if you report another user, or another user reports you, we keep a record of the report: its category, any note the reporter wrote, a copy of the message that was flagged (up to 500 characters), the outcome, and when it was reviewed. We use these records to keep HyPair safe and to act on repeat behaviour.</p>
 
@@ -271,7 +273,7 @@
 
   <p><strong>Gym owner data</strong> — if you set up a gym profile, we collect your gym's business name, address, phone number, website, and Instagram handle. If you ask to set up a gym in the app, we also keep your request: the gym's name, town and country, a phone number if you give one, its status, and the reason we gave if it was declined.</p>
 
-  <p><strong>What a gym organiser can see</strong> — if you register for an event run by a gym organiser, that organiser can see your registration for that event: your name, photo, race format, goal, pace, wave and whether you have paid. They cannot see your email address or your exact date of birth.</p>
+  <p><strong>What a gym organiser can see</strong> — if you register for an event run by a gym organiser, that organiser can see your registration for that event: your name, photo, gender, race format, goal, pace, wave and whether you have paid. They cannot see your email address or your exact date of birth.</p>
 
   <p><strong>Website contact form</strong> — if you write to us through hypair.app/support, we store your name, email address and message (and, for gyms, the gym's name, location and website) so we can reply. We delete them 24 months after you send them, and you can ask us to delete them sooner at any time by emailing <a href="mailto:hello@hypair.app">hello@hypair.app</a>. They are not linked to an app account, so deleting your account in the app does not remove them.</p>
 
@@ -300,7 +302,7 @@
     </tr>
     <tr>
       <td>Reminders (finish setting up your profile, log your race result) and the push when enough athletes have joined an event you are interested in</td>
-      <td>Legitimate interests (Art. 6(1)(f)) — you can opt out with the unsubscribe link or in your device settings</td>
+      <td>Legitimate interests (Art. 6(1)(f)) — you can opt out of each kind in Settings &gt; Notifications, with the unsubscribe link in the email, or in your device settings</td>
     </tr>
     <tr>
       <td>Improving the app, fixing bugs, preventing abuse</td>
@@ -327,14 +329,14 @@
     </tr>
     <tr>
       <td><strong>Resend Inc.</strong></td>
-      <td>Transactional email — verification, password reset</td>
+      <td>Email — verification, password reset, the data-export email (with your data attached), reminders and notices, and alerts to us</td>
       <td>US</td>
       <td>Standard Contractual Clauses (SCCs)</td>
     </tr>
     <tr>
       <td><strong>Vercel Inc.</strong></td>
       <td>Hosting of the hypair.app website, plus cookieless Web Analytics (aggregate page-view counts only — no personal data, no cookies, no cross-site tracking)</td>
-      <td>US (CDN globally distributed)</td>
+      <td>US (served from Vercel's global network)</td>
       <td>Standard Contractual Clauses (SCCs)</td>
     </tr>
     <tr>
@@ -362,6 +364,18 @@
       <td>Standard Contractual Clauses (SCCs)</td>
     </tr>
     <tr>
+      <td><strong>Google (Gmail)</strong></td>
+      <td>Our shared inbox. It receives contact-form messages, safety-report alerts (the names involved, the reporter's note and the flagged message text) and gym-request alerts</td>
+      <td>US</td>
+      <td>Standard Contractual Clauses (SCCs) or the EU–US Data Privacy Framework</td>
+    </tr>
+    <tr>
+      <td><strong>Upstash Inc.</strong></td>
+      <td>Rate limiting — stops message and request flooding. It receives only your random account ID and a counter that disappears within a minute</td>
+      <td>US</td>
+      <td>Standard Contractual Clauses (SCCs)</td>
+    </tr>
+    <tr>
       <td><strong>Other app users</strong></td>
       <td>Your public profile (name, photo, bio, pace, race formats) is visible to other authenticated athletes browsing for partners. If you register for a gym's event, that gym's organiser can also see your registration for it (see Section 2). Your email address is never shared with other users.</td>
       <td>N/A</td>
@@ -385,6 +399,8 @@
 
   <p><strong>Your event registrations.</strong> Other signed-in members can see which events and race formats you have registered for, the goal you chose for each race (for example competitive or just for fun), whether you have a ticket, your start time, and the wave you have been given once one is assigned. We show this so people can find partners at the right level and so everyone can see a published wave schedule. It is not limited to people registered for the same event. The organiser of an event you join also sees the extra details listed in Section 2. Whether you have paid, and any pace adjustment an organiser makes for you, can be seen by that organiser only, not by other members.</p>
 
+  <p><strong>Your race results and estimates.</strong> The race results you log and the finish-time estimates on your profile, including any note you add to an estimate, can be seen by other signed-in members who open your profile. If you block someone, your profile, registrations and race results are hidden from them.</p>
+
   <p><strong>Finding and inviting other members.</strong> Other HyPair members can search for you by name to invite you to a race. They see your photo, name and town only, never your date of birth, pace, bio or contact details. You can turn this off in Settings &gt; Privacy &amp; Safety (&ldquo;Let members find me by name&rdquo;). If someone invites you, we send you a notification naming them and the race; you can accept or decline, and an invitation you do not answer ends on its own after a few days. We record the invitation (who sent it, to whom, which race and format, when it was sent and how it ended) like any other partner request, and, like other partner requests, it is anonymised rather than deleted if you delete your account (see Data retention).</p>
 
   <h2 id="deletion">7. Data retention</h2>
@@ -395,10 +411,15 @@
     <li><strong>Gym membership</strong> — deleted with your account, or when the gym leaves HyPair; you can remove it yourself at any time in Edit profile, and the gym's owner can remove it too. The log of requests (kept only to limit repeated requests) is deleted with your account</li>
     <li><strong>Moderation records</strong> — kept for as long as needed to protect users and to handle legal claims. If you delete your account, any note you wrote on a report you made is erased, and your identity is removed from reports you made or that were made about you. The category, the outcome and the copy of the flagged message stay with the report as evidence, no longer linked to an account</li>
     <li><strong>Athlete data entered by a gym owner</strong> — kept with the event it was entered for. If the gym owner deletes their account these entries are deleted with it</li>
+    <li><strong>Events created by a gym owner</strong> — if a gym owner deletes their account, the events they created stay up so that athletes who registered keep them, but they are no longer linked to any account. You can ask us to remove an event by emailing <a href="mailto:hello@hypair.app">hello@hypair.app</a></li>
     <li><strong>Website contact-form messages</strong> — deleted 24 months after they are sent, or sooner on request</li>
+    <li><strong>Alert emails</strong> — copies of contact-form messages and safety-report alerts sit in the founders' shared inbox. We delete them after 24 months, or sooner if you ask. Deleting your account does not remove emails already sent to that inbox, but you can ask us to delete them</li>
     <li><strong>Legacy waitlist data</strong> — pre-launch entries were fully deleted on 14 Sep 2026, once the waitlist was retired</li>
     <li><strong>Bug reports</strong> — deleted 12 months after you send them, or sooner on request</li>
     <li><strong>In-app notifications</strong> — the list behind the bell icon is deleted 6 months after each item is created</li>
+    <li><strong>Push delivery records</strong> — the technical record of each push we send (the device token and whether it was delivered) is deleted after 3 days</li>
+    <li><strong>Name-search log</strong> — the record of when you searched for a member to invite is deleted after 7 days</li>
+    <li><strong>Crash and error reports</strong> — reports sent to Sentry, which include a random account ID, are kept by Sentry for up to 90 days. Deleting your account does not remove that ID from reports already sent; they age out on their own</li>
     <li><strong>Usage analytics</strong> — events such as which screen was opened and how long it took are deleted 24 months after they are recorded, and are no longer linked to you if you delete your account. Aggregated figures made from them (counts, with no individuals) may be kept</li>
   </ul>
 
@@ -488,6 +509,8 @@
 
   <p>The HyPair mobile app does not use cookies. It uses a secure session token stored in the device's secure storage (not accessible to other apps).</p>
 
+  <p><strong>Website security reports.</strong> If your browser blocks something on hypair.app because of our security rules, it may send a short report (the page address and what was blocked) to our server. Our hosting provider keeps these logs only briefly, and we do not use them to identify you.</p>
+
   <h2>15. Security</h2>
 
   <ul>
@@ -501,7 +524,7 @@
 
   <h2>16. Changes to this policy</h2>
 
-  <p>We may update this policy as the app evolves and as we add new processors or features. We will notify active users of any material changes via email or an in-app notice at least 14 days before the change takes effect. The "last updated" date at the top of this page always reflects the current version.</p>
+  <p>We may update this policy as the app evolves and as we add new processors or features. We will notify active users of material changes by email or an in-app notice, at least 14 days before they take effect where the change makes more of your data visible to others or uses it for a new purpose. Corrections and clarifications that do not change what we do take effect when published. The "last updated" date at the top of this page always reflects the current version.</p>
 
   <p>Continued use of HyPair after a notified change constitutes acceptance of the updated policy.</p>
 

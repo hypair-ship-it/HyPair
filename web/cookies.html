@@ -81,7 +81,7 @@
 
   <p class="eyebrow">Legal</p>
   <h1>Cookie Policy</h1>
-  <p class="last-updated">Last updated: 14 Sep 2026</p>
+  <p class="last-updated">Last updated: 15 Oct 2026</p>
 
   <p class="intro">This policy explains what cookies are, which ones HyPair uses, and what your options are. Short version: we use very few cookies, none of them are for advertising, and most are strictly necessary for the site and app to work.</p>
 
@@ -102,18 +102,46 @@
       <th>Expires</th>
     </tr>
     <tr>
-      <td><strong>sb-access-token</strong></td>
+      <td><strong>Sign-in session</strong></td>
       <td>Functional</td>
-      <td>Supabase authentication session token — keeps you logged in to the HyPair app. Stored in secure device storage, not a browser cookie.</td>
+      <td>Keeps you logged in and renews itself without asking for your password. Stored in the phone's secure storage (not a browser cookie).</td>
       <td>HyPair / Supabase</td>
-      <td>1 hour (refreshed automatically)</td>
+      <td>The access part lasts about 1 hour and renews automatically; the session stays until you sign out</td>
     </tr>
     <tr>
-      <td><strong>sb-refresh-token</strong></td>
-      <td>Functional</td>
-      <td>Supabase session refresh — allows your login session to renew without re-entering your password.</td>
-      <td>HyPair / Supabase</td>
-      <td>60 days</td>
+      <td><strong>@hypair:is_organiser</strong></td>
+      <td>Local setting</td>
+      <td>Remembers whether your account runs a gym, so screens do not flash.</td>
+      <td>HyPair</td>
+      <td>Until you clear the app's data</td>
+    </tr>
+    <tr>
+      <td><strong>@hypair:light_mode</strong></td>
+      <td>Local setting</td>
+      <td>Your light or dark theme choice.</td>
+      <td>HyPair</td>
+      <td>Until you clear the app's data</td>
+    </tr>
+    <tr>
+      <td><strong>@hypair:home_dismissed_cards, @hypair:gym_checklist_dismissed</strong></td>
+      <td>Local setting</td>
+      <td>Which cards and hints you closed, so they do not come back.</td>
+      <td>HyPair</td>
+      <td>Until you clear the app's data</td>
+    </tr>
+    <tr>
+      <td><strong>@hypair:gym_intent, @hypair:gym_interest, @hypair:gym_shared</strong></td>
+      <td>Local setting</td>
+      <td>Where you were in setting up a gym.</td>
+      <td>HyPair</td>
+      <td>Until you clear the app's data</td>
+    </tr>
+    <tr>
+      <td><strong>@hypair:push_token, @hypair:last_push_opened_id, @hypair:last_update_id, @hypair:store_update_snooze</strong></td>
+      <td>Local setting</td>
+      <td>Your notification address, which notification you last opened, which app update you have seen, and when you postponed an update prompt.</td>
+      <td>HyPair</td>
+      <td>Until you clear the app's data</td>
     </tr>
   </table>
 
@@ -125,7 +153,7 @@
   <p>HyPair's website does not currently set any strictly necessary cookies.</p>
 
   <h2>4. Functional cookies</h2>
-  <p>The Supabase session tokens are functional — they are essential for keeping you logged in to your HyPair account. Without them, you would need to log in every time you open the app. These are stored in your device's secure storage (not accessible to other apps or websites) rather than as browser cookies.</p>
+  <p>The sign-in session is functional: it keeps you logged in. It is kept in the phone's secure storage, which other apps cannot read. The other items are small settings the app remembers on your phone; none is shared with anyone or used to track you.</p>
 
   <h2>5. What we don't use</h2>
   <ul>
