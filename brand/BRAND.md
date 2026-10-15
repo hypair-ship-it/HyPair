@@ -115,7 +115,7 @@ Clean and approachable. Used for the mobile app UI and any light-background cont
 
 | Name | Hex | RGB | Usage |
 |---|---|---|---|
-| Tundra | `#EDE7E3` | 237, 231, 227 | Primary background. One value everywhere: the app's `CREAM` (`constants/Colors.ts`) and the light email layouts use it. Changed on 10 Oct 2026 from a near-identical older cream (the app is where it is used). The public website's pale page backgrounds (`#F2F2EF` etc.) are a separate web treatment and were left as they are |
+| Tundra | `#EDE7E3` | 237, 231, 227 | Cream for the app's auth and onboarding screens (`CREAM` in `constants/Colors.ts`) and the light email layouts: one value in all of those. Changed on 10 Oct 2026 from a near-identical older cream. **The app's light-theme screen background is a slightly lighter `#F2F2EF`** (`BG_SCREEN` in `constants/Theme.ts`; decided by the founder on 15 Oct 2026, Ref 429, and pinned by `__tests__/brandConsistency.test.ts` in the app repo). The public website's pale page backgrounds are a separate web treatment |
 | Summit Dark | `#2C3A47` | 44, 58, 71 | Text, logo, nav |
 | Swiss Alps Red | `#E22424` | 226, 36, 36 | CTAs, headline accent (shared with primary) |
 | App Gold | `#F0B429` | 240, 180, 41 | Match %, PBs, badges, achievement accent — app only, distinct from Sun Valley |
