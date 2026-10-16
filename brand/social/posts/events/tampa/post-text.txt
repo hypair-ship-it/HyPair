@@ -1,0 +1,22 @@
+HYROX TAMPA - MOMENTS 1 + 2 COMBINED   race 22-25 Oct 2026
+
+WHEN:    Fri 2 Oct, after Boston (around 5:30pm Irish time). The screenshots say "20 days", which is only correct TODAY.
+         If you post on another day, ask Claude to retake the screenshots first.
+IMAGES:  2 images, in this order, from brand/social/posts/events/tampa/png-export/
+           1. slide1-on-sale.png
+           2. slide2-partner-dropped-out.png
+NO TRYKA in US posts. One post per group.
+
+------------------------------------------------------------
+GROUP: Hybrid Fitness Tampa (public, 3.6K)
+https://www.facebook.com/groups/1697923620846169
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself.
+Join first and read the group rules.
+
+TEXT TO PASTE:
+
+HYROX Tampa is on (22-25 Oct). Got your ticket and no doubles partner yet, or did your partner drop out? HyPair matches you by pace and goal, not just whoever happens to ask first. Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT TAMPA POST: moment 3, Thu 15 Oct (final week). Claude will prepare it with fresh screenshots.
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.

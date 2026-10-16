@@ -16,7 +16,7 @@ never dating framing, Canada is paused (AthleteField). Screens are from the stag
 
 **1. Partner thread (post)**
 HYROX {city} ({dates}) partner thread 🧵
-Got your ticket and still looking for a doubles partner? Drop a comment with:
+Ready to race and still looking for a doubles partner? Drop a comment with:
 - Your division (women's, men's or mixed)
 - Your usual running pace
 - Your goal (chasing a PB, or just here for a good race)

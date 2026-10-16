@@ -1,0 +1,39 @@
+HYROX LONDON - MOMENT 1 (tickets on sale)   race 2-6 Dec 2026 (ExCeL)
+
+STATUS:  READY. Images are in png-export/.
+WHEN:    Tonight, Sat 3 Oct: now is fine (about 6pm UK and Irish time). The screenshots say "60 days", which is only correct TODAY.
+IMAGES:  2 images, in this order, from brand/social/posts/events/london/png-export/
+           1. slide1-on-sale.png
+           2. slide2-match-score.png
+NO TRYKA in this post (HYROX event). One post per group.
+
+------------------------------------------------------------
+GROUP: HYROX London ExCel 2026 (public, 3.8K members, about 84 posts a month, +114 this week)
+https://www.facebook.com/groups/7274292902661308
+About the December event itself. Backup if it does not work: Hyrox London Community (5.1K, quiet, 26 posts a month): https://www.facebook.com/groups/872337328022356
+Skip "HYROX London 2026": it is for the March event.
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself. Join first and read the rules.
+
+TEXT TO PASTE:
+
+HYROX London is on (2-6 Dec). Got your ticket and no doubles partner yet? HyPair matches you by pace and goal, not just whoever happens to ask first. Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT LONDON POSTS: moment 2 on Wed 11 Nov ("Partner dropped out?"), moment 3 on Wed 25 Nov (final week).
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.
+
+------------------------------------------------------------
+ALTERNATIVE TEXT WITH EMOJI (option A, recommended). Copy from here instead of the plain text above if you prefer:
+
+HYROX London is on! 🎉 (2-6 Dec at ExCeL)
+
+Got your ticket but no doubles partner yet? 👀
+
+HyPair matches you by pace and goal, not just whoever happens to ask first 💪
+
+Free to download: https://hypair.app
+
+------------------------------------------------------------
+ALTERNATIVE TEXT WITH EMOJI (option B, lighter):
+
+🏁 HYROX London is on (2-6 Dec). Got your ticket and no doubles partner yet? HyPair matches you by pace and goal, not just whoever happens to ask first 💪 Free to download: https://hypair.app

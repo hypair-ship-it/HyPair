@@ -1,0 +1,30 @@
+HYROX CHICAGO - MOMENT 1 (tickets on sale)   race 11-15 Feb 2027
+
+STATUS:  READY (text and optional image). Refreshed 9 Oct, replaces the earlier version.
+WHEN:    Tue 13 Oct, 12:30pm Central = 6:30pm Irish time.
+IMAGES:  2 images with real app screens (13 Oct, countdown reads 121d, only right this week): png-export/slide1-on-sale.png then png-export/slide2-match-score.png
+         Fallback text-led image (no countdown): png-export/moment1-chicago.png
+         (text-led, no countdown, so it never goes out of date). Text alone also works.
+NO TRYKA in this post. One post per group. Never claim real athletes are signed up.
+
+------------------------------------------------------------
+GROUP: HYROX Chicago 2027 (public, 2.6K members, about 2 posts a day)
+Backups: HYROX CHICAGO 2027 TICKETS (6.8K) and Hyrox Chicago 2026 (7.3K, probably last season). Skip the buy/sell and ticket marketplace groups.
+Found by searching Facebook groups on 9 Oct. Not joined yet; read the rules first. 2 real athletes have already entered Chicago in the app.
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself. Join first and read the rules.
+If the group removes it, stop posting there and only comment.
+
+TEXT TO PASTE:
+
+HYROX Chicago is on! 🎉 (11-15 Feb 2027)
+
+Ready to race but no doubles partner yet? 👀
+
+HyPair matches you by pace and goal, not just whoever happens to ask first 💪
+
+Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT CHICAGO POSTS: Race is 4 months away: next post about 3 weeks later (about Tue 3 Nov), then every 2 weeks, then weekly in the last month.
+The closer the race, the more often: roughly 3 weeks apart far out, 2 weeks apart at 6-8 weeks, 10 days at 2-4 weeks, weekly in the final 2 weeks. A different angle each time, never the same text twice in a group.
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.

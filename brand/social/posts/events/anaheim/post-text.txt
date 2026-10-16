@@ -1,0 +1,33 @@
+HYROX ANAHEIM - MOMENT 1 (tickets on sale)   race 3-6 Dec 2026
+
+STATUS:  READY. Images are in png-export/.
+WHEN:    Tonight, Sat 3 Oct, around 12:30pm Pacific time = 8:30pm Irish time. The screenshots say "61 days", which is only correct TODAY.
+IMAGES:  2 images, in this order, from brand/social/posts/events/anaheim/png-export/
+           1. slide1-on-sale.png
+           2. slide2-match-score.png
+NO TRYKA in US posts. One post per group.
+
+------------------------------------------------------------
+GROUP: HYROX Anaheim 2026 (public, 5.6K members, about 242 posts a month, +146 this week)
+https://www.facebook.com/groups/9579736622114326
+No rules shown on the About page, so read them when you join. Skipped on purpose: the ticket-resale groups.
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself. Join first and read the rules.
+
+TEXT TO PASTE:
+
+HYROX Anaheim is on (3-6 Dec). Got your ticket and no doubles partner yet? HyPair matches you by pace and goal, not just whoever happens to ask first. Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT ANAHEIM POSTS: moment 2 on Thu 12 Nov ("Partner dropped out?"), moment 3 on Thu 26 Nov (final week).
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.
+
+------------------------------------------------------------
+ALTERNATIVE TEXT WITH EMOJI (recommended, like London). Copy from here instead of the plain text above if you prefer:
+
+HYROX Anaheim is on! 🎉 (3-6 Dec)
+
+Got your ticket but no doubles partner yet? 👀
+
+HyPair matches you by pace and goal, not just whoever happens to ask first 💪
+
+Free to download: https://hypair.app

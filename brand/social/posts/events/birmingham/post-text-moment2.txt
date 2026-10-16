@@ -1,0 +1,24 @@
+HYROX BIRMINGHAM - MOMENT 2 (partner dropped out?)   race 27 Oct - 1 Nov 2026
+
+STATUS:  READY.
+WHEN:    Tue 6 Oct, lunchtime UK/Irish time. The screenshots say "21d", which is only correct TODAY.
+         If you post on another day, ask Claude to retake it.
+IMAGES:  3 images, in this order, from brand/social/posts/events/birmingham/png-export/
+           1. moment2-slide1-partner-dropped-out.png
+           2. moment2-slide2-match.png
+           3. moment2-slide3-chat.png
+ONE group only. Do not post in the two ticket groups (5-7 views, dropped).
+
+------------------------------------------------------------
+GROUP: HYROX Birmingham 2026
+POST AS: HyPair (the Page), same as the moment 1 post on 29 Sep.
+Moment 1 went up 29 Sep, so this is 7 days later. The planner asks for 10-14 days between posts in one group:
+if you want to be strict, post on Fri 9 Oct instead and ask Claude to retake the screenshot (reads 18d).
+
+TEXT TO PASTE:
+
+Partner dropped out? It happens, and usually closer to race day than anyone plans for. Racing HYROX Birmingham (27 Oct-1 Nov) and need a partner? HyPair matches you by pace and goal with athletes entering the same event. Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT BIRMINGHAM POST: moment 3, Tue 20 Oct (final week).
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.

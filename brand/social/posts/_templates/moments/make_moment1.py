@@ -11,7 +11,7 @@ svg = f'''<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://
   <rect width="1080" height="1080" fill="#374D59"/>
   {logo}
   <text x="80" y="330" {font} font-size="24" font-weight="700" letter-spacing="4" fill="#E22424">HYROX · {city.upper()}</text>
-  <text x="78" y="400" {font} font-size="60" font-weight="700" fill="#ffffff">Got your ticket?</text>
+  <text x="78" y="400" {font} font-size="60" font-weight="700" fill="#ffffff">Ready to race?</text>
   <text x="78" y="470" {font} font-size="60" font-weight="700" fill="#ffffff">Need a partner?</text>
   <text x="78" y="590" {font} font-size="24" font-weight="400" fill="rgba(255,255,255,0.78)">HYROX {city}, {dates}. HyPair matches you</text>
   <text x="78" y="624" {font} font-size="24" font-weight="400" fill="rgba(255,255,255,0.78)">with a doubles partner by pace and goal,</text>

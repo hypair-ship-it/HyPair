@@ -1,0 +1,29 @@
+HYROX MELBOURNE - MOMENT 1 (tickets on sale)   race 9-13 Dec
+
+STATUS:  READY (text and optional image). Refreshed 9 Oct, replaces the earlier version.
+WHEN:    Sun 11 Oct, 5pm Melbourne time = 7am Irish time.
+IMAGE:   optional, one image: brand/social/posts/events/melbourne/png-export/moment1-melbourne.png
+         (text-led, no countdown, so it never goes out of date). Text alone also works.
+NO TRYKA in this post. One post per group. Never claim real athletes are signed up.
+
+------------------------------------------------------------
+GROUP: HYROX Melbourne 2026 (public, 6.4K members, about 94 posts a month)
+https://www.facebook.com/groups/hyroxmelbourne
+Skipped on purpose: HYROX Australia & NZ Community (30K): its rule 1 bans promotions and spam.
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself. Join first and read the rules.
+If the group removes it, stop posting there and only comment.
+
+TEXT TO PASTE:
+
+HYROX Melbourne is on! 🎉 (9-13 Dec)
+
+Ready to race but no doubles partner yet? 👀
+
+HyPair matches you by pace and goal, not just whoever happens to ask first 💪
+
+Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT MELBOURNE POSTS: Moment 2 Wed 18 Nov, moment 3 Wed 2 Dec (final week). More often inside the last 2 weeks.
+The closer the race, the more often: roughly 3 weeks apart far out, 2 weeks apart at 6-8 weeks, 10 days at 2-4 weeks, weekly in the final 2 weeks. A different angle each time, never the same text twice in a group.
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.

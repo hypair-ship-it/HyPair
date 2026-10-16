@@ -25,3 +25,9 @@ supabase/.temp/
 
 # Dependencies
 node_modules/
+
+# Sandbox screenshot-shoot restore scripts: contain personal account IDs and email, keep local
+brand/social/sandbox-restore/
+
+# Production user query: names founder email handles and the production project ID, keep local
+brand/social/real-users.sql

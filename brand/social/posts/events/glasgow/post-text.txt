@@ -1,0 +1,30 @@
+HYROX GLASGOW - MOMENT 1 (tickets on sale)   race 10-14 Mar 2027
+
+STATUS:  READY (text and optional image). Refreshed 9 Oct, replaces the earlier version.
+WHEN:    Wed 14 Oct, 12:30 Irish/UK time.
+IMAGES:  2 images with real app screens (shot 13 Oct, countdown reads 148d, only right this week): png-export/slide1-on-sale.png then png-export/slide2-match-score.png
+         Fallback text-led image (no countdown): png-export/moment1-glasgow.png
+         (text-led, no countdown, so it never goes out of date). Text alone also works.
+NO TRYKA in this post. One post per group. Never claim real athletes are signed up.
+
+------------------------------------------------------------
+GROUP: Hyrox Scotland Community (public, 12K members). Most reach, covers Glasgow. Check the rules for a promotion ban before posting.
+Backups: Hyrox Glasgow 2027 (public, 175 members) and HYROX Glasgow 2027 (public, 47 members).
+Found by searching Facebook groups on 9 Oct. Not joined yet. 1 real athlete has already entered Glasgow in the app.
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself. Join first and read the rules.
+If the group removes it, stop posting there and only comment.
+
+TEXT TO PASTE:
+
+HYROX Glasgow is on! 🎉 (10-14 Mar 2027)
+
+Ready to race but no doubles partner yet? 👀
+
+HyPair matches you by pace and goal, not just whoever happens to ask first 💪
+
+Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT GLASGOW POSTS: Race is 5 months away: next post about 3 weeks later (about Wed 4 Nov), then every 2 weeks, then weekly in the last month.
+The closer the race, the more often: roughly 3 weeks apart far out, 2 weeks apart at 6-8 weeks, 10 days at 2-4 weeks, weekly in the final 2 weeks. A different angle each time, never the same text twice in a group.
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.

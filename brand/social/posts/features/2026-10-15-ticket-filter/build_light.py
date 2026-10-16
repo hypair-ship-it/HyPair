@@ -1,0 +1,35 @@
+import subprocess, os, tempfile
+FONTS='../../../../../web/assets/fonts'
+LOGO_TILE='../../../../print/assets/hypair-app-icon.png'
+CSS=f"""
+@font-face{{font-family:'BC';src:url('{FONTS}/barlow-condensed-900.woff2');font-weight:900}}
+@font-face{{font-family:'BC';src:url('{FONTS}/barlow-condensed-700.woff2');font-weight:700}}
+html,body{{margin:0;padding:0;background:#EDE7E3}}
+.post{{position:relative;width:1080px;height:1350px;overflow:hidden;background:#EDE7E3;color:#0F1117}}
+.dots{{position:absolute;inset:0;background-image:radial-gradient(rgba(15,17,23,.07) 2px,transparent 2.5px);background-size:34px 34px}}
+.logo{{position:absolute;left:80px;top:60px;display:flex;align-items:center;gap:16px}}
+.logo img{{width:62px;height:62px;border-radius:15px}}
+.logo span{{font:900 38px 'BC';letter-spacing:2px;color:#0F1117;text-transform:uppercase}}
+.eyebrow{{position:absolute;left:80px;top:170px;font:700 26px 'BC';letter-spacing:6px;color:#E22424;text-transform:uppercase}}
+.head{{position:absolute;left:80px;top:214px;width:920px;font:900 100px/0.98 'BC';text-transform:uppercase;letter-spacing:1px}}
+.hl{{background:linear-gradient(transparent 52%,#F2D079 52%,#F2D079 92%,transparent 92%);padding:0 10px;margin-left:-10px}}
+.phone{{position:absolute;left:230px;top:520px;width:620px;height:900px;border-radius:64px 64px 0 0;background:#0b0e12;border:0;overflow:hidden;box-shadow:0 30px 60px rgba(15,17,23,.28)}}
+.screen{{position:absolute;left:14px;top:14px;width:592px;height:900px;border-radius:50px 50px 0 0;overflow:hidden;background:#F2F2EF}}
+.screen img{{position:absolute;left:0;top:0;width:592px}}
+.sticker{{position:absolute;white-space:nowrap;font:900 44px 'BC';text-transform:uppercase;letter-spacing:1.5px;padding:16px 30px 14px;border-radius:18px;box-shadow:0 14px 26px rgba(15,17,23,.28)}}
+.red{{background:#E22424;color:#fff}} .gold{{background:#F2D079;color:#0F1117}} .ink{{background:#0F1117;color:#F2D079}}
+.stub{{position:absolute;font:900 40px 'BC';letter-spacing:3px;text-transform:uppercase;background:#E22424;color:#fff;padding:20px 54px 18px;border-radius:12px;box-shadow:0 14px 26px rgba(15,17,23,.28);
+ -webkit-mask:radial-gradient(circle 16px at 0 50%,transparent 98%,#000 100%) left/51% 100% no-repeat,radial-gradient(circle 16px at 100% 50%,transparent 98%,#000 100%) right/51% 100% no-repeat}}
+"""
+def page(body): return f'<!DOCTYPE html><html><head><meta charset="UTF-8"><style>{CSS}</style></head><body><div class="post"><div class="dots"></div><div class="logo"><img src="{LOGO_TILE}"><span>HyPair</span></div>{body}</div></body></html>'
+def phone(img): return f'<div class="phone"><div class="screen"><img src="{img}"></div></div>'
+slides={
+ 'light-slide1-off': page('<div class="eyebrow">Join a race</div><div class="head">Got a ticket?<br><span class="hl">Say so.</span></div>'+phone('light-reg-off-clean.png')+'<div class="sticker gold" style="left:600px;top:440px;transform:rotate(6deg)">Not yet? Fine too</div>'),
+ 'light-slide1-on':  page('<div class="eyebrow">Join a race</div><div class="head">Got a ticket?<br><span class="hl">Say so.</span></div>'+phone('light-reg-on-clean.png')+'<div class="sticker red" style="left:610px;top:440px;transform:rotate(-6deg)">Ticket in hand 🎟️</div>'),
+ 'light-slide2':     page('<div class="eyebrow">Find a partner</div><div class="head">Ticket in hand?<br><span class="hl">Or still looking?</span></div>'+phone('light-filter-has.png')+'<div class="sticker red" style="left:690px;top:430px;transform:rotate(6deg)">Has ticket 🎟️</div><div class="sticker ink" style="left:40px;top:452px;transform:rotate(-5deg)">No ticket? Filter that too</div>'),
+}
+chrome='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+for k,h in slides.items():
+    open(k+'.html','w').write(h)
+    subprocess.run([chrome,'--headless','--disable-gpu','--no-first-run',f'--user-data-dir={tempfile.mkdtemp()}',f'--screenshot={k}.png','--window-size=1080,1350','--allow-file-access-from-files','--hide-scrollbars',f'file://{os.path.abspath(k+".html")}'],capture_output=True)
+print('ok')

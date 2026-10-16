@@ -1,0 +1,29 @@
+HYROX NASHVILLE - MOMENT 1 (tickets on sale)   race 9-13 Dec
+
+STATUS:  READY (text and optional image). Refreshed 9 Oct, replaces the earlier version.
+WHEN:    Sat 10 Oct, 12:30pm Central = 6:30pm Irish time.
+IMAGE:   optional, one image: brand/social/posts/events/nashville/png-export/moment1-nashville.png
+         (text-led, no countdown, so it never goes out of date). Text alone also works.
+NO TRYKA in this post. One post per group. Never claim real athletes are signed up.
+
+------------------------------------------------------------
+GROUP: HYROX Nashville Athletes & Ticket Exchange 2026 (public, 11.7K members, about 60 posts a month; replaced the old HYROX NASHVILLE 2026 group, renamed 11 Oct)
+https://www.facebook.com/groups/1542652697112148
+Heads up: ticket-focused group (About text is about buying, selling and exchanging tickets), so the post may be ignored or declined. It is the only Nashville option.
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself. Join first and read the rules.
+If the group removes it, stop posting there and only comment.
+
+TEXT TO PASTE:
+
+HYROX Nashville is on! 🎉 (9-13 Dec)
+
+Got your ticket but no doubles partner yet? 👀
+
+HyPair matches you by pace and goal, not just whoever happens to ask first 💪
+
+Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT NASHVILLE POSTS: Moment 2 Wed 18 Nov, moment 3 Wed 2 Dec (final week). More often inside the last 2 weeks.
+The closer the race, the more often: roughly 3 weeks apart far out, 2 weeks apart at 6-8 weeks, 10 days at 2-4 weeks, weekly in the final 2 weeks. A different angle each time, never the same text twice in a group.
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.

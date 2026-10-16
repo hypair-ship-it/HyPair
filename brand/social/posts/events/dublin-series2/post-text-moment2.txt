@@ -1,0 +1,25 @@
+TRYKA SERIES 2 RACE 1 (DUBLIN) - MOMENT 2 (partner dropped out?)   race 30 Oct - 1 Nov 2026
+
+STATUS:  READY.
+WHEN:    Fri 9 Oct, lunchtime Irish time. The screenshots say "21d", which is only correct TODAY (9 Oct).
+         If you post on another day, ask Claude to retake them.
+IMAGES:  3 images, in this order, from brand/social/posts/events/dublin-series2/png-export/
+           1. moment2-slide1-partner-dropped-out.png
+           2. moment2-slide2-match.png
+           3. moment2-slide3-chat.png
+ONE group only.
+
+------------------------------------------------------------
+GROUP: Tryka Ireland
+POST AS: same account that posted moment 1 on 30 Sep.
+Moment 1 went up 30 Sep, so this is 9 days later. The planner asks for 10-14 days between posts in one group.
+Fine to post today (race is 3 weeks away, 3 real athletes entered); if you want to be strict, post Sat 10 Oct and ask Claude to retake the screenshots (reads 20d).
+
+TEXT TO PASTE:
+
+Partner dropped out? It happens, and usually closer to race day than anyone plans for. Racing Tryka Series 2 Race 1 in Dublin (30 Oct-1 Nov) and need a partner? HyPair matches you by pace and goal with athletes entering the same event. Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT TRYKA SERIES 2 POST: moment 3, Fri 23 Oct (final week).
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.
+The screens come from the staging app (sandbox demo athletes, not real people).

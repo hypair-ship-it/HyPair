@@ -1,0 +1,26 @@
+HYROX LONDON - WOMEN'S AND MIXED ANGLE (extra post)   race 2-6 Dec 2026
+
+STATUS:  READY (text and image). Approved by Ante 14 Oct.
+WHEN:    Thu 15 Oct, 12:30 Irish/UK time.
+IMAGE:   one image: brand/social/posts/events/london/png-export/london-womens-mixed.png
+         ("Need a women's or mixed partner?", Find a Partner screen with a QR code). No countdown on it, so it does not go stale.
+ONE group only.
+
+------------------------------------------------------------
+GROUP: HYROX London ExCel 2026 (public, 3.8K members, about 84 posts a month)
+POST AS: HyPair (the Page), same as the 4 Oct post.
+Last post in this group: Sat 4 Oct (11 days ago). Next in the cadence: about every 2 weeks at this distance (7 weeks to race).
+Skip "HYROX London 2026" (it is for the March event).
+
+TEXT TO PASTE:
+
+Looking for a women's doubles partner for HYROX London (2-6 Dec)? Or a woman to race mixed doubles with? 💪
+
+HyPair matches you by pace and goal with athletes entering the same race.
+
+Free to download: https://hypair.app
+
+------------------------------------------------------------
+Why this angle: London Mixed Doubles has three men and no woman yet, so none of them can be matched; every woman who enters unlocks both women's and mixed pairs. Never claim real athletes are signed up beyond what is true.
+NEXT LONDON POST: about Thu 29 Oct (a different angle: partner thread or pace and goal), then every 10 days from mid-Nov, weekly in the final 2 weeks, last call 1 Dec.
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.

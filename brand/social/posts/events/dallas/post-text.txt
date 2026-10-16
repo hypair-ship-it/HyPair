@@ -1,0 +1,23 @@
+HYROX DALLAS - MOMENT 1 (tickets on sale)   race 18-22 Nov 2026
+
+WHEN:    Fri 2 Oct, around 12:30pm Dallas time (6:30pm Irish time). The screenshots say "47 days", which is only correct TODAY.
+         If you post on another day, ask Claude to retake the screenshots first.
+IMAGES:  2 images, in this order, from brand/social/posts/events/dallas/png-export/
+           1. slide1-on-sale.png
+           2. slide2-match-score.png
+NO TRYKA in US posts. One post per group.
+
+------------------------------------------------------------
+GROUP: HYROX Dallas 2026 (public, 9.4K members, about 141 posts a month)
+https://www.facebook.com/groups/637580861654934
+Note: an older group (created 2023) that was renamed in Feb 2026, so read its rules when you join. No rules were shown on the About page.
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself. Join first.
+Skipped on purpose: HYROX DALLAS 2026 TICKETS EXCHANGE (21K) and HYROX DALLAS TICKETS & RACE HUB 2026 (13K), ticket groups with about 2 posts a day.
+
+TEXT TO PASTE:
+
+HYROX Dallas is on (18-22 Nov). Got your ticket and no doubles partner yet? HyPair matches you by pace and goal, not just whoever happens to ask first. Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT DALLAS POSTS: moment 2 on Wed 28 Oct ("Partner dropped out?"), moment 3 on Wed 11 Nov (final week). Claude prepares them with fresh screenshots.
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.

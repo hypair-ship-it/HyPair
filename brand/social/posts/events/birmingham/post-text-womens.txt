@@ -1,0 +1,25 @@
+HYROX BIRMINGHAM - WOMEN'S AND MIXED ANGLE (extra post)   race 27 Oct - 1 Nov 2026
+
+STATUS:  READY (text and image). Drafted 16 Oct, waiting for Ante's OK.
+WHEN:    Fri 16 Oct, 12:30 Irish/UK time.
+IMAGE:   one image: social/posts/events/birmingham/png-export/birmingham-womens-mixed.png
+         ("Need a women's or mixed partner?", real Find a Partner screen, QR code). Stale "21d" pill and the "only a few people so far" banner were removed from the screenshot. No countdown on it.
+ONE group only.
+
+------------------------------------------------------------
+GROUP: HYROX Birmingham 2026 (the group with 1,648 views on the first post)
+POST AS: HyPair (the Page), same as the 29 Sep and 6 Oct posts.
+Last post in this group: Tue 6 Oct (10 days ago). Dropped groups stay dropped (Birmingham 2026 HYROX, Dublin and Birmingham Tickets Group).
+
+TEXT TO PASTE:
+
+HYROX Birmingham is nearly here (27 Oct-1 Nov). Looking for a women's doubles partner, or a woman to race mixed doubles with? 💪
+
+HyPair matches you by pace and goal with athletes entering the same race.
+
+Free to download: https://hypair.app
+
+------------------------------------------------------------
+Why this angle: the Birmingham Doubles pool now has two women, both with tickets, and Mixed has only men so far. Every woman who enters opens women's and mixed pairs. Do NOT say real athletes are signed up beyond what is true.
+NEXT BIRMINGHAM POST: Mon 26 Oct, last call ("starts tomorrow"), 10 days after this one.
+AFTER POSTING: tell Claude, so it is logged in social/PLANNER.md.

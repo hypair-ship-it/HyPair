@@ -1,0 +1,22 @@
+HYROX DENVER - MOMENT 1 (tickets on sale)   race 12-15 Nov 2026
+
+WHEN:    Fri 2 Oct, around 12:30pm Denver time (7:30pm Irish time). The screenshots say "41 days", which is only correct TODAY.
+         If you post on another day, ask Claude to retake the screenshots first.
+IMAGES:  2 images, in this order, from brand/social/posts/events/denver/png-export/
+           1. slide1-on-sale.png
+           2. slide2-match-score.png
+NO TRYKA in US posts. One post per group.
+
+------------------------------------------------------------
+GROUP: Hyrox Denver 2026 (public, 4.1K, Denver area, about 210 posts a month)
+https://www.facebook.com/groups/2183540312388481
+Rules: be kind, no ticket sales (our post is not a ticket sale).
+POST AS: HyPair (the Page) if the group allows Pages, otherwise yourself. Join first.
+
+TEXT TO PASTE:
+
+HYROX Denver is on (12-15 Nov). Got your ticket and no doubles partner yet? HyPair matches you by pace and goal, not just whoever happens to ask first. Free to download: https://hypair.app
+
+------------------------------------------------------------
+NEXT DENVER POSTS: moment 2 on Thu 22 Oct ("Partner dropped out?"), moment 3 on Thu 5 Nov (final week). Claude prepares them with fresh screenshots.
+AFTER POSTING: tell Claude, so it is logged in brand/social/PLANNER.md.
