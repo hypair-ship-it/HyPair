@@ -21,9 +21,19 @@ Each one is a different kind of post, so a group never sees the same thing twice
 3. **Final week (6-7 days out): last-minute.** The Boston pattern, 4 slides.
 
 Rules: never claim real athletes are signed up when they are not. If a group removes a post, stop posting there and only comment.
+**Ready images (unified style, 18 Oct):** Tampa last call `posts/events/tampa/lastcall-tampa.png` + `post-text-lastcall.txt`; HYROX Dublin moment 2 `posts/events/hyrox-dublin/moment2-dublin.png` + `post-text-moment2.txt`; Denver moment 2 `posts/events/denver/moment2-denver.png` + `post-text-moment2.txt`; Series 2 moment 3 `posts/events/dublin-series2/moment3-series2.png` + `post-text-moment3.txt`. No countdown pill, so they stay correct on any day. Archived (moved, not deleted): `posts/_archive/2026-10-superseded/` (see its MANIFEST.md).
 Text for every moment is in `posts/_moments/moments.md`. The first thread (Tampa) is in `posts/_moments/tampa-moment1-thread.md`.
 
 Every event folder (brand/social/posts/events/<city>/) has a `post-text.txt` with the group, who to post as, the time, the images and the text to copy.
+
+## Coverage check, 18 Oct 2026 (production events vs hyrox.com/find-my-race and tryka.fit vs this planner)
+Rule used: moment 1 is triggered when the race flips to BUY TICKETS. Cadence: 3 weeks apart far out, 2 weeks at 6-8 weeks, 10 days at 2-4 weeks, weekly in the final 2 weeks, never under 10 days in one group.
+- **On sale and posted:** Tampa, Birmingham, Tryka Series 2 Race 1, HYROX Dublin, Denver, Dallas, Johannesburg (2 Oct post was pending admin approval, never confirmed live), London, Anaheim, Nashville, Manchester, Chicago, Phoenix, Glasgow.
+- **On sale, NOT posted:** Melbourne (group did not approve, no-go), HYROX Auckland (4-7 Feb 2027, NZ, no group found yet), HYROX Las Vegas (12-14 Mar 2027, no group found yet), HYROX Brisbane (31 Mar-5 Apr 2027, no group found yet), Tryka Birmingham Winter Event (13-14 Feb 2027, assets built, no group), Vancouver (Canada paused, deliberately skipped).
+- **Not on sale yet (FIND OUT MORE), so no moment 1 yet:** Miami Beach, Cape Town, Houston, Atlanta, San Diego, Cardiff, Portland, Ottawa (paused). Tryka Dublin Winter, Spring, Summer and Autumn: "Details Coming Soon". Re-check hyrox.com weekly for the flip. Atlanta already has athletes asking for partners in groups, so it is worth watching.
+- **Frequency gaps:** Dallas (2 Oct, then 28 Oct, 26 days, race 18 Nov); Nashville (11 Oct, then 18 Nov, no 6-8 week post around 4 Nov); Tampa (2 Oct, then only a 21 Oct last call, the final-week post of 15 Oct was dropped); Dublin and Denver (2 Oct/30 Sep, then 21/22 Oct, 3 weeks). All within the 10-day-minimum rule, but slower than the closer-means-more-often cadence.
+- **Groups actually used differ from the plan:** Glasgow in Hyrox Glasgow 2027 (not Hyrox Scotland Community), Phoenix in both HYROX Phoenix 2026 and 2027, London women's angle in HYROX London 2026 (not ExCeL). Count the gaps from these.
+- **Australia / NZ groups checked 18 Oct (links from Natalia):** HYROX Australia & NZ Community (groups/httpswww.facebook.comhyroxaus, public, 30.5K members, about 117 posts a month, admin is the official Hyrox Australia & New Zealand Page). Rule 1: no promotions or spam, so comments on real partner requests only, never a post. HyPair is not a member yet. BYD HYROX AUCKLAND 2027 TICKETS (groups/1820318688952918, public, 71 members, 5 posts a month, created 19 Jul 2026, no written rules, members mostly ask for tickets): the only Auckland group found, tiny; one moment 1 post is worth trying after joining. The official Hyrox Australia & New Zealand Page (facebook.com/hyroxaus, 16K followers) posts the Brisbane and Melbourne announcements: comment only on athletes' partner requests, nothing under the organiser's own announcements. Still no group for Brisbane, and Melbourne's group did not approve the 12 Oct post.
 
 ## Event plan (rebuilt 9 Oct)
 - Moment 1 wording changed 12 Oct (Natalia): "Got your ticket?" assumed everyone has a ticket. New wording: "Ready to race but no doubles partner yet?" (images: "Ready to race? Need a partner?"). Applied to the unposted events (Melbourne, Chicago, Manchester, Glasgow, Phoenix), the generator `_templates/moments/make_moment1.py`, `moments.md` and the Tryka Birmingham slide. Already-posted events keep their old wording.
@@ -55,7 +65,7 @@ Superseded: the table that used to be here listed Nashville and Melbourne as pos
 
 
 ### HYROX Ireland Sim & Gym Events (group 1516520836482042), added 10 Oct
-Public, 1.0K members, created 4 May 2026, HyPair is a member. Admin: Maura Ahern. Rules: gyms and coaches post their sims for free in the format location / date / type / price / sign-up link; no training advice, no general questions, no spam; not official race ticket sales. Plan: alternate weekly, athlete statement post one week and gym post the next. Never a question or partner thread here. Never say HyPair lists sims (production has none). Gym posts: no pricing, no founding-gym offer, link hypair.app/for-gyms only. Gym week 1 posted 10 Oct (image `posts/gyms/2026-10-10-sim-week/sim-week.png`). Next: athlete week around Sat 17 Oct (two options drafted 14 Oct in `posts/gyms/2026-10-17-sim-group-athlete/post-text.txt`, waiting for Ante's pick), then gym week around 24 Oct. If removed, stop posting there and only comment. Check views and whether the admin reacts.
+Public, 1.0K members, created 4 May 2026, HyPair is a member. Admin: Maura Ahern. Rules: gyms and coaches post their sims for free in the format location / date / type / price / sign-up link; no training advice, no general questions, no spam; not official race ticket sales. Plan: alternate weekly, athlete statement post one week and gym post the next. Never a question or partner thread here. Never say HyPair lists sims (production has none). Gym posts: no pricing, no founding-gym offer, link hypair.app/for-gyms only. Gym week 1 posted 10 Oct (image `posts/gyms/2026-10-10-sim-week/sim-week.png`). Athlete week 1 posted Sat 17 Oct (Option A, with the Dublin cream visual). Next: gym week 2 around Sat 24 Oct. If removed, stop posting there and only comment. Check views and whether the admin reacts.
 
 ### Proposal for Ante, 10 Oct (Natalia): list every HYROX/Tryka event in the app, even outside the English-speaking region
 Trigger: a "Who will be in Geneva?" post in a HYROX group on 10 Oct. HYROX Geneva is not in the app (checked in production). Idea: list all events, and people outside the main region can still see them and find partners. Open questions for Ante and the Engineering session: (1) how the Events tab filter treats non-English regions today, which I have not checked; (2) who adds events (rows in the production events table, owned by Engineering); (3) copy never promises matches in places with no athletes yet. Canada stays paused (AthleteField). Nothing changed in the app.
@@ -97,15 +107,15 @@ Times are what Ante sets on the clock. Irish time is 5 hours ahead of Eastern (U
 |---|---|---|---|---|
 | Thu 8 Oct | 12:30 | Match score feature post | Instagram, then Facebook Page | features/2026-10-08-match-score/match-score-london.png |
 | Fri 9 Oct | 12:30 | Tryka Series 2 Race 1 (Dublin), moment 2: "Partner dropped out?" (3 real athletes entered) | Tryka Ireland, POSTED ~13:00 | events/dublin-series2/ |
-| Mon 12 Oct | 15:00 (10:00 ET) | Boston after-race "You did it" carousel | HYROX Boston 2026 | events/boston/post-race/ |
+| Mon 12 Oct | 15:00 (10:00 ET) | Boston after-race "You did it" carousel | HYROX Boston 2026 | posts/_archive/2026-10-superseded/events/boston/post-race/ |
 | Mon 12 Oct | 17:30 (12:30 ET) | Tampa extra post, partner thread (race is 10 days away; 10 days after the 2 Oct post) | Hybrid Fitness Tampa | new text, app link in first comment |
-| Mon 12 Oct | open | Tryka Grand Finale (Lisbon, 10 Oct) after-race podium carousel | HyPair own channels (Instagram and Facebook Page), not a group: Tryka does not allow posting, only comments (Natalia, 12 Oct). Tag @tryka.fit. One-off exception to the Thursday-features-only rule | events/tryka-grand-finale-lisbon/post-race/ |
+| Mon 12 Oct | open | Tryka Grand Finale (Lisbon, 10 Oct) after-race podium carousel | HyPair own channels (Instagram and Facebook Page), not a group: Tryka does not allow posting, only comments (Natalia, 12 Oct). Tag @tryka.fit. One-off exception to the Thursday-features-only rule | posts/_archive/2026-10-superseded/events/tryka-grand-finale-lisbon/post-race/ |
 | Thu 15 Oct | 12:30 | Feature post: nearby events and location filter | Instagram, Facebook Page | to build |
 | Thu 15 Oct | 12:30 | London women's and mixed angle (11 days after 4 Oct), APPROVED 14 Oct | HYROX London ExCel 2026 | events/london/post-text-womens.txt, png-export/london-womens-mixed.png |
 | Fri 16 Oct | 12:30 | Birmingham women's and mixed angle (10 days after 6 Oct), text and image READY 16 Oct, waiting for Ante's OK | HYROX Birmingham 2026 | posts/events/birmingham/post-text-womens.txt, png-export/birmingham-womens-mixed.png |
 | Wed 21 Oct | 17:30 (12:30 ET) | Tampa last call, "starts tomorrow" (replaces the old Thu 15 Oct moment 3) | Hybrid Fitness Tampa | new text |
 | Sat 10 Oct | 18:30 (12:30 CT) | Nashville moment 1 | HYROX NASHVILLE 2026 | events/nashville/ |
-| Sun 11 Oct | 07:00 (17:00 Melbourne) | Melbourne moment 1 | HYROX Melbourne 2026 | events/melbourne/ |
+| Sun 11 Oct | 07:00 (17:00 Melbourne) | Melbourne moment 1 | HYROX Melbourne 2026 | posts/_archive/2026-10-superseded/events/melbourne/ |
 | Tue 13 Oct | 12:30 | Manchester moment 1 | HYROX MANCHESTER 2027 (258 members) | events/manchester/ |
 | Tue 13 Oct | 18:30 (12:30 CT) | Chicago moment 1 (2 real athletes already entered) | HYROX Chicago 2027 (2.6K) | events/chicago/ |
 | Wed 14 Oct | 12:30 | Glasgow moment 1 (1 real athlete entered) | Hyrox Scotland Community (12K), check its rules | events/glasgow/ |
@@ -162,7 +172,7 @@ After-race carousel for any event: `python3 brand/social/posts/_templates/post-r
 | 11 Oct ~07:00 | HYROX Melbourne | 1 | HYROX Melbourne 2026 (same wording as Nashville; still pending admin approval on 12 Oct; gone from the Page library on 13 Oct, probably declined) | 0 (pending) | 0 | 0 | |
 | 6 Oct 14:30 | HYROX Birmingham | 2 | HYROX Birmingham 2026 (3-slide carousel: Find a Partner, It's a match, chat) | 820 | 53 (eng.) | 1 | 2 real athletes signed up within about 5 hours of the post, both entered Birmingham (figure from Ante via the CMO session, 7 Oct) |
 | 15 Oct ~12:30 | HYROX London | extra (women's and mixed angle) | HYROX London ExCel 2026 (posted by Ante; image london-womens-mixed.png, text in events/london/post-text-womens.txt; exact time approximate). Shan B. (UK) signed up and entered Birmingham Doubles at 13:25 the same day, not London | | | | |
-| 16 Oct ~12:30 | HYROX Birmingham | extra (women's and mixed angle) | HYROX Birmingham 2026 (posted by Natalia as HyPair; one image birmingham-womens-mixed.png; 10 days after the 6 Oct post) | | | | |
+| 16 Oct ~12:30 | HYROX Birmingham | extra (women's and mixed angle) | HYROX Birmingham 2026 (posted by Natalia as HyPair; one image birmingham-womens-mixed.png; 10 days after the 6 Oct post; not checked on Facebook by Claude, the browser pane was logged out). Same day: Amelie F. (Melbourne), Jenny K. (Series 2) and James O. (Birmingham Mixed Doubles) signed up, source unknown | | | | |
 | 14 Oct ~14:00 | HYROX Glasgow | 1 | Hyrox Scotland Community (posted by Natalia, 2 images with real app screens, new "Ready to race" wording; group is quiet, about 13 posts a month) | | | | |
 | 14 Oct | Question post "Where would you race next?" (market research, not an event post) | n/a | HYROX (Official Community, 327.5K members; posted by Natalia as herself; approved by the admins 14 Oct; map image, see posts/features/2026-10-14-where-next/; exact wording and which map version not recorded) | | | | |
 | 13 Oct | HYROX Manchester | 1 | HYROX MANCHESTER 2027 (posted by Natalia about 14:00 Irish, text only, new "Ready to race" wording; screens (slide 2) to be added as a comment) | | | | |
@@ -170,6 +180,7 @@ After-race carousel for any event: `python3 brand/social/posts/_templates/post-r
 | 11 Oct | HYROX Nashville | 1 | HYROX Nashville Athletes & Ticket Exchange 2026 (joined 11 Oct; posted by Natalia, time not recorded; wording as post-text.txt; library time 07:45 Irish) | 23 | 4 (eng.) | 0 | |
 | 10 Oct | Tryka Grand Finale Lisbon (comment, not a post) | extra comment | TRYKA official Page post "AND WE'RE OFF" (posted by Natalia as HyPair, wording not recorded; supportive comment, no link, no image) | | | | |
 | 10 Oct | Gym week 1 (B2B angle) | n/a | HYROX Ireland Sim & Gym Events (public, 1.0K members, admin Maura Ahern; posted by Natalia, time not recorded; no admin OK asked first; library time 12:25; still live on 11 Oct, no comments, no reactions) | 51 | 6 (eng.) | 0 | |
+| 17 Oct (about 14:00, time not noted) | Athlete week 1 (B2C angle) | n/a | HYROX Ireland Sim & Gym Events (posted as HyPair/Natalia; Option A text approved by Ante 17 Oct; image `posts/gyms/2026-10-17-sim-group-athlete/sim-athlete-visual.png`, cream style with H icon and a real HYROX Dublin Find a Partner screen, demo athletes) | | | | |
 | 4 Oct ~20:35 | HYROX Anaheim | 1 | HYROX Anaheim 2026 (posted, emoji version at 20:35; a second, plain copy at 20:37 also live) | 27 + 7 | 2 (eng.) | 0 | |
 | 4 Oct ~08:40 | HYROX London | 1 | HYROX London ExCel 2026 and HYROX London 2026 (the March-event group), both posted 09:16, emoji version; the link had square brackets and needs editing | ExCeL 56, March group 177 | 6 + 6 (eng.) | 0 | 1 London athlete signed up that night (4 Oct), per Ante via the CMO session |
 | 2 Oct ~18:45 | HYROX Boston | 3 | HYROX Boston 2026 (posted as HyPair). Private HYROX Boston: skipped for now (Ante, 2 Oct). Library time 18:40; HWPO hub copy 18:42 | 1,207 (HWPO 120) | 75 (eng.) | 3 | |
@@ -258,6 +269,31 @@ New real sign-ups since 1 Oct: Theresa (Boston, 2 Oct 20:12 Irish, onboarded, en
 The gym post is still live in HYROX Ireland Sim & Gym Events (found via group search on 13 Oct, image intact). No reactions and no comments, so Maura Ahern has not commented. Nothing was posted, commented or changed.
 
 Read: the 10 Oct gym post is alive and still growing (101 views from 61 people in a 1.0K-member group, 9 clicks), but there's no visible response, and that's what matters for B2B. Nashville picked up the most since yesterday (+45) and has the best engagement rate of the "is on!" posts (8 from 31 viewers). Tryka moment 2 (141) is now about half of Tryka moment 1 (283), so the second post in the same small group gets less. "Partner dropped out" in a big race group is still the best angle (Birmingham 828, Boston moment 3 1,207). Everything older than a week has stopped growing. Melbourne has disappeared from the library, so it was most likely declined by the group admin. Johannesburg is still pending after eleven days, so it's dead. Nothing else looks removed.
+
+### Views check, 18 Oct (Page library, last 28 days: 20 Sep-18 Oct)
+| Posted (Irish) | Group | Text starts | Views | Viewers | Engagement | Comments |
+|---|---|---|---|---|---|---|
+| 17 Oct 13:21 | HYROX Ireland Sim & Gym Events | "Racing HYROX or Tryka doubles?" (athlete week 1) | 86 | 46 | 6 | 0 |
+| 16 Oct 12:43 | HYROX Birmingham 2026 | "HYROX Birmingham is nearly here ... women's partner" | 613 | 401 | 10 | 1 |
+| 16 Oct 08:39 | HyPair Page feed | "Got your ticket but no one to race with?" (ticket filter) | 11 | 4 | 1 | 0 |
+| 15 Oct 13:07 | HYROX London 2026 (the March-event group, not ExCeL) | "Looking for a women's doubles partner for HYROX London" | 242 | 95 | 9 | 0 |
+| 15 Oct 06:36 | HYROX Phoenix 2027 | "HYROX Phoenix is on!" (no dates in the text) | 11 | 4 | 1 | 0 |
+| 14 Oct 20:14 | HYROX Phoenix 2026 | "HYROX Phoenix is on! (25-28 Feb 2027)" | 5 | 4 | 1 | 0 |
+| 14 Oct 14:16 | Hyrox Glasgow 2027 (small group, not Hyrox Scotland Community) | "HYROX Glasgow is on!" | 345 | 142 | 86 | 0 |
+| 13 Oct 19:23 | Hyrox Chicago 2026 | "HYROX Chicago is on!" | 32 | 15 | 1 | 0 |
+| 11 Oct 07:45 | HYROX Nashville Athletes & Ticket Exchange 2026 | "HYROX Nashville is on!" | 183 | 72 | 14 | 0 |
+| 10 Oct 12:25 | HYROX Ireland Sim & Gym Events | "Running a HYROX-style sim or open day?" (gym week 1) | 215 | 116 | 12 | 0 |
+| 9 Oct 13:06 | Tryka Ireland | "Partner dropped out? ... Series 2 Race 1" | 234 | 108 | 13 | 0 |
+| 8 Oct 16:06 | HyPair Page feed | "Not every partner is the right partner." | 7 | 6 | 0 | 0 |
+| 7 Oct 19:59 | HWPO HYROX BOSTON TICKETS & RACE HUB 2026 | Boston race weekend | 165 | 60 | 0 | 0 |
+| 7 Oct 19:57 | HYROX Boston 2026 | Boston race weekend | 372 | 238 | 6 | 0 |
+| 6 Oct 14:30 | HYROX Birmingham 2026 | "Partner dropped out? ... Birmingham" | 834 | 507 | 53 | 0 |
+
+Not in the library: Manchester (13 Oct, posted by Natalia from a personal profile?), Melbourne (pending, never approved), the Boston after-race carousel, the Tampa partner thread, the Lisbon carousel and the 17 Oct HYROX Training Community post. Confirm which of these went out.
+
+Differences from the plan, found in this check: Glasgow went to "Hyrox Glasgow 2027" (not Hyrox Scotland Community); Phoenix went into both "HYROX Phoenix 2026" and "HYROX Phoenix 2027" (the 2027 one has no dates in its text); the London women's angle went to "HYROX London 2026" (the March group), not ExCeL; Chicago went to "Hyrox Chicago 2026". Log the groups as actually used so the 10 to 14 day gaps are counted correctly.
+
+Read: the Birmingham women's and mixed post (613 views) is the second-best group post so far after the 6 Oct "partner dropped out" carousel (834). Glasgow had the best engagement (86 on 345 views) from a small group. Phoenix and Chicago barely registered (5 to 32 views), so those groups are small or quiet. The sim-group athlete post is at 86 views after one day, no comments. Nothing was posted or changed from this check.
 
 ## Real users (how we count)
 "Real external user" = anyone in production who is not one of the four accounts that are ours (Natalia, Ante, the Apple reviewer, the Google reviewer) and not a QA, demo or test account. Standing rule from Ante: every sign-up count in this file and on the Notion planner page uses this definition.

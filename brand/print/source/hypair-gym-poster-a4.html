@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>HyPair gym noticeboard poster A4</title><style>
+@font-face { font-family: 'Barlow'; font-weight: 400; src: url('../../../web/assets/fonts/barlow-400.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow'; font-weight: 600; src: url('../../../web/assets/fonts/barlow-600.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow Condensed'; font-weight: 700; src: url('../../../web/assets/fonts/barlow-condensed-700.woff2') format('woff2'); }
+@font-face { font-family: 'Barlow Condensed'; font-weight: 900; src: url('../../../web/assets/fonts/barlow-condensed-900.woff2') format('woff2'); }
+@page { size: A4; margin: 0; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:210mm; height:297mm; background:#E22424; font-family:'Barlow',sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.page { width:210mm; height:297mm; padding:12mm; }
+.panel { width:186mm; height:273mm; border-radius:7mm; padding:9mm 10mm; display:flex; flex-direction:column; overflow:hidden; background:#EDE7E3; }
+.tile { overflow:hidden; } .tile img { width:100%; height:100%; display:block; }
+h1 { font-family:'Barlow Condensed',sans-serif; font-weight:900; line-height:0.98; letter-spacing:-0.2mm; color:#0F1117; }
+.acc { color:#E22424; }
+.hero { text-align:center; padding-top:6mm; }
+.hero h1 { font-size:19mm; }
+.sub { line-height:1.4; font-size:4.6mm; margin:4mm auto 0; color:#4A5568; }
+.phones { display:flex; justify-content:center; gap:6mm; margin-top:8mm; }
+.phone { width:50mm; text-align:center; display:flex; flex-direction:column; justify-content:flex-end; }
+.phone img { display:block; width:100%; height:auto; border-radius:4.5mm; border:.4mm solid #cfc7c1; }
+.cap { font-family:'Barlow Condensed',sans-serif; font-weight:700; letter-spacing:0.1mm; font-size:5.2mm; margin-top:2.5mm; color:#0F1117; }
+.qrcard { background:#fff; border-radius:6mm; display:flex; align-items:center; gap:8mm; margin-top:10mm; padding:5mm 7mm; }
+.qrcard img.code { width:30mm; height:30mm; background:#fff; border-radius:2.5mm; flex-shrink:0; }
+.qrcard .t { font-family:'Barlow Condensed',sans-serif; font-weight:700; line-height:1.1; color:#0F1117; font-size:7.6mm; }
+.qrcard .s { line-height:1.4; color:#4A5568; margin-top:2mm; font-size:3.8mm; } .qrcard .s strong { color:#0F1117; }
+.badges { display:flex; gap:4mm; margin-top:3mm; } .badges img { height:10mm; }
+.foot { margin-top:auto; text-align:center; padding-top:3mm; }
+.foot .brand { display:flex; align-items:center; justify-content:center; gap:3.5mm; margin-bottom:1.5mm; }
+.foot .word { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:10mm; letter-spacing:0.2mm; color:#0F1117; }
+.foot .social { font-size:4mm; color:#4A5568; }
+</style></head><body><div class="page"><div class="panel"><div class="hero"><h1>Need a partner for a<br><span class="acc">HYROX or TRYKA?</span></h1><p class="sub">Find a doubles partner who matches your pace, goals and race.</p></div><div class="phones"><div class="phone"><img src="../assets/screens/profile.png"><div class="cap">Fill out your profile</div></div><div class="phone"><img src="../assets/screens/find-partner.png"><div class="cap">Find a race partner</div></div><div class="phone"><img src="../assets/screens/match.png"><div class="cap">Race together</div></div></div><div class="qrcard"><img class="code" src="../../../web/assets/badges/hypair-qr-code.png"><div><div class="t">Your next race partner is one scan away.</div><div class="s">Free to download. Point your phone camera at the code, or search <strong>HyPair</strong> on the App Store or Google Play.</div><div class="badges"><img src="../../../web/assets/badges/apple-app-store-badge-black.svg"><img src="../../../web/assets/badges/google-play-badge-black.png"></div></div></div><div class="foot"><div class="brand"><div class="tile" style="width:14mm;height:14mm;border-radius:3.2mm"><img src="../assets/hypair-app-icon.png"></div><div class="word">HyPair</div></div><div class="social">Follow @hypair.app</div></div></div></div></body></html>

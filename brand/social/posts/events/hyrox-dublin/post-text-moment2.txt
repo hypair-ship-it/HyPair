@@ -1,0 +1,12 @@
+HYROX DUBLIN - MOMENT 2 (partner dropped out?)   race 11-15 Nov 2026
+
+WHEN:    Wed 21 Oct, 12:30 Irish time. The image has no countdown, so it stays correct on any day.
+IMAGE:   brand/social/posts/events/hyrox-dublin/moment2-dublin.png
+GROUP:   HYROX Dublin 2026 (moment 1 was 30 Sep)
+
+TEXT TO PASTE:
+
+Partner dropped out? It happens, and usually closer to race day than anyone plans for. Racing HYROX Dublin (11-15 Nov) and need a partner? HyPair matches you by pace and goal with athletes entering the same race. Free to download: https://hypair.app
+
+NEXT: moment 3, Wed 4 Nov. AFTER POSTING: tell Claude, so it is logged in PLANNER.md.
+The screen is from the staging app (sandbox demo athletes, not real people).

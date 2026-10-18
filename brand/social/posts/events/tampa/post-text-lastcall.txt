@@ -1,0 +1,12 @@
+HYROX TAMPA - LAST CALL   race 22-25 Oct 2026
+
+WHEN:    Wed 21 Oct, 12:30 Eastern (17:30 Irish). The image has no countdown.
+IMAGE:   brand/social/posts/events/tampa/lastcall-tampa.png
+GROUP:   Hybrid Fitness Tampa (last posts: 2 Oct, 12 Oct if sent). NO TRYKA in US posts.
+
+TEXT TO PASTE:
+
+HYROX Tampa starts tomorrow. Racing doubles and still need a partner? Open HyPair, filter for athletes with a ticket at your pace and connect. Free to download: https://hypair.app
+
+AFTER POSTING: tell Claude, so it is logged in PLANNER.md. This is the last Tampa post.
+The screen is from the staging app (sandbox demo athletes, not real people).

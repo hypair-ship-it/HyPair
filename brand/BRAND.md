@@ -185,10 +185,12 @@ expand beyond HYROX and TRYKA.
   repo's `CLAUDE.md` standing content rules)
 
 ### Post Format
-- Square 1:1 (1080×1080px) for feed posts
-- Always include "link in bio" in captions — never put URLs on graphics
-- Do not put the handle on the graphic — it is visible from the account
-- Caption structure: hook → problem/solution → CTA → hashtags
+- Portrait 4:5 (1080×1350px) for all feed posts, generated with `social/posts/_templates/unified/make_post.py`
+- Header: app H icon (bold H on gold tile) only, no "HyPair" wordmark, `hypair.app` top right (domain only, no full URL, no "link in bio" on the graphic)
+- Then: small spaced label (event and dates), Barlow Condensed 900 headline in caps (two lines), one line of Barlow text, one real app screen cropped by the bottom edge
+- The screen is always the dark app theme, with the countdown pill blanked so the post does not go stale
+- Footer wording where a footer is used: "Free on the App Store and Google Play"; print sign-off: "Follow @hypair.app"
+- Captions: always say "link in bio" (Instagram) or give the link (Facebook groups); hook → problem/solution → CTA → hashtags
 
 ### Core Hashtags
 ```
@@ -196,12 +198,15 @@ expand beyond HYROX and TRYKA.
 #HybridTraining #FunctionalFitness #TRYKA
 ```
 
-### Background Styles (approved for social)
-| Style | Hex | When to use |
+### Background Styles (approved for social and print)
+One background per post type. Never mix backgrounds inside a carousel.
+| Style | Hex | Use for |
 |---|---|---|
-| Summit | `#4C5F6B` | Default — community, matching posts, general use |
-| Summit Dark | `#374D59` | Problem/solution posts, bold statements |
-| Black | `#0a0a0a` | Maximum contrast, high-impact statements |
+| Slate (Summit Dark) | `#374D59` | Race-specific event and group posts (moment 1, 2, 3, last call) |
+| Cream | `#EDE7E3` | Thursday feature posts and print (flyers, posters, handouts). Label in red `#E22424`, ink `#0F1117` |
+| Near-black | `#0F1318` | Gym/organiser posts and bigger statements (where-next map, after-race congratulations) |
+
+Label colour on slate and near-black is gold `#F2D079`, never red (too low contrast).
 
 ---
 

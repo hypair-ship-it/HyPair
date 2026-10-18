@@ -1,0 +1,12 @@
+HYROX DENVER - MOMENT 2 (partner dropped out?)   race 12-15 Nov 2026
+
+WHEN:    Thu 22 Oct, around 12:30 Denver time (19:30 Irish). The image has no countdown.
+IMAGE:   brand/social/posts/events/denver/moment2-denver.png
+GROUP:   Hyrox Denver 2026 (moment 1 was 2 Oct). NO TRYKA in US posts.
+
+TEXT TO PASTE:
+
+Partner dropped out? It happens, and usually closer to race day than anyone plans for. Racing HYROX Denver (12-15 Nov) and need a partner? HyPair matches you by pace and goal with athletes entering the same race. Free to download: https://hypair.app
+
+NEXT: moment 3, Thu 5 Nov (final week). AFTER POSTING: tell Claude, so it is logged in PLANNER.md.
+The screen is from the staging app (sandbox demo athletes, not real people).

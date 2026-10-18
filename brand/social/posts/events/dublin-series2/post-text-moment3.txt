@@ -1,0 +1,12 @@
+TRYKA SERIES 2 RACE 1 (DUBLIN) - MOMENT 3 (race week)   race 30 Oct - 1 Nov 2026
+
+WHEN:    Fri 23 Oct, lunchtime Irish time. The image has no countdown.
+IMAGE:   brand/social/posts/events/dublin-series2/moment3-series2.png
+GROUP:   Tryka Ireland (moment 2 was 9 Oct)
+
+TEXT TO PASTE:
+
+Race week is next week. Racing Tryka Series 2 Race 1 in Dublin (30 Oct-1 Nov) and still need a partner? HyPair matches you by pace and goal with athletes entering the same event. Free to download: https://hypair.app
+
+AFTER POSTING: tell Claude, so it is logged in PLANNER.md.
+The screen is from the staging app (sandbox demo athletes, not real people).
