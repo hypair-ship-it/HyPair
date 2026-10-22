@@ -51,6 +51,7 @@ h1 { font-family:'Barlow Condensed',sans-serif; font-weight:900; line-height:0.9
 .badges { display:flex; gap:4mm; margin-top:3mm; } .badges img { height:10mm; }
 .foot { margin-top:auto; text-align:center; padding-top:3mm; }
 .foot .brand { display:flex; align-items:center; justify-content:center; gap:3.5mm; margin-bottom:1.5mm; }
+.foot .tile { width:20mm; height:20mm; border-radius:4.6mm; }
 .foot .word { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:10mm; letter-spacing:0.2mm; color:#0F1117; }
 .foot .social { font-size:4mm; color:#4A5568; }
 </style></head><body><div class="page"><div class="panel">''' % {'web': WEB, 'border': BORDER}
@@ -67,9 +68,8 @@ QR = (f'<div class="qrcard"><img class="code" src="{WEB}badges/hypair-qr-code.pn
       '<div class="s">Free to download. Point your phone camera at the code, or search <strong>HyPair</strong> on the App Store or Google Play.</div>'
       f'<div class="badges"><img src="{WEB}badges/apple-app-store-badge-black.svg"><img src="{WEB}badges/google-play-badge-black.png"></div>'
       '</div></div>')
-FOOT = ('<div class="foot"><div class="brand"><div class="tile" style="width:14mm;height:14mm;border-radius:3.2mm">'
-        '<img src="assets/hypair-app-icon.png"></div><div class="word">HyPair</div></div>'
-        '<div class="social">Follow @hypair.app</div></div>')
+FOOT = ('<div class="foot"><div class="brand"><div class="tile">'
+        '<img src="assets/hypair-app-icon.png"></div></div></div>')
 
 
 def scale(html, k):
@@ -82,7 +82,7 @@ def scale(html, k):
 
 def print_pdf(html_path, pdf_path):
     for _ in range(4):
-        r = subprocess.run([CHROME, '--headless', '--disable-gpu', '--no-first-run', f'--user-data-dir={tempfile.mkdtemp()}',
+        r = subprocess.run([CHROME, '--headless', '--disable-gpu', '--no-first-run', *(['--no-sandbox'] if hasattr(os, 'geteuid') and os.geteuid() == 0 else []), f'--user-data-dir={tempfile.mkdtemp()}',
                             '--print-to-pdf-no-header', f'--print-to-pdf={pdf_path}', '--allow-file-access-from-files',
                             f'file://{os.path.abspath(html_path)}'], capture_output=True)
         if r.returncode == 0 and os.path.exists(pdf_path):
@@ -108,16 +108,16 @@ q = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, box_size=20
 q.add_data('https://hypair.app/for-gyms'); q.make(fit=True)
 q.make_image(fill_color='black', back_color='white').save('assets/qr-for-gyms.png')
 
-OWNER_CSS = '.hero { padding-top:0mm; } .hero h1 { font-size:14mm; } .hero h1 .acc { font-size:19mm; } .phones { margin-top:5mm; } .qrcard { margin-top:6mm; padding:4mm 7mm; } .qrcard img.code { width:32mm; height:32mm; } .foot { padding-top:2mm; } .qrcard .s { font-size:4.2mm; } .qrcard .url { font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:5.2mm; color:#E22424; margin-top:2.5mm; }'
+OWNER_CSS = '.hero { padding-top:0mm; } .hero h1 { font-size:14mm; } .hero h1 .acc { font-size:19mm; } .phones { margin-top:5mm; } .qrcard { margin-top:6mm; padding:4mm 7mm; } .qrcard img.code { width:42mm; height:42mm; } .foot { padding-top:2mm; } .qrcard .s { font-size:4.2mm; } .qrcard .url { font-family:"Barlow Condensed",sans-serif; font-weight:700; font-size:5.2mm; color:#E22424; margin-top:2.5mm; }'
 OWNER_HERO = ('<div class="hero"><h1>Running a<br><span class="acc">HYROX or TRYKA SIM</span><br>at your gym?</h1>'
-              '<p class="sub">More than event registration. Athletes find their race partner through your SIM, and you manage sign-ups, pairs and waves in one place.</p></div>')
+              '<p class="sub">More than event registration. Athletes find their race partner through your SIM.</p></div>')
 OWNER_PHONES = ('<div class="phones">'
                 '<div class="phone"><img src="assets/screens/gym-dashboard.png"><div class="cap">Set up your SIM</div></div>'
                 '<div class="phone"><img src="assets/screens/gym-events-list.png"><div class="cap">Athletes find it in Events</div></div>'
                 '<div class="phone"><img src="assets/screens/gym-waves.png"><div class="cap">Plan your waves</div></div></div>')
 OWNER_QR = ('<div class="qrcard"><img class="code" src="assets/qr-for-gyms.png"><div>'
             '<div class="t">Bring your next SIM to HyPair.</div>'
-            '<div class="s">Get in touch to find out how listing your events works. Scan the code or email <strong>hello@hypair.app</strong>.</div>'
+            '<div class="s">Scan the code to find out how listing your events works.</div>'
             '<div class="url">hypair.app/for-gyms</div></div></div>')
 
 
