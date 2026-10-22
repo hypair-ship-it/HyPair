@@ -11,7 +11,16 @@ Approved by Ante 16 Oct 2026.
 """
 import os, re, subprocess, tempfile, time
 
-CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+import shutil
+# Chrome/Chromium on Windows, Mac or Linux (set CHROME env var to override)
+CHROME = os.environ.get('CHROME') or next((c for c in (
+    r'C:\Program Files\Google\Chrome\Application\chrome.exe',
+    r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe',
+    r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe',
+    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    shutil.which('google-chrome'), shutil.which('chromium'), shutil.which('chrome')) if c and os.path.exists(c)), None)
+if not CHROME:
+    raise SystemExit('Chrome not found: install Chrome or set the CHROME environment variable')
 WEB = '../../web/assets/'
 BORDER = '#E22424'  # red border around the cream panel (approved 16 Oct 2026)
 
