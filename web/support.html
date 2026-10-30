@@ -253,6 +253,15 @@
     .contact-card { padding: 20px 22px; }
   }
 </style>
+<script type="module">
+import { analytics } from 'https://esm.sh/@heycatch/sdk@0.8.3';
+analytics.init({
+  projectKey: 'hck_pk_uqmJAyj_T2WXWcAODvL9Lp1qzv_QQvR-',
+  site: 'landing',
+  requestBatching: false,
+  install: { framework: 'web', agent: 'claude-code' },
+});
+</script>
 </head>
 <body>
 

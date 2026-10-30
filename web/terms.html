@@ -63,6 +63,15 @@
   footer a { color: var(--gold); }
   @media (max-width: 600px) { .page-wrap { padding: 40px 20px 64px; } nav { padding: 0 20px; } }
 </style>
+<script type="module">
+import { analytics } from 'https://esm.sh/@heycatch/sdk@0.8.3';
+analytics.init({
+  projectKey: 'hck_pk_uqmJAyj_T2WXWcAODvL9Lp1qzv_QQvR-',
+  site: 'landing',
+  requestBatching: false,
+  install: { framework: 'web', agent: 'claude-code' },
+});
+</script>
 </head>
 <body>
 
