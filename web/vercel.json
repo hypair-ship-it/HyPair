@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "redirects": [
+    { "source": "/:l([a-z0-9])", "destination": "/?utm_source=heycatch&utm_campaign=:l", "permanent": false },
     { "source": "/tryka-dublin", "destination": "/", "permanent": true },
     { "source": "/hyrox-dublin", "destination": "/", "permanent": true },
     { "source": "/hyrox-doubles-partner", "destination": "/", "permanent": true },
@@ -29,7 +30,7 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://lsxprzoxoarfakhxhoab.supabase.co; connect-src 'self' https://lsxprzoxoarfakhxhoab.supabase.co https://va.vercel-scripts.com; report-uri /api/csp-report; report-to csp-endpoint;" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://esm.sh https://in.heycatch.ai; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://lsxprzoxoarfakhxhoab.supabase.co; connect-src 'self' https://lsxprzoxoarfakhxhoab.supabase.co https://va.vercel-scripts.com https://in.heycatch.ai; report-uri /api/csp-report; report-to csp-endpoint;" },
         { "key": "Reporting-Endpoints", "value": "csp-endpoint=\"/api/csp-report\"" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },

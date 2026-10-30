@@ -65,6 +65,15 @@ h1 { font-weight: 700; font-size: clamp(44px, 9vw, 96px); line-height: 1.04; let
 .fine a { color: rgba(255,255,255,0.8); }
 [hidden] { display: none !important; }
 </style>
+<script type="module">
+import { analytics } from 'https://esm.sh/@heycatch/sdk@0.8.3';
+analytics.init({
+  projectKey: 'hck_pk_uqmJAyj_T2WXWcAODvL9Lp1qzv_QQvR-',
+  site: 'landing',
+  requestBatching: false,
+  install: { framework: 'web', agent: 'claude-code' },
+});
+</script>
 </head>
 <body>
 <div class="wrap">
