@@ -34,9 +34,10 @@ great, and it was fun."*
    events free, founding prices for 24 months from approval, what we ask, the no-hassle promise) lives on that page
    only (linked from `/for-gyms`). Never name partner gyms until they agreed in writing. Applications
    go by email (joinhypair@gmail.com) until the production app has the Gym setup row (app PR #145).
-5. **Gym pricing only as approved** (22 Nov 2026): EUR 35 up to 40 athletes, EUR 59 up to 100,
-   founding prices EUR 25 / EUR 45 for 24 months from approval, and "Reach out to ask" (no number) for over 100
-   athletes, a 5-event pack and an annual gym plan. No other numbers. Other pages keep "get in touch".
+5. **Gym pricing only as approved** (22 Nov 2026): regular prices on `/for-gyms#pricing` (first event free,
+   EUR 35 up to 40 athletes, EUR 59 up to 100); founding prices EUR 25 / EUR 45 for 24 months from approval
+   on `/founding-gyms`; "Reach out to ask" (no number) for over 100 athletes, a 5-event pack and an annual
+   gym plan. No other numbers anywhere.
 6. **Not a dating app.** Copy must never imply romantic matching — community/sport framing
    only.
 

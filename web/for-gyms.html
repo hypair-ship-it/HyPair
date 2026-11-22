@@ -365,6 +365,28 @@ footer a:hover { color: var(--gold); }
   h1 { font-size: 52px; }
   .dark-section, .feature-section, .bottom-cta { padding: 64px 20px; }
 }
+
+/* ── FOUNDING GYMS BANNER + PRICING ── */
+.founding-banner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; text-decoration: none; background: var(--gold-dim); border-bottom: 1px solid var(--gold-border); padding: 16px 24px; color: var(--text-dark); text-align: center; }
+.founding-banner-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--overline); }
+.founding-banner-txt { font-size: 15px; color: var(--text-body); }
+.founding-banner-txt strong { color: var(--text-dark); }
+.founding-banner-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--red); color: var(--white); border-radius: 10px; padding: 9px 18px; white-space: nowrap; }
+.pricing-section { background: var(--white); padding: 80px 24px; }
+.pricing-inner { max-width: 980px; margin: 0 auto; text-align: center; }
+.pricing-sub { font-size: 17px; color: var(--text-body); margin-bottom: 40px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; }
+.pricing-card { border: 1px solid var(--border); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 6px; }
+.pricing-size { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+.pricing-main { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; line-height: 1; color: var(--text-dark); margin-top: 6px; }
+.pricing-main small { font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 500; color: var(--text-body); }
+.pricing-note { font-size: 14px; color: var(--text-body); }
+.pricing-ask { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 16px; }
+.pricing-ask span { font-size: 14px; color: var(--text-body); border: 1px dashed var(--border); border-radius: 100px; padding: 8px 16px; }
+.pricing-ask a, .pricing-foot a { color: var(--red); font-weight: 600; text-decoration: none; }
+.pricing-foot { font-size: 13px; color: var(--text-muted); margin-top: 20px; }
+@media (max-width: 960px) { .pricing-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .pricing-section { padding: 64px 16px; } .founding-banner { padding: 14px 16px; } }
 </style>
   <script>if(!localStorage.getItem('hypair_owner')){var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s);}</script>
 <script type="module">
@@ -392,7 +414,7 @@ analytics.init({
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/#for-athletes">For athletes</a>
-      <a href="/#for-gyms">For gyms</a>
+      <a href="/for-gyms">For gyms</a>
       <a href="/support#contact-athletes">Contact</a>
     </div>
     <a href="/#get-app" class="nav-cta">Get the App</a>
@@ -404,11 +426,18 @@ analytics.init({
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <a href="/">Home</a>
   <a href="/#for-athletes">For athletes</a>
-  <a href="/#for-gyms">For gyms</a>
+  <a href="/for-gyms">For gyms</a>
   <a href="/support#contact-athletes">Contact</a>
 </div>
 
 <main>
+
+<!-- ── FOUNDING GYMS BANNER ── -->
+<a class="founding-banner" href="/founding-gyms">
+  <span class="founding-banner-tag">Founding Gyms</span>
+  <span class="founding-banner-txt"><strong>First 10 gyms: your first 3 SIM events free</strong> and founding prices for 24 months.</span>
+  <span class="founding-banner-btn">See the offer</span>
+</a>
 
 <section class="page-hero">
   <div class="page-hero-inner">
@@ -478,7 +507,7 @@ analytics.init({
       <p class="feature-desc">Every gym that runs SIM events knows the same problem: athletes show up without a partner, the organiser scrambles to pair them on the spot, and the event starts late and chaotic. Here's what changes with HyPair.</p>
       <ul class="check-list">
         <li>HYROX and TRYKA SIM formats</li>
-        <li>Free to list, for now</li>
+        <li>Your first event is free</li>
         <li>Ireland &amp; UK gyms only, for now</li>
       </ul>
     </div>
@@ -525,11 +554,41 @@ analytics.init({
   </div>
 </section>
 
+<!-- ── PRICING FOR GYMS (regular prices, founder 22 Nov 2026) ── -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <p class="overline">Pricing for gyms</p>
+    <h2>One price per event, by size.</h2>
+    <p class="pricing-sub">No subscription. Your first event is free.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <span class="pricing-size">First event</span>
+        <span class="pricing-main">Free</span>
+        <span class="pricing-note">Any size, to see how it works.</span>
+      </div>
+      <div class="pricing-card">
+        <span class="pricing-size">Up to 40 athletes</span>
+        <span class="pricing-main">EUR 35 <small>per event</small></span>
+      </div>
+      <div class="pricing-card">
+        <span class="pricing-size">Up to 100 athletes</span>
+        <span class="pricing-main">EUR 59 <small>per event</small></span>
+      </div>
+    </div>
+    <div class="pricing-ask">
+      <span>Over 100 athletes: <a href="mailto:joinhypair@gmail.com?subject=HyPair%20event%20over%20100%20athletes">reach out to ask</a></span>
+      <span>5-event pack: <a href="mailto:joinhypair@gmail.com?subject=HyPair%205-event%20pack">reach out to ask</a></span>
+      <span>Annual gym plan: <a href="mailto:joinhypair@gmail.com?subject=HyPair%20annual%20gym%20plan">reach out to ask</a></span>
+    </div>
+    <p class="pricing-foot">Prices per event, excluding VAT where it applies. <a href="/founding-gyms">Founding Gyms</a> (first 10 gyms) get 3 free events and lower prices.</p>
+  </div>
+</section>
+
 <!-- ── BOTTOM CTA ── -->
 <section class="bottom-cta">
   <div class="bottom-cta-inner">
     <h2>Run SIM events in Ireland or the UK?</h2>
-    <p class="bottom-cta-sub">Tell us a bit about your gym and we'll set up a call to see if it's a fit. Free to list, for now.</p>
+    <p class="bottom-cta-sub">Tell us a bit about your gym and we'll set up a call to see if it's a fit. Your first event is free.</p>
     <a href="/support?audience=gym&amp;category=list_events#contact-gyms" class="cta-btn">Get in touch</a>
   </div>
 </section>
