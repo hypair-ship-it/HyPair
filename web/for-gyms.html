@@ -362,9 +362,40 @@ footer a:hover { color: var(--gold); }
   .nav-cta { font-size: 13px; padding: 9px 16px; }
   .hamburger-btn { display: flex; }
   .page-hero { padding: 64px 20px; }
+  .hero-cta-btn, .cta-btn { padding: 15px 22px; font-size: 16px; }
   h1 { font-size: 52px; }
   .dark-section, .feature-section, .bottom-cta { padding: 64px 20px; }
 }
+
+/* ── FOUNDING GYMS BANNER + PRICING ── */
+.founding-banner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; text-decoration: none; background: var(--gold-dim); border-bottom: 1px solid var(--gold-border); padding: 16px 24px; color: var(--text-dark); text-align: center; }
+.founding-banner-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--overline); }
+.founding-banner-txt { font-size: 15px; color: var(--text-body); }
+.founding-banner-txt strong { color: var(--text-dark); }
+.founding-banner-btn { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--red); color: var(--white); border-radius: 10px; padding: 9px 18px; white-space: nowrap; }
+.pricing-section { background: var(--white); padding: 80px 24px; }
+.pricing-inner { max-width: 980px; margin: 0 auto; text-align: center; }
+.pricing-sub { font-size: 17px; color: var(--text-body); margin-bottom: 40px; }
+.pricing-foot a, .price-table a, .founding-apply a:not(.cta-btn) { color: var(--red); font-weight: 600; text-decoration: none; }
+.pricing-foot { font-size: 13px; color: var(--text-muted); margin-top: 20px; }
+.table-wrap { overflow-x: auto; }
+.price-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 16px; color: var(--text-body); }
+.price-table th, .price-table td { padding: 16px 18px; border-bottom: 1px solid var(--border); }
+.price-table thead th { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+.price-table tbody th { font-weight: 600; color: var(--text-dark); }
+.price-table td strong { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-dark); }
+.price-table td:last-child, .price-table thead th:last-child { background: var(--gold-dim); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.founding-section { background: var(--light-bg); padding: 80px 24px; }
+.founding-inner { max-width: 980px; margin: 0 auto; text-align: center; }
+.founding-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-align: left; }
+.founding-box { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+.founding-box h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+.founding-box .check-list li { align-items: flex-start; line-height: 1.6; }
+.founding-apply { margin-top: 32px; }
+.founding-apply p { font-size: 15px; color: var(--text-body); line-height: 1.7; margin-top: 16px; text-wrap: pretty; }
+@media (max-width: 960px) { .founding-cols { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .pricing-section, .founding-section { padding: 64px 16px; } .price-table th, .price-table td { padding: 12px 8px; font-size: 14px; } .price-table td strong { font-size: 19px; } .founding-banner { padding: 14px 16px; } }
 </style>
   <script>if(!localStorage.getItem('hypair_owner')){var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s);}</script>
 <script type="module">
@@ -392,7 +423,7 @@ analytics.init({
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/#for-athletes">For athletes</a>
-      <a href="/#for-gyms">For gyms</a>
+      <a href="/for-gyms">For gyms</a>
       <a href="/support#contact-athletes">Contact</a>
     </div>
     <a href="/#get-app" class="nav-cta">Get the App</a>
@@ -404,11 +435,18 @@ analytics.init({
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <a href="/">Home</a>
   <a href="/#for-athletes">For athletes</a>
-  <a href="/#for-gyms">For gyms</a>
+  <a href="/for-gyms">For gyms</a>
   <a href="/support#contact-athletes">Contact</a>
 </div>
 
 <main>
+
+<!-- ── FOUNDING GYMS BANNER ── -->
+<a class="founding-banner" href="/founding-gyms">
+  <span class="founding-banner-tag">Founding Gyms</span>
+  <span class="founding-banner-txt"><strong>First 10 gyms: your first 3 SIM events free</strong> and founding prices for 24 months.</span>
+  <span class="founding-banner-btn">See the offer</span>
+</a>
 
 <section class="page-hero">
   <div class="page-hero-inner">
@@ -419,8 +457,9 @@ analytics.init({
     <h1>Run your HYROX SIM day<br><span class="red">without the headache.</span></h1>
     <p class="tagline">Gym-run SIM events are starting in Ireland and the UK, for now. If that's you, get in touch and we'll set up a call to see if it's a fit.</p>
     <div class="hero-cta-wrap">
-      <a href="/support?audience=gym&amp;category=list_events#contact-gyms" class="hero-cta-btn">Get in touch</a>
-      <p class="hero-cta-note">We'll set up a call — no commitment either way.</p>
+      <!-- Gym CTAs email the founders directly (HQ, 22 Nov 2026): until app PR #137 (contact-form email) is on production, contact-form messages are stored but not emailed. Switch back to /support?audience=gym&amp;category=list_events#contact-gyms after that. -->
+      <a href="mailto:joinhypair@gmail.com?subject=HyPair%20for%20gyms" class="hero-cta-btn">Email joinhypair@gmail.com</a>
+      <p class="hero-cta-note">Tell us about your gym and we'll set up a call — no commitment either way.</p>
     </div>
   </div>
 </section>
@@ -457,8 +496,13 @@ analytics.init({
       </div>
       <div class="gym-cta">
         <h3>Interested in listing your events?</h3>
-        <p>We're working directly with gyms in Ireland and the UK. If your gym runs HYROX or TRYKA simulation events and you'd like to get involved, get in touch.</p>
-        <a href="/support?audience=gym&amp;category=list_events#contact-gyms" class="cta-btn">Get in touch</a>
+        <p>We're working directly with gyms in Ireland and the UK. If your gym runs HYROX or TRYKA simulation events and you'd like to get involved, email us.</p>
+        <a href="mailto:joinhypair@gmail.com?subject=HyPair%20for%20gyms" class="cta-btn">Email joinhypair@gmail.com</a>
+      </div>
+      <div class="gym-cta">
+        <h3>Founding Gyms: first 10 gyms only</h3>
+        <p>Your first 3 SIM events free, founding prices for 24 months and a founder to help you set up, in return for your feedback.</p>
+        <a href="/founding-gyms" class="cta-btn">See the Founding Gyms offer</a>
       </div>
     </div>
   </div>
@@ -473,7 +517,7 @@ analytics.init({
       <p class="feature-desc">Every gym that runs SIM events knows the same problem: athletes show up without a partner, the organiser scrambles to pair them on the spot, and the event starts late and chaotic. Here's what changes with HyPair.</p>
       <ul class="check-list">
         <li>HYROX and TRYKA SIM formats</li>
-        <li>Free to list, for now</li>
+        <li>Your first event is free</li>
         <li>Ireland &amp; UK gyms only, for now</li>
       </ul>
     </div>
@@ -520,12 +564,70 @@ analytics.init({
   </div>
 </section>
 
+<!-- ── PRICING FOR GYMS (official prices, founder 22 Nov 2026: Apple price points so the website and a later in-app purchase match) ── -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <p class="overline">Pricing for gyms</p>
+    <h2>One price per event, by size.</h2>
+    <p class="pricing-sub">No subscription. Your first event is free.</p>
+    <div class="table-wrap">
+      <table class="price-table">
+        <caption class="sr-only">HyPair prices per SIM event for gyms</caption>
+        <thead>
+          <tr><th scope="col">Event size</th><th scope="col">Price per event</th><th scope="col">Founding Gyms</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">First event</th><td>Free</td><td>First 3 events free</td></tr>
+          <tr><th scope="row">Up to 40 athletes</th><td><strong>EUR 34.99</strong></td><td><strong>EUR 24.99</strong></td></tr>
+          <tr><th scope="row">Up to 100 athletes</th><td><strong>EUR 59.99</strong></td><td><strong>EUR 44.99</strong></td></tr>
+          <tr><th scope="row">Over 100 athletes</th><td><a href="mailto:joinhypair@gmail.com?subject=HyPair%20event%20over%20100%20athletes">Reach out to ask</a></td><td><a href="mailto:joinhypair@gmail.com?subject=HyPair%20event%20over%20100%20athletes">Reach out to ask</a></td></tr>
+          <tr><th scope="row">5-event pack</th><td><a href="mailto:joinhypair@gmail.com?subject=HyPair%205-event%20pack">Reach out to ask</a></td><td>&ndash;</td></tr>
+          <tr><th scope="row">Annual gym plan</th><td><a href="mailto:joinhypair@gmail.com?subject=HyPair%20annual%20gym%20plan">Reach out to ask</a></td><td>&ndash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-foot">Prices in euros. VAT included where it applies. Founding Gyms prices last 24 months from approval, kept while the gym runs at least one event every 12 months.</p>
+  </div>
+</section>
+
+<!-- ── FOUNDING GYMS (apply by email until the Gym setup row, app PR #145, is in the production app; then the apply step moves into the app) ── -->
+<section class="founding-section" id="founding-gyms">
+  <div class="founding-inner">
+    <p class="overline">Founding Gyms</p>
+    <h2>For now, we're looking for founding gyms.</h2>
+    <p class="pricing-sub">The first 10 gyms help us shape HyPair, and get the best terms we will offer.</p>
+    <div class="founding-cols">
+      <div class="founding-box">
+        <h3>What you get</h3>
+        <ul class="check-list">
+          <li>Your first 3 SIM events free, any size</li>
+          <li>Founding prices for 24 months from approval: EUR 24.99 up to 40 athletes, EUR 44.99 up to 100, kept while you run at least one event every 12 months</li>
+          <li>A founder helps you set up, and same-day answers</li>
+          <li>If your event doesn't run smoothly on HyPair, your next one is free</li>
+        </ul>
+      </div>
+      <div class="founding-box">
+        <h3>What we ask</h3>
+        <ul class="check-list">
+          <li>A 15-minute feedback chat after each event</li>
+          <li>Permission to use your gym's name, logo and event photos (only athletes who agreed to be shown)</li>
+          <li>No hassle: after your first event you can leave with a 5-minute chat, we won't contact you again, and we take down posts on request</li>
+        </ul>
+      </div>
+    </div>
+    <div class="founding-apply">
+      <a href="mailto:joinhypair@gmail.com?subject=Founding%20Gym%20application" class="cta-btn">Email joinhypair@gmail.com</a>
+      <p>Tell us your gym's name and city. A founder reviews every application, usually within a day. Only the first 10 gyms. <a href="/founding-gyms">Full offer and terms</a></p>
+    </div>
+  </div>
+</section>
+
 <!-- ── BOTTOM CTA ── -->
 <section class="bottom-cta">
   <div class="bottom-cta-inner">
     <h2>Run SIM events in Ireland or the UK?</h2>
-    <p class="bottom-cta-sub">Tell us a bit about your gym and we'll set up a call to see if it's a fit. Free to list, for now.</p>
-    <a href="/support?audience=gym&amp;category=list_events#contact-gyms" class="cta-btn">Get in touch</a>
+    <p class="bottom-cta-sub">Tell us a bit about your gym and we'll set up a call to see if it's a fit. Your first event is free.</p>
+    <a href="mailto:joinhypair@gmail.com?subject=HyPair%20for%20gyms" class="cta-btn">Email joinhypair@gmail.com</a>
   </div>
 </section>
 
