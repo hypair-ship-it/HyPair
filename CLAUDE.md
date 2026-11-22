@@ -29,11 +29,14 @@ great, and it was fun."*
 2. **No TikTok** in footer/social links on any page — handle is claimed but parked, not
    posted to. Instagram + Facebook only.
 3. **No "→" arrow** on CTA buttons — they're buttons, not links.
-4. **No founding-gym-programme offer on the website.** It's a personal, one-to-one
-   conversation Ante has directly with gyms (free forever, in exchange for feedback) —
-   never public messaging, never numbers, never named partners.
-5. **No gym pricing on the website.** Gym pricing isn't confirmed; the site should say
-   "get in touch to find out how listing your events works," nothing more specific.
+4. **Founding Gyms offer only on `/founding-gyms`** (changed 22 Nov 2026 by the founder's decision,
+   HQ DECISIONS.md: "Founding Gyms offer approved"). The public offer (first 10 gyms, first 3 SIM
+   events free, founding prices for 12 months, what we ask, the no-hassle promise) lives on that page
+   only. Never name partner gyms until they agreed in writing. The page stays `noindex` with a DRAFT
+   ribbon and unlinked from the nav until the founder approves it and the terms text.
+5. **Gym pricing only as approved** (22 Nov 2026): EUR 35 up to 40 athletes, EUR 59 up to 100,
+   founding prices EUR 25 / EUR 45 for 12 months, and "Reach out to ask" (no number) for over 100
+   athletes, a 5-event pack and an annual gym plan. No other numbers. Other pages keep "get in touch".
 6. **Not a dating app.** Copy must never imply romantic matching — community/sport framing
    only.
 
