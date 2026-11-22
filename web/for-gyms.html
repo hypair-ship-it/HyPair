@@ -376,18 +376,26 @@ footer a:hover { color: var(--gold); }
 .pricing-section { background: var(--white); padding: 80px 24px; }
 .pricing-inner { max-width: 980px; margin: 0 auto; text-align: center; }
 .pricing-sub { font-size: 17px; color: var(--text-body); margin-bottom: 40px; }
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; }
-.pricing-card { border: 1px solid var(--border); border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 6px; }
-.pricing-size { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
-.pricing-main { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; line-height: 1; color: var(--text-dark); margin-top: 6px; }
-.pricing-main small { font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 500; color: var(--text-body); }
-.pricing-note { font-size: 14px; color: var(--text-body); }
-.pricing-ask { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 16px; }
-.pricing-ask span { font-size: 14px; color: var(--text-body); border: 1px dashed var(--border); border-radius: 100px; padding: 8px 16px; }
-.pricing-ask a, .pricing-foot a { color: var(--red); font-weight: 600; text-decoration: none; }
+.pricing-foot a, .price-table a, .founding-apply a:not(.cta-btn) { color: var(--red); font-weight: 600; text-decoration: none; }
 .pricing-foot { font-size: 13px; color: var(--text-muted); margin-top: 20px; }
-@media (max-width: 960px) { .pricing-grid { grid-template-columns: 1fr; } }
-@media (max-width: 640px) { .pricing-section { padding: 64px 16px; } .founding-banner { padding: 14px 16px; } }
+.table-wrap { overflow-x: auto; }
+.price-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 16px; color: var(--text-body); }
+.price-table th, .price-table td { padding: 16px 18px; border-bottom: 1px solid var(--border); }
+.price-table thead th { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+.price-table tbody th { font-weight: 600; color: var(--text-dark); }
+.price-table td strong { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-dark); }
+.price-table td:last-child, .price-table thead th:last-child { background: var(--gold-dim); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.founding-section { background: var(--light-bg); padding: 80px 24px; }
+.founding-inner { max-width: 980px; margin: 0 auto; text-align: center; }
+.founding-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; text-align: left; }
+.founding-box { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+.founding-box h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
+.founding-box .check-list li { align-items: flex-start; line-height: 1.6; }
+.founding-apply { margin-top: 32px; }
+.founding-apply p { font-size: 15px; color: var(--text-body); line-height: 1.7; margin-top: 16px; text-wrap: pretty; }
+@media (max-width: 960px) { .founding-cols { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .pricing-section, .founding-section { padding: 64px 16px; } .price-table th, .price-table td { padding: 12px 8px; font-size: 14px; } .price-table td strong { font-size: 19px; } .founding-banner { padding: 14px 16px; } }
 </style>
   <script>if(!localStorage.getItem('hypair_owner')){var s=document.createElement('script');s.defer=true;s.src='/_vercel/insights/script.js';document.head.appendChild(s);}</script>
 <script type="module">
@@ -556,33 +564,61 @@ analytics.init({
   </div>
 </section>
 
-<!-- ── PRICING FOR GYMS (regular prices, founder 22 Nov 2026) ── -->
+<!-- ── PRICING FOR GYMS (official prices, founder 22 Nov 2026: Apple price points so the website and a later in-app purchase match) ── -->
 <section class="pricing-section" id="pricing">
   <div class="pricing-inner">
     <p class="overline">Pricing for gyms</p>
     <h2>One price per event, by size.</h2>
     <p class="pricing-sub">No subscription. Your first event is free.</p>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <span class="pricing-size">First event</span>
-        <span class="pricing-main">Free</span>
-        <span class="pricing-note">Any size, to see how it works.</span>
+    <div class="table-wrap">
+      <table class="price-table">
+        <caption class="sr-only">HyPair prices per SIM event for gyms</caption>
+        <thead>
+          <tr><th scope="col">Event size</th><th scope="col">Price per event</th><th scope="col">Founding Gyms</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">First event</th><td>Free</td><td>First 3 events free</td></tr>
+          <tr><th scope="row">Up to 40 athletes</th><td><strong>EUR 34.99</strong></td><td><strong>EUR 24.99</strong></td></tr>
+          <tr><th scope="row">Up to 100 athletes</th><td><strong>EUR 59.99</strong></td><td><strong>EUR 44.99</strong></td></tr>
+          <tr><th scope="row">Over 100 athletes</th><td><a href="mailto:joinhypair@gmail.com?subject=HyPair%20event%20over%20100%20athletes">Reach out to ask</a></td><td><a href="mailto:joinhypair@gmail.com?subject=HyPair%20event%20over%20100%20athletes">Reach out to ask</a></td></tr>
+          <tr><th scope="row">5-event pack</th><td><a href="mailto:joinhypair@gmail.com?subject=HyPair%205-event%20pack">Reach out to ask</a></td><td>&ndash;</td></tr>
+          <tr><th scope="row">Annual gym plan</th><td><a href="mailto:joinhypair@gmail.com?subject=HyPair%20annual%20gym%20plan">Reach out to ask</a></td><td>&ndash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pricing-foot">Prices in euros. VAT included where it applies. Founding Gyms prices last 24 months from approval, kept while the gym runs at least one event every 12 months.</p>
+  </div>
+</section>
+
+<!-- ── FOUNDING GYMS (apply by email until the Gym setup row, app PR #145, is in the production app; then the apply step moves into the app) ── -->
+<section class="founding-section" id="founding-gyms">
+  <div class="founding-inner">
+    <p class="overline">Founding Gyms</p>
+    <h2>For now, we're looking for founding gyms.</h2>
+    <p class="pricing-sub">The first 10 gyms help us shape HyPair, and get the best terms we will offer.</p>
+    <div class="founding-cols">
+      <div class="founding-box">
+        <h3>What you get</h3>
+        <ul class="check-list">
+          <li>Your first 3 SIM events free, any size</li>
+          <li>Founding prices for 24 months from approval: EUR 24.99 up to 40 athletes, EUR 44.99 up to 100, kept while you run at least one event every 12 months</li>
+          <li>A founder helps you set up, and same-day answers</li>
+          <li>If your event doesn't run smoothly on HyPair, your next one is free</li>
+        </ul>
       </div>
-      <div class="pricing-card">
-        <span class="pricing-size">Up to 40 athletes</span>
-        <span class="pricing-main">EUR 35 <small>per event</small></span>
-      </div>
-      <div class="pricing-card">
-        <span class="pricing-size">Up to 100 athletes</span>
-        <span class="pricing-main">EUR 59 <small>per event</small></span>
+      <div class="founding-box">
+        <h3>What we ask</h3>
+        <ul class="check-list">
+          <li>A 15-minute feedback chat after each event</li>
+          <li>Permission to use your gym's name, logo and event photos (only athletes who agreed to be shown)</li>
+          <li>No hassle: after your first event you can leave with a 5-minute chat, we won't contact you again, and we take down posts on request</li>
+        </ul>
       </div>
     </div>
-    <div class="pricing-ask">
-      <span>Over 100 athletes: <a href="mailto:joinhypair@gmail.com?subject=HyPair%20event%20over%20100%20athletes">reach out to ask</a></span>
-      <span>5-event pack: <a href="mailto:joinhypair@gmail.com?subject=HyPair%205-event%20pack">reach out to ask</a></span>
-      <span>Annual gym plan: <a href="mailto:joinhypair@gmail.com?subject=HyPair%20annual%20gym%20plan">reach out to ask</a></span>
+    <div class="founding-apply">
+      <a href="mailto:joinhypair@gmail.com?subject=Founding%20Gym%20application" class="cta-btn">Email joinhypair@gmail.com</a>
+      <p>Tell us your gym's name and city. A founder reviews every application, usually within a day. Only the first 10 gyms. <a href="/founding-gyms">Full offer and terms</a></p>
     </div>
-    <p class="pricing-foot">Prices per event, excluding VAT where it applies. <a href="/founding-gyms">Founding Gyms</a> (first 10 gyms) get 3 free events and lower prices.</p>
   </div>
 </section>
 
