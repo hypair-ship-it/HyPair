@@ -362,6 +362,7 @@ footer a:hover { color: var(--gold); }
   .nav-cta { font-size: 13px; padding: 9px 16px; }
   .hamburger-btn { display: flex; }
   .page-hero { padding: 64px 20px; }
+  .hero-cta-btn, .cta-btn { padding: 15px 22px; font-size: 16px; }
   h1 { font-size: 52px; }
   .dark-section, .feature-section, .bottom-cta { padding: 64px 20px; }
 }
@@ -448,8 +449,9 @@ analytics.init({
     <h1>Run your HYROX SIM day<br><span class="red">without the headache.</span></h1>
     <p class="tagline">Gym-run SIM events are starting in Ireland and the UK, for now. If that's you, get in touch and we'll set up a call to see if it's a fit.</p>
     <div class="hero-cta-wrap">
-      <a href="/support?audience=gym&amp;category=list_events#contact-gyms" class="hero-cta-btn">Get in touch</a>
-      <p class="hero-cta-note">We'll set up a call — no commitment either way.</p>
+      <!-- Gym CTAs email the founders directly (HQ, 22 Nov 2026): until app PR #137 (contact-form email) is on production, contact-form messages are stored but not emailed. Switch back to /support?audience=gym&amp;category=list_events#contact-gyms after that. -->
+      <a href="mailto:joinhypair@gmail.com?subject=HyPair%20for%20gyms" class="hero-cta-btn">Email joinhypair@gmail.com</a>
+      <p class="hero-cta-note">Tell us about your gym and we'll set up a call — no commitment either way.</p>
     </div>
   </div>
 </section>
@@ -486,8 +488,8 @@ analytics.init({
       </div>
       <div class="gym-cta">
         <h3>Interested in listing your events?</h3>
-        <p>We're working directly with gyms in Ireland and the UK. If your gym runs HYROX or TRYKA simulation events and you'd like to get involved, get in touch.</p>
-        <a href="/support?audience=gym&amp;category=list_events#contact-gyms" class="cta-btn">Get in touch</a>
+        <p>We're working directly with gyms in Ireland and the UK. If your gym runs HYROX or TRYKA simulation events and you'd like to get involved, email us.</p>
+        <a href="mailto:joinhypair@gmail.com?subject=HyPair%20for%20gyms" class="cta-btn">Email joinhypair@gmail.com</a>
       </div>
       <div class="gym-cta">
         <h3>Founding Gyms: first 10 gyms only</h3>
@@ -589,7 +591,7 @@ analytics.init({
   <div class="bottom-cta-inner">
     <h2>Run SIM events in Ireland or the UK?</h2>
     <p class="bottom-cta-sub">Tell us a bit about your gym and we'll set up a call to see if it's a fit. Your first event is free.</p>
-    <a href="/support?audience=gym&amp;category=list_events#contact-gyms" class="cta-btn">Get in touch</a>
+    <a href="mailto:joinhypair@gmail.com?subject=HyPair%20for%20gyms" class="cta-btn">Email joinhypair@gmail.com</a>
   </div>
 </section>
 
