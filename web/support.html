@@ -63,6 +63,9 @@
   }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; margin-right: 16px; }
   .nav-logo svg { height: 30px; width: auto; }
+.nav-logo-icon { height: 32px; width: 32px; border-radius: 8px; display: block; }
+.nav-links a.active, .mobile-menu a.active { color: var(--text-dark); font-weight: 600; background: var(--light-bg); }
+.nav-links a.active { box-shadow: inset 0 -2px 0 var(--gold); }
   .nav-logo-text {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 22px; font-weight: 700; letter-spacing: 0.5px; color: #0F1318;
@@ -268,18 +271,13 @@ analytics.init({
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="/">
-      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="30" aria-hidden="true">
-        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#2C3A47"/>
-        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#2C3A47"/>
-        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#2C3A47"/>
-      </svg>
+      <img src="/assets/hypair-app-icon.png" width="32" height="32" alt="" class="nav-logo-icon">
       <span class="nav-logo-text">HyPair</span>
     </a>
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/#for-athletes">For athletes</a>
+      <a href="/">For athletes</a>
       <a href="/for-gyms">For gyms</a>
-      <a href="/support#contact-athletes">Contact</a>
+      <a href="/support" class="active" aria-current="page">Contact</a>
     </div>
     <a href="/#get-app" class="nav-cta">Get the App</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
@@ -288,10 +286,9 @@ analytics.init({
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-  <a href="/">Home</a>
-  <a href="/#for-athletes">For athletes</a>
+  <a href="/">For athletes</a>
   <a href="/for-gyms">For gyms</a>
-  <a href="/support#contact-athletes">Contact</a>
+  <a href="/support" class="active" aria-current="page">Contact</a>
 </div>
 
 <div class="page-wrap">

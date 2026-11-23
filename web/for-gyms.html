@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Run Your HYROX-Style SIM Without the Headache | HyPair for Gyms</title>
+<title>Help Your Members Find a SIM Partner | HyPair for Gyms</title>
 <meta name="description" content="Run SIM events in Ireland or the UK? HyPair handles sign-ups, partner matching and waves. Your first event is free.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Run Your HYROX-Style SIM Without the Headache | HyPair for Gyms">
@@ -110,6 +110,9 @@ nav {
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; margin-right: 16px; }
 .nav-logo svg { height: 30px; width: auto; }
+.nav-logo-icon { height: 32px; width: 32px; border-radius: 8px; display: block; }
+.nav-links a.active, .mobile-menu a.active { color: var(--text-dark); font-weight: 600; background: var(--light-bg); }
+.nav-links a.active { box-shadow: inset 0 -2px 0 var(--gold); }
 .nav-logo-text {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 22px; font-weight: 700; letter-spacing: 0.5px; color: var(--text-dark);
@@ -412,19 +415,13 @@ analytics.init({
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="/">
-      <svg viewBox="226 154.1 248 342.4" xmlns="http://www.w3.org/2000/svg" height="30" aria-hidden="true">
-        <path d="M350,399.3c-26.8,0-48.6,21.8-48.6,48.6c0,26.8,21.8,48.6,48.6,48.6s48.6-21.8,48.6-48.6C398.6,421.1,376.8,399.3,350,399.3z M350,463.9c-8.8,0-16-7.2-16-16c0-8.8,7.2-16,16-16c8.8,0,16,7.2,16,16C366,456.7,358.8,463.9,350,463.9z" fill="#2C3A47"/>
-        <polygon points="412.1,154.1 374.4,154.1 374.4,281.6 325.6,281.6 325.6,154.1 287.9,154.1 287.9,319.2 412.1,319.2" fill="#2C3A47"/>
-        <polygon points="401.5,336.6 298.5,336.6 298.4,336.6 298.4,336.8 226,409.1 226,496.4 258.5,496.4 258.5,422.6 306.9,374.3 393.1,374.3 441.5,422.6 441.5,496.4 474,496.4 474,409.1" fill="#2C3A47"/>
-      </svg>
+      <img src="/assets/hypair-app-icon.png" width="32" height="32" alt="" class="nav-logo-icon">
       <span class="nav-logo-text">HyPair</span>
     </a>
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/#for-athletes">For athletes</a>
-      <a href="/for-gyms">For gyms</a>
-      <a href="#pricing">Gym pricing</a>
-      <a href="mailto:hello@hypair.app?subject=HyPair%20for%20gyms">Contact</a>
+      <a href="/">For athletes</a>
+      <a href="/for-gyms" class="active" aria-current="page">For gyms</a>
+      <a href="/support">Contact</a>
     </div>
     <a href="#apply" class="nav-cta">Apply</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
@@ -433,12 +430,9 @@ analytics.init({
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-  <a href="/">Home</a>
-  <a href="/#for-athletes">For athletes</a>
-  <a href="/for-gyms">For gyms</a>
-  <a href="#pricing">Gym pricing</a>
-  <a href="#apply">Apply</a>
-  <a href="mailto:hello@hypair.app?subject=HyPair%20for%20gyms">Contact</a>
+  <a href="/">For athletes</a>
+  <a href="/for-gyms" class="active" aria-current="page">For gyms</a>
+  <a href="/support">Contact</a>
 </div>
 
 <main>
@@ -447,11 +441,29 @@ analytics.init({
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="hero-badge"><span class="hero-badge-dot"></span>For gym owners · Ireland &amp; UK</div>
-    <h1>Run your HYROX-style SIM<br><span class="red">without the headache.</span></h1>
-    <p class="tagline">Pairing, waves and the race-day schedule in one app. Your first event is free, and our first 10 gyms get their first 3 free.</p>
+    <h1>Help your members<br><span class="red">find a partner.</span></h1>
+    <p class="tagline">More athletes sign up for your HYROX-style SIM when they know who they're racing with. HyPair is free for athletes, your first event is free, and our first 10 gyms get their first 3 free.</p>
     <div class="hero-cta-wrap">
       <a href="#apply" class="hero-cta-btn">Become a Founding Gym</a>
       <p class="hero-cta-note"><a href="#pricing" style="color:inherit">See gym pricing</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 1b WHY: athlete experience ── -->
+<section class="pricing-section" id="why">
+  <div class="pricing-inner">
+    <p class="overline">Why gyms use HyPair</p>
+    <h2>A great experience for your athletes.</h2>
+    <p class="pricing-sub">Many athletes would love to enter a SIM or an official race but don't know who to ask. Some are too shy, some worry they're not good enough, and some say yes to whoever asked first and end up with a partner who slows them down. HyPair fixes that for your members.</p>
+    <div class="for-every-gym">
+      <ul class="check-list">
+        <li><span><strong>More members take part.</strong> They can find a partner in the app without asking around the group chat.</span></li>
+        <li><span><strong>Partners who fit.</strong> Athletes are matched by pace and goal, so nobody is stuck with a partner who doesn't suit them.</span></li>
+        <li><span><strong>New pairings in your own gym.</strong> Members of a similar level can meet people they would never have thought to ask.</span></li>
+        <li><span><strong>Visitors find your gym.</strong> Athletes travelling to your area can find your SIM in the app, match with a partner and race with you. Some may end up joining your gym.</span></li>
+        <li><span><strong>Free for athletes.</strong> There's no cost to your members for finding a partner.</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -572,7 +584,7 @@ analytics.init({
   <div class="founding-inner">
     <p class="overline">Founding Gyms</p>
     <h2>We're looking for our first 10 gyms.</h2>
-    <p class="pricing-sub">We're setting up our first gyms now. Be one of them.</p>
+    <p class="pricing-sub">We're setting up our first gyms now. Be one of them. HyPair is new, so there may not be many athletes in your area yet: list your event, we'll help you set up, and there's nothing more to do until athletes start signing up. We're also working on results and shareable leaderboards, and founding gyms help shape them.</p>
     <div class="founding-cols">
       <div class="founding-box">
         <h3>What you get</h3>
