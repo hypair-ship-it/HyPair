@@ -43,6 +43,22 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Do I need a race ticket first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. When you sign up for an event you tell HyPair whether you already have a ticket, and other athletes can see it next to your pace and goal, so you know where each of you stands."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will there be athletes at my event?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HyPair is new, so it depends on the event. Right now 26 upcoming HYROX and TRYKA races are listed across 23 cities in 7 countries, and the number of athletes grows as more people join. Once you sign up for an event, you appear in the list of athletes looking for a partner, so others can find you, and HyPair can let you know when more athletes join. Pace is self-reported, and any profile can be reported or blocked."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "What is HyPair?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -408,6 +424,16 @@ h2 {
 
 /* ── USE CASE CARDS ── */
 .usecase-head { text-align: center; margin-bottom: 48px; }
+.founder-section { background: var(--light-bg); padding: 88px 24px; }
+.founder-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: center; }
+.founder-photo { width: 260px; height: 260px; object-fit: cover; border-radius: 24px; display: block; }
+.founder-text h2 { margin-bottom: 16px; }
+.founder-text p { font-size: 17px; line-height: 1.75; color: var(--text-body); margin-bottom: 14px; }
+.founder-text .founder-sign { font-size: 15px; margin-top: 18px; color: var(--text-dark); }
+.founder-text .founder-sign a { color: var(--red); font-weight: 600; text-decoration: none; }
+@media (max-width: 768px) { .founder-section { padding: 56px 20px; } .founder-inner { grid-template-columns: 1fr; gap: 24px; } .founder-photo { width: 200px; height: 200px; } }
+.proof-line { margin-top: 18px; font-size: 15px; color: var(--text-body); }
+.proof-line strong { color: var(--text-dark); font-size: 18px; }
 .beginner-line { margin: 14px auto 0; max-width: 560px; font-size: 16px; font-weight: 600; color: var(--text-dark); line-height: 1.6; }
 .usecase-head h2 { margin-bottom: 12px; }
 .usecase-cards {
@@ -872,6 +898,8 @@ analytics.init({
         <li>Find events by city, date and format</li>
         <li>See athletes already looking for a partner</li>
       </ul>
+      <!-- Counted from production on 23 Nov 2026 (live, upcoming events): 26 events (21 HYROX, 5 TRYKA), 23 cities, 7 countries. Refresh before each release. -->
+      <p class="proof-line"><strong>26</strong> upcoming HYROX and TRYKA races across <strong>23</strong> cities in <strong>7</strong> countries</p>
     </div>
     <div class="feature-phone">
       <div class="phone-frame" style="width:252px;">
@@ -975,6 +1003,20 @@ analytics.init({
   </div>
 </section>
 
+<!-- ── FOUNDER ── -->
+<section class="founder-section" id="founder">
+  <div class="founder-inner">
+    <img class="founder-photo" src="/assets/founder-ante.webp" width="600" height="600" loading="lazy" alt="Ante, founder of HyPair, mid-race on a ski erg">
+    <div class="founder-text">
+      <p class="overline">Why HyPair exists</p>
+      <h2>Built by a HYROX gym member.</h2>
+      <p>I train at a HYROX gym, and I kept seeing the same thing. Whenever a SIM or an official HYROX or TRYKA race came up, plenty of people wanted to join but didn't know who to ask. Some were too shy. Some worried they weren't good enough. And some said yes to whoever asked first, then found their partner was at a very different level.</p>
+      <p>I built HyPair so finding the right partner isn't left to chance, and the best part of race day is the race itself.</p>
+      <p class="founder-sign"><strong>Ante</strong>, founder of HyPair &middot; <a href="https://www.instagram.com/hypair.app" target="_blank" rel="noopener noreferrer">Follow us on Instagram</a></p>
+    </div>
+  </div>
+</section>
+
 <!-- ── FAQ ── -->
 <section class="faq-section" id="faq">
   <div class="faq-inner">
@@ -983,6 +1025,13 @@ analytics.init({
       <h2>Common questions</h2>
     </div>
     <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+          Will there be athletes at my event?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>HyPair is new, so it depends on the event. Right now 26 upcoming HYROX and TRYKA races are listed across 23 cities in 7 countries, and the number of athletes grows as more people join. Once you sign up for an event, you appear in the list of athletes looking for a partner, so others can find you, and HyPair can let you know when more athletes join. Pace is self-reported, and any profile can be reported or blocked.</p></div>
+      </div>
       <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
           What is HyPair?
