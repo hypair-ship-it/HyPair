@@ -264,6 +264,22 @@ analytics.init({
   requestBatching: false,
   install: { framework: 'web', agent: 'claude-code' },
 });
+
+// Named events for taps on the store buttons, the "Get the App" buttons and the gym apply/contact buttons. Only a data-track
+// attribute on the link decides what is sent; where the link goes is not touched here. Analytics must never break the page.
+document.addEventListener('click', function (e) {
+  var el = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
+  if (!el) return;
+  try {
+    var props = {
+      page: location.pathname.replace(/\/+$/, '') || '/',
+      invite: document.documentElement.classList.contains('invite'),
+    };
+    var placement = el.getAttribute('data-track-placement');
+    if (placement) props.placement = placement;
+    analytics.trackEvent(el.getAttribute('data-track'), props);
+  } catch (err) { /* ignore */ }
+});
 </script>
 </head>
 <body>
@@ -279,7 +295,7 @@ analytics.init({
       <a href="/for-gyms">For gyms</a>
       <a href="/support" class="active" aria-current="page">Contact</a>
     </div>
-    <a href="/#get-app" class="nav-cta">Get the App</a>
+    <a href="/#get-app" class="nav-cta" data-track="click_get_app" data-track-placement="nav">Get the App</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
       <span></span><span></span><span></span>
     </button>

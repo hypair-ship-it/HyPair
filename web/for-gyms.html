@@ -423,6 +423,22 @@ analytics.init({
   requestBatching: false,
   install: { framework: 'web', agent: 'claude-code' },
 });
+
+// Named events for taps on the store buttons, the "Get the App" buttons and the gym apply/contact buttons. Only a data-track
+// attribute on the link decides what is sent; where the link goes is not touched here. Analytics must never break the page.
+document.addEventListener('click', function (e) {
+  var el = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
+  if (!el) return;
+  try {
+    var props = {
+      page: location.pathname.replace(/\/+$/, '') || '/',
+      invite: document.documentElement.classList.contains('invite'),
+    };
+    var placement = el.getAttribute('data-track-placement');
+    if (placement) props.placement = placement;
+    analytics.trackEvent(el.getAttribute('data-track'), props);
+  } catch (err) { /* ignore */ }
+});
 </script>
 </head>
 <body>
@@ -438,7 +454,7 @@ analytics.init({
       <a href="/for-gyms" class="active" aria-current="page">For gyms</a>
       <a href="/support">Contact</a>
     </div>
-    <a href="/#get-app" class="nav-cta">Get the App</a>
+    <a href="/#get-app" class="nav-cta" data-track="click_get_app" data-track-placement="nav">Get the App</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -459,8 +475,8 @@ analytics.init({
     <p class="tagline">A better experience for your athletes, more athletes involved in your event and an easier day for you. HyPair helps your members find the right partner and takes the hassle out of running your HYROX-style SIM.</p>
     <div class="hero-cta-wrap">
       <div class="hero-cta-row">
-        <a href="#apply" class="hero-cta-btn">Become a founding gym</a>
-        <a href="/support?audience=gym&amp;category=general#contact-gyms" class="btn-ghost">Get in touch</a>
+        <a href="#apply" class="hero-cta-btn" data-track="click_apply_founding_gym" data-track-placement="hero">Become a founding gym</a>
+        <a href="/support?audience=gym&amp;category=general#contact-gyms" class="btn-ghost" data-track="click_gym_contact" data-track-placement="hero">Get in touch</a>
       </div>
       <p class="hero-cta-note">We're building HyPair together with our first gyms. Come and be one of them.</p>
     </div>
@@ -558,7 +574,7 @@ analytics.init({
         </tbody>
       </table>
     </div>
-    <p class="pricing-more">Bigger events or many events? <a href="mailto:hello@hypair.app?subject=HyPair%20bigger%20or%20many%20events">Ask us.</a></p>
+    <p class="pricing-more">Bigger events or many events? <a href="mailto:hello@hypair.app?subject=HyPair%20bigger%20or%20many%20events" data-track="click_gym_email" data-track-placement="pricing">Ask us.</a></p>
     <p class="pricing-more">No subscription, no contract. Athletes pay you directly, and HyPair never touches your entry fees. Prices in euros, VAT included where it applies. Founding prices last 24 months from approval.</p>
   </div>
 </section>
@@ -589,9 +605,9 @@ analytics.init({
       </div>
     </div>
     <div class="founding-apply">
-      <a href="/support?audience=gym&amp;category=founding_gym#contact-gyms" class="cta-btn">Become a founding gym</a>
+      <a href="/support?audience=gym&amp;category=founding_gym#contact-gyms" class="cta-btn" data-track="click_apply_founding_gym" data-track-placement="pricing">Become a founding gym</a>
       <p>Or email <strong>hello@hypair.app</strong> with your gym's name and city. We read every application ourselves and usually reply within a day. <a href="/founding-gyms">Full terms</a>.</p>
-      <p>Not ready to be a founding gym? <a href="/support?audience=gym&amp;category=general#contact-gyms">Get in touch</a> or <a href="/#get-app">get the app</a> and have a look around.</p>
+      <p>Not ready to be a founding gym? <a href="/support?audience=gym&amp;category=general#contact-gyms" data-track="click_gym_contact" data-track-placement="pricing">Get in touch</a> or <a href="/#get-app" data-track="click_get_app" data-track-placement="pricing">get the app</a> and have a look around.</p>
     </div>
   </div>
 </section>
@@ -617,10 +633,10 @@ analytics.init({
 <section class="bottom-cta">
   <div class="bottom-cta-inner">
     <h2>Ready to try it at your gym?</h2>
-    <p class="bottom-cta-sub">Questions first? Email <a href="mailto:hello@hypair.app" style="color:var(--gold)">hello@hypair.app</a> and we'll reply personally.</p>
+    <p class="bottom-cta-sub">Questions first? Email <a href="mailto:hello@hypair.app" style="color:var(--gold)" data-track="click_gym_email" data-track-placement="bottom">hello@hypair.app</a> and we'll reply personally.</p>
     <div class="hero-cta-row">
-      <a href="#apply" class="cta-btn">Become a founding gym</a>
-      <a href="/#get-app" class="btn-ghost">Get the app</a>
+      <a href="#apply" class="cta-btn" data-track="click_apply_founding_gym" data-track-placement="bottom">Become a founding gym</a>
+      <a href="/#get-app" class="btn-ghost" data-track="click_get_app" data-track-placement="bottom">Get the app</a>
     </div>
   </div>
 </section>
