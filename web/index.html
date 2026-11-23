@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="a0N0QHqhqHHp9kZ1i6BB7kj7HHuK9sHPWs3AKSWmuZc" />
-<title>HyPair — Meet your match</title>
+<title>HyPair: Find your HYROX or TRYKA doubles partner</title>
 <meta name="description" content="Find your HYROX or TRYKA doubles partner by pace and goal. Free for athletes. Gyms: your first SIM event is free. On the App Store and Google Play.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HyPair — Meet Your Match">
+<meta property="og:title" content="HyPair: Find your HYROX or TRYKA doubles partner">
 <meta property="og:description" content="Find your HYROX or TRYKA doubles partner by pace and goal. Free for athletes. Gyms: your first SIM event is free. On the App Store and Google Play.">
 <meta property="og:image" content="/og-image.jpg">
 <meta property="og:url" content="https://hypair.app">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HyPair — Meet Your Match">
+<meta name="twitter:title" content="HyPair: Find your HYROX or TRYKA doubles partner">
 <meta name="twitter:description" content="Find your HYROX or TRYKA doubles partner by pace and goal. Free for athletes. Gyms: your first SIM event is free. On the App Store and Google Play.">
 <meta name="twitter:image" content="/og-image.jpg">
 <meta name="robots" content="index, follow">
@@ -34,6 +34,78 @@
   "downloadUrl": "https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
   "publisher": { "@type": "Organization", "name": "HyPair", "url": "https://hypair.app" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is HyPair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HyPair is a partner-matching app for HYROX and TRYKA doubles athletes. It matches you by pace, finish goal and the exact race you're entering, so you find the right partner, not just whoever's available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which events does HyPair support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HyPair supports HYROX doubles and TRYKA doubles, for official events and gym simulation events. We're live across Ireland, the UK, Europe, the US, Canada, Australia and South Africa. If your event or city isn't listed yet, get in touch and let us know."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the matching algorithm work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HyPair scores compatibility from three things: running pace, race format and division, and finish goal. The closer the match on all three, the higher the compatibility score on each profile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is HyPair free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, HyPair is free for athletes, and we'll be upfront if that ever changes. Gyms get their first event free; see pricing for gyms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is HyPair available now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, HyPair is live on the App Store and Google Play, so you can download it and start matching today. Not in a supported country yet? Let us know and we'll factor it into where we expand next."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I find a partner for a gym SIM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. HyPair covers gym simulation events as well as official HYROX and TRYKA races. Browse athletes entered for your SIM, check their pace and goal, and connect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I find a partner if I'm a beginner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Not everyone is chasing a PB. Every profile shows pace and goal, so you can find someone racing for the same reasons you are, whether that's a fast time or a first doubles race with good company."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when I find someone I want to race with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Send a request and chat. When you both agree to race, you lock it in and you're paired. From there you can compare your paces and make a plan."
+      }
+    }
+  ]
 }
 </script>
 <style>
@@ -156,9 +228,10 @@ h1 .red { color: var(--red); }
 }
 /* Invite links (/event/*, /athlete/* redirect here with ?ref=invite): say so, in place of the generic pitch */
 .invite-only { display: none; }
+.invite-event[hidden] { display: none !important; }
 .invite .invite-only { display: block; }
 .invite .default-only { display: none; }
-.invite-eyebrow {
+.invite-eyebrow, .hero-eyebrow {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
   color: #F2D079; margin-bottom: 14px;
@@ -186,15 +259,21 @@ h1 .red { color: var(--red); }
 .appstore-badge-text { display: flex; flex-direction: column; color: var(--text-dark); line-height: 1.2; }
 .appstore-badge-text small { font-size: 11px; color: var(--text-body); }
 .appstore-badge-text strong { font-size: 19px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
+.paths { background: var(--light-bg); padding: 40px 24px 0; }
+.paths-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.path-card { display: grid; gap: 6px; background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 26px 28px; text-decoration: none; color: var(--text-dark); transition: box-shadow 0.2s, transform 0.2s; }
+.path-card:hover { box-shadow: 0 10px 30px rgba(15,19,24,0.10); transform: translateY(-2px); }
+.path-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #C8952A; }
+.path-card strong { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900; line-height: 1.15; }
+.path-text { font-size: 15px; color: var(--text-body); line-height: 1.6; }
+.path-link { font-size: 14px; font-weight: 600; color: var(--red); margin-top: 6px; }
+.three-steps { list-style: none; counter-reset: st; display: flex; justify-content: center; gap: 12px 36px; flex-wrap: wrap; margin: -20px auto 40px; padding: 0; max-width: 760px; }
+.three-steps li { counter-increment: st; display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text-body); }
+.three-steps li::before { content: counter(st); width: 28px; height: 28px; border-radius: 50%; background: var(--gold-dim, #F6EBCB); color: #8A6414; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.three-steps strong { color: var(--text-dark); }
+@media (max-width: 768px) { .paths-inner { grid-template-columns: 1fr; } .paths { padding: 28px 20px 0; } }
 .hero-free { font-size: 14px; font-weight: 600; color: var(--white-80, rgba(255,255,255,0.8)); margin: -8px 0 10px; }
-.hero-gym-btn {
-  display: inline-block; margin: 4px 0 24px; padding: 11px 22px; border-radius: 100px;
-  border: 1.5px solid rgba(255,255,255,0.45); color: var(--white); text-decoration: none;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px;
-  letter-spacing: 0.8px; text-transform: uppercase;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
-}
-.hero-gym-btn:hover { background: var(--white); color: var(--text-dark); border-color: var(--white); }
+
 .gym-cta .gym-cta-note { font-size: 14px; margin: 16px auto 0; }
 .gym-cta .gym-cta-note a { color: var(--gold); }
 .store-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
@@ -686,20 +765,9 @@ analytics.init({
 
     <!-- Text column -->
     <div class="hero-text" style="animation: fadeup 0.6s ease both;">
-      <p class="invite-eyebrow invite-only">You've been invited</p>
-      <h1>Meet your<br><span class="red">match.</span></h1>
-      <p class="tagline invite-only">Someone invited you to race on HyPair. Download the app to join them, then find the event, pick a doubles partner and get on the start line together.</p>
-      <div class="invite-event invite-only" id="invite-event" hidden>
-        <div class="invite-event-name" id="invite-event-name"></div>
-        <div class="invite-event-meta" id="invite-event-meta"></div>
-      </div>
-      <ol class="invite-steps invite-only" aria-label="How to join">
-        <li><strong>Download HyPair</strong> (free) from the App Store or Google Play.</li>
-        <li><strong>Create your profile</strong>: it takes a couple of minutes.</li>
-        <li>Open the <strong>Events</strong> tab, find <strong id="invite-step-event">this event</strong> and tap <strong>Join</strong>.</li>
-        <li><strong>Find your partner</strong>, chat and lock it in.<span id="invite-wave-note" hidden> The gym will send your wave time.</span></li>
-      </ol>
-      <p class="tagline default-only">Finding the right doubles partner for HYROX and TRYKA shouldn't be left to chance: whoever asks first, whoever you happened to train with, whoever posts in the Facebook group at the right time. HyPair matches you by pace, goal and the race you're actually entering.</p>
+      <p class="hero-eyebrow default-only">Meet your match</p>
+      <h1>Find your doubles<br><span class="red">partner.</span></h1>
+      <p class="tagline default-only">Finding a doubles partner shouldn't be the hardest part of getting ready to race. Whether it's an official HYROX or TRYKA event or a local gym SIM, HyPair connects you with athletes who match your pace, goals and event.</p>
 
       <div class="store-badges">
         <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
@@ -719,7 +787,6 @@ analytics.init({
         </a>
       </div>
       <p class="hero-free default-only">Free for athletes. On iPhone and Android.</p>
-      <a href="/for-gyms" class="hero-gym-btn default-only">Run a SIM day? See HyPair for gyms</a>
 
     </div>
 
@@ -738,6 +805,24 @@ analytics.init({
 </section>
 
 <!-- ── FOR ATHLETES / USE CASES ── -->
+<!-- ── TWO PATHS ── -->
+<section class="paths" aria-label="Choose your path">
+  <div class="paths-inner">
+    <a class="path-card" href="#for-athletes">
+      <span class="path-label">For athletes</span>
+      <strong>I'm racing HYROX or TRYKA</strong>
+      <span class="path-text">Find a doubles partner for an official race or a gym SIM. Free for athletes.</span>
+      <span class="path-link">See how it works</span>
+    </a>
+    <a class="path-card" href="/for-gyms">
+      <span class="path-label">For gyms</span>
+      <strong>I run a SIM event</strong>
+      <span class="path-text">Help your members find partners and get more athletes involved in your event.</span>
+      <span class="path-link">See HyPair for gyms</span>
+    </a>
+  </div>
+</section>
+
 <section class="light-section" id="for-athletes">
   <div class="section-inner">
     <div class="usecase-head">
@@ -745,26 +830,27 @@ analytics.init({
       <h2>HyPair finds your pair, whatever your goal and wherever you're racing.</h2>
       <p class="section-sub">Whatever's got you looking for a partner, HyPair matches you by pace, goal and the exact race you're entering.</p>
     </div>
+    <ol class="three-steps"><li><strong>Find your event</strong></li><li><strong>Find your partner</strong></li><li><strong>Race together</strong></li></ol>
     <div class="usecase-cards">
       <div class="usecase-card">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <h3>My partner dropped out</h3>
-        <p>Race day is close and you're suddenly solo? Browse athletes already registered for your exact event, matched by pace and goal, and find someone fast.</p>
+        <h3>Your partner dropped out?</h3>
+        <p>Plans change. If your partner can no longer make it, you don't have to give up on the race. Find athletes registered for the same event who are still looking for a partner.</p>
       </div>
       <div class="usecase-card">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Racing somewhere new</h3>
-        <p>Entering a race in a new city, or just want to combine travel with competing? Browse athletes entered for that event, locals or fellow travellers, and find a partner before you arrive.</p>
+        <h3>Racing in a new city?</h3>
+        <p>Travelling for a race? Find local athletes or fellow travellers entering the same event, and find a partner before you arrive.</p>
       </div>
       <div class="usecase-card">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-        <h3>Actually at your level</h3>
-        <p>Tired of pairing up with whoever asked first? At a gym SIM it can be awkward to ask: you don't know if they already have a partner, and you don't want to hold anyone back. HyPair matches by pace, finish goal and format, so you race with someone who really fits.</p>
+        <h3>Find someone on your level</h3>
+        <p>Want to push for a PB, or just enjoy the day without worrying about holding anyone back? Compare pace and goals to find a partner who suits you.</p>
       </div>
       <div class="usecase-card fun">
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h3>Want to meet people through sport</h3>
-        <p>Not everyone is chasing a PB. Some athletes enter HYROX or TRYKA because they want to compete, have fun, and meet new people along the way. With HyPair you can filter by event, location and goal and find someone racing for the same reasons you are.</p>
+        <h3>More than just a race</h3>
+        <p>Not every race is about the clock. Meet new people, find training partners and take on a challenge together.</p>
       </div>
     </div>
   </div>
@@ -776,11 +862,13 @@ analytics.init({
   <div class="feature-row">
     <div class="feature-text">
       <p class="overline">Browse · Events</p>
-      <h2>Find a race that's right for you.</h2>
-      <p class="feature-desc">Looking for a race in your city, or somewhere you're travelling to? Browse official HYROX and TRYKA races and gym SIM events, and find one that suits you.</p>
+      <h2>Find your event. Find your partner.</h2>
+      <p class="feature-desc">From official HYROX and TRYKA races to gym SIM events, find the event you're interested in and connect with athletes looking for a partner.</p>
       <ul class="check-list">
-        <li>HYROX and TRYKA, official races and SIM events</li>
-        <li>Find races by city, date and format</li>
+        <li>Official HYROX and TRYKA races</li>
+        <li>Gym SIM events</li>
+        <li>Find events by city, date and format</li>
+        <li>See athletes already looking for a partner</li>
       </ul>
     </div>
     <div class="feature-phone">
@@ -858,7 +946,7 @@ analytics.init({
   <div class="section-inner centered">
     <div class="gym-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> For gym owners</div>
     <h2>Help your members find the right partner.</h2>
-    <p class="dark-sub">Plenty of athletes would love to enter a SIM or an official race but don't know who to ask. HyPair gives your members a way to find a well-matched partner, so more of them sign up and race. It's free for athletes, and it helps you run the day too, with pairing, waves and the race-day schedule in one app.</p>
+    <p class="dark-sub">Plenty of athletes would love to enter a SIM or an official race but don't know who to ask. HyPair gives your members a way to find a well-matched partner, so more of them sign up and race, and it puts your event in front of more athletes. It's free for athletes, and it helps you run the day too, with pairing, waves and the race-day schedule in one app.</p>
     <div class="gym-cards">
       <div class="gym-card">
         <div class="gym-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E22424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -872,12 +960,12 @@ analytics.init({
       </div>
       <div class="gym-card">
         <div class="gym-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E22424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <h3>Visitors find your gym</h3>
-        <p>Athletes travelling to your area can find your SIM in the app, match with a partner and race with you. Some may end up joining your gym.</p>
+        <h3>Get your SIM in front of more athletes</h3>
+        <p>Your event can be found by athletes outside your membership too. Travellers and local competitors can find your SIM, match with a partner and come through your doors. Some may end up joining your gym.</p>
       </div>
       <div class="gym-cta">
         <h3>Run a HYROX or TRYKA SIM day?</h3>
-        <p>HyPair is new, so there may not be many athletes in your area yet. List your event now, we'll help you set up, and there's nothing more to do until athletes start signing up. Your first event is free.</p>
+        <p>Whether it's your first simulation or a regular event, we'll help you get started. Your first event is free.</p>
         <a href="/for-gyms" class="second-cta-btn">See how it works for gyms</a>
         <p class="gym-cta-note">Questions first? <a href="mailto:hello@hypair.app?subject=HyPair%20for%20gyms">hello@hypair.app</a></p>
       </div>
@@ -927,6 +1015,27 @@ analytics.init({
           <span class="faq-toggle">+</span>
         </div>
         <div class="faq-a"><p>Yes, HyPair is live on the App Store and Google Play, so you can download it and start matching today. Not in a supported country yet? <a href="mailto:hello@hypair.app?subject=HyPair%20in%20my%20country">Let us know</a> and we'll factor it into where we expand next.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+          Can I find a partner for a gym SIM?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Yes. HyPair covers gym simulation events as well as official HYROX and TRYKA races. Browse athletes entered for your SIM, check their pace and goal, and connect.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+          Can I find a partner if I'm a beginner?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Yes. Not everyone is chasing a PB. Every profile shows pace and goal, so you can find someone racing for the same reasons you are, whether that's a fast time or a first doubles race with good company.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" role="button" tabindex="0" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this)}">
+          What happens when I find someone I want to race with?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a"><p>Send a request and chat. When you both agree to race, you lock it in and you're paired. From there you can compare your paces and make a plan.</p></div>
       </div>
     </div>
   </div>
@@ -992,6 +1101,23 @@ analytics.init({
     document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+</script>
+<script>
+/* Invite landing: build the invite copy only when the link has ?ref=invite, so ordinary visitors and crawlers never see it in the page. */
+(function () {
+  if (!document.documentElement.classList.contains('invite')) return;
+  var h1 = document.querySelector('.hero-text h1');
+  if (!h1) return;
+  h1.insertAdjacentHTML('beforebegin', '<p class="invite-eyebrow invite-only">You\'ve been invited</p>');
+  h1.insertAdjacentHTML('afterend',
+    '<p class="tagline invite-only">Someone invited you to race on HyPair. Download the app to join them, then find the event, pick a doubles partner and get on the start line together.</p>' +
+    '<div class="invite-event invite-only" id="invite-event" hidden><div class="invite-event-name" id="invite-event-name"></div><div class="invite-event-meta" id="invite-event-meta"></div></div>' +
+    '<ol class="invite-steps invite-only" aria-label="How to join">' +
+    '<li><strong>Download HyPair</strong> (free) from the App Store or Google Play.</li>' +
+    '<li><strong>Create your profile</strong>: it takes a couple of minutes.</li>' +
+    '<li>Open the <strong>Events</strong> tab, find <strong id="invite-step-event">this event</strong> and tap <strong>Join</strong>.</li>' +
+    '<li><strong>Find your partner</strong>, chat and lock it in.<span id="invite-wave-note" hidden> The gym will send your wave time.</span></li></ol>');
+})();
 </script>
 <script>
 /* Invite landing: show which event the link was for. The event is looked up by id (live events only, public
