@@ -183,6 +183,10 @@ h1 .red { color: var(--red); }
 .appstore-badge-text { display: flex; flex-direction: column; color: var(--text-dark); line-height: 1.2; }
 .appstore-badge-text small { font-size: 11px; color: var(--text-body); }
 .appstore-badge-text strong { font-size: 19px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
+.hero-gym-line { font-size: 14px; color: var(--white-60); margin: -8px 0 24px; }
+.hero-gym-line a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.gym-cta .gym-cta-note { font-size: 14px; margin: 16px auto 0; }
+.gym-cta .gym-cta-note a { color: var(--gold); }
 .store-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
 .store-badges .appstore-badge { margin-bottom: 0; }
 
@@ -350,8 +354,17 @@ h2 {
   color: var(--text-dark); margin-bottom: 10px;
 }
 .styles-teaser-text p { font-size: 15px; color: var(--text-body); line-height: 1.7; margin-bottom: 22px; max-width: 440px; }
-.styles-teaser .second-cta-btn { padding: 13px 30px; font-size: 14px; }
-.styles-teaser-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.styles-section { padding-top: 56px; padding-bottom: 56px; }
+.styles-section .styles-teaser { margin-top: 0; }
+.styles-link {
+  display: inline-block; padding: 12px 26px; border-radius: 100px;
+  border: 1.5px solid var(--text-dark); color: var(--text-dark);
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px;
+  letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.styles-link:hover { background: var(--text-dark); color: var(--white); }
+.styles-teaser-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 300px; margin-left: auto; }
 .style-chip {
   font-size: 13px; font-weight: 600; color: var(--text-body);
   background: var(--light-bg); border: 1px solid var(--border);
@@ -701,6 +714,7 @@ analytics.init({
           <span class="appstore-badge-text"><small>Get it on</small><strong>Google Play</strong></span>
         </a>
       </div>
+      <p class="hero-gym-line default-only">Run a SIM day? <a href="/for-gyms">See HyPair for gyms</a></p>
 
     </div>
 
@@ -746,21 +760,6 @@ analytics.init({
         <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C8952A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <h3>Want to meet people through sport</h3>
         <p>Not everyone is chasing a PB. Some athletes enter HYROX or TRYKA because they want to compete, have fun, and meet new people along the way. HyPair shows you who's out there. Filter by event, location and goal, and find someone who's racing for the same reasons you are.</p>
-      </div>
-    </div>
-    <div class="styles-teaser">
-      <div class="styles-teaser-text">
-        <p class="overline" style="margin-bottom:8px;">Race styles</p>
-        <h3>Which one are you?</h3>
-        <p>Every athlete has a race pattern: where you're strong, where you fade, how you pace it. See all five styles, and who pairs best with each.</p>
-        <a href="/race-styles" class="second-cta-btn">Find out more</a>
-      </div>
-      <div class="styles-teaser-chips">
-        <span class="style-chip">Pacemaker</span>
-        <span class="style-chip">Anchor</span>
-        <span class="style-chip">Steady Hand</span>
-        <span class="style-chip">Fast Starter</span>
-        <span class="style-chip">Closer</span>
       </div>
     </div>
   </div>
@@ -828,6 +827,27 @@ analytics.init({
   </div>
 </section>
 
+<!-- ── RACE STYLES (secondary content, after the app story) ── -->
+<section class="light-section styles-section">
+  <div class="section-inner">
+    <div class="styles-teaser">
+      <div class="styles-teaser-text">
+        <p class="overline" style="margin-bottom:8px;">Race styles</p>
+        <h3>Which one are you?</h3>
+        <p>Every athlete has a race pattern: where you're strong, where you fade, how you pace it. See all five styles, and who pairs best with each.</p>
+        <a href="/race-styles" class="styles-link">Find out more</a>
+      </div>
+      <div class="styles-teaser-chips">
+        <span class="style-chip">Pacemaker</span>
+        <span class="style-chip">Anchor</span>
+        <span class="style-chip">Steady Hand</span>
+        <span class="style-chip">Fast Starter</span>
+        <span class="style-chip">Closer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── FOR GYM OWNERS ── -->
 <section class="dark-section centered" id="for-gyms">
   <div class="section-inner centered">
@@ -851,14 +871,11 @@ analytics.init({
         <p>Your gym's simulation events appear in HyPair so athletes already on the platform can find them, register, and start matching with other entrants automatically.</p>
       </div>
       <div class="gym-cta">
-        <h3>Interested in listing your events?</h3>
-        <p>We're working directly with gyms in Ireland and the UK. If your gym runs HYROX or TRYKA simulation events and you'd like to get involved, email us.</p>
-        <a href="mailto:hello@hypair.app?subject=HyPair%20for%20gyms" class="second-cta-btn">Email hello@hypair.app</a>
+        <h3>Run a HYROX or TRYKA SIM day?</h3>
+        <p>We're working directly with gyms in Ireland and the UK. See how listing your event works, what it costs and what you get. Your first event is free.</p>
+        <a href="/for-gyms" class="second-cta-btn">See how it works for gyms</a>
+        <p class="gym-cta-note">Questions first? <a href="mailto:hello@hypair.app?subject=HyPair%20for%20gyms">hello@hypair.app</a></p>
       </div>
-    </div>
-    <div>
-      <a href="/for-gyms#pricing" class="gym-more-link" style="margin-top:40px;">Pricing for gyms: your first event is free</a>
-      <a href="/founding-gyms" class="gym-more-link" style="margin-top:40px;margin-left:8px;">Founding Gyms: first 10 gyms, 3 free events</a>
     </div>
   </div>
 </section>
