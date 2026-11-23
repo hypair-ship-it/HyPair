@@ -187,8 +187,14 @@ h1 .red { color: var(--red); }
 .appstore-badge-text small { font-size: 11px; color: var(--text-body); }
 .appstore-badge-text strong { font-size: 19px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; }
 .hero-free { font-size: 14px; font-weight: 600; color: var(--white-80, rgba(255,255,255,0.8)); margin: -8px 0 10px; }
-.hero-gym-line { font-size: 14px; color: var(--white-60); margin: -8px 0 24px; }
-.hero-gym-line a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.hero-gym-btn {
+  display: inline-block; margin: 4px 0 24px; padding: 11px 22px; border-radius: 100px;
+  border: 1.5px solid rgba(255,255,255,0.45); color: var(--white); text-decoration: none;
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 15px;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.hero-gym-btn:hover { background: var(--white); color: var(--text-dark); border-color: var(--white); }
 .gym-cta .gym-cta-note { font-size: 14px; margin: 16px auto 0; }
 .gym-cta .gym-cta-note a { color: var(--gold); }
 .store-badges { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
@@ -713,7 +719,7 @@ analytics.init({
         </a>
       </div>
       <p class="hero-free default-only">Free for athletes. On iPhone and Android.</p>
-      <p class="hero-gym-line default-only">Run a SIM day? <a href="/for-gyms">See HyPair for gyms</a></p>
+      <a href="/for-gyms" class="hero-gym-btn default-only">Run a SIM day? See HyPair for gyms</a>
 
     </div>
 
@@ -770,11 +776,11 @@ analytics.init({
   <div class="feature-row">
     <div class="feature-text">
       <p class="overline">Browse · Events</p>
-      <h2>Pick the race you're actually entering.</h2>
-      <p class="feature-desc">Filter by location, format and division across official HYROX and TRYKA races and gym simulation events, and find exactly the one you're racing.</p>
+      <h2>Find a race that's right for you.</h2>
+      <p class="feature-desc">Looking for a race in your city, or somewhere you're travelling to? Browse official HYROX and TRYKA races and gym SIM events, and find one that suits you.</p>
       <ul class="check-list">
         <li>HYROX and TRYKA, official races and SIM events</li>
-        <li>Filter by city and format</li>
+        <li>Find races by city, date and format</li>
       </ul>
     </div>
     <div class="feature-phone">
@@ -795,8 +801,8 @@ analytics.init({
     </div>
     <div class="feature-text">
       <p class="overline">Browse · Athletes</p>
-      <h2>See exactly who you'd be racing with.</h2>
-      <p class="feature-desc">Every profile needs a real photo, and pace, finish goal and bio tell you exactly who you'd be racing with before you connect.</p>
+      <h2>Browse athletes and find your match.</h2>
+      <p class="feature-desc">Every profile has a real photo, and you can see pace, estimated finish time together, goal and age group before you connect, so you can find the person who's right for your race.</p>
       <ul class="check-list">
         <li>Photo, pace and estimated pair finish time</li>
         <li>Goal: competitive or just here for the experience</li>
@@ -812,10 +818,10 @@ analytics.init({
     <div class="feature-text">
       <p class="overline">It's a match · Race together</p>
       <h2>You've found your partner. Now race.</h2>
-      <p class="feature-desc">When both athletes confirm, you're paired. Compare paces, make your plan and show up ready.</p>
+      <p class="feature-desc">When you both agree to race, you lock it in and you're paired. Compare paces, make your plan and show up ready.</p>
       <ul class="check-list">
-        <li>Two-step mutual confirmation</li>
-        <li>Pace comparison at a glance</li>
+        <li>You both say yes and lock it in</li>
+        <li>See how your paces compare</li>
       </ul>
     </div>
     <div class="feature-phone">
