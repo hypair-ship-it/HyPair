@@ -33,7 +33,7 @@ great, and it was fun."*
    HQ DECISIONS.md: "Founding Gyms offer approved"). The public offer (first 10 gyms, first 3 SIM
    events free, founding prices for 24 months from approval, what we ask, the no-hassle promise) lives on that page
    only (linked from `/for-gyms`). Never name partner gyms until they agreed in writing. Applications
-   go by email (joinhypair@gmail.com) until the production app has the Gym setup row (app PR #145).
+   go by email (hello@hypair.app) until the production app has the Gym setup row (app PR #145).
 5. **Gym pricing only as approved** (22 Nov 2026): regular prices on `/for-gyms#pricing` (first event free,
    EUR 34.99 up to 40 athletes, EUR 59.99 up to 100, as a table); founding prices EUR 24.99 / EUR 44.99 for 24 months from approval
    on `/founding-gyms`; "Reach out to ask" (no number) for over 100 athletes, a 5-event pack and an annual
