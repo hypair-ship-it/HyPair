@@ -229,6 +229,13 @@ h1 .red { color: var(--red); }
 .hero-cta-btn:hover { box-shadow: 0 0 24px rgba(226,36,36,0.5); transform: translateY(-2px); }
 .hero-cta-note { font-size: 14px; color: var(--white-60); text-wrap: pretty; max-width: 460px; margin: 18px auto 0; }
 .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.gym-faq { text-align: left; max-width: 760px; margin: 28px auto 0; }
+.gym-faq details { border-bottom: 1px solid var(--border); padding: 4px 0; }
+.gym-faq summary { cursor: pointer; font-weight: 600; font-size: 17px; color: var(--text-dark); padding: 14px 4px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.gym-faq summary::-webkit-details-marker { display: none; }
+.gym-faq summary::after { content: "+"; font-size: 22px; line-height: 1; color: var(--red); transition: transform 0.2s; }
+.gym-faq details[open] summary::after { transform: rotate(45deg); }
+.gym-faq p { font-size: 16px; color: var(--text-body); line-height: 1.7; padding: 0 4px 16px; }
 .btn-ghost {
   display: inline-block; padding: 16px 30px; border-radius: 12px; text-decoration: none;
   border: 1.5px solid rgba(255,255,255,0.45); color: var(--white);
@@ -449,7 +456,7 @@ analytics.init({
 <section class="page-hero">
   <div class="page-hero-inner">
     <h1>Help your members<br><span class="red">find a partner.</span></h1>
-    <p class="tagline">A better experience for your athletes and an easier day for you. HyPair helps your members find the right partner and takes the hassle out of running your HYROX-style SIM.</p>
+    <p class="tagline">A better experience for your athletes, more athletes involved in your event and an easier day for you. HyPair helps your members find the right partner and takes the hassle out of running your HYROX-style SIM.</p>
     <div class="hero-cta-wrap">
       <div class="hero-cta-row">
         <a href="#apply" class="hero-cta-btn">Become a founding gym</a>
@@ -471,7 +478,7 @@ analytics.init({
         <li><span><strong>More members take part.</strong> They can find a partner in the app without asking around the group chat.</span></li>
         <li><span><strong>Partners who fit.</strong> Athletes are matched by pace and goal, so nobody is stuck with a partner who doesn't suit them.</span></li>
         <li><span><strong>New pairings in your own gym.</strong> Members of a similar level can meet people they would never have thought to ask.</span></li>
-        <li><span><strong>Visitors find your gym.</strong> Athletes travelling to your area can find your SIM in the app, match with a partner and race with you. Some may end up joining your gym.</span></li>
+        <li><span><strong>Get your SIM in front of more athletes.</strong> Travellers and local competitors can find your SIM in the app, match with a partner and race with you. Some may end up joining your gym.</span></li>
         <li><span><strong>Free for athletes.</strong> There's no cost to your members for finding a partner.</span></li>
       </ul>
     </div>
@@ -561,7 +568,7 @@ analytics.init({
   <div class="founding-inner">
     <p class="overline">Founding gyms</p>
     <h2>We're still young, and we'd love your help.</h2>
-    <p class="pricing-sub">We're looking for our first 10 gyms to build HyPair with. There may not be many athletes in your area yet, so list your event, we'll help you set up, and there's nothing more to do until athletes start signing up.</p>
+    <p class="pricing-sub">We're looking for our first 10 gyms to build HyPair with. List your event, we'll help you set up, and there's nothing more to do until athletes start signing up.</p>
     <div class="founding-cols">
       <div class="founding-box">
         <h3>What you get</h3>
@@ -585,6 +592,21 @@ analytics.init({
       <a href="mailto:hello@hypair.app?subject=Founding%20Gym%20application&body=Hi%20HyPair,%0A%0AWe%27d%20like%20to%20apply%20as%20a%20Founding%20Gym.%0A%0AGym%20name:%0ACity:%0AHow%20many%20SIM%20events%20a%20year:%0AAthletes%20per%20SIM:%0AYour%20name:%0APhone:%0A" class="cta-btn">Become a founding gym</a>
       <p>Or email <strong>hello@hypair.app</strong> with your gym's name and city. We read every application ourselves and usually reply within a day. <a href="/founding-gyms">Full terms</a>.</p>
       <p>Not ready to be a founding gym? <a href="mailto:hello@hypair.app?subject=HyPair%20for%20gyms">Get in touch</a> or <a href="/#get-app">get the app</a> and have a look around.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 5b GYM FAQ ── -->
+<section class="pricing-section" id="gym-faq">
+  <div class="pricing-inner">
+    <p class="overline">Questions</p>
+    <h2>Common questions from gyms.</h2>
+    <div class="gym-faq">
+      <details><summary>How do I list my gym's SIM event?</summary><p>Use the "Get in touch" button or email us, and we'll help you set up your first event. You add the date, formats and slots in the app.</p></details>
+      <details><summary>Can athletes outside my gym join?</summary><p>Yes. Your event is visible to athletes using HyPair, so travellers and local competitors can find it, sign up and look for a partner.</p></details>
+      <details><summary>How does partner matching work for my event?</summary><p>Athletes who sign up can browse each other by pace, goal and age group and agree to pair up in the app. You can see who's paired and who's still looking, and add members who aren't on the app.</p></details>
+      <details><summary>Do I need to manage the matching myself?</summary><p>No. Athletes find their own partners. You can step in and pair people by hand whenever you like.</p></details>
+      <details><summary>How much does it cost?</summary><p>Your first event is free. After that you pay per event, based on how many athletes take part (see the pricing above). HyPair is free for athletes.</p></details>
     </div>
   </div>
 </section>
