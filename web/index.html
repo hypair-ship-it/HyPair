@@ -755,6 +755,22 @@ analytics.init({
   requestBatching: false,
   install: { framework: 'web', agent: 'claude-code' },
 });
+
+// Named events for taps on the store buttons, the "Get the App" buttons and the gym apply/contact buttons. Only a data-track
+// attribute on the link decides what is sent; where the link goes is not touched here. Analytics must never break the page.
+document.addEventListener('click', function (e) {
+  var el = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
+  if (!el) return;
+  try {
+    var props = {
+      page: location.pathname.replace(/\/+$/, '') || '/',
+      invite: document.documentElement.classList.contains('invite'),
+    };
+    var placement = el.getAttribute('data-track-placement');
+    if (placement) props.placement = placement;
+    analytics.trackEvent(el.getAttribute('data-track'), props);
+  } catch (err) { /* ignore */ }
+});
 </script>
 </head>
 <body>
@@ -771,7 +787,7 @@ analytics.init({
       <a href="/for-gyms">For gyms</a>
       <a href="/support">Contact</a>
     </div>
-    <a href="#get-app" class="nav-cta">Get the App</a>
+    <a href="#get-app" class="nav-cta" data-track="click_get_app" data-track-placement="nav">Get the App</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -797,13 +813,13 @@ analytics.init({
       <p class="tagline default-only">Finding a doubles partner shouldn't be the hardest part of getting ready to race. Whether it's an official HYROX or TRYKA event or a local gym SIM, HyPair connects you with athletes who match your pace, goals and event.</p>
 
       <div class="store-badges">
-        <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store">
+        <a href="https://apps.apple.com/ie/app/hypair-race-partner-finder/id6797554752" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Download HyPair on the App Store" data-track="click_app_store" data-track-placement="hero">
           <svg class="appstore-badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M17.05 12.536c-.03-2.05 1.68-3.033 1.756-3.08-.955-1.396-2.44-1.588-2.965-1.61-1.35-.137-2.556.79-3.222.79-.667 0-1.69-.77-2.775-.75-1.423.022-2.746.83-3.474 2.107-1.484 2.573-.38 6.372 1.056 8.457.703 1.017 1.538 2.157 2.634 2.117 1.056-.04 1.454-.683 2.73-.683 1.274 0 1.634.683 2.75.662 1.135-.02 1.856-1.023 2.55-2.045.803-1.176 1.135-2.32 1.155-2.383-.026-.012-2.164-.833-2.195-3.582zM14.2 5.94c.61-.74.98-1.694.895-2.677-.87.033-1.902.573-2.532 1.302-.567.65-1.02 1.62-.89 2.577.94.073 1.925-.478 2.527-1.202z"/>
           </svg>
           <span class="appstore-badge-text"><small>Download on the</small><strong>App Store</strong></span>
         </a>
-        <a href="https://play.google.com/store/apps/details?id=app.hypair.mobile" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Get HyPair on Google Play">
+        <a href="https://play.google.com/store/apps/details?id=app.hypair.mobile" class="appstore-badge" target="_blank" rel="noopener noreferrer" aria-label="Get HyPair on Google Play" data-track="click_google_play" data-track-placement="hero">
           <svg class="appstore-badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M3.6 2.4c-.4.4-.6.9-.6 1.5v16.2c0 .6.2 1.1.6 1.5l.1.1L13 12.3v-.2L3.7 2.3l-.1.1z"/>
             <path d="M16.2 15.5 13 12.3v-.2l3.2-3.2 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.7 2.1z"/>
@@ -1100,7 +1116,7 @@ analytics.init({
     Find your doubles partner before race day.
   </p>
   <p class="second-cta-sub">Free for athletes. Download HyPair and be paired before race day.</p>
-  <a href="#get-app" class="second-cta-btn">Get the App</a>
+  <a href="#get-app" class="second-cta-btn" data-track="click_get_app" data-track-placement="bottom">Get the App</a>
 </section>
 
 </main>
