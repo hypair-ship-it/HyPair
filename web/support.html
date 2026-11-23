@@ -374,6 +374,20 @@ analytics.init({
           <option value="general">General gym enquiry</option>
         </select>
       </div>
+      <div id="gym-founding-fields" hidden>
+        <div class="form-field">
+          <label for="gym-events-year">SIM events a year *</label>
+          <input id="gym-events-year" type="number" inputmode="numeric" min="0" max="999" step="1">
+        </div>
+        <div class="form-field">
+          <label for="gym-athletes-sim">Athletes per SIM (typical) *</label>
+          <input id="gym-athletes-sim" type="number" inputmode="numeric" min="1" max="999" step="1">
+        </div>
+        <div class="form-field">
+          <label for="gym-phone">Phone (optional)</label>
+          <input id="gym-phone" type="tel" autocomplete="tel" maxlength="40">
+        </div>
+      </div>
       <div class="form-field">
         <label for="gym-message">Message *</label>
         <textarea id="gym-message" rows="5" required placeholder="How many SIM events do you run a year, and roughly how many athletes at each?"></textarea>
@@ -421,7 +435,7 @@ analytics.init({
     const SUPABASE_URL = 'https://lsxprzoxoarfakhxhoab.supabase.co';
     const SUPABASE_PUBLIC_KEY = 'sb_publishable_9U61L_y4qyiXga9-VK0rFw_oaDrGmIT';
 
-    function wireContactForm({ formId, submitId, successId, type, categoryId, fields }) {
+    function wireContactForm({ formId, submitId, successId, type, categoryId, fields, extras }) {
       const form = document.getElementById(formId);
       const categorySelect = document.getElementById(categoryId);
       let lastSubmit = 0;
@@ -437,8 +451,10 @@ analytics.init({
         const category = categorySelect.value;
         const email = document.getElementById(fields.email).value.trim();
         const message = document.getElementById(fields.message).value.trim();
+        // Optional per-form extras: { invalid, details }. details is stored in contact_messages.event_details.
+        const extra = extras ? extras(category) : null;
 
-        if (!category || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || !message) {
+        if (!category || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || !message || (extra && extra.invalid)) {
           form.classList.add('shake');
           setTimeout(() => form.classList.remove('shake'), 800);
           return;
@@ -459,6 +475,7 @@ analytics.init({
           location: fields.location ? (document.getElementById(fields.location).value.trim() || null) : null,
           website: fields.website ? (document.getElementById(fields.website).value.trim() || null) : null
         };
+        if (extra && extra.details) body.event_details = extra.details;
 
         try {
           const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
@@ -496,8 +513,28 @@ analytics.init({
     wireContactForm({
       formId: 'contact-form-gyms', submitId: 'gym-submit', successId: 'gym-success',
       type: 'gym', categoryId: 'gym-category',
-      fields: { name: 'gym-name', email: 'gym-email', message: 'gym-message', gymName: 'gym-gymname', location: 'gym-location', website: 'gym-website' }
+      fields: { name: 'gym-name', email: 'gym-email', message: 'gym-message', gymName: 'gym-gymname', location: 'gym-location', website: 'gym-website' },
+      // Founding Gym enquiries: three structured answers go into contact_messages.event_details as short labelled lines (no database change).
+      extras: function (category) {
+        if (category !== 'founding_gym') return null;
+        const val = id => document.getElementById(id).value.trim();
+        const events = val('gym-events-year'), athletes = val('gym-athletes-sim'), phone = val('gym-phone');
+        const okNum = v => /^\d{1,3}$/.test(v);
+        const lines = ['SIM events a year: ' + events, 'Athletes per SIM: ' + athletes];
+        if (phone) lines.push('Phone: ' + phone);
+        return { invalid: !okNum(events) || !okNum(athletes), details: lines.join('\n') };
+      }
     });
+
+    // Show the three Founding Gym fields only for that category.
+    (function () {
+      const select = document.getElementById('gym-category');
+      const box = document.getElementById('gym-founding-fields');
+      function sync() { box.hidden = select.value !== 'founding_gym'; }
+      select.addEventListener('change', sync);
+      window.syncGymFounding = sync;
+      sync();
+    })();
 
     function setContactTab(tab) {
       document.querySelectorAll('.contact-tab').forEach(btn => {
@@ -520,6 +557,7 @@ analytics.init({
     if (audience === 'gym' && presetCategory) {
       const select = document.getElementById('gym-category');
       if ([...select.options].some(o => o.value === presetCategory)) select.value = presetCategory;
+      if (window.syncGymFounding) window.syncGymFounding();
     } else if (audience === 'athlete' && presetCategory) {
       const select = document.getElementById('athlete-category');
       if ([...select.options].some(o => o.value === presetCategory)) select.value = presetCategory;
