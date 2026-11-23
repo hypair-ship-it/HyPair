@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Help Your Members Find a SIM Partner | HyPair for Gyms</title>
-<meta name="description" content="Run SIM events in Ireland or the UK? HyPair handles sign-ups, partner matching and waves. Your first event is free.">
+<meta name="description" content="Help your members find the right partner for your HYROX-style SIM. HyPair is free for athletes, and your first event is free.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Run Your HYROX-Style SIM Without the Headache | HyPair for Gyms">
-<meta property="og:description" content="Run SIM events in Ireland or the UK? HyPair handles sign-ups, partner matching and waves. Your first event is free.">
+<meta property="og:description" content="Help your members find the right partner for your HYROX-style SIM. HyPair is free for athletes, and your first event is free.">
 <meta property="og:image" content="/og-image.jpg">
 <meta property="og:url" content="https://hypair.app/for-gyms">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Run Your HYROX-Style SIM Without the Headache | HyPair for Gyms">
-<meta name="twitter:description" content="Run SIM events in Ireland or the UK? HyPair handles sign-ups, partner matching and waves. Your first event is free.">
+<meta name="twitter:description" content="Help your members find the right partner for your HYROX-style SIM. HyPair is free for athletes, and your first event is free.">
 <meta name="twitter:image" content="/og-image.jpg">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://hypair.app/for-gyms">
@@ -30,7 +30,7 @@
       "@id": "https://hypair.app/for-gyms",
       "url": "https://hypair.app/for-gyms",
       "name": "Run Your HYROX-Style SIM Without the Headache | HyPair for Gyms",
-      "description": "Run SIM events in Ireland or the UK? HyPair handles sign-ups, partner matching and waves. Your first event is free.",
+      "description": "Help your members find the right partner for your HYROX-style SIM. HyPair is free for athletes, and your first event is free.",
       "isPartOf": { "@id": "https://hypair.app" }
     },
     {
@@ -227,7 +227,15 @@ h1 .red { color: var(--red); }
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .hero-cta-btn:hover { box-shadow: 0 0 24px rgba(226,36,36,0.5); transform: translateY(-2px); }
-.hero-cta-note { font-size: 13px; color: var(--white-35); text-wrap: pretty; }
+.hero-cta-note { font-size: 14px; color: var(--white-60); text-wrap: pretty; max-width: 460px; margin: 18px auto 0; }
+.hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.btn-ghost {
+  display: inline-block; padding: 16px 30px; border-radius: 12px; text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.45); color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 17px;
+  letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s, color 0.2s;
+}
+.btn-ghost:hover { background: var(--white); color: var(--text-dark); }
 
 /* ── SECTIONS ── */
 .overline {
@@ -423,7 +431,7 @@ analytics.init({
       <a href="/for-gyms" class="active" aria-current="page">For gyms</a>
       <a href="/support">Contact</a>
     </div>
-    <a href="#apply" class="nav-cta">Apply</a>
+    <a href="/#get-app" class="nav-cta">Get the App</a>
     <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -440,12 +448,14 @@ analytics.init({
 <!-- ── 1 HERO: one headline, one sentence, one button ── -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="hero-badge"><span class="hero-badge-dot"></span>For gym owners · Ireland &amp; UK</div>
     <h1>Help your members<br><span class="red">find a partner.</span></h1>
-    <p class="tagline">More athletes sign up for your HYROX-style SIM when they know who they're racing with. HyPair is free for athletes, your first event is free, and our first 10 gyms get their first 3 free.</p>
+    <p class="tagline">A better experience for your athletes and an easier day for you. HyPair helps your members find the right partner and takes the hassle out of running your HYROX-style SIM.</p>
     <div class="hero-cta-wrap">
-      <a href="#apply" class="hero-cta-btn">Become a Founding Gym</a>
-      <p class="hero-cta-note"><a href="#pricing" style="color:inherit">See gym pricing</a></p>
+      <div class="hero-cta-row">
+        <a href="#apply" class="hero-cta-btn">Become a founding gym</a>
+        <a href="mailto:hello@hypair.app?subject=HyPair%20for%20gyms" class="btn-ghost">Get in touch</a>
+      </div>
+      <p class="hero-cta-note">We're still young and looking for gyms to build this with. Come and be one of our first.</p>
     </div>
   </div>
 </section>
@@ -473,7 +483,7 @@ analytics.init({
   <div class="dark-section-inner">
     <div class="dark-section-head">
       <p class="overline">How it works</p>
-      <h2>Three steps.</h2>
+      <h2>Everything in one place.</h2>
     </div>
     <div class="gym-cards">
       <div class="gym-card">
@@ -484,63 +494,38 @@ analytics.init({
       <div class="gym-card">
         <div class="gym-card-icon" aria-hidden="true">2</div>
         <h3>Athletes sign up and pair up</h3>
-        <p>Athletes find a partner by pace and goal, in the app. You can also add members by hand.</p>
+        <p>Your event is visible to athletes in the app. They sign up, find a partner by pace and goal, and can see what's happening.</p>
       </div>
       <div class="gym-card">
         <div class="gym-card-icon" aria-hidden="true">3</div>
-        <h3>Run the day</h3>
-        <p>Waves are built for you and the schedule goes to your members on WhatsApp.</p>
+        <h3>Manage it in one place</h3>
+        <p>See who's paired and who's still solo, add members who aren't on the app, build the waves and share the times. Everyone sees the same plan.</p>
       </div>
     </div>
     <!-- TODO (founder): add 3 real organiser screenshots/demo recording here: event set-up; athletes with or without a partner and their race type; wave schedule. Demo accounts only, never real members. -->
   </div>
 </section>
 
-<!-- ── 3 BEFORE / AFTER (short) ── -->
-<section class="feature-section">
-  <div class="feature-row">
-    <div class="feature-text">
-      <p class="overline">Before vs. after HyPair</p>
-      <h2>Stop pairing people on the day.</h2>
-      <p class="feature-desc">Athletes turn up without a partner and the start runs late. With HyPair, the pairing happens before the day.</p>
-      <ul class="check-list">
-        <li>HYROX and TRYKA SIM formats</li>
-        <li>Ireland &amp; UK gyms, for now</li>
-      </ul>
-    </div>
-    <div>
-      <div class="problem-box">
-        <div class="problem-item">
-          <div class="problem-icon bad"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E22424" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
-          <div><div class="problem-text-label">Before</div><div class="problem-text-val">You pair people by hand in the first 20 minutes.</div></div>
-        </div>
-        <div class="problem-item">
-          <div class="problem-icon good"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E22424" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div><div class="problem-text-label">With HyPair</div><div class="problem-text-val">Athletes find a partner by pace and goal before the day, and the waves are built for you.</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── 3b WHATSAPP: objection handling ── -->
-<section class="pricing-section" id="whatsapp">
+
+<!-- ── 3 BEFORE / AFTER ── -->
+<section class="pricing-section" id="before-after">
   <div class="pricing-inner">
-    <p class="overline">Already use WhatsApp?</p>
-    <h2>Keep it. HyPair handles the matching.</h2>
-    <p class="pricing-sub">A group chat is great for announcements but not built for pairing people. Your members still get the schedule on WhatsApp, so nothing changes for them on the day.</p>
+    <p class="overline">Before and after HyPair</p>
+    <h2>From asking around to racing together.</h2>
+    <p class="pricing-sub">Your members can keep using group chats and social channels for everything else. HyPair makes finding a partner and planning the day the easy part.</p>
     <div class="table-wrap">
       <table class="price-table">
-        <caption class="sr-only">WhatsApp group compared with HyPair for pairing athletes at SIM events.</caption>
+        <caption class="sr-only">Finding a partner in group chats compared with HyPair.</caption>
         <thead>
-          <tr><th scope="col"></th><th scope="col">WhatsApp group</th><th scope="col">HyPair</th></tr>
+          <tr><th scope="col"></th><th scope="col">Group chats and social groups</th><th scope="col">With HyPair</th></tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Pairing</th><td>"Anyone need a partner?" and whoever replies first gets paired</td><td>Athletes matched on pace, goal and age group</td></tr>
-          <tr><th scope="row">Who's still looking</th><td>Unclear who has a partner</td><td>You see who has a partner and who doesn't, and the race type each wants</td></tr>
-          <tr><th scope="row">Confirmation</th><td>You chase drop-outs by message</td><td>Both athletes confirm the pair in the app</td></tr>
-          <tr><th scope="row">Reach</th><td>Only people in your group</td><td>Your published event is visible to athletes on HyPair</td></tr>
-          <tr><th scope="row">Waves</th><td>Built by hand</td><td>Built for you</td></tr>
+          <tr><th scope="row">Finding a partner</th><td>Posting in a group and hoping someone replies</td><td>Browsing athletes and finding someone who fits</td></tr>
+          <tr><th scope="row">Who you end up with</th><td>Saying yes to whoever asked first</td><td>A partner matched on pace, goal and age group</td></tr>
+          <tr><th scope="row">Who's still looking</th><td>Unclear who has a partner</td><td>You see who's paired and who's still looking, and the race type each wants</td></tr>
+          <tr><th scope="row">Reach</th><td>Only the people in your group</td><td>Your event is visible to athletes using HyPair, including visitors</td></tr>
+          <tr><th scope="row">Waves and times</th><td>Built by hand, shared by message</td><td>Built for you and shared with everyone who signed up</td></tr>
         </tbody>
       </table>
     </div>
@@ -567,45 +552,39 @@ analytics.init({
       </table>
     </div>
     <p class="pricing-more">Bigger events or many events? <a href="mailto:hello@hypair.app?subject=HyPair%20bigger%20or%20many%20events">Ask us.</a></p>
-    <div class="for-every-gym">
-      <h3>For every gym</h3>
-      <ul class="check-list">
-        <li>Pay per event, by size, with no subscription or contract. Your first event is free.</li>
-        <li>You pay in the app when you publish an event, after your free events. There is no invoice.</li>
-        <li>Athletes pay you directly. HyPair never touches your entry fees.</li>
-        <li>Prices in euros. VAT included where it applies. Founding prices last 24 months from approval, kept while the gym runs at least one event every 12 months.</li>
-      </ul>
-    </div>
+    <p class="pricing-more">No subscription, no contract. Athletes pay you directly, and HyPair never touches your entry fees. Prices in euros, VAT included where it applies. Founding prices last 24 months from approval.</p>
   </div>
 </section>
 
 <!-- ── 5 FOUNDING GYMS: one box, one opt-in (apply by email until the Gym setup row, app PR #145, is in the production app; then the apply step moves into the app) ── -->
 <section class="founding-section" id="apply">
   <div class="founding-inner">
-    <p class="overline">Founding Gyms</p>
-    <h2>We're looking for our first 10 gyms.</h2>
-    <p class="pricing-sub">We're setting up our first gyms now. Be one of them. HyPair is new, so there may not be many athletes in your area yet: list your event, we'll help you set up, and there's nothing more to do until athletes start signing up. We're also working on results and shareable leaderboards, and founding gyms help shape them.</p>
+    <p class="overline">Founding gyms</p>
+    <h2>We're still young, and we'd love your help.</h2>
+    <p class="pricing-sub">We're looking for our first 10 gyms to build HyPair with. There may not be many athletes in your area yet, so list your event, we'll help you set up, and there's nothing more to do until athletes start signing up.</p>
     <div class="founding-cols">
       <div class="founding-box">
         <h3>What you get</h3>
         <ul class="check-list">
           <li>Your first 3 SIM events free, any size</li>
           <li>Founding prices for 24 months (see the table above)</li>
-          <li>We help you set up. If your event doesn't run smoothly on HyPair, your next one is free</li>
+          <li>Our guarantee: if something goes wrong at your event, your next one is free</li>
+          <li>A real say in what we build next, such as results and shareable leaderboards. We want to grow together with our first gyms</li>
         </ul>
       </div>
       <div class="founding-box">
         <h3>What we ask</h3>
         <ul class="check-list">
-          <li>A feedback chat after each event, about 15 minutes. We want to hear how it went</li>
+          <li>A 15-minute chat after each event, so we hear how it really went</li>
           <li>Permission to use your gym's name, logo, event photos and stats, with the wording checked with you first (only athletes who agreed to be shown)</li>
-          <li>No hassle: after your first event you can leave with a 5-minute chat, and we won't contact you again</li>
+          <li>No hassle: you can leave at any time with a 5-minute chat, and we won't contact you again</li>
         </ul>
       </div>
     </div>
     <div class="founding-apply">
-      <a href="mailto:hello@hypair.app?subject=Founding%20Gym%20application&body=Hi%20HyPair,%0A%0AWe%27d%20like%20to%20apply%20as%20a%20Founding%20Gym.%0A%0AGym%20name:%0ACity:%0AHow%20many%20SIM%20events%20a%20year:%0AAthletes%20per%20SIM:%0AYour%20name:%0APhone:%0A" class="cta-btn">Apply as a Founding Gym</a>
-      <p>Or email <strong>hello@hypair.app</strong> with your gym's name and city. We read every application ourselves and usually reply within a day. <a href="/founding-gyms">Full terms</a></p>
+      <a href="mailto:hello@hypair.app?subject=Founding%20Gym%20application&body=Hi%20HyPair,%0A%0AWe%27d%20like%20to%20apply%20as%20a%20Founding%20Gym.%0A%0AGym%20name:%0ACity:%0AHow%20many%20SIM%20events%20a%20year:%0AAthletes%20per%20SIM:%0AYour%20name:%0APhone:%0A" class="cta-btn">Become a founding gym</a>
+      <p>Or email <strong>hello@hypair.app</strong> with your gym's name and city. We read every application ourselves and usually reply within a day. <a href="/founding-gyms">Full terms</a>.</p>
+      <p>Not ready to be a founding gym? <a href="mailto:hello@hypair.app?subject=HyPair%20for%20gyms">Get in touch</a> or <a href="/#get-app">get the app</a> and have a look around.</p>
     </div>
   </div>
 </section>
@@ -613,9 +592,12 @@ analytics.init({
 <!-- ── 6 CLOSING ── -->
 <section class="bottom-cta">
   <div class="bottom-cta-inner">
-    <h2>Run SIM events in Ireland or the UK?</h2>
+    <h2>Ready to try it at your gym?</h2>
     <p class="bottom-cta-sub">Questions first? Email <a href="mailto:hello@hypair.app" style="color:var(--gold)">hello@hypair.app</a> and we'll reply personally.</p>
-    <p class="bottom-cta-sub">Outside Ireland or the UK? Get in touch: we can't be on site, but we'll agree a HyPair price that works for you.</p>
+    <div class="hero-cta-row">
+      <a href="#apply" class="cta-btn">Become a founding gym</a>
+      <a href="/#get-app" class="btn-ghost">Get the app</a>
+    </div>
   </div>
 </section>
 
